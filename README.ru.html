@@ -71,38 +71,38 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 
-<p><a href="https://www.nuget.org/packages/Platform.Communication.Protocol.Lino"><img src="https://buildstats.info/nuget/Platform.Communication.Protocol.Lino" alt="Версия NuGet пакета и количество загрузок"></a>
-<a href="https://github.com/linksplatform/Communication.Protocol.Lino/actions?workflow=CD"><img src="https://github.com/linksplatform/Communication.Protocol.Lino/workflows/CD/badge.svg" alt="Состояние сборки"></a>
+<p><a href="https://www.nuget.org/packages/Platform.Communication.Protocol.Lino"><img src="https://buildstats.info/nuget/Platform.Communication.Protocol.Lino" alt="������ NuGet ������ � ���������� ��������"></a>
+<a href="https://github.com/linksplatform/Communication.Protocol.Lino/actions?workflow=CD"><img src="https://github.com/linksplatform/Communication.Protocol.Lino/workflows/CD/badge.svg" alt="��������� ������"></a>
 <a href="https://app.codacy.com/app/drakonard/Communication.Protocol.Lino?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=linksplatform/Communication.Protocol.Lino&amp;utm_campaign=Badge_Grade_Dashboard"><img src="https://api.codacy.com/project/badge/Grade/c25f708dc08b4f7e8d96c671378bb1ad" alt="Codacy Badge"></a>
 <a href="https://www.codefactor.io/repository/github/linksplatform/Communication.Protocol.Lino"><img src="https://www.codefactor.io/repository/github/linksplatform/Communication.Protocol.Lino/badge" alt="CodeFactor"></a></p>
 <h1 id="communicationprotocollino-english-version"><a href="https://github.com/linksplatform/Communication.Protocol.Lino">Communication.Protocol.Lino</a> (<a href="README.html">english version</a>)</h1>
-<p>Библиотека классов ПлатформыСвязей Platform.Communication.Protocol.Lino.</p>
-<p>Эта библиотека дает вам возможность преобразовать любую строку, содержащую обозначение ссылок, в список ссылок и вернуться к строкам после внесения изменений.</p>
-<p>Пространство имён: <a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html">Platform.Communication.Protocol.Lino</a></p>
-<p>NuGet пакет: <a href="https://www.nuget.org/packages/Platform.Communication.Protocol.Lino">Platform.Communication.Protocol.Lino</a></p>
-<h2 id="примеры">Примеры</h2>
-<h3 id="нотация-связей">Нотация связей:</h3>
-<pre><code>(папа (любитМаму: любит маму))
-(сын любитМаму)
-(дочь любитМаму)
-(все (любят маму))
+<p>���������� ������� ��������������� Platform.Communication.Protocol.Lino.</p>
+<p>��� ���������� ���� ��� ����������� ������������� ����� ������, ���������� ����������� ������, � ������ ������ � ��������� � ������� ����� �������� ���������.</p>
+<p>������������ ���: <a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html">Platform.Communication.Protocol.Lino</a></p>
+<p>NuGet �����: <a href="https://www.nuget.org/packages/Platform.Communication.Protocol.Lino">Platform.Communication.Protocol.Lino</a></p>
+<h2 id="section">�������</h2>
+<h3 id="-">������� ������:</h3>
+<pre><code>(���� (���������: ����� ����))
+(��� ���������)
+(���� ���������)
+(��� (����� ����))
 </code></pre>
-<h3 id="получаем-link">Получаем &lt;<a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html">Link</a>&gt;</h3>
+<h3 id="-link">�������� &lt;<a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html">Link</a>&gt;</h3>
 <pre><code class="lang-C#">(new Platform.Communication.Protocol.Lino.Parser()).Parse(@string)
 </code></pre>
-<h3 id="форматируем-ilistlink-обратно-в-строку">Форматируем IList&lt;<a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html">Link</a>&gt; обратно в строку</h3>
+<h3 id="-ilistlink---">����������� IList&lt;<a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html">Link</a>&gt; ������� � ������</h3>
 <pre><code class="lang-C#">using Platform.Communication.Protocol.Lino;
 </code></pre>
 <pre><code class="lang-C#">links.Format()
 </code></pre>
-<h2 id="документация"><a href="https://linksplatform.github.io/Communication.Protocol.Lino">Документация</a></h2>
+<h2 id="section-1"><a href="https://linksplatform.github.io/Communication.Protocol.Lino">������������</a></h2>
 <ul>
-<li>Структура <a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html">Link</a>.</li>
-<li>Метод <a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html">Parser</a>.<a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_">Parse</a></li>
-<li>Метод <a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html">IListExtensions</a>.<a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__">Format</a></li>
+<li>��������� <a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html">Link</a>.</li>
+<li>����� <a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html">Parser</a>.<a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_">Parse</a></li>
+<li>����� <a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html">IListExtensions</a>.<a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__">Format</a></li>
 </ul>
-<p><a href="https://linksplatform.github.io/Communication.Protocol.Lino/Platform.Communication.Protocol.Lino.pdf">PDF файл</a> с кодом для электронных книг.</p>
-<h2 id="зависит-напрямую-от">Зависит напрямую от</h2>
+<p><a href="https://linksplatform.github.io/Communication.Protocol.Lino/Platform.Communication.Protocol.Lino.pdf">PDF ����</a> � ����� ��� ����������� ����.</p>
+<h2 id="--">������� �������� ��</h2>
 <ul>
 <li><a href="https://github.com/otac0n/Pegasus">Pegasus</a></li>
 <li><a href="https://github.com/linksplatform/Collections">Platform.Collections</a></li>
