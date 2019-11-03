@@ -20,18 +20,22 @@ NuGet package: [Platform.Communication.Protocol.Lino](https://www.nuget.org/pack
 (daughter lovesMama)
 (all (love mama))
 ```
-### Getting a IList<Link>
+### Getting a IList\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\>
 ```C#
 (new Platform.Communication.Protocol.Lino.Parser()).Parse(@string)
 ```
-### Formatting the IList<Link> back to string
+### Formatting the IList\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\> back to string
+```C#
+using Platform.Communication.Protocol.Lino;
+```
 ```C#
 links.Format()
 ```
 
 ## [Documentation](https://linksplatform.github.io/Communication.Protocol.Lino)
 *   Struct [Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html).
-*   Class [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html).
+*	Method [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html).[Parse](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
+*   Method [IListExtensions](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html)).[Format](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__)
 
 [PDF file](https://linksplatform.github.io/Communication.Protocol.Lino/Platform.Communication.Protocol.Lino.pdf) with code for e-readers.
 
