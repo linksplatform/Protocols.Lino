@@ -3,7 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c25f708dc08b4f7e8d96c671378bb1ad)](https://app.codacy.com/app/drakonard/Communication.Protocol.Lino?utm_source=github.com&utm_medium=referral&utm_content=linksplatform/Communication.Protocol.Lino&utm_campaign=Badge_Grade_Dashboard)
 [![CodeFactor](https://www.codefactor.io/repository/github/linksplatform/Communication.Protocol.Lino/badge)](https://www.codefactor.io/repository/github/linksplatform/Communication.Protocol.Lino)
 
-# [Communication.Protocol.Lino](https://github.com/linksplatform/Communication.Protocol.Lino)
+# [Communication.Protocol.Lino](https://github.com/linksplatform/Communication.Protocol.Lino) ([русская версия](README.ru.md))
 LinksPlatform's Platform.Communication.Protocol.Lino Class Library.
 
 This library gives you an ability to convert any string that contains links notation into a list of links and back to the strings after modifications are made.
