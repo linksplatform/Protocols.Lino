@@ -7,6 +7,28 @@ references:
   commentId: N:Platform.Communication.Protocol.Lino
   fullName: Platform.Communication.Protocol.Lino
   nameWithType: Platform.Communication.Protocol.Lino
+- uid: Platform.Communication.Protocol.Lino.IListExtensions
+  name: IListExtensions
+  href: api/Platform.Communication.Protocol.Lino.IListExtensions.html
+  commentId: T:Platform.Communication.Protocol.Lino.IListExtensions
+  fullName: Platform.Communication.Protocol.Lino.IListExtensions
+  nameWithType: IListExtensions
+- uid: Platform.Communication.Protocol.Lino.IListExtensions.Format(System.Collections.Generic.IList{Platform.Communication.Protocol.Lino.Link})
+  name: Format(IList<Link>)
+  href: api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__
+  commentId: M:Platform.Communication.Protocol.Lino.IListExtensions.Format(System.Collections.Generic.IList{Platform.Communication.Protocol.Lino.Link})
+  name.vb: Format(IList(Of Link))
+  fullName: Platform.Communication.Protocol.Lino.IListExtensions.Format(System.Collections.Generic.IList<Platform.Communication.Protocol.Lino.Link>)
+  fullName.vb: Platform.Communication.Protocol.Lino.IListExtensions.Format(System.Collections.Generic.IList(Of Platform.Communication.Protocol.Lino.Link))
+  nameWithType: IListExtensions.Format(IList<Link>)
+  nameWithType.vb: IListExtensions.Format(IList(Of Link))
+- uid: Platform.Communication.Protocol.Lino.IListExtensions.Format*
+  name: Format
+  href: api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_
+  commentId: Overload:Platform.Communication.Protocol.Lino.IListExtensions.Format
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.IListExtensions.Format
+  nameWithType: IListExtensions.Format
 - uid: Platform.Communication.Protocol.Lino.Link
   name: Link
   href: api/Platform.Communication.Protocol.Lino.Link.html
