@@ -6,9 +6,28 @@
 # [Communication.Protocol.Lino](https://github.com/linksplatform/Communication.Protocol.Lino)
 LinksPlatform's Platform.Communication.Protocol.Lino Class Library.
 
+This library gives you an ability to convert any string that contains links notation into a list of links and back to the strings after modifications are made.
+
 Namespace: [Platform.Communication.Protocol.Lino](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html)
 
 NuGet package: [Platform.Communication.Protocol.Lino](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
+
+## Examples
+### Links notation (lino):
+```
+(papa (lovesMama: loves mama))
+(son lovesMama)
+(daughter lovesMama)
+(all (love mama))
+```
+### Getting a IList<Link>
+```C#
+(new Platform.Communication.Protocol.Lino.Parser()).Parse(@string)
+```
+### Formatting the IList<Link> back to string
+```C#
+links.Format()
+```
 
 ## [Documentation](https://linksplatform.github.io/Communication.Protocol.Lino)
 *   Struct [Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html).
