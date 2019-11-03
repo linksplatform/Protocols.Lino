@@ -13,7 +13,7 @@
 NuGet пакет: [Platform.Communication.Protocol.Lino](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
 
 ## Примеры
-### Нотация связей:
+### Нотация связей
 ```
 (папа (любитМаму: любит маму))
 (сын любитМаму)
@@ -34,7 +34,7 @@ links.Format()
 
 ## [Документация](https://linksplatform.github.io/Communication.Protocol.Lino)
 *   Структура [Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html).
-*	Метод [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html).[Parse](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
+*   Метод [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html).[Parse](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
 *   Метод [IListExtensions](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html).[Format](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__)
 
 [PDF файл](https://linksplatform.github.io/Communication.Protocol.Lino/Platform.Communication.Protocol.Lino.pdf) с кодом для электронных книг.

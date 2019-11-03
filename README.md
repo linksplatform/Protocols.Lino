@@ -13,7 +13,7 @@ Namespace: [Platform.Communication.Protocol.Lino](https://linksplatform.github.i
 NuGet package: [Platform.Communication.Protocol.Lino](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
 
 ## Examples
-### Links notation (lino):
+### Links notation (lino)
 ```
 (papa (lovesMama: loves mama))
 (son lovesMama)
@@ -34,7 +34,7 @@ links.Format()
 
 ## [Documentation](https://linksplatform.github.io/Communication.Protocol.Lino)
 *   Struct [Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html).
-*	Method [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html).[Parse](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
+*   Method [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html).[Parse](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
 *   Method [IListExtensions](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html).[Format](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__)
 
 [PDF file](https://linksplatform.github.io/Communication.Protocol.Lino/Platform.Communication.Protocol.Lino.pdf) with code for e-readers.
