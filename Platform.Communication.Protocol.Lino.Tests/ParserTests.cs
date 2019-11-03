@@ -1,4 +1,3 @@
-using System.Linq;
 using Xunit;
 
 namespace Platform.Communication.Protocol.Lino.Tests
@@ -8,12 +7,10 @@ namespace Platform.Communication.Protocol.Lino.Tests
         [Fact]
         public static void ParseAndStringifyTest()
         {
-            var source = @"(papa (3: loves mama))
-(son 3)
-(everyone 3)
-(3 (is (loves mama)))
-(point)
-(point: point point)";
+            var source = @"(papa (lovesMama: loves mama))
+(son lovesMama)
+(daughter lovesMama)
+(all (love mama))";
             var parser = new Parser();
             var links = parser.Parse(source);
             var target = links.Format();
