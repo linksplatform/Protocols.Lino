@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "V9weLxZncR5tL6BTwJfXLQ=="
+          "hash": "6XywA/rJfl+AlWQW9Y500Q=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
-          "hash": "xX+kMGun8K76D66zaLd8rA=="
+          "hash": "nRPWzPITU8MBsZw8EhKKQg=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Link.html",
-          "hash": "OrvxwAtz6h8a8aM1JvX1Gg=="
+          "hash": "gMpBdpjpd/bkaevQwkieNg=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Parser.html",
-          "hash": "XOX3ZVR/3x2dm18+JkJHHA=="
+          "hash": "izEvMs2mCQeqpWxnpYBALg=="
         }
       },
       "is_incremental": false,

@@ -2,22 +2,22 @@
   "README.html": {
     "href": "README.html",
     "title": "Communication.Protocol.Lino | LinksPlatform's Platform.Communication.Protocol.Lino Library",
-    "keywords": "Communication.Protocol.Lino LinksPlatform's Platform.Communication.Protocol.Lino Class Library. This library gives you an ability to convert any string that contains links notation into a list of links and back to the strings after modifications are made. Namespace: Platform.Communication.Protocol.Lino NuGet package: Platform.Communication.Protocol.Lino Examples Links notation (lino): (papa (lovesMama: loves mama)) (son lovesMama) (daughter lovesMama) (all (love mama)) Getting a IList< Link > (new Platform.Communication.Protocol.Lino.Parser()).Parse(@string) Formatting the IList< Link > back to string using Platform.Communication.Protocol.Lino; links.Format() Documentation Struct Link . Method Parser . Parse Method IListExtensions ). Format PDF file with code for e-readers. Depend on Pegasus Platform.Collections"
+    "keywords": "Communication.Protocol.Lino LinksPlatform's Platform.Communication.Protocol.Lino Class Library. This library gives you an ability to convert any string that contains links notation into a list of links and back to the strings after modifications are made. Namespace: Platform.Communication.Protocol.Lino NuGet package: Platform.Communication.Protocol.Lino Examples Links notation (lino): (papa (lovesMama: loves mama)) (son lovesMama) (daughter lovesMama) (all (love mama)) Getting a IList< Link > (new Platform.Communication.Protocol.Lino.Parser()).Parse(@string) Formatting the IList< Link > back to string using Platform.Communication.Protocol.Lino; links.Format() Documentation Struct Link . Method Parser . Parse Method IListExtensions . Format PDF file with code for e-readers. Depend on Pegasus Platform.Collections"
   },
   "api/Platform.Communication.Protocol.Lino.Parser.html": {
     "href": "api/Platform.Communication.Protocol.Lino.Parser.html",
     "title": "Class Parser | LinksPlatform's Platform.Communication.Protocol.Lino Library",
     "keywords": "Class Parser Parses a string according to the rules of the Parser grammar. Inheritance Object Parser Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Object.ToString() Namespace : Platform.Communication.Protocol.Lino Assembly : Platform.Communication.Protocol.Lino.dll Syntax public class Parser Methods | Improve this Doc View Source Parse(String, String) Parses a string according to the rules of the Parser grammar. Declaration public IList<Link> Parse(string subject, string fileName = null) Parameters Type Name Description String subject The parsing subject. String fileName The optional file name to use in error messages. Returns Type Description IList < Link > The IList<T> parsed from subject . Exceptions Type Condition FormatException Thrown when parsing fails against subject . The exception's Data[\"cursor\"] will be set with the cursor where the fatal error occurred."
   },
-  "api/Platform.Communication.Protocol.Lino.IListExtensions.html": {
-    "href": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
-    "title": "Class IListExtensions | LinksPlatform's Platform.Communication.Protocol.Lino Library",
-    "keywords": "Class IListExtensions Inheritance Object IListExtensions Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Object.ToString() Namespace : Platform.Communication.Protocol.Lino Assembly : Platform.Communication.Protocol.Lino.dll Syntax public static class IListExtensions Methods | Improve this Doc View Source Format(IList<Link>) Declaration public static string Format(this IList<Link> links) Parameters Type Name Description IList < Link > links Returns Type Description String"
-  },
   "api/Platform.Communication.Protocol.Lino.html": {
     "href": "api/Platform.Communication.Protocol.Lino.html",
     "title": "Namespace Platform.Communication.Protocol.Lino | LinksPlatform's Platform.Communication.Protocol.Lino Library",
     "keywords": "Namespace Platform.Communication.Protocol.Lino Classes IListExtensions Parser Parses a string according to the rules of the Parser grammar. Structs Link"
+  },
+  "api/Platform.Communication.Protocol.Lino.IListExtensions.html": {
+    "href": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
+    "title": "Class IListExtensions | LinksPlatform's Platform.Communication.Protocol.Lino Library",
+    "keywords": "Class IListExtensions Inheritance Object IListExtensions Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Object.ToString() Namespace : Platform.Communication.Protocol.Lino Assembly : Platform.Communication.Protocol.Lino.dll Syntax public static class IListExtensions Methods | Improve this Doc View Source Format(IList<Link>) Declaration public static string Format(this IList<Link> links) Parameters Type Name Description IList < Link > links Returns Type Description String"
   },
   "api/Platform.Communication.Protocol.Lino.Link.html": {
     "href": "api/Platform.Communication.Protocol.Lino.Link.html",
