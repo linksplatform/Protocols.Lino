@@ -1,13 +1,13 @@
 {
+  "README.ru.html": {
+    "href": "README.ru.html",
+    "title": "Communication.Protocol.Lino (english version) | LinksPlatform's Platform.Communication.Protocol.Lino Library",
+    "keywords": "Communication.Protocol.Lino ( english version ) Библиотека классов ПлатформыСвязей Platform.Communication.Protocol.Lino. Эта библиотека дает вам возможность преобразовать любую строку, содержащую обозначение ссылок, в список ссылок и вернуться к строкам после внесения изменений. Пространство имён: Platform.Communication.Protocol.Lino NuGet пакет: Platform.Communication.Protocol.Lino Примеры Нотация связей: (папа (любитМаму: любит маму)) (сын любитМаму) (дочь любитМаму) (все (любят маму)) Получаем < Link > (new Platform.Communication.Protocol.Lino.Parser()).Parse(@string) Форматируем IList< Link > обратно в строку using Platform.Communication.Protocol.Lino; links.Format() Документация Структура Link . Метод Parser . Parse Метод IListExtensions . Format PDF файл с кодом для электронных книг. Зависит напрямую от Pegasus Platform.Collections"
+  },
   "README.html": {
     "href": "README.html",
-    "title": "Communication.Protocol.Lino | LinksPlatform's Platform.Communication.Protocol.Lino Library",
-    "keywords": "Communication.Protocol.Lino LinksPlatform's Platform.Communication.Protocol.Lino Class Library. This library gives you an ability to convert any string that contains links notation into a list of links and back to the strings after modifications are made. Namespace: Platform.Communication.Protocol.Lino NuGet package: Platform.Communication.Protocol.Lino Examples Links notation (lino): (papa (lovesMama: loves mama)) (son lovesMama) (daughter lovesMama) (all (love mama)) Getting a IList< Link > (new Platform.Communication.Protocol.Lino.Parser()).Parse(@string) Formatting the IList< Link > back to string using Platform.Communication.Protocol.Lino; links.Format() Documentation Struct Link . Method Parser . Parse Method IListExtensions . Format PDF file with code for e-readers. Depend on Pegasus Platform.Collections"
-  },
-  "api/Platform.Communication.Protocol.Lino.Parser.html": {
-    "href": "api/Platform.Communication.Protocol.Lino.Parser.html",
-    "title": "Class Parser | LinksPlatform's Platform.Communication.Protocol.Lino Library",
-    "keywords": "Class Parser Parses a string according to the rules of the Parser grammar. Inheritance Object Parser Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Object.ToString() Namespace : Platform.Communication.Protocol.Lino Assembly : Platform.Communication.Protocol.Lino.dll Syntax public class Parser Methods | Improve this Doc View Source Parse(String, String) Parses a string according to the rules of the Parser grammar. Declaration public IList<Link> Parse(string subject, string fileName = null) Parameters Type Name Description String subject The parsing subject. String fileName The optional file name to use in error messages. Returns Type Description IList < Link > The IList<T> parsed from subject . Exceptions Type Condition FormatException Thrown when parsing fails against subject . The exception's Data[\"cursor\"] will be set with the cursor where the fatal error occurred."
+    "title": "Communication.Protocol.Lino (русская версия) | LinksPlatform's Platform.Communication.Protocol.Lino Library",
+    "keywords": "Communication.Protocol.Lino ( русская версия ) LinksPlatform's Platform.Communication.Protocol.Lino Class Library. This library gives you an ability to convert any string that contains links notation into a list of links and back to the strings after modifications are made. Namespace: Platform.Communication.Protocol.Lino NuGet package: Platform.Communication.Protocol.Lino Examples Links notation (lino): (papa (lovesMama: loves mama)) (son lovesMama) (daughter lovesMama) (all (love mama)) Getting a IList< Link > (new Platform.Communication.Protocol.Lino.Parser()).Parse(@string) Formatting the IList< Link > back to string using Platform.Communication.Protocol.Lino; links.Format() Documentation Struct Link . Method Parser . Parse Method IListExtensions . Format PDF file with code for e-readers. Depend on Pegasus Platform.Collections"
   },
   "api/Platform.Communication.Protocol.Lino.IListExtensions.html": {
     "href": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
@@ -18,6 +18,11 @@
     "href": "api/Platform.Communication.Protocol.Lino.html",
     "title": "Namespace Platform.Communication.Protocol.Lino | LinksPlatform's Platform.Communication.Protocol.Lino Library",
     "keywords": "Namespace Platform.Communication.Protocol.Lino Classes IListExtensions Parser Parses a string according to the rules of the Parser grammar. Structs Link"
+  },
+  "api/Platform.Communication.Protocol.Lino.Parser.html": {
+    "href": "api/Platform.Communication.Protocol.Lino.Parser.html",
+    "title": "Class Parser | LinksPlatform's Platform.Communication.Protocol.Lino Library",
+    "keywords": "Class Parser Parses a string according to the rules of the Parser grammar. Inheritance Object Parser Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Object.ToString() Namespace : Platform.Communication.Protocol.Lino Assembly : Platform.Communication.Protocol.Lino.dll Syntax public class Parser Methods | Improve this Doc View Source Parse(String, String) Parses a string according to the rules of the Parser grammar. Declaration public IList<Link> Parse(string subject, string fileName = null) Parameters Type Name Description String subject The parsing subject. String fileName The optional file name to use in error messages. Returns Type Description IList < Link > The IList<T> parsed from subject . Exceptions Type Condition FormatException Thrown when parsing fails against subject . The exception's Data[\"cursor\"] will be set with the cursor where the fatal error occurred."
   },
   "api/Platform.Communication.Protocol.Lino.Link.html": {
     "href": "api/Platform.Communication.Protocol.Lino.Link.html",
