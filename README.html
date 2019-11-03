@@ -77,8 +77,22 @@
 <a href="https://www.codefactor.io/repository/github/linksplatform/Communication.Protocol.Lino"><img src="https://www.codefactor.io/repository/github/linksplatform/Communication.Protocol.Lino/badge" alt="CodeFactor"></a></p>
 <h1 id="communicationprotocollino"><a href="https://github.com/linksplatform/Communication.Protocol.Lino">Communication.Protocol.Lino</a></h1>
 <p>LinksPlatform's Platform.Communication.Protocol.Lino Class Library.</p>
+<p>This library gives you an ability to convert any string that contains links notation into a list of links and back to the strings after modifications are made.</p>
 <p>Namespace: <a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html">Platform.Communication.Protocol.Lino</a></p>
 <p>NuGet package: <a href="https://www.nuget.org/packages/Platform.Communication.Protocol.Lino">Platform.Communication.Protocol.Lino</a></p>
+<h2 id="examples">Examples</h2>
+<h3 id="links-notation-lino">Links notation (lino):</h3>
+<pre><code>(papa (lovesMama: loves mama))
+(son lovesMama)
+(daughter lovesMama)
+(all (love mama))
+</code></pre>
+<h3 id="getting-a-ilist">Getting a IList<link></h3>
+<pre><code class="lang-C#">(new Platform.Communication.Protocol.Lino.Parser()).Parse(@string)
+</code></pre>
+<h3 id="formatting-the-ilist-back-to-string">Formatting the IList<link> back to string</h3>
+<pre><code class="lang-C#">links.Format()
+</code></pre>
 <h2 id="documentation"><a href="https://linksplatform.github.io/Communication.Protocol.Lino">Documentation</a></h2>
 <ul>
 <li>Struct <a href="https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html">Link</a>.</li>
