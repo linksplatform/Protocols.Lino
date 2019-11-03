@@ -1,30 +1,30 @@
-[![Версия NuGet пакета и количество загрузок](https://buildstats.info/nuget/Platform.Communication.Protocol.Lino)](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
-[![Состояние сборки](https://github.com/linksplatform/Communication.Protocol.Lino/workflows/CD/badge.svg)](https://github.com/linksplatform/Communication.Protocol.Lino/actions?workflow=CD)
+п»ї[![Р’РµСЂСЃРёСЏ NuGet РїР°РєРµС‚Р° Рё РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РіСЂСѓР·РѕРє](https://buildstats.info/nuget/Platform.Communication.Protocol.Lino)](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
+[![РЎРѕСЃС‚РѕСЏРЅРёРµ СЃР±РѕСЂРєРё](https://github.com/linksplatform/Communication.Protocol.Lino/workflows/CD/badge.svg)](https://github.com/linksplatform/Communication.Protocol.Lino/actions?workflow=CD)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c25f708dc08b4f7e8d96c671378bb1ad)](https://app.codacy.com/app/drakonard/Communication.Protocol.Lino?utm_source=github.com&utm_medium=referral&utm_content=linksplatform/Communication.Protocol.Lino&utm_campaign=Badge_Grade_Dashboard)
 [![CodeFactor](https://www.codefactor.io/repository/github/linksplatform/Communication.Protocol.Lino/badge)](https://www.codefactor.io/repository/github/linksplatform/Communication.Protocol.Lino)
 
 # [Communication.Protocol.Lino](https://github.com/linksplatform/Communication.Protocol.Lino) ([english version](README.md))
-Библиотека классов ПлатформыСвязей Platform.Communication.Protocol.Lino.
+Р‘РёР±Р»РёРѕС‚РµРєР° РєР»Р°СЃСЃРѕРІ РџР»Р°С‚С„РѕСЂРјС‹РЎРІСЏР·РµР№ Platform.Communication.Protocol.Lino.
 
-Эта библиотека дает вам возможность преобразовать любую строку, содержащую обозначение ссылок, в список ссылок и вернуться к строкам после внесения изменений.
+Р­С‚Р° Р±РёР±Р»РёРѕС‚РµРєР° РґР°РµС‚ РІР°Рј РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ Р»СЋР±СѓСЋ СЃС‚СЂРѕРєСѓ, СЃРѕРґРµСЂР¶Р°С‰СѓСЋ РѕР±РѕР·РЅР°С‡РµРЅРёРµ СЃСЃС‹Р»РѕРє, РІ СЃРїРёСЃРѕРє СЃСЃС‹Р»РѕРє Рё РІРµСЂРЅСѓС‚СЊСЃСЏ Рє СЃС‚СЂРѕРєР°Рј РїРѕСЃР»Рµ РІРЅРµСЃРµРЅРёСЏ РёР·РјРµРЅРµРЅРёР№.
 
-Пространство имён: [Platform.Communication.Protocol.Lino](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html)
+РџСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ РёРјС‘РЅ: [Platform.Communication.Protocol.Lino](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html)
 
-NuGet пакет: [Platform.Communication.Protocol.Lino](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
+NuGet РїР°РєРµС‚: [Platform.Communication.Protocol.Lino](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
 
-## Примеры
-### Нотация связей:
+## РџСЂРёРјРµСЂС‹
+### РќРѕС‚Р°С†РёСЏ СЃРІСЏР·РµР№:
 ```
-(папа (любитМаму: любит маму))
-(сын любитМаму)
-(дочь любитМаму)
-(все (любят маму))
+(РїР°РїР° (Р»СЋР±РёС‚РњР°РјСѓ: Р»СЋР±РёС‚ РјР°РјСѓ))
+(СЃС‹РЅ Р»СЋР±РёС‚РњР°РјСѓ)
+(РґРѕС‡СЊ Р»СЋР±РёС‚РњР°РјСѓ)
+(РІСЃРµ (Р»СЋР±СЏС‚ РјР°РјСѓ))
 ```
-### Получаем \<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\>
+### РџРѕР»СѓС‡Р°РµРј \<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\>
 ```C#
 (new Platform.Communication.Protocol.Lino.Parser()).Parse(@string)
 ```
-### Форматируем IList\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\> обратно в строку
+### Р¤РѕСЂРјР°С‚РёСЂСѓРµРј IList\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\> РѕР±СЂР°С‚РЅРѕ РІ СЃС‚СЂРѕРєСѓ
 ```C#
 using Platform.Communication.Protocol.Lino;
 ```
@@ -32,13 +32,13 @@ using Platform.Communication.Protocol.Lino;
 links.Format()
 ```
 
-## [Документация](https://linksplatform.github.io/Communication.Protocol.Lino)
-*   Структура [Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html).
-*	Метод [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html).[Parse](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
-*   Метод [IListExtensions](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html).[Format](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__)
+## [Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЏ](https://linksplatform.github.io/Communication.Protocol.Lino)
+*   РЎС‚СЂСѓРєС‚СѓСЂР° [Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html).
+*	РњРµС‚РѕРґ [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html).[Parse](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
+*   РњРµС‚РѕРґ [IListExtensions](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html).[Format](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__)
 
-[PDF файл](https://linksplatform.github.io/Communication.Protocol.Lino/Platform.Communication.Protocol.Lino.pdf) с кодом для электронных книг.
+[PDF С„Р°Р№Р»](https://linksplatform.github.io/Communication.Protocol.Lino/Platform.Communication.Protocol.Lino.pdf) СЃ РєРѕРґРѕРј РґР»СЏ СЌР»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі.
 
-## Зависит напрямую от
+## Р—Р°РІРёСЃРёС‚ РЅР°РїСЂСЏРјСѓСЋ РѕС‚
 *   [Pegasus](https://github.com/otac0n/Pegasus)
 *   [Platform.Collections](https://github.com/linksplatform/Collections)
