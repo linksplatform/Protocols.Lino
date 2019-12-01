@@ -15,10 +15,10 @@ NuGet пакет: [Platform.Communication.Protocol.Lino](https://www.nuget.org/p
 ## Примеры
 ### Нотация связей
 ```
-(папа (любитМаму: любит маму))
-(сын любитМаму)
-(дочь любитМаму)
-(все (любят маму))
+папа (любитМаму: любит маму)
+сын любитМаму
+дочь любитМаму
+все (любят маму)
 ```
 ### Получаем \<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\>
 ```C#
