@@ -22,6 +22,15 @@ references:
   fullName.vb: Platform.Communication.Protocol.Lino.IListExtensions.Format(System.Collections.Generic.IList(Of Platform.Communication.Protocol.Lino.Link))
   nameWithType: IListExtensions.Format(IList<Link>)
   nameWithType.vb: IListExtensions.Format(IList(Of Link))
+- uid: Platform.Communication.Protocol.Lino.IListExtensions.Format(System.Collections.Generic.IList{Platform.Communication.Protocol.Lino.Link},System.Boolean)
+  name: Format(IList<Link>, Boolean)
+  href: api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__System_Boolean_
+  commentId: M:Platform.Communication.Protocol.Lino.IListExtensions.Format(System.Collections.Generic.IList{Platform.Communication.Protocol.Lino.Link},System.Boolean)
+  name.vb: Format(IList(Of Link), Boolean)
+  fullName: Platform.Communication.Protocol.Lino.IListExtensions.Format(System.Collections.Generic.IList<Platform.Communication.Protocol.Lino.Link>, System.Boolean)
+  fullName.vb: Platform.Communication.Protocol.Lino.IListExtensions.Format(System.Collections.Generic.IList(Of Platform.Communication.Protocol.Lino.Link), System.Boolean)
+  nameWithType: IListExtensions.Format(IList<Link>, Boolean)
+  nameWithType.vb: IListExtensions.Format(IList(Of Link), Boolean)
 - uid: Platform.Communication.Protocol.Lino.IListExtensions.Format*
   name: Format
   href: api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_
