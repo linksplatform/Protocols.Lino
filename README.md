@@ -15,10 +15,10 @@ NuGet package: [Platform.Communication.Protocol.Lino](https://www.nuget.org/pack
 ## Examples
 ### Links notation (lino)
 ```
-(papa (lovesMama: loves mama))
-(son lovesMama)
-(daughter lovesMama)
-(all (love mama))
+papa (lovesMama: loves mama)
+son lovesMama
+daughter lovesMama
+all (love mama)
 ```
 ### Getting a IList\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\>
 ```C#
