@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Platform.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -11,5 +12,18 @@ namespace Platform.Communication.Protocol.Lino
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Format(this IList<Link> links) => string.Join(Environment.NewLine, links.Select(l => l.ToString()));
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string Format(this IList<Link> links, bool lessParentheses)
+        {
+            if (lessParentheses == false)
+            {
+                return links.Format();
+            }
+            else
+            {
+                return string.Join(Environment.NewLine, links.Select(l => l.ToString().TrimSingle('(').TrimSingle(')')));
+            }
+        }
     }
 }
