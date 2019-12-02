@@ -20,11 +20,11 @@ NuGet пакет: [Platform.Communication.Protocol.Lino](https://www.nuget.org/p
 дочь любитМаму
 все (любят маму)
 ```
-### Получаем IList\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\>
+### Получаем [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\>
 ```C#
 (new Platform.Communication.Protocol.Lino.Parser()).Parse(@string)
 ```
-### Форматируем IList\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\> обратно в строку
+### Форматируем [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\> обратно в строку
 ```C#
 using Platform.Communication.Protocol.Lino;
 ```
