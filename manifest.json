@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "63MJkgEK+wdYE70+tiefxQ=="
+          "hash": "Z9opauS8kArC6IycM4aSQQ=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "README.ru.html",
-          "hash": "NfhzDKvBeS4WE8NPeYTgSg=="
+          "hash": "O7fR0+3riyocidk8LlV7Jg=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
-          "hash": "baTs1ljQGyVzI5czb1h6yw=="
+          "hash": "RNwbwLxW2Bnx3Xrx7SVJAQ=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Link.html",
-          "hash": "tEZm8lt2dX41gMqGjAJ7Lg=="
+          "hash": "lBvHf43iFNwJQr2hSVgvoA=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Parser.html",
-          "hash": "N4uupW7AJJrEHQwYc0KtAw=="
+          "hash": "QXIE62gJkBLwwJbhvLC2KA=="
         }
       },
       "is_incremental": false,
