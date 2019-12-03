@@ -44,6 +44,15 @@ references:
   commentId: T:Platform.Communication.Protocol.Lino.Link
   fullName: Platform.Communication.Protocol.Lino.Link
   nameWithType: Link
+- uid: Platform.Communication.Protocol.Lino.Link.#ctor(Platform.Communication.Protocol.Lino.Link[])
+  name: Link(Link[])
+  href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link__ctor_Platform_Communication_Protocol_Lino_Link___
+  commentId: M:Platform.Communication.Protocol.Lino.Link.#ctor(Platform.Communication.Protocol.Lino.Link[])
+  name.vb: Link(Link())
+  fullName: Platform.Communication.Protocol.Lino.Link.Link(Platform.Communication.Protocol.Lino.Link[])
+  fullName.vb: Platform.Communication.Protocol.Lino.Link.Link(Platform.Communication.Protocol.Lino.Link())
+  nameWithType: Link.Link(Link[])
+  nameWithType.vb: Link.Link(Link())
 - uid: Platform.Communication.Protocol.Lino.Link.#ctor(System.Collections.Generic.IList{Platform.Communication.Protocol.Lino.Link})
   name: Link(IList<Link>)
   href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link__ctor_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__
@@ -75,6 +84,19 @@ references:
   isSpec: "True"
   fullName: Platform.Communication.Protocol.Lino.Link.Link
   nameWithType: Link.Link
+- uid: Platform.Communication.Protocol.Lino.Link.AddDependency(Platform.Communication.Protocol.Lino.Link)
+  name: AddDependency(Link)
+  href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_AddDependency_Platform_Communication_Protocol_Lino_Link_
+  commentId: M:Platform.Communication.Protocol.Lino.Link.AddDependency(Platform.Communication.Protocol.Lino.Link)
+  fullName: Platform.Communication.Protocol.Lino.Link.AddDependency(Platform.Communication.Protocol.Lino.Link)
+  nameWithType: Link.AddDependency(Link)
+- uid: Platform.Communication.Protocol.Lino.Link.AddDependency*
+  name: AddDependency
+  href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_AddDependency_
+  commentId: Overload:Platform.Communication.Protocol.Lino.Link.AddDependency
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.Link.AddDependency
+  nameWithType: Link.AddDependency
 - uid: Platform.Communication.Protocol.Lino.Link.Equals(Platform.Communication.Protocol.Lino.Link)
   name: Equals(Link)
   href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_Equals_Platform_Communication_Protocol_Lino_Link_
@@ -200,6 +222,19 @@ references:
   isSpec: "True"
   fullName: Platform.Communication.Protocol.Lino.Link.Inequality
   nameWithType: Link.Inequality
+- uid: Platform.Communication.Protocol.Lino.Link.Simplify
+  name: Simplify()
+  href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_Simplify
+  commentId: M:Platform.Communication.Protocol.Lino.Link.Simplify
+  fullName: Platform.Communication.Protocol.Lino.Link.Simplify()
+  nameWithType: Link.Simplify()
+- uid: Platform.Communication.Protocol.Lino.Link.Simplify*
+  name: Simplify
+  href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_Simplify_
+  commentId: Overload:Platform.Communication.Protocol.Lino.Link.Simplify
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.Link.Simplify
+  nameWithType: Link.Simplify
 - uid: Platform.Communication.Protocol.Lino.Link.ToLinkOrIdString
   name: ToLinkOrIdString()
   href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_ToLinkOrIdString
