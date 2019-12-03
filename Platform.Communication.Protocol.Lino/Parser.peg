@@ -1,6 +1,5 @@
 ﻿@namespace Platform.Communication.Protocol.Lino
 @classname Parser
-@using System.Linq
 document <IList<Link>> = #{ state["Indentation"] = 0; } _ l:links eof { l.ToLinksList() }
 links <IList<LinksGroup>> = list:line+ { list }
 line <LinksGroup> = INDENTATION l:element { l }
