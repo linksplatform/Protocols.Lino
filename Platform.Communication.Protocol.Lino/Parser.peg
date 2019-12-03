@@ -1,11 +1,14 @@
 ﻿@namespace Platform.Communication.Protocol.Lino
 @classname Parser
-links <IList<Link>> = _ list:linkAndWhitespace* { list }
-linkAndWhitespace <Link> = l:anyLink _ { l }
+@using System.Linq
+document <IList<Link>> = #{ state["Indentation"] = 0; } _ l:links eof { l.SelectMany(x => x).Select(x => x.Simplify()).ToList() }
+links <IList<IList<Link>>> = list:line+ { list }
+line <IList<Link>> = INDENTATION l:element { l }
+element <IList<Link>> = e:anyLink eol INDENT l:links UNDENT { new Link[] { e }.Concat(l.SelectMany(x => x).Select(y => y.AddDependency(e))).ToList() } / e:anyLink eol { new Link[] { e } }
 identityOrLink <Link> = l:multiLineAnyLink { l } / i:identity { i }
 anyLink <Link> = multiLineAnyLink / singleLineAnyLink
 multiLineAnyLink <Link> = multiLinePointLink / multiLineValueLink / multiLineLink
-singleLineAnyLink <Link> = singleLineLink / singleLineValueLink / singleLinePointLink 
+singleLineAnyLink <Link> = singleLineLink / v:singleLineValueLink { v.Values.Count == 1 ? v.Values.First() : v } / singleLinePointLink
 multiLineValueAndWhitespace <Link> = value:identityOrLink _ { value }
 multiLineValues <IList<Link>> = _ list:multiLineValueAndWhitespace+ { list }
 singleLineValueAndWhitespace <Link> = value:identityOrLink __ { value }
@@ -18,5 +21,10 @@ pointLink <Link> = id:(identity) { new Link(id) }
 singleLinePointLink<Link> = __ l:pointLink __ { l }
 multiLinePointLink<Link> = "(" _ l:pointLink _ ")" { l }
 identity <string> = "" [0-9a-zA-Zа-яёА-ЯЁ]+
+INDENTATION = spaces:" "* &{ spaces.Count == state["Indentation"] }
+INDENT = #{ state["Indentation"] += 4; }
+UNDENT = #{ state["Indentation"] -= 4; }
+eol = __ ("" [\r\n]+ / eof)
+eof = !.
 __ = [ \t]*
 _ = [ \t\n\r]*

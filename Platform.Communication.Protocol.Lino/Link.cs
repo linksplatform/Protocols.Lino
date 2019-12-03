@@ -34,6 +34,9 @@ namespace Platform.Communication.Protocol.Lino
         public Link(IList<Link> values) : this(null, values) { }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Link(params Link[] values) : this(null, values) { }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Link(string id) : this(id, null) { }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -55,6 +58,62 @@ namespace Platform.Communication.Protocol.Lino
                 sb.Append(GetValueString(Values[i]));
             }
             return sb.ToString();
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Link AddDependency(Link dependency)
+        {
+            if (Values.IsNullOrEmpty())
+            {
+                return new Link(new Link(dependency), this);
+            }
+            else
+            {
+                var firstValue = Values[0];
+                if (firstValue.Id == null)
+                {
+                    var newValues = new List<Link>();
+                    newValues.Add(firstValue.AddDependency(dependency));
+                    newValues.AddSkipFirst(Values);
+                    return new Link(newValues);
+                }
+                else
+                {
+                    if (Values.Count > 1)
+                    {
+                        return new Link(new Link(dependency), new Link(Values));
+                    }
+                    else
+                    {
+                        var newValues = new List<Link>();
+                        newValues.Add(new Link(dependency));
+                        newValues.AddAll(Values);
+                        return new Link(newValues);
+                    }
+                }
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Link Simplify()
+        {
+            if (Values.IsNullOrEmpty())
+            {
+                return this;
+            }
+            else if (Values.Count == 1)
+            {
+                return Values[0];
+            }
+            else
+            {
+                var newValues = new Link[Values.Count];
+                for (int i = 0; i < Values.Count; i++)
+                {
+                    newValues[i] = Values[i].Simplify();
+                }
+                return new Link(Id, newValues);
+            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
