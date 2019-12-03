@@ -4,7 +4,7 @@
     <Description>LinksPlatform's Platform.Communication.Protocol.Lino Class Library</Description>
     <Copyright>Konstantin Diachenko</Copyright>
     <AssemblyTitle>Platform.Communication.Protocol.Lino</AssemblyTitle>
-    <VersionPrefix>0.2.0</VersionPrefix>
+    <VersionPrefix>0.2.1</VersionPrefix>
     <Authors>Konstantin Diachenko</Authors>
     <TargetFrameworks>net471;netstandard2.0;netstandard2.1</TargetFrameworks>
     <AssemblyName>Platform.Communication.Protocol.Lino</AssemblyName>
@@ -24,7 +24,11 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>latest</LangVersion>
-    <PackageReleaseNotes>Added support for significant whitespace parsing.</PackageReleaseNotes>
+    <PackageReleaseNotes>Using a more reliable way to convert groups to links.
+Added LinksGroup struct and ILinksGroupListExtensions class.
+Link struct:
+* Added Combine method.
+* Removed AddDependency method.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4')) AND '$(MSBuildRuntimeType)' == 'Core' AND '$(OS)' != 'Windows_NT'">

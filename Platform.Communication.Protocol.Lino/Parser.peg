@@ -1,10 +1,10 @@
 ﻿@namespace Platform.Communication.Protocol.Lino
 @classname Parser
 @using System.Linq
-document <IList<Link>> = #{ state["Indentation"] = 0; } _ l:links eof { l.SelectMany(x => x).Select(x => x.Simplify()).ToList() }
-links <IList<IList<Link>>> = list:line+ { list }
-line <IList<Link>> = INDENTATION l:element { l }
-element <IList<Link>> = e:anyLink eol INDENT l:links UNDENT { new Link[] { e }.Concat(l.SelectMany(x => x).Select(y => y.AddDependency(e))).ToList() } / e:anyLink eol { new Link[] { e } }
+document <IList<Link>> = #{ state["Indentation"] = 0; } _ l:links eof { l.ToLinksList() }
+links <IList<LinksGroup>> = list:line+ { list }
+line <LinksGroup> = INDENTATION l:element { l }
+element <LinksGroup> = e:anyLink eol INDENT l:links UNDENT { new LinksGroup(e, l) } / e:anyLink eol { new LinksGroup(e) }
 identityOrLink <Link> = l:multiLineAnyLink { l } / i:identity { i }
 anyLink <Link> = multiLineAnyLink / singleLineAnyLink
 multiLineAnyLink <Link> = multiLinePointLink / multiLineValueLink / multiLineLink
