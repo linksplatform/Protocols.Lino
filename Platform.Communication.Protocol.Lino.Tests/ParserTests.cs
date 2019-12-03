@@ -92,7 +92,7 @@ users
             var parser = new Parser();
             var links = parser.Parse(source);
             var formattedLinks = links.Format();
-            Assert.Equal(formattedLinks, target);
+            Assert.Equal(target, formattedLinks);
         }
     }
 }
