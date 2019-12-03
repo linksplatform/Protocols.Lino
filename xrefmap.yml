@@ -7,6 +7,28 @@ references:
   commentId: N:Platform.Communication.Protocol.Lino
   fullName: Platform.Communication.Protocol.Lino
   nameWithType: Platform.Communication.Protocol.Lino
+- uid: Platform.Communication.Protocol.Lino.ILinksGroupListExtensions
+  name: ILinksGroupListExtensions
+  href: api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.html
+  commentId: T:Platform.Communication.Protocol.Lino.ILinksGroupListExtensions
+  fullName: Platform.Communication.Protocol.Lino.ILinksGroupListExtensions
+  nameWithType: ILinksGroupListExtensions
+- uid: Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.ToLinksList(System.Collections.Generic.IList{Platform.Communication.Protocol.Lino.LinksGroup})
+  name: ToLinksList(IList<LinksGroup>)
+  href: api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.html#Platform_Communication_Protocol_Lino_ILinksGroupListExtensions_ToLinksList_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_LinksGroup__
+  commentId: M:Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.ToLinksList(System.Collections.Generic.IList{Platform.Communication.Protocol.Lino.LinksGroup})
+  name.vb: ToLinksList(IList(Of LinksGroup))
+  fullName: Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.ToLinksList(System.Collections.Generic.IList<Platform.Communication.Protocol.Lino.LinksGroup>)
+  fullName.vb: Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.ToLinksList(System.Collections.Generic.IList(Of Platform.Communication.Protocol.Lino.LinksGroup))
+  nameWithType: ILinksGroupListExtensions.ToLinksList(IList<LinksGroup>)
+  nameWithType.vb: ILinksGroupListExtensions.ToLinksList(IList(Of LinksGroup))
+- uid: Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.ToLinksList*
+  name: ToLinksList
+  href: api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.html#Platform_Communication_Protocol_Lino_ILinksGroupListExtensions_ToLinksList_
+  commentId: Overload:Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.ToLinksList
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.ToLinksList
+  nameWithType: ILinksGroupListExtensions.ToLinksList
 - uid: Platform.Communication.Protocol.Lino.IListExtensions
   name: IListExtensions
   href: api/Platform.Communication.Protocol.Lino.IListExtensions.html
@@ -84,19 +106,19 @@ references:
   isSpec: "True"
   fullName: Platform.Communication.Protocol.Lino.Link.Link
   nameWithType: Link.Link
-- uid: Platform.Communication.Protocol.Lino.Link.AddDependency(Platform.Communication.Protocol.Lino.Link)
-  name: AddDependency(Link)
-  href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_AddDependency_Platform_Communication_Protocol_Lino_Link_
-  commentId: M:Platform.Communication.Protocol.Lino.Link.AddDependency(Platform.Communication.Protocol.Lino.Link)
-  fullName: Platform.Communication.Protocol.Lino.Link.AddDependency(Platform.Communication.Protocol.Lino.Link)
-  nameWithType: Link.AddDependency(Link)
-- uid: Platform.Communication.Protocol.Lino.Link.AddDependency*
-  name: AddDependency
-  href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_AddDependency_
-  commentId: Overload:Platform.Communication.Protocol.Lino.Link.AddDependency
+- uid: Platform.Communication.Protocol.Lino.Link.Combine(Platform.Communication.Protocol.Lino.Link)
+  name: Combine(Link)
+  href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_Combine_Platform_Communication_Protocol_Lino_Link_
+  commentId: M:Platform.Communication.Protocol.Lino.Link.Combine(Platform.Communication.Protocol.Lino.Link)
+  fullName: Platform.Communication.Protocol.Lino.Link.Combine(Platform.Communication.Protocol.Lino.Link)
+  nameWithType: Link.Combine(Link)
+- uid: Platform.Communication.Protocol.Lino.Link.Combine*
+  name: Combine
+  href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_Combine_
+  commentId: Overload:Platform.Communication.Protocol.Lino.Link.Combine
   isSpec: "True"
-  fullName: Platform.Communication.Protocol.Lino.Link.AddDependency
-  nameWithType: Link.AddDependency
+  fullName: Platform.Communication.Protocol.Lino.Link.Combine
+  nameWithType: Link.Combine
 - uid: Platform.Communication.Protocol.Lino.Link.Equals(Platform.Communication.Protocol.Lino.Link)
   name: Equals(Link)
   href: api/Platform.Communication.Protocol.Lino.Link.html#Platform_Communication_Protocol_Lino_Link_Equals_Platform_Communication_Protocol_Lino_Link_
@@ -274,6 +296,175 @@ references:
   isSpec: "True"
   fullName: Platform.Communication.Protocol.Lino.Link.Values
   nameWithType: Link.Values
+- uid: Platform.Communication.Protocol.Lino.LinksGroup
+  name: LinksGroup
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html
+  commentId: T:Platform.Communication.Protocol.Lino.LinksGroup
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup
+  nameWithType: LinksGroup
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.#ctor(Platform.Communication.Protocol.Lino.Link)
+  name: LinksGroup(Link)
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup__ctor_Platform_Communication_Protocol_Lino_Link_
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.#ctor(Platform.Communication.Protocol.Lino.Link)
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.LinksGroup(Platform.Communication.Protocol.Lino.Link)
+  nameWithType: LinksGroup.LinksGroup(Link)
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.#ctor(Platform.Communication.Protocol.Lino.Link,System.Collections.Generic.IList{Platform.Communication.Protocol.Lino.LinksGroup})
+  name: LinksGroup(Link, IList<LinksGroup>)
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup__ctor_Platform_Communication_Protocol_Lino_Link_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_LinksGroup__
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.#ctor(Platform.Communication.Protocol.Lino.Link,System.Collections.Generic.IList{Platform.Communication.Protocol.Lino.LinksGroup})
+  name.vb: LinksGroup(Link, IList(Of LinksGroup))
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.LinksGroup(Platform.Communication.Protocol.Lino.Link, System.Collections.Generic.IList<Platform.Communication.Protocol.Lino.LinksGroup>)
+  fullName.vb: Platform.Communication.Protocol.Lino.LinksGroup.LinksGroup(Platform.Communication.Protocol.Lino.Link, System.Collections.Generic.IList(Of Platform.Communication.Protocol.Lino.LinksGroup))
+  nameWithType: LinksGroup.LinksGroup(Link, IList<LinksGroup>)
+  nameWithType.vb: LinksGroup.LinksGroup(Link, IList(Of LinksGroup))
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.#ctor*
+  name: LinksGroup
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup__ctor_
+  commentId: Overload:Platform.Communication.Protocol.Lino.LinksGroup.#ctor
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.LinksGroup
+  nameWithType: LinksGroup.LinksGroup
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList(System.Collections.Generic.List{Platform.Communication.Protocol.Lino.Link})
+  name: AppendToLinksList(List<Link>)
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_AppendToLinksList_System_Collections_Generic_List_Platform_Communication_Protocol_Lino_Link__
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList(System.Collections.Generic.List{Platform.Communication.Protocol.Lino.Link})
+  name.vb: AppendToLinksList(List(Of Link))
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList(System.Collections.Generic.List<Platform.Communication.Protocol.Lino.Link>)
+  fullName.vb: Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList(System.Collections.Generic.List(Of Platform.Communication.Protocol.Lino.Link))
+  nameWithType: LinksGroup.AppendToLinksList(List<Link>)
+  nameWithType.vb: LinksGroup.AppendToLinksList(List(Of Link))
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList(System.Collections.Generic.List{Platform.Communication.Protocol.Lino.Link},Platform.Communication.Protocol.Lino.Link,Platform.Communication.Protocol.Lino.LinksGroup)
+  name: AppendToLinksList(List<Link>, Link, LinksGroup)
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_AppendToLinksList_System_Collections_Generic_List_Platform_Communication_Protocol_Lino_Link__Platform_Communication_Protocol_Lino_Link_Platform_Communication_Protocol_Lino_LinksGroup_
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList(System.Collections.Generic.List{Platform.Communication.Protocol.Lino.Link},Platform.Communication.Protocol.Lino.Link,Platform.Communication.Protocol.Lino.LinksGroup)
+  name.vb: AppendToLinksList(List(Of Link), Link, LinksGroup)
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList(System.Collections.Generic.List<Platform.Communication.Protocol.Lino.Link>, Platform.Communication.Protocol.Lino.Link, Platform.Communication.Protocol.Lino.LinksGroup)
+  fullName.vb: Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList(System.Collections.Generic.List(Of Platform.Communication.Protocol.Lino.Link), Platform.Communication.Protocol.Lino.Link, Platform.Communication.Protocol.Lino.LinksGroup)
+  nameWithType: LinksGroup.AppendToLinksList(List<Link>, Link, LinksGroup)
+  nameWithType.vb: LinksGroup.AppendToLinksList(List(Of Link), Link, LinksGroup)
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList*
+  name: AppendToLinksList
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_AppendToLinksList_
+  commentId: Overload:Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.AppendToLinksList
+  nameWithType: LinksGroup.AppendToLinksList
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.Equals(Platform.Communication.Protocol.Lino.LinksGroup)
+  name: Equals(LinksGroup)
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_Equals_Platform_Communication_Protocol_Lino_LinksGroup_
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.Equals(Platform.Communication.Protocol.Lino.LinksGroup)
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Equals(Platform.Communication.Protocol.Lino.LinksGroup)
+  nameWithType: LinksGroup.Equals(LinksGroup)
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.Equals(System.Object)
+  name: Equals(Object)
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_Equals_System_Object_
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.Equals(System.Object)
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Equals(System.Object)
+  nameWithType: LinksGroup.Equals(Object)
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.Equals*
+  name: Equals
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_Equals_
+  commentId: Overload:Platform.Communication.Protocol.Lino.LinksGroup.Equals
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Equals
+  nameWithType: LinksGroup.Equals
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.GetHashCode
+  name: GetHashCode()
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_GetHashCode
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.GetHashCode
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.GetHashCode()
+  nameWithType: LinksGroup.GetHashCode()
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.GetHashCode*
+  name: GetHashCode
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_GetHashCode_
+  commentId: Overload:Platform.Communication.Protocol.Lino.LinksGroup.GetHashCode
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.GetHashCode
+  nameWithType: LinksGroup.GetHashCode
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.Groups
+  name: Groups
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_Groups
+  commentId: P:Platform.Communication.Protocol.Lino.LinksGroup.Groups
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Groups
+  nameWithType: LinksGroup.Groups
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.Groups*
+  name: Groups
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_Groups_
+  commentId: Overload:Platform.Communication.Protocol.Lino.LinksGroup.Groups
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Groups
+  nameWithType: LinksGroup.Groups
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.Link
+  name: Link
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_Link
+  commentId: P:Platform.Communication.Protocol.Lino.LinksGroup.Link
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Link
+  nameWithType: LinksGroup.Link
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.Link*
+  name: Link
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_Link_
+  commentId: Overload:Platform.Communication.Protocol.Lino.LinksGroup.Link
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Link
+  nameWithType: LinksGroup.Link
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.op_Equality(Platform.Communication.Protocol.Lino.LinksGroup,Platform.Communication.Protocol.Lino.LinksGroup)
+  name: Equality(LinksGroup, LinksGroup)
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_op_Equality_Platform_Communication_Protocol_Lino_LinksGroup_Platform_Communication_Protocol_Lino_LinksGroup_
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.op_Equality(Platform.Communication.Protocol.Lino.LinksGroup,Platform.Communication.Protocol.Lino.LinksGroup)
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Equality(Platform.Communication.Protocol.Lino.LinksGroup, Platform.Communication.Protocol.Lino.LinksGroup)
+  nameWithType: LinksGroup.Equality(LinksGroup, LinksGroup)
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.op_Equality*
+  name: Equality
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_op_Equality_
+  commentId: Overload:Platform.Communication.Protocol.Lino.LinksGroup.op_Equality
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Equality
+  nameWithType: LinksGroup.Equality
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.op_Implicit(Platform.Communication.Protocol.Lino.LinksGroup)~System.Collections.Generic.List{Platform.Communication.Protocol.Lino.Link}
+  name: Implicit(LinksGroup to List<Link>)
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_op_Implicit_Platform_Communication_Protocol_Lino_LinksGroup__System_Collections_Generic_List_Platform_Communication_Protocol_Lino_Link_
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.op_Implicit(Platform.Communication.Protocol.Lino.LinksGroup)~System.Collections.Generic.List{Platform.Communication.Protocol.Lino.Link}
+  name.vb: Widening(LinksGroup to List(Of Link))
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Implicit(Platform.Communication.Protocol.Lino.LinksGroup to System.Collections.Generic.List<Platform.Communication.Protocol.Lino.Link>)
+  fullName.vb: Platform.Communication.Protocol.Lino.LinksGroup.Widening(Platform.Communication.Protocol.Lino.LinksGroup to System.Collections.Generic.List(Of Platform.Communication.Protocol.Lino.Link))
+  nameWithType: LinksGroup.Implicit(LinksGroup to List<Link>)
+  nameWithType.vb: LinksGroup.Widening(LinksGroup to List(Of Link))
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.op_Implicit*
+  name: Implicit
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_op_Implicit_
+  commentId: Overload:Platform.Communication.Protocol.Lino.LinksGroup.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Implicit
+  fullName.vb: Platform.Communication.Protocol.Lino.LinksGroup.Widening
+  nameWithType: LinksGroup.Implicit
+  nameWithType.vb: LinksGroup.Widening
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.op_Inequality(Platform.Communication.Protocol.Lino.LinksGroup,Platform.Communication.Protocol.Lino.LinksGroup)
+  name: Inequality(LinksGroup, LinksGroup)
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_op_Inequality_Platform_Communication_Protocol_Lino_LinksGroup_Platform_Communication_Protocol_Lino_LinksGroup_
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.op_Inequality(Platform.Communication.Protocol.Lino.LinksGroup,Platform.Communication.Protocol.Lino.LinksGroup)
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Inequality(Platform.Communication.Protocol.Lino.LinksGroup, Platform.Communication.Protocol.Lino.LinksGroup)
+  nameWithType: LinksGroup.Inequality(LinksGroup, LinksGroup)
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.op_Inequality*
+  name: Inequality
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_op_Inequality_
+  commentId: Overload:Platform.Communication.Protocol.Lino.LinksGroup.op_Inequality
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.Inequality
+  nameWithType: LinksGroup.Inequality
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.ToLinksList
+  name: ToLinksList()
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_ToLinksList
+  commentId: M:Platform.Communication.Protocol.Lino.LinksGroup.ToLinksList
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.ToLinksList()
+  nameWithType: LinksGroup.ToLinksList()
+- uid: Platform.Communication.Protocol.Lino.LinksGroup.ToLinksList*
+  name: ToLinksList
+  href: api/Platform.Communication.Protocol.Lino.LinksGroup.html#Platform_Communication_Protocol_Lino_LinksGroup_ToLinksList_
+  commentId: Overload:Platform.Communication.Protocol.Lino.LinksGroup.ToLinksList
+  isSpec: "True"
+  fullName: Platform.Communication.Protocol.Lino.LinksGroup.ToLinksList
+  nameWithType: LinksGroup.ToLinksList
 - uid: Platform.Communication.Protocol.Lino.Parser
   name: Parser
   href: api/Platform.Communication.Protocol.Lino.Parser.html

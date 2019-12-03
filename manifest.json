@@ -38,11 +38,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.html",
+          "hash": "USpuPOY896IPUoIQKT5b7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.IListExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
-          "hash": "9sbyQzxPioNlT3NBOYke8g=="
+          "hash": "NHsg9wdsw5UJuVbjMbuqgw=="
         }
       },
       "is_incremental": false,
@@ -54,7 +66,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Link.html",
-          "hash": "DhwAg4jtEus0cu6/UYd1Mg=="
+          "hash": "7xl4RCR6pgAAngL11vMa3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.LinksGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Communication.Protocol.Lino.LinksGroup.html",
+          "hash": "1xXe7nlzxR1ABZlUJ0OL9g=="
         }
       },
       "is_incremental": false,
@@ -66,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Parser.html",
-          "hash": "wqREHyXX+2ACmKWmzZUW4w=="
+          "hash": "sjXslR9zjmck8PQrz/6MkQ=="
         }
       },
       "is_incremental": false,
@@ -78,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.html",
-          "hash": "67FrFGJYIwscEqSKCiraxg=="
+          "hash": "muCAY8fnoOgxS3nfamc0Rw=="
         }
       },
       "is_incremental": false,
@@ -90,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "JavoCeQwuE8W71mw7aRgPw=="
+          "hash": "52xRf8Czddn0UnvRKTmrug=="
         }
       },
       "is_incremental": false,
@@ -139,7 +163,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 4,
+          "total_file_count": 6,
           "skipped_file_count": 0
         }
       }
