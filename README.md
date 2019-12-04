@@ -6,7 +6,7 @@
 # [Communication.Protocol.Lino](https://github.com/linksplatform/Communication.Protocol.Lino) ([русская версия](README.ru.md))
 LinksPlatform's Platform.Communication.Protocol.Lino Class Library.
 
-This library gives you an ability to convert any string that contains links notation into a list of links and back to the strings after modifications are made.
+This library gives you an ability to convert any string that contains links notation into a list of links and back to the string after modifications are made.
 
 Namespace: [Platform.Communication.Protocol.Lino](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html)
 
