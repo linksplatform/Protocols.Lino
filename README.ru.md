@@ -6,7 +6,7 @@
 # [Communication.Protocol.Lino](https://github.com/linksplatform/Communication.Protocol.Lino) ([english version](README.md))
 Библиотека классов ПлатформыСвязей Platform.Communication.Protocol.Lino.
 
-Эта библиотека дает вам возможность преобразовать любую строку, содержащую обозначение связей, в список связей и форматировать этот список в строку после внесения изменений.
+Эта библиотека дает вам возможность преобразовать любую строку, содержащую обозначение связей, в список связей и форматировать этот список обратно в строку после внесения изменений.
 
 Пространство имён: [Platform.Communication.Protocol.Lino](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html)
 
