@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "Okfwf3REzNfUMNVYSaO67A=="
+          "hash": "Kyu2f9nTWr7dTeQCsw/yIA=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "README.ru.html",
-          "hash": "G77lZ3RHSWH+0fRDpMRVXQ=="
+          "hash": "N0i8D64PCiOV+eUdhRqe6w=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.html",
-          "hash": "ZQBs7CfTbCVNKgrHhrDggA=="
+          "hash": "VQsdjOHbocikheq8acqlug=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
-          "hash": "t7QHuy6dc0NqPn1Z3QFvhA=="
+          "hash": "V+aSm4ga+e64izFEFSbvQQ=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Link.html",
-          "hash": "cvkmbiL/wpoYL1dRnfW5Mg=="
+          "hash": "MXdCptl7EffG+UMVUyvG0w=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.LinksGroup.html",
-          "hash": "Xz+FVXQ1f1+l8U1z/d5PaA=="
+          "hash": "ur2U/RxNgcPvG4wMrb+0OQ=="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Parser.html",
-          "hash": "depYDtgBruT9dlrGv9K1Sw=="
+          "hash": "GMV/z4Pel2HFoNfSxoeT8g=="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.html",
-          "hash": "muCAY8fnoOgxS3nfamc0Rw=="
+          "hash": "9P8QSiJQXGEZbBdAgaQ7Lw=="
         }
       },
       "is_incremental": false,
@@ -154,16 +154,16 @@
           "total_file_count": 0,
           "skipped_file_count": 0
         },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 6,
-          "skipped_file_count": 0
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 2,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 6,
           "skipped_file_count": 0
         }
       }
