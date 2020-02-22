@@ -38,7 +38,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Pegasus" Version="4.1.0" />
-    <PackageReference Include="Platform.Collections" Version="0.1.0" />
+    <PackageReference Include="Platform.Collections" Version="0.2.0" />
   </ItemGroup>
 
   <ItemGroup>
