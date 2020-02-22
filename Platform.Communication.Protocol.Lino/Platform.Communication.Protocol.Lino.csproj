@@ -6,7 +6,7 @@
     <AssemblyTitle>Platform.Communication.Protocol.Lino</AssemblyTitle>
     <VersionPrefix>0.2.3</VersionPrefix>
     <Authors>Konstantin Diachenko</Authors>
-    <TargetFrameworks>net471;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.0;netstandard2.1</TargetFrameworks>
     <AssemblyName>Platform.Communication.Protocol.Lino</AssemblyName>
     <PackageId>Platform.Communication.Protocol.Lino</PackageId>
     <PackageTags>LinksPlatform;Communication.Protocol.Lino;Lino;IListExtensions;Link;Parser</PackageTags>
