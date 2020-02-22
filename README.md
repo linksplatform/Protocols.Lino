@@ -40,5 +40,6 @@ links.Format()
 [PDF file](https://linksplatform.github.io/Communication.Protocol.Lino/Platform.Communication.Protocol.Lino.pdf) with code for e-readers.
 
 ## Depend on
+*   [Microsoft.CSharp](https://www.nuget.org/packages/Microsoft.CSharp)
 *   [Pegasus](https://github.com/otac0n/Pegasus)
 *   [Platform.Collections](https://github.com/linksplatform/Collections)
