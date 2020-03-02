@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "oBnJdicOP19+/xN5gLCsGA=="
+          "hash": "iEP6frfXWvcWrKHih9IOEw=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "README.ru.html",
-          "hash": "jYHUmalFaB6NgO0utmNVZg=="
+          "hash": "Dp2/QrSZYURQUFMJXaJzLg=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.html",
-          "hash": "4IzHgK//hPZ2jhVNgldiVg=="
+          "hash": "z33Z6ug6/Fuz9DRuSoxD0g=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
-          "hash": "kfJDDhN1gGln4RcoAl0kZA=="
+          "hash": "mjMAtn/igGTDbXBlTYKuBA=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Link.html",
-          "hash": "lrJWQ1faEMegcmjTq9j8bA=="
+          "hash": "aW3toXJxQnB8XdGNKjf0iQ=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.LinksGroup.html",
-          "hash": "cccbVPQUdn1HotR4Qa1DEw=="
+          "hash": "hiBW2VcMyE+0TRmmHpggIg=="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Parser.html",
-          "hash": "/auU4dOEajX3R6rpZaxb3w=="
+          "hash": "kq79Y0R1CqzELJzBI56n8w=="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.html",
-          "hash": "y3Ar9cJnwMJRikwJMV5XtQ=="
+          "hash": "Xh0cL/LWHOTWT+e9DS2MOQ=="
         }
       },
       "is_incremental": false,
