@@ -19,11 +19,13 @@ multiLineValueLink <Link> = "(" v:multiLineValues ")" { new Link(v) }
 pointLink <Link> = id:(identity) { new Link(id) }
 singleLinePointLink<Link> = __ l:pointLink { l }
 multiLinePointLink<Link> = "(" _ l:pointLink _ ")" { l }
-identity <string> = "" [0-9a-zA-Zа-яёА-ЯЁ]+
+identity <string> = "" referenceSymbol+
 INDENTATION = spaces:" "* &{ spaces.Count == state["Indentation"] }
 INDENT = #{ state["Indentation"] += 4; }
 UNDENT = #{ state["Indentation"] -= 4; }
 eol = __ ("" [\r\n]+ / eof)
 eof = !.
 __ = [ \t]*
-_ = [ \t\n\r]*
+_ = whiteSpaceSymbol*
+whiteSpaceSymbol = [ \t\n\r]
+referenceSymbol = [^ \t\n\r(:)]
