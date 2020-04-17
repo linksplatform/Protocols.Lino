@@ -5,6 +5,27 @@ namespace Platform.Communication.Protocol.Lino.Tests
     public static class ParserTests
     {
         [Fact]
+        public static void SingleLinkTest()
+        {
+            var source = @"(address: source target)";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            var target = links.Format();
+            Assert.Equal(source, target);
+        }
+
+        [Fact]
+        public static void TwoLinksTest()
+        {
+            var source = @"(first: x y)
+(second: a b)";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            var target = links.Format();
+            Assert.Equal(source, target);
+        }
+
+        [Fact]
         public static void ParseAndStringifyTest()
         {
             var source = @"(papa (lovesMama: loves mama))
