@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Platform.Collections;
 using Platform.Collections.Lists;
+using Platform.Collections.Segments;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
@@ -11,7 +12,7 @@ namespace Platform.Communication.Protocol.Lino
 {
     public struct Link : IEquatable<Link>
     {
-        public string Id
+        public CharSegment Id
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get;
@@ -28,7 +29,7 @@ namespace Platform.Communication.Protocol.Lino
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Link(string id, IList<Link> values) => (Id, Values) = (id, values);
+        public Link(CharSegment id, IList<Link> values) => (Id, Values) = (id, values);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Link(IList<Link> values) : this(null, values) { }
@@ -37,7 +38,7 @@ namespace Platform.Communication.Protocol.Lino
         public Link(params Link[] values) : this(null, values) { }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Link(string id) : this(id, null) { }
+        public Link(CharSegment id) : this(id, null) { }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString() => Values.IsNullOrEmpty() ? $"({Id})" : GetLinkValuesString();
@@ -92,10 +93,10 @@ namespace Platform.Communication.Protocol.Lino
         public string ToLinkOrIdString() => Values.IsNullOrEmpty() ? Id : ToString();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link(string value) => new Link(value);
+        public static implicit operator Link(CharSegment value) => new Link(value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link(ValueTuple<string, IList<Link>> value) => new Link(value.Item1, value.Item2);
+        public static implicit operator Link(ValueTuple<CharSegment, IList<Link>> value) => new Link(value.Item1, value.Item2);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override bool Equals(object obj) => obj is Link link ? Equals(link) : false;

@@ -1,6 +1,13 @@
 ﻿@namespace Platform.Communication.Protocol.Lino
+@using Platform.Collections.Segments
 @classname Parser
-document <IList<Link>> = #{ state["Indentation"] = 0; } _ l:links eof { l.ToLinksList() }
+@members
+{
+    private const string Indentation = "i";
+    private int StartLocation = 0;
+    private char[] Characters = null;
+}
+document <IList<Link>> = #{ state[Indentation] = 0; Characters = state.Subject.ToCharArray(); } _ l:links eof { l.ToLinksList() }
 links <IList<LinksGroup>> = list:line+ { list }
 line <LinksGroup> = INDENTATION l:element { l }
 element <LinksGroup> = e:anyLink INDENT l:links UNDENT { new LinksGroup(e, l) } / e:anyLink { new LinksGroup(e) }
@@ -19,13 +26,13 @@ multiLineValueLink <Link> = "(" v:multiLineValues ")" { new Link(v) }
 pointLink <Link> = id:(identity) { new Link(id) }
 singleLinePointLink<Link> = __ l:pointLink { l }
 multiLinePointLink<Link> = "(" _ l:pointLink _ ")" { l }
-identity <string> = "" referenceSymbol+
-INDENTATION = spaces:" "* &{ spaces.Count == state["Indentation"] }
-INDENT = #{ state["Indentation"] += 4; }
-UNDENT = #{ state["Indentation"] -= 4; }
-eol = __ ("" [\r\n]+ / eof)
-eof = !.
-__ = [ \t]*
-_ = whiteSpaceSymbol*
-whiteSpaceSymbol = [ \t\n\r]
-referenceSymbol = [^ \t\n\r(:)]
+identity <CharSegment> = #{ StartLocation = state.Location; } referenceSymbol+ { new CharSegment(Characters, StartLocation, state.Location - StartLocation) }
+INDENTATION = spaces:" "* &{ spaces.Count == state[Indentation] } { null }
+INDENT = #{ state[Indentation] += 4; } { null }
+UNDENT = #{ state[Indentation] -= 4; } { null }
+eol = __ ("" [\r\n]+ / eof) { null }
+eof = !. { null }
+__ = [ \t]* { null }
+_ = whiteSpaceSymbol* { null }
+whiteSpaceSymbol = [ \t\n\r] { null }
+referenceSymbol = [^ \t\n\r(:)] { null }
