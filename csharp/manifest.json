@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "YdWT+WzPsaXAgbWSk1d8yQ=="
+          "hash": "oS7teMcTqv58bJhY+uLNqw=="
         }
       },
       "is_incremental": false,
@@ -30,91 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "README.ru.html",
-          "hash": "regoIIZPkxkDKt0Vf+ScSQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.html",
-          "hash": "2wNYAJG9UZwLaS32SYaAmA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.IListExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
-          "hash": "z2D3WkOFxbFfVrXppNUQKg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.Link.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.Link.html",
-          "hash": "EKV/yF72YPkHhKPC0LWwDg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.LinksGroup.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.LinksGroup.html",
-          "hash": "/ROs1CyFucfhvANELASqHQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.Parser.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.Parser.html",
-          "hash": "nBRQzBx/88gKzoZTXz/8qQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.html",
-          "hash": "fY0uESoUpOIwJhD1iUNnBA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "obj/api/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "52xRf8Czddn0UnvRKTmrug=="
+          "hash": "hVsclyUhP2xI71DQdnBeng=="
         }
       },
       "is_incremental": false,
@@ -129,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "/KujRkRKUKsoVD7FMhrIvQ=="
+          "hash": "e+TMeJRXg5AysDfsTYSliQ=="
         }
       },
       "is_incremental": false,
@@ -151,12 +67,6 @@
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 2,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 6,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
