@@ -11,21 +11,9 @@ namespace Platform.Communication.Protocol.Lino
 {
     public struct Link : IEquatable<Link>
     {
-        public string Id
-        {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get;
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            set;
-        }
+        public readonly string Id;
 
-        public IList<Link> Values
-        {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get;
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            set;
-        }
+        public readonly IList<Link> Values;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Link(string id, IList<Link> values) => (Id, Values) = (id, values);
@@ -95,7 +83,19 @@ namespace Platform.Communication.Protocol.Lino
         public static implicit operator Link(string value) => new Link(value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link(ValueTuple<string, IList<Link>> value) => new Link(value.Item1, value.Item2);
+        public static implicit operator Link((string, IList<Link>) value) => new Link(value.Item1, value.Item2);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator Link((Link, Link) value) => new Link(value.Item1, value.Item2);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator Link((Link, Link, Link) value) => new Link(value.Item1, value.Item2, value.Item3);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator Link((_, _) value) => new Link(value.Item1.Link, value.Item2.Link);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator Link((_, _, _) value) => new Link(value.Item1.Link, value.Item2.Link, value.Item3.Link);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override bool Equals(object obj) => obj is Link link ? Equals(link) : false;
