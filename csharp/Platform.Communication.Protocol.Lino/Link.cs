@@ -92,10 +92,7 @@ namespace Platform.Communication.Protocol.Lino
         public static implicit operator Link((Link, Link, Link) value) => new Link(value.Item1, value.Item2, value.Item3);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link((_, _) value) => new Link(value.Item1.Link, value.Item2.Link);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link((_, _, _) value) => new Link(value.Item1.Link, value.Item2.Link, value.Item3.Link);
+        public static implicit operator Link(_ value) => value.Link;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override bool Equals(object obj) => obj is Link link ? Equals(link) : false;
