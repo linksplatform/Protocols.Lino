@@ -11,9 +11,7 @@ namespace Platform.Communication.Protocol.Lino.Tests
             var source = @"(papa (lovesMama: loves mama))
 (son lovesMama)
 (daughter lovesMama)
-(all (loveMama: love mama))
-(papa son daughter)
-((papa mama) (daughter son))";
+(all (love mama))";
             var parser = new Parser();
             var links = parser.Parse(source);
             var targetFromString = links.Format();
@@ -23,9 +21,7 @@ namespace Platform.Communication.Protocol.Lino.Tests
                 ("papa", (_)("lovesMama", "loves", "mama")),
                 ("son", "lovesMama"),
                 ("daughter", "lovesMama"),
-                ("all", (_)("loveMama", "love", "mama")),
-                ("papa", "son", "daughter"),
-                (("papa", "mama"), ("daughter", "son"))
+                ("all", ("love", "mama")),
             };
             var targetFromTuples = constructedLinks.Format();
             Assert.Equal(targetFromString, targetFromTuples);
