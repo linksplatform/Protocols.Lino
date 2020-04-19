@@ -25,5 +25,8 @@ namespace Platform.Communication.Protocol.Lino
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator _((string, Link, Link, Link) value) => new Link(value.Item1, new Link[] { value.Item2, value.Item3, value.Item4 });
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator Link(_ value) => value.Link;
     }
 }
