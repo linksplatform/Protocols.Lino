@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "oS7teMcTqv58bJhY+uLNqw=="
+          "hash": "hxORB7ToqG4QhK3sQLDjug=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,103 @@
       "output": {
         ".html": {
           "relative_path": "README.ru.html",
-          "hash": "hVsclyUhP2xI71DQdnBeng=="
+          "hash": "regoIIZPkxkDKt0Vf+ScSQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.html",
+          "hash": "jvUhrgnIMcBb2GRxsb9k0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.IListExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
+          "hash": "hulGMGoOwO7oxDEEZ4sW2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.Link.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Communication.Protocol.Lino.Link.html",
+          "hash": "DfIZe4XB+yg+P1FJk4wCPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.LinksGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Communication.Protocol.Lino.LinksGroup.html",
+          "hash": "fgd6FW4Aeuv9pSXs2yd6SQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.Parser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Communication.Protocol.Lino.Parser.html",
+          "hash": "7kHzHKBlF1TRpHbSxzNdzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino._.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Communication.Protocol.Lino._.html",
+          "hash": "DZwKhih6dyZOk76DZjmbmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Communication.Protocol.Lino.html",
+          "hash": "VE20VkSZm8/bdp83hYIDzA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "/zNJ3+fGaDnq9pGl8qjD3g=="
         }
       },
       "is_incremental": false,
@@ -45,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "e+TMeJRXg5AysDfsTYSliQ=="
+          "hash": "/KujRkRKUKsoVD7FMhrIvQ=="
         }
       },
       "is_incremental": false,
@@ -67,6 +163,12 @@
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 2,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 7,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
