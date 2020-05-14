@@ -20,11 +20,11 @@ son lovesMama
 daughter lovesMama
 all (love mama)
 ```
-### Getting a [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\>
+### Getting a [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/csharp/api/Platform.Communication.Protocol.Lino.Link.html)\>
 ```C#
 (new Platform.Communication.Protocol.Lino.Parser()).Parse(@string)
 ```
-### Formatting the [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\> back to string
+### Formatting the [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/csharp/api/Platform.Communication.Protocol.Lino.Link.html)\> back to string
 ```C#
 using Platform.Communication.Protocol.Lino;
 ```
