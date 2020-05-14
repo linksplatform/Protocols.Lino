@@ -8,7 +8,7 @@ LinksPlatform's Platform.Communication.Protocol.Lino Class Library.
 
 This library gives you an ability to convert any string that contains links notation into a list of links and back to the string after modifications are made.
 
-Namespace: [Platform.Communication.Protocol.Lino](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html)
+Namespace: [Platform.Communication.Protocol.Lino](https://linksplatform.github.io/Communication.Protocol.Lino/csharp/api/Platform.Communication.Protocol.Lino.html)
 
 NuGet package: [Platform.Communication.Protocol.Lino](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
 
@@ -33,11 +33,11 @@ links.Format()
 ```
 
 ## [Documentation](https://linksplatform.github.io/Communication.Protocol.Lino)
-*   Struct [Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html).
-*   Method [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html).[Parse](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
-*   Method [IListExtensions](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html).[Format](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__)
+*   Struct [Link](https://linksplatform.github.io/Communication.Protocol.Lino/csharp/api/Platform.Communication.Protocol.Lino.Link.html).
+*   Method [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/csharp/api/Platform.Communication.Protocol.Lino.Parser.html).[Parse](https://linksplatform.github.io/Communication.Protocol.Lino/csharp/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
+*   Method [IListExtensions](https://linksplatform.github.io/Communication.Protocol.Lino/csharp/api/Platform.Communication.Protocol.Lino.IListExtensions.html).[Format](https://linksplatform.github.io/Communication.Protocol.Lino/csharp/api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__)
 
-[PDF file](https://linksplatform.github.io/Communication.Protocol.Lino/Platform.Communication.Protocol.Lino.pdf) with code for e-readers.
+[PDF file](https://linksplatform.github.io/Communication.Protocol.Lino/csharp/Platform.Communication.Protocol.Lino.pdf) with code for e-readers.
 
 ## Depend on
 *   [Microsoft.CSharp](https://www.nuget.org/packages/Microsoft.CSharp)
