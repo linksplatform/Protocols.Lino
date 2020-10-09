@@ -8,6 +8,8 @@
 
 Эта библиотека дает вам возможность преобразовать любую строку, содержащую обозначение связей, в список связей и форматировать этот список обратно в строку после внесения изменений.
 
+Нотация связей основана на двух концепциях: ссылка и связь. Каждая ссылка ссылается на другую связь. Если никакая ссылка не определяет конкретную связь, предполагается, что такая связь является связью-точкой. Нотация поддерживает связи с любым количеством ссылок на другие связи.
+
 Пространство имён: [Platform.Communication.Protocol.Lino](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html)
 
 NuGet пакет: [Platform.Communication.Protocol.Lino](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
