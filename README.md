@@ -8,6 +8,8 @@ LinksPlatform's Platform.Communication.Protocol.Lino Class Library.
 
 This library gives you an ability to convert any string that contains links notation into a list of links and back to the string after modifications are made.
 
+Links notation is based on two concepts references and links. Each reference references other link. If no link defines concrete reference it assumed that such link is a point link. The notation supports links with any number of references to other links.
+
 Namespace: [Platform.Communication.Protocol.Lino](https://linksplatform.github.io/Communication.Protocol.Lino/csharp/api/Platform.Communication.Protocol.Lino.html)
 
 NuGet package: [Platform.Communication.Protocol.Lino](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
