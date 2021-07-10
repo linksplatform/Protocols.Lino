@@ -37,6 +37,15 @@ namespace Platform.Communication.Protocol.Lino.Tests
             var target = links.Format();
             Assert.Equal(source, target);
         }
+        
+        [Fact]
+        public static void BugTest()
+        {
+            var source = @"(ignore conan-center-index repository)";
+            var links = (new Platform.Communication.Protocol.Lino.Parser()).Parse(source);
+            var target = links.Format();
+            Assert.Equal(source,target);
+        }
 
         [Fact]
         public static void ParseAndStringifyWithLessParenthesesTest()
