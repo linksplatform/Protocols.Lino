@@ -28,4 +28,4 @@ eof = !.
 __ = [ \t]*
 _ = whiteSpaceSymbol*
 whiteSpaceSymbol = [ \t\n\r]
-referenceSymbol = [^ \t\n\r(:)]
+referenceSymbol = [^ \t\n\r(:)] / "-"
