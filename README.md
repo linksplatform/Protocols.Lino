@@ -6,6 +6,8 @@
 # [Communication.Protocol.Lino](https://github.com/linksplatform/Communication.Protocol.Lino) ([русская версия](README.ru.md))
 LinksPlatform's Platform.Communication.Protocol.Lino Class Library.
 
+![introduction](https://github.com/linksplatform/Documentation/raw/master/doc/Examples/json_xml_lino_comparison_b%26w.png "json, xml and lino comparison")
+
 This library gives you an ability to convert any string that contains links notation into a list of links and back to the string after modifications are made.
 
 Links notation is based on two concepts references and links. Each reference references other link. If no link defines concrete reference it assumed that such link is a point link. The notation supports links with any number of references to other links.
