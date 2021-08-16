@@ -6,7 +6,7 @@
 # [Communication.Protocol.Lino](https://github.com/linksplatform/Communication.Protocol.Lino) ([русская версия](README.ru.md))
 LinksPlatform's Platform.Communication.Protocol.Lino Class Library.
 
-![introduction](https://github.com/linksplatform/Documentation/raw/master/doc/Examples/json_xml_lino_comparison_b%26w.png "json, xml and lino comparison")
+![introduction](https://github.com/linksplatform/Documentation/raw/master/doc/Examples/json_xml_lino_comparison/b%26w.png "json, xml and lino comparison")
 
 This library gives you an ability to convert any string that contains links notation into a list of links and back to the string after modifications are made.
 
