@@ -6,6 +6,8 @@
 # [Communication.Protocol.Lino](https://github.com/linksplatform/Communication.Protocol.Lino) ([english version](README.md))
 Библиотека классов ПлатформыСвязей Platform.Communication.Protocol.Lino.
 
+![introduction](https://github.com/linksplatform/Documentation/raw/master/doc/Examples/json_xml_lino_comparison_b%26w.png "сравнение json, xml и lino")
+
 Эта библиотека дает вам возможность преобразовать любую строку, содержащую обозначение связей, в список связей и форматировать этот список обратно в строку после внесения изменений.
 
 Нотация связей основана на двух концепциях: ссылка и связь. Каждая ссылка ссылается на другую связь. Если никакая ссылка не определяет конкретную связь, предполагается, что такая связь является связью-точкой. Нотация поддерживает связи с любым количеством ссылок на другие связи.
