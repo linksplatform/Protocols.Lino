@@ -1,13 +1,35 @@
-﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 using System.Runtime.CompilerServices;
 
 namespace Platform.Communication.Protocol.Lino
 {
+    /// <summary>
+    /// <para>
+    /// The .
+    /// </para>
+    /// <para></para>
+    /// </summary>
     public struct _
     {
+        /// <summary>
+        /// <para>
+        /// The link.
+        /// </para>
+        /// <para></para>
+        /// </summary>
         public readonly Link Link;
 
+        /// <summary>
+        /// <para>
+        /// Initializes a new <see cref="_"/> instance.
+        /// </para>
+        /// <para></para>
+        /// </summary>
+        /// <param name="id">
+        /// <para>A id.</para>
+        /// <para></para>
+        /// </param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public _(Link id) => Link = id;
 

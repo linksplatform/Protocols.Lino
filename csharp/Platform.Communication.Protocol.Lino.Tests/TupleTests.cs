@@ -1,10 +1,22 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Platform.Communication.Protocol.Lino.Tests
 {
+    /// <summary>
+    /// <para>
+    /// Represents the tuple tests.
+    /// </para>
+    /// <para></para>
+    /// </summary>
     public class TupleTests
     {
+        /// <summary>
+        /// <para>
+        /// Tests that tuple to link test.
+        /// </para>
+        /// <para></para>
+        /// </summary>
         [Fact]
         public void TupleToLinkTest()
         {
