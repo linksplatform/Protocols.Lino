@@ -2,20 +2,8 @@ using Xunit;
 
 namespace Platform.Communication.Protocol.Lino.Tests
 {
-    /// <summary>
-    /// <para>
-    /// Represents the parser tests.
-    /// </para>
-    /// <para></para>
-    /// </summary>
     public static class ParserTests
     {
-        /// <summary>
-        /// <para>
-        /// Tests that single link test.
-        /// </para>
-        /// <para></para>
-        /// </summary>
         [Fact]
         public static void SingleLinkTest()
         {
@@ -26,12 +14,6 @@ namespace Platform.Communication.Protocol.Lino.Tests
             Assert.Equal(source, target);
         }
 
-        /// <summary>
-        /// <para>
-        /// Tests that two links test.
-        /// </para>
-        /// <para></para>
-        /// </summary>
         [Fact]
         public static void TwoLinksTest()
         {
@@ -43,12 +25,6 @@ namespace Platform.Communication.Protocol.Lino.Tests
             Assert.Equal(source, target);
         }
 
-        /// <summary>
-        /// <para>
-        /// Tests that parse and stringify test.
-        /// </para>
-        /// <para></para>
-        /// </summary>
         [Fact]
         public static void ParseAndStringifyTest()
         {
@@ -62,12 +38,6 @@ namespace Platform.Communication.Protocol.Lino.Tests
             Assert.Equal(source, target);
         }
         
-        /// <summary>
-        /// <para>
-        /// Tests that bug test.
-        /// </para>
-        /// <para></para>
-        /// </summary>
         [Fact]
         public static void BugTest()
         {
@@ -77,12 +47,6 @@ namespace Platform.Communication.Protocol.Lino.Tests
             Assert.Equal(source,target);
         }
 
-        /// <summary>
-        /// <para>
-        /// Tests that parse and stringify with less parentheses test.
-        /// </para>
-        /// <para></para>
-        /// </summary>
         [Fact]
         public static void ParseAndStringifyWithLessParenthesesTest()
         {
@@ -97,12 +61,6 @@ all (love mama)";
             Assert.Equal(source, target);
         }
 
-        /// <summary>
-        /// <para>
-        /// Tests that significant whitespace test.
-        /// </para>
-        /// <para></para>
-        /// </summary>
         [Fact]
         public static void SignificantWhitespaceTest()
         {
