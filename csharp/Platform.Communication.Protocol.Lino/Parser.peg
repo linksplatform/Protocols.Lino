@@ -4,22 +4,22 @@ document <IList<Link>> = #{ state["Indentation"] = 0; } _ l:links eof { l.ToLink
 links <IList<LinksGroup>> = list:line+ { list }
 line <LinksGroup> = INDENTATION l:element { l }
 element <LinksGroup> = e:anyLink INDENT l:links UNDENT { new LinksGroup(e, l) } / e:anyLink { new LinksGroup(e) }
-identityOrLink <Link> = l:multiLineAnyLink { l } / i:identity { i }
+referenceOrLink <Link> = l:multiLineAnyLink { l } / i:reference { i }
 anyLink <Link> = ml:multiLineAnyLink eol { ml } / sl:singleLineAnyLink { sl }
 multiLineAnyLink <Link> = multiLinePointLink / multiLineValueLink / multiLineLink
 singleLineAnyLink <Link> = fl:singleLineLink eol { fl } / pl:singleLinePointLink eol { pl } / vl:singleLineValueLink eol { vl }
-multiLineValueAndWhitespace <Link> = value:identityOrLink _ { value }
+multiLineValueAndWhitespace <Link> = value:referenceOrLink _ { value }
 multiLineValues <IList<Link>> = _ list:multiLineValueAndWhitespace+ { list }
-singleLineValueAndWhitespace <Link> = __ value:identityOrLink { value }
+singleLineValueAndWhitespace <Link> = __ value:referenceOrLink { value }
 singleLineValues <IList<Link>> = list:singleLineValueAndWhitespace+ { list }
-singleLineLink <Link> = __ id:(identity) __ ":" v:singleLineValues { new Link(id, v) }
-multiLineLink <Link> = "(" _ id:(identity) _ ":" v:multiLineValues ")" { new Link(id, v) }
+singleLineLink <Link> = __ id:(reference) __ ":" v:singleLineValues { new Link(id, v) }
+multiLineLink <Link> = "(" _ id:(reference) _ ":" v:multiLineValues ")" { new Link(id, v) }
 singleLineValueLink <Link> = v:singleLineValues { new Link(v) }
 multiLineValueLink <Link> = "(" v:multiLineValues ")" { new Link(v) }
-pointLink <Link> = id:(identity) { new Link(id) }
+pointLink <Link> = id:(reference) { new Link(id) }
 singleLinePointLink<Link> = __ l:pointLink { l }
 multiLinePointLink<Link> = "(" _ l:pointLink _ ")" { l }
-identity <string> = "" referenceSymbol+
+reference <string> = "" referenceSymbol+
 INDENTATION = spaces:" "* &{ spaces.Count == state["Indentation"] }
 INDENT = #{ state["Indentation"] += 4; }
 UNDENT = #{ state["Indentation"] -= 4; }
