@@ -30,6 +30,7 @@ It is now possible to use all symbols except control symbols as reference symbol
 _ struct is added to mark links with set address.
 Platform.Collections dependency updated from 0.2.0 to 0.3.0.
 .NET 5 support is added.</PackageReleaseNotes>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4')) AND '$(MSBuildRuntimeType)' == 'Core' AND '$(OS)' != 'Windows_NT'">
