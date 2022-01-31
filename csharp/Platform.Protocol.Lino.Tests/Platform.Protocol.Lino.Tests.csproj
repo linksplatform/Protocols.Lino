@@ -5,6 +5,7 @@
     <IsPackable>false</IsPackable>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <RootNamespace>Platform.Communication.Protocol.Lino.Tests</RootNamespace>
   </PropertyGroup>
   
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4')) AND '$(MSBuildRuntimeType)' == 'Core' AND '$(OS)' != 'Windows_NT'">
@@ -19,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Platform.Communication.Protocol.Lino\Platform.Communication.Protocol.Lino.csproj" />
+    <ProjectReference Include="..\Platform.Protocol.Lino\Platform.Protocol.Lino.csproj" />
   </ItemGroup>
 
 </Project>

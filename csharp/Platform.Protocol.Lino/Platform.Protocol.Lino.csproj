@@ -7,8 +7,7 @@
     <VersionPrefix>0.4.0</VersionPrefix>
     <Authors>Konstantin Diachenko</Authors>
     <TargetFrameworks>net472;netstandard2.0;netstandard2.1;net5</TargetFrameworks>
-    <AssemblyName>Platform.Communication.Protocol.Lino</AssemblyName>
-    <PackageId>Platform.Communication.Protocol.Lino</PackageId>
+    <PackageId>Platform.Protocol.Lino</PackageId>
     <PackageTags>LinksPlatform;Communication.Protocol.Lino;Lino;IListExtensions;Link;Parser</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/linksplatform/Documentation/18469f4d033ee9a5b7b84caab9c585acab2ac519/doc/Avatar-rainbow-icon-64x64.png</PackageIconUrl>
     <PackageProjectUrl>https://linksplatform.github.io/Communication.Protocol.Lino</PackageProjectUrl>
@@ -31,6 +30,7 @@ _ struct is added to mark links with set address.
 Platform.Collections dependency updated from 0.2.0 to 0.3.0.
 .NET 5 support is added.</PackageReleaseNotes>
     <Nullable>enable</Nullable>
+    <RootNamespace>Platform.Communication.Protocol.Lino</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4')) AND '$(MSBuildRuntimeType)' == 'Core' AND '$(OS)' != 'Windows_NT'">
