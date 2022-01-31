@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "/home/runner/work/Communication.Protocol.Lino/Communication.Protocol.Lino",
+  "source_base_path": "/home/runner/work/Protocols.Lino/Protocols.Lino",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "MFx3jYCGqMJ6r3t+LMnhHw=="
+          "hash": "BioXwkieFAqu+HmtZr3HQA=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "README.ru.html",
-          "hash": "5kLSoFMwg+Gx7uNJT2zC8w=="
+          "hash": "I03xNXsT6yTE7bR0DAIuiw=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.html",
-          "hash": "HZn9prL3igCDYU1j/dUY3g=="
+          "hash": "tbx3rieGWTztq1Lc1TtjMw=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
-          "hash": "cRTTiTPuijA0QqoXElWwww=="
+          "hash": "lBIe4dJvwBIylw6xKXKbmg=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Link.html",
-          "hash": "1rEnn2fguHaJzU5Haqumew=="
+          "hash": "p6OUxbRwrRhkEQv5uVPAwA=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.LinksGroup.html",
-          "hash": "DNg8AAVHb2JDurglChItvw=="
+          "hash": "UcpDvqL3R2hoHpT6MM3d9A=="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.Parser.html",
-          "hash": "E5YuWkkNN9WJLJ80gX1EWA=="
+          "hash": "OlMvvufsIJakaNrMmMsbog=="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino._.html",
-          "hash": "+2Tnodinm8JY9aJ3geFazg=="
+          "hash": "hcCBVdJzhKJVP8EbxZvlcA=="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Platform.Communication.Protocol.Lino.html",
-          "hash": "VE20VkSZm8/bdp83hYIDzA=="
+          "hash": "rf9BlUQMbts24O/agJ2QmQ=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "/KujRkRKUKsoVD7FMhrIvQ=="
+          "hash": "QL/BzsvHa86WkGSxzjEdlQ=="
         }
       },
       "is_incremental": false,
