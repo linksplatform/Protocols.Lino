@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Platform.Protocol.Lino\Platform.Protocol.Lino.csproj" />
+    <ProjectReference Include="..\Platform.Protocols.Lino\Platform.Protocols.Lino.csproj" />
   </ItemGroup>
 
 </Project>
