@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "BioXwkieFAqu+HmtZr3HQA=="
+          "hash": "vjdqPYEOWz+pZfRlA4N3Eg=="
         }
       },
       "is_incremental": false,
@@ -38,11 +38,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.yml",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.ILinksGroupListExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.ILinksGroupListExtensions.html",
-          "hash": "omULBb4A1iVJXQ5u1Q6cLg=="
+          "relative_path": "api/Platform.Protocols.Lino.ILinksGroupListExtensions.html",
+          "hash": "18nxNTt2atnBwt/W4F4Zog=="
         }
       },
       "is_incremental": false,
@@ -50,11 +50,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.IListExtensions.yml",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.IListExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.IListExtensions.html",
-          "hash": "wIhhyfipTUUF/Mdny77pxg=="
+          "relative_path": "api/Platform.Protocols.Lino.IListExtensions.html",
+          "hash": "Mud4+nyNGuCI8uLblaPl7A=="
         }
       },
       "is_incremental": false,
@@ -62,11 +62,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.Link.yml",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.Link.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.Link.html",
-          "hash": "62fpfIe5R1dguriwoxQgnQ=="
+          "relative_path": "api/Platform.Protocols.Lino.Link.html",
+          "hash": "ej5qXZSS9y70+oYDGKBN5A=="
         }
       },
       "is_incremental": false,
@@ -74,11 +74,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.LinksGroup.yml",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.LinksGroup.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.LinksGroup.html",
-          "hash": "0qDJ0St185+5lKj33LVnKA=="
+          "relative_path": "api/Platform.Protocols.Lino.LinksGroup.html",
+          "hash": "dyFXhM0yfcngFN2+QA30HA=="
         }
       },
       "is_incremental": false,
@@ -86,11 +86,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.Parser.yml",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.Parser.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.Parser.html",
-          "hash": "DL/JzBFLVzzM0VXvEFJLcA=="
+          "relative_path": "api/Platform.Protocols.Lino.Parser.html",
+          "hash": "rTc4+5GKse1iG451dWHptw=="
         }
       },
       "is_incremental": false,
@@ -98,11 +98,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino._.yml",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino._.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino._.html",
-          "hash": "9TWfMIdqSEoxm2Dq6QAneA=="
+          "relative_path": "api/Platform.Protocols.Lino._.html",
+          "hash": "LeGUMiYxXGquMRGV7Tz4qg=="
         }
       },
       "is_incremental": false,
@@ -110,11 +110,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Communication.Protocol.Lino.yml",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Platform.Communication.Protocol.Lino.html",
-          "hash": "rf9BlUQMbts24O/agJ2QmQ=="
+          "relative_path": "api/Platform.Protocols.Lino.html",
+          "hash": "GaZBc/v3M+onMKkTNTb8+w=="
         }
       },
       "is_incremental": false,
@@ -126,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "/zNJ3+fGaDnq9pGl8qjD3g=="
+          "hash": "nScPGoAHv71sPuhfryGwSg=="
         }
       },
       "is_incremental": false,
