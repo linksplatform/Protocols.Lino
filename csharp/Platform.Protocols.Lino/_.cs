@@ -2,7 +2,7 @@
 
 using System.Runtime.CompilerServices;
 
-namespace Platform.Communication.Protocol.Lino
+namespace Platform.Protocols.Lino
 {
     public struct _
     {

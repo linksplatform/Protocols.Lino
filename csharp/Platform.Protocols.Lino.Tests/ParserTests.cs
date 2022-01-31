@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Platform.Communication.Protocol.Lino.Tests
+namespace Platform.Protocols.Lino.Tests
 {
     public static class ParserTests
     {
@@ -42,7 +42,7 @@ namespace Platform.Communication.Protocol.Lino.Tests
         public static void BugTest()
         {
             var source = @"(ignore conan-center-index repository)";
-            var links = (new Platform.Communication.Protocol.Lino.Parser()).Parse(source);
+            var links = (new Platform.Protocols.Lino.Parser()).Parse(source);
             var target = links.Format();
             Assert.Equal(source,target);
         }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xunit;
 
-namespace Platform.Communication.Protocol.Lino.Tests
+namespace Platform.Protocols.Lino.Tests
 {
     public class TupleTests
     {

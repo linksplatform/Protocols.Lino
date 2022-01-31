@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
-namespace Platform.Communication.Protocol.Lino
+namespace Platform.Protocols.Lino
 {
     public static class IListExtensions
     {

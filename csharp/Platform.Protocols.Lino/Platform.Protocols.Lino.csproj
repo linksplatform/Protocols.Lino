@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>LinksPlatform's Platform.Communication.Protocol.Lino Class Library</Description>
+    <Description>LinksPlatform's Platform.Protocols.Lino Class Library</Description>
     <Copyright>Konstantin Diachenko</Copyright>
-    <AssemblyTitle>Platform.Communication.Protocol.Lino</AssemblyTitle>
+    <AssemblyTitle>Platform.Protocols.Lino</AssemblyTitle>
     <VersionPrefix>0.4.0</VersionPrefix>
     <Authors>Konstantin Diachenko</Authors>
     <TargetFrameworks>net472;netstandard2.0;netstandard2.1;net5</TargetFrameworks>
     <PackageId>Platform.Protocols.Lino</PackageId>
-    <PackageTags>LinksPlatform;Communication.Protocol.Lino;Lino;IListExtensions;Link;Parser</PackageTags>
+    <PackageTags>LinksPlatform;Protocols.Lino;Lino;IListExtensions;Link;Parser</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/linksplatform/Documentation/18469f4d033ee9a5b7b84caab9c585acab2ac519/doc/Avatar-rainbow-icon-64x64.png</PackageIconUrl>
-    <PackageProjectUrl>https://linksplatform.github.io/Communication.Protocol.Lino</PackageProjectUrl>
+    <PackageProjectUrl>https://linksplatform.github.io/Protocols.Lino</PackageProjectUrl>
     <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>git://github.com/linksplatform/Communication.Protocol.Lino</RepositoryUrl>
+    <RepositoryUrl>git://github.com/linksplatform/Protocols.Lino</RepositoryUrl>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -30,7 +30,7 @@ _ struct is added to mark links with set address.
 Platform.Collections dependency updated from 0.2.0 to 0.3.0.
 .NET 5 support is added.</PackageReleaseNotes>
     <Nullable>enable</Nullable>
-    <RootNamespace>Platform.Communication.Protocol.Lino</RootNamespace>
+    <RootNamespace>Platform.Protocols.Lino</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4')) AND '$(MSBuildRuntimeType)' == 'Core' AND '$(OS)' != 'Windows_NT'">
