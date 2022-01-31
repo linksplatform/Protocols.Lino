@@ -39,9 +39,21 @@ namespace Platform.Protocols.Lino.Tests
         }
         
         [Fact]
-        public static void BugTest()
+        public static void BugTest1()
         {
             var source = @"(ignore conan-center-index repository)";
+            var links = (new Platform.Protocols.Lino.Parser()).Parse(source);
+            var target = links.Format();
+            Assert.Equal(source,target);
+        }
+
+        [Fact]
+        public static void BugTest2()
+        {
+            var source = @"father (lovesMom: loves mom)
+                        son lovesMom
+                        daughter lovesMom
+                        all (love mom)";
             var links = (new Platform.Protocols.Lino.Parser()).Parse(source);
             var target = links.Format();
             Assert.Equal(source,target);
