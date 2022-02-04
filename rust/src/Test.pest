@@ -1,0 +1,24 @@
+whitespace = _{ ("\n" | " ")+ }
+ref_commons = _{ "(" | ":" | ")" }
+
+reference = @{ ( !ref_commons ~ !whitespace ~ ANY)+ }
+point = _{ "(" ~ whitespace? ~ reference ~ whitespace? ~ ")" }
+
+values = _{ (link ~ whitespace?)* }
+value = _{ "(" ~ whitespace? ~ values ~ whitespace? ~ ")"}
+
+link = { point | value | real_link | reference }
+real_link = _{ "(" ~ whitespace? ~ (id  ~ whitespace? ~ ":")? ~ whitespace? ~ values ~ whitespace? ~ ")" }
+id = @{ reference }
+
+//element = _{ link ~ whitespace? ~ lines? }
+element = _{ link }
+lines        = _{ top_first ~ ("\n" ~ top_continue)* }
+top_first    = _{ element ~ ("\n" ~ children)? }
+top_continue = _{ PEEK_ALL ~ element ~ ("\n" ~ children)? }
+
+indentation = _{ ("  ")+ }
+children    =  { PEEK_ALL ~ PUSH(indentation) ~ lines ~ DROP }
+
+/// ORANGE
+document = { whitespace? ~ lines ~ whitespace? }
