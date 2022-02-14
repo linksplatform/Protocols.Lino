@@ -44,7 +44,7 @@ Platform.Collections dependency updated from 0.2.0 to 0.3.0.
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Pegasus" Version="4.1.0" />
-    <PackageReference Include="Platform.Collections" Version="0.3.0" />
+    <PackageReference Include="Platform.Collections" Version="0.3.2" />
   </ItemGroup>
 
   <ItemGroup>
