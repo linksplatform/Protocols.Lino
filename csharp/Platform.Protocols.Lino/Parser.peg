@@ -1,24 +1,24 @@
 ﻿@namespace Platform.Protocols.Lino
 @classname Parser
-document <IList<Link>> = #{ state["Indentation"] = 0; } _ l:links eof { l.ToLinksList() }
-links <IList<LinksGroup>> = list:line+ { list }
-line <LinksGroup> = INDENTATION l:element { l }
-element <LinksGroup> = e:anyLink INDENT l:links UNDENT { new LinksGroup(e, l) } / e:anyLink { new LinksGroup(e) }
-referenceOrLink <Link> = l:multiLineAnyLink { l } / i:reference { i }
-anyLink <Link> = ml:multiLineAnyLink eol { ml } / sl:singleLineAnyLink { sl }
-multiLineAnyLink <Link> = multiLinePointLink / multiLineValueLink / multiLineLink
-singleLineAnyLink <Link> = fl:singleLineLink eol { fl } / pl:singleLinePointLink eol { pl } / vl:singleLineValueLink eol { vl }
-multiLineValueAndWhitespace <Link> = value:referenceOrLink _ { value }
-multiLineValues <IList<Link>> = _ list:multiLineValueAndWhitespace+ { list }
-singleLineValueAndWhitespace <Link> = __ value:referenceOrLink { value }
-singleLineValues <IList<Link>> = list:singleLineValueAndWhitespace+ { list }
-singleLineLink <Link> = __ id:(reference) __ ":" v:singleLineValues { new Link(id, v) }
-multiLineLink <Link> = "(" _ id:(reference) _ ":" v:multiLineValues ")" { new Link(id, v) }
-singleLineValueLink <Link> = v:singleLineValues { new Link(v) }
-multiLineValueLink <Link> = "(" v:multiLineValues ")" { new Link(v) }
-pointLink <Link> = id:(reference) { new Link(id) }
-singleLinePointLink<Link> = __ l:pointLink { l }
-multiLinePointLink<Link> = "(" _ l:pointLink _ ")" { l }
+document <IList<Link<string>>> = #{ state["Indentation"] = 0; } _ l:links eof { l.ToLinksList() }
+links <IList<LinksGroup<string>>> = list:line+ { list }
+line <LinksGroup<string>> = INDENTATION l:element { l }
+element <LinksGroup<string>> = e:anyLink INDENT l:links UNDENT { new LinksGroup<string>(e, l) } / e:anyLink { new LinksGroup<string>(e) }
+referenceOrLink <Link<string>> = l:multiLineAnyLink { l } / i:reference { i }
+anyLink <Link<string>> = ml:multiLineAnyLink eol { ml } / sl:singleLineAnyLink { sl }
+multiLineAnyLink <Link<string>> = multiLinePointLink / multiLineValueLink / multiLineLink
+singleLineAnyLink <Link<string>> = fl:singleLineLink eol { fl } / pl:singleLinePointLink eol { pl } / vl:singleLineValueLink eol { vl }
+multiLineValueAndWhitespace <Link<string>> = value:referenceOrLink _ { value }
+multiLineValues <IList<Link<string>>> = _ list:multiLineValueAndWhitespace+ { list }
+singleLineValueAndWhitespace <Link<string>> = __ value:referenceOrLink { value }
+singleLineValues <IList<Link<string>>> = list:singleLineValueAndWhitespace+ { list }
+singleLineLink <Link<string>> = __ id:(reference) __ ":" v:singleLineValues { new Link<string>(id, v) }
+multiLineLink <Link<string>> = "(" _ id:(reference) _ ":" v:multiLineValues ")" { new Link<string>(id, v) }
+singleLineValueLink <Link<string>> = v:singleLineValues { new Link<string>(v) }
+multiLineValueLink <Link<string>> = "(" v:multiLineValues ")" { new Link<string>(v) }
+pointLink <Link<string>> = id:(reference) { new Link<string>(id) }
+singleLinePointLink<Link<string>> = __ l:pointLink { l }
+multiLinePointLink<Link<string>> = "(" _ l:pointLink _ ")" { l }
 reference <string> = "" referenceSymbol+
 INDENTATION = spaces:" "* &{ spaces.Count == state["Indentation"] }
 INDENT = #{ state["Indentation"] += 4; }

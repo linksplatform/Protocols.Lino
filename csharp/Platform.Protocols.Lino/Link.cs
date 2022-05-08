@@ -9,23 +9,25 @@ using Platform.Collections.Lists;
 
 namespace Platform.Protocols.Lino
 {
-    public struct Link : IEquatable<Link>
+    public struct Link<TLinkAddress> : IEquatable<Link<TLinkAddress>>
     {
-        public readonly string Id;
+        private readonly EqualityComparer<TLinkAddress> _equalityComparer = EqualityComparer<TLinkAddress>.Default;
 
-        public readonly IList<Link> Values;
+        public readonly TLinkAddress? Id;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Link(string id, IList<Link> values) => (Id, Values) = (id, values);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Link(IList<Link> values) : this(null, values) { }
+        public readonly IList<Link<TLinkAddress>> Values;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Link(params Link[] values) : this(null, values) { }
+        public Link(TLinkAddress id, IList<Link<TLinkAddress>> values) => (Id, Values) = (id, values);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Link(string id) : this(id, null) { }
+        public Link(IList<Link<TLinkAddress>> values) : this(default!, values) { }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Link(params Link<TLinkAddress>[] values) : this(default!, values) { }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Link(TLinkAddress id) : this(id, default!) { }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString() => Values.IsNullOrEmpty() ? $"({Id})" : GetLinkValuesString();
@@ -49,7 +51,7 @@ namespace Platform.Protocols.Lino
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Link Simplify()
+        public Link<TLinkAddress> Simplify()
         {
             if (Values.IsNullOrEmpty())
             {
@@ -61,49 +63,55 @@ namespace Platform.Protocols.Lino
             }
             else
             {
-                var newValues = new Link[Values.Count];
+                var newValues = new Link<TLinkAddress>[Values.Count];
                 for (int i = 0; i < Values.Count; i++)
                 {
                     newValues[i] = Values[i].Simplify();
                 }
-                return new Link(Id, newValues);
+                return new Link<TLinkAddress>(Id, newValues);
             }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Link Combine(Link other) => new Link(this, other);
+        public Link<TLinkAddress> Combine(Link<TLinkAddress> other) => new Link<TLinkAddress>(this, other);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static string GetValueString(Link value) => value.ToLinkOrIdString();
+        public static string GetValueString(Link<TLinkAddress> value) => value.ToLinkOrIdString();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string ToLinkOrIdString() => Values.IsNullOrEmpty() ? Id : ToString();
+        public string ToLinkOrIdString() => Values.IsNullOrEmpty() ? Id == null ? "" : Id.ToString() : ToString();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link(string value) => new Link(value);
+        public static implicit operator Link<TLinkAddress>(TLinkAddress value) => new Link<TLinkAddress>(value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link((string, IList<Link>) value) => new Link(value.Item1, value.Item2);
+        public static implicit operator Link<TLinkAddress>((TLinkAddress, IList<Link<TLinkAddress>>) value) => new (value.Item1, value.Item2);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link((Link, Link) value) => new Link(value.Item1, value.Item2);
+        public static implicit operator Link<TLinkAddress>((Link<TLinkAddress> source, Link<TLinkAddress> target) value) => new (value.source, value.target);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link((Link, Link, Link) value) => new Link(value.Item1, value.Item2, value.Item3);
+        public static implicit operator Link<TLinkAddress>((id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> target) value) => new (value.id.Id, new [] { value.source, value.target });
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is Link link ? Equals(link) : false;
+        public static implicit operator Link<TLinkAddress>((Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target) value) => new (value.source, value.linker, value.target);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator Link<TLinkAddress>((id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target) value) => new (value.id.Id, new [] { value.source, value.linker, value.target });
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is Link<TLinkAddress> link && Equals(link);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() => (Id, Values.GenerateHashCode()).GetHashCode();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(Link other) => Id == other.Id && Values.EqualTo(other.Values);
+        public bool Equals(Link<TLinkAddress> other) => Id != null && other.Id != null && _equalityComparer.Equals(Id, other.Id) && Values.EqualTo(other.Values);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool operator ==(Link left, Link right) => left.Equals(right);
+        public static bool operator ==(Link<TLinkAddress> left, Link<TLinkAddress> right) => left.Equals(right);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool operator !=(Link left, Link right) => !(left == right);
+        public static bool operator !=(Link<TLinkAddress> left, Link<TLinkAddress> right) => !(left == right);
     }
 }

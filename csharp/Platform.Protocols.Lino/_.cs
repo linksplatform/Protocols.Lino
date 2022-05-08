@@ -4,29 +4,29 @@ using System.Runtime.CompilerServices;
 
 namespace Platform.Protocols.Lino
 {
-    public struct _
+    public struct _<TLinkAddress>
     {
-        public readonly Link Link;
+        public readonly Link<TLinkAddress> Link;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public _(Link id) => Link = id;
+        public _(Link<TLinkAddress> id) => Link = id;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator _(Link value) => new _(value);
+        public static implicit operator _<TLinkAddress>(Link<TLinkAddress> value) => new (value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator _(string id) => new _(id);
+        public static implicit operator _<TLinkAddress>(TLinkAddress id) => new (id);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator _((string, Link) value) => new Link(value.Item1, new Link[] { value.Item2 });
+        public static implicit operator _<TLinkAddress>((TLinkAddress, Link<TLinkAddress>) value) => new Link<TLinkAddress>(value.Item1, new [] { value.Item2 });
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator _((string, Link, Link) value) => new Link(value.Item1, new Link[] { value.Item2, value.Item3 });
+        public static implicit operator _<TLinkAddress>((TLinkAddress, Link<TLinkAddress>, Link<TLinkAddress>) value) => new Link<TLinkAddress>(value.Item1, new [] { value.Item2, value.Item3 });
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator _((string, Link, Link, Link) value) => new Link(value.Item1, new Link[] { value.Item2, value.Item3, value.Item4 });
+        public static implicit operator _<TLinkAddress>((TLinkAddress, Link<TLinkAddress>, Link<TLinkAddress>, Link<TLinkAddress>) value) => new Link<TLinkAddress>(value.Item1, new [] { value.Item2, value.Item3, value.Item4 });
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link(_ value) => value.Link;
+        public static implicit operator Link<TLinkAddress>(_<TLinkAddress> value) => value.Link;
     }
 }

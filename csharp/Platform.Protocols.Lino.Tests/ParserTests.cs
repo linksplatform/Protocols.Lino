@@ -42,7 +42,7 @@ namespace Platform.Protocols.Lino.Tests
         public static void BugTest1()
         {
             var source = @"(ignore conan-center-index repository)";
-            var links = (new Platform.Protocols.Lino.Parser()).Parse(source);
+            var links = new Parser().Parse(source);
             var target = links.Format();
             Assert.Equal(source,target);
         }
@@ -54,7 +54,7 @@ namespace Platform.Protocols.Lino.Tests
                         son lovesMom
                         daughter lovesMom
                         all (love mom)";
-            var links = (new Platform.Protocols.Lino.Parser()).Parse(source);
+            var links = new Parser().Parse(source);
             var target = links.Format();
             Assert.Equal(source,target);
         }
@@ -131,6 +131,20 @@ users
 (((users user2) location) Moscow)
 ((users user2) age)
 (((users user2) age) 20)";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            var formattedLinks = links.Format();
+            Assert.Equal(target, formattedLinks);
+        }
+        
+        [Fact]
+        public static void TwoSpacesSizedWhitespaceTest()
+        {
+            var source = @"
+users
+  user1";
+            var target = @"(users)
+(users user1)";
             var parser = new Parser();
             var links = parser.Parse(source);
             var formattedLinks = links.Format();

@@ -8,9 +8,9 @@ using Platform.Collections.Lists;
 
 namespace Platform.Protocols.Lino
 {
-    public struct LinksGroup : IEquatable<LinksGroup>
+    public struct LinksGroup<TLinkAddress> : IEquatable<LinksGroup<TLinkAddress>>
     {
-        public Link Link
+        public Link<TLinkAddress> Link
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get;
@@ -18,7 +18,7 @@ namespace Platform.Protocols.Lino
             set;
         }
 
-        public IList<LinksGroup> Groups
+        public IList<LinksGroup<TLinkAddress>> Groups
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get;
@@ -27,31 +27,31 @@ namespace Platform.Protocols.Lino
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public LinksGroup(Link link, IList<LinksGroup> groups)
+        public LinksGroup(Link<TLinkAddress> link, IList<LinksGroup<TLinkAddress>> groups)
         {
             Link = link;
             Groups = groups;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public LinksGroup(Link link) : this(link, null) { }
+        public LinksGroup(Link<TLinkAddress> link) : this(link, null) { }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator List<Link>(LinksGroup value) => value.ToLinksList();
+        public static implicit operator List<Link<TLinkAddress>>(LinksGroup<TLinkAddress> value) => value.ToLinksList();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public List<Link> ToLinksList()
+        public List<Link<TLinkAddress>> ToLinksList()
         {
-            var list = new List<Link>();
+            var list = new List<Link<TLinkAddress>>();
             AppendToLinksList(list);
             return list;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void AppendToLinksList(List<Link> list) => AppendToLinksList(list, Link, this);
+        public void AppendToLinksList(List<Link<TLinkAddress>> list) => AppendToLinksList(list, Link, this);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void AppendToLinksList(List<Link> list, Link dependency, LinksGroup group)
+        public static void AppendToLinksList(List<Link<TLinkAddress>> list, Link<TLinkAddress> dependency, LinksGroup<TLinkAddress> group)
         {
             list.Add(dependency);
             var groups = group.Groups;
@@ -66,18 +66,18 @@ namespace Platform.Protocols.Lino
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is LinksGroup linksGroup ? Equals(linksGroup) : false;
+        public override bool Equals(object obj) => obj is LinksGroup<TLinkAddress> linksGroup ? Equals(linksGroup) : false;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() => (Link, Groups.GenerateHashCode()).GetHashCode();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(LinksGroup other) => Link == other.Link && Groups.EqualTo(other.Groups);
+        public bool Equals(LinksGroup<TLinkAddress> other) => Link == other.Link && Groups.EqualTo(other.Groups);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool operator ==(LinksGroup left, LinksGroup right) => left.Equals(right);
+        public static bool operator ==(LinksGroup<TLinkAddress> left, LinksGroup<TLinkAddress> right) => left.Equals(right);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool operator !=(LinksGroup left, LinksGroup right) => !(left == right);
+        public static bool operator !=(LinksGroup<TLinkAddress> left, LinksGroup<TLinkAddress> right) => !(left == right);
     }
 }

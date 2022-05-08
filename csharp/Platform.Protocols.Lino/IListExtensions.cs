@@ -11,10 +11,10 @@ namespace Platform.Protocols.Lino
     public static class IListExtensions
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static string Format(this IList<Link> links) => string.Join(Environment.NewLine, links.Select(l => l.ToString()));
+        public static string Format<TLinkAddress>(this IList<Link<TLinkAddress>> links) => string.Join(Environment.NewLine, links.Select(l => l.ToString()));
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static string Format(this IList<Link> links, bool lessParentheses)
+        public static string Format<TLinkAddress>(this IList<Link<TLinkAddress>> links, bool lessParentheses)
         {
             if (lessParentheses == false)
             {
