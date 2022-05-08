@@ -48,14 +48,14 @@ namespace Platform.Protocols.Lino.Tests
         }
 
         [Fact]
-        public static void BugTest2()
+        public static void ParseAndStringifyTest2()
         {
             var source = @"father (lovesMom: loves mom)
-                        son lovesMom
-                        daughter lovesMom
-                        all (love mom)";
+son lovesMom
+daughter lovesMom
+all (love mom)";
             var links = new Parser().Parse(source);
-            var target = links.Format();
+            var target = links.Format(lessParentheses: true);
             Assert.Equal(source,target);
         }
 
