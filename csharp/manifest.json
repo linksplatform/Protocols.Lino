@@ -1,137 +1,8 @@
 {
   "homepages": [],
-  "source_base_path": "/home/runner/work/Protocols.Lino/Protocols.Lino",
+  "source_base_path": "/home/runner/work/Protocols.Lino/Protocols.Lino/csharp",
   "xrefmap": "xrefmap.yml",
   "files": [
-    {
-      "type": "Resource",
-      "output": {
-        "resource": {
-          "relative_path": "index.json"
-        }
-      },
-      "is_incremental": false
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "README.md",
-      "output": {
-        ".html": {
-          "relative_path": "README.html",
-          "hash": "vjdqPYEOWz+pZfRlA4N3Eg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "README.ru.md",
-      "output": {
-        ".html": {
-          "relative_path": "README.ru.html",
-          "hash": "I03xNXsT6yTE7bR0DAIuiw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Protocols.Lino.ILinksGroupListExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Protocols.Lino.ILinksGroupListExtensions.html",
-          "hash": "18nxNTt2atnBwt/W4F4Zog=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Protocols.Lino.IListExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Protocols.Lino.IListExtensions.html",
-          "hash": "Mud4+nyNGuCI8uLblaPl7A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Protocols.Lino.Link.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Protocols.Lino.Link.html",
-          "hash": "ej5qXZSS9y70+oYDGKBN5A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Protocols.Lino.LinksGroup.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Protocols.Lino.LinksGroup.html",
-          "hash": "dyFXhM0yfcngFN2+QA30HA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Protocols.Lino.Parser.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Protocols.Lino.Parser.html",
-          "hash": "rTc4+5GKse1iG451dWHptw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Protocols.Lino._.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Protocols.Lino._.html",
-          "hash": "LeGUMiYxXGquMRGV7Tz4qg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Platform.Protocols.Lino.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Platform.Protocols.Lino.html",
-          "hash": "GaZBc/v3M+onMKkTNTb8+w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "obj/api/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "nScPGoAHv71sPuhfryGwSg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
     {
       "log_codes": [
         "InvalidFileLink"
@@ -141,7 +12,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "QL/BzsvHa86WkGSxzjEdlQ=="
+          "hash": "+sMUyjvPgu01Lo6XhHvaFA=="
         }
       },
       "is_incremental": false,
@@ -159,18 +30,6 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 2,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 7,
-          "skipped_file_count": 0
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
