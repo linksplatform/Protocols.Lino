@@ -22,9 +22,9 @@ pointLink <Link<string>> = id:(reference) { new Link<string>(id) }
 singleLinePointLink<Link<string>> = __ l:pointLink { l }
 multiLinePointLink<Link<string>> = "(" _ l:pointLink _ ")" { l }
 reference <string> = simpleReference / singleQuotedReference / doubleQuotedReference
-simpleReference <string> = "" referenceSymbol+
-doubleQuotedReference <string> = '"' r:([^"]+) '"' { r }
-singleQuotedReference <string> = "'" r:([^']+) "'" { r }
+simpleReference = "" referenceSymbol+
+doubleQuotedReference = '"' r:[^"]+ '"' { r }
+singleQuotedReference = "'" r:[^']+ "'" { r }
 PUSH_INDENTATION = spaces:" "* &{ spaces.Count > state["IndentationStack"].Peek() } #{ state["IndentationStack"].Push(spaces.Count); }
 POP_INDENTATION = #{ state["IndentationStack"].Pop(); }
 CHECK_INDENTATION = spaces:" "* &{ spaces.Count == state["IndentationStack"].Peek() }
