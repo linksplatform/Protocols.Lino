@@ -30,10 +30,10 @@ namespace Platform.Protocols.Lino
         public Link(TLinkAddress id) : this(id, default!) { }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override string ToString() => Values.IsNullOrEmpty() ? $"({Id})" : GetLinkValuesString();
+        public override string ToString() => Values.IsNullOrEmpty() ? $"({EscapeReference(Id.ToString())})" : GetLinkValuesString();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private string GetLinkValuesString() => Id == null ? $"({GetValuesString()})" : $"({Id}: {GetValuesString()})";
+        private string GetLinkValuesString() => Id == null ? $"({GetValuesString()})" : $"({EscapeReference(Id.ToString())}: {GetValuesString()})";
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string GetValuesString()
@@ -78,8 +78,33 @@ namespace Platform.Protocols.Lino
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetValueString(Link<TLinkAddress> value) => value.ToLinkOrIdString();
 
+        public static string EscapeReference(string reference)
+        {
+            if  (
+                    reference.Contains(":") ||
+                    reference.Contains("(") ||
+                    reference.Contains(")") ||
+                    reference.Contains(" ") ||
+                    reference.Contains("\t") ||
+                    reference.Contains("\n") ||
+                    reference.Contains("\r") ||
+                    reference.Contains("\"")
+                )
+            {
+                return $"'{reference}'";
+            }
+            else if (reference.Contains("'"))
+            {
+                return $"\"{reference}\"";
+            }
+            else
+            {
+                return reference;
+            }
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string ToLinkOrIdString() => Values.IsNullOrEmpty() ? Id == null ? "" : Id.ToString() : ToString();
+        public string ToLinkOrIdString() => Values.IsNullOrEmpty() ? Id == null ? "" : EscapeReference(Id.ToString()) : ToString();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator Link<TLinkAddress>(TLinkAddress value) => new Link<TLinkAddress>(value);

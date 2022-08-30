@@ -150,5 +150,27 @@ users
             var formattedLinks = links.Format();
             Assert.Equal(target, formattedLinks);
         }
+
+        [Fact]
+        public static void QuotedReferencesTest()
+        {
+            var source = @"(a: 'b' ""c"")";
+            var target = @"(a: b c)";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            var formattedLinks = links.Format();
+            Assert.Equal(target, formattedLinks);
+        }
+
+        [Fact]
+        public static void QuotedReferencesWithSpacesTest()
+        {
+            var source = @"('a a': 'b b' ""c c"")";
+            var target = @"('a a': 'b b' 'c c')";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            var formattedLinks = links.Format();
+            Assert.Equal(target, formattedLinks);
+        }
     }
 }
