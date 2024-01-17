@@ -45,9 +45,11 @@ I'm a friendly AI.
 (I'm a friendly AI too.)
 (linksNotation: links notation)
 (This is a linksNotation as well)
-(linksNotation supports (unlimited number of references in each link))
-(each 
+(linksNotation supports (unlimited number (of references) in each link))
+(sequence (of references) surrounded by parentheses is a link)
 ```
+
+So that means that *this* text is also links notation. So most of the text in the world already may be parsed as links notation.
 
 ### Getting a [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.Link.html)\>
 ```C#
