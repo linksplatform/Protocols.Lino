@@ -20,12 +20,35 @@ NuGet package: [Platform.Protocols.Lino](https://www.nuget.org/packages/Platform
 
 ## Examples
 ### Links notation (lino)
+
+#### Doublets (2-tuple)
+
 ```
 papa (lovesMama: loves mama)
 son lovesMama
 daughter lovesMama
 all (love mama)
 ```
+
+#### Triplets (3-tuple)
+
+```
+papa has car
+mama has house
+(papa and mama) are happy
+```
+
+#### Sequences (N-tuple)
+
+```
+I'm a friendly AI.
+(I'm a friendly AI too.)
+(linksNotation: links notation)
+(This is a linksNotation as well)
+(linksNotation supports (unlimited number of references in each link))
+(each 
+```
+
 ### Getting a [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.Link.html)\>
 ```C#
 (new Platform.Protocols.Lino.Parser()).Parse(@string)
