@@ -37,7 +37,17 @@ namespace Platform.Protocols.Lino.Tests
             var target = links.Format();
             Assert.Equal(source, target);
         }
-        
+
+        [Fact]
+        public static void TripletSingleLinkTest()
+        {
+            var source = @"(papa has car)";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            var target = links.Format();
+            Assert.Equal(source, target);
+        }
+
         [Fact]
         public static void BugTest1()
         {
