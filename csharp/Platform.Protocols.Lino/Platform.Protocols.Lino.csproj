@@ -6,7 +6,7 @@
     <AssemblyTitle>Platform.Protocols.Lino</AssemblyTitle>
     <VersionPrefix>0.4.0</VersionPrefix>
     <Authors>Konstantin Diachenko</Authors>
-    <TargetFramework>net7</TargetFramework>
+    <TargetFrameworks>net7;net8</TargetFrameworks>
     <PackageId>Platform.Protocols.Lino</PackageId>
     <PackageTags>LinksPlatform;Protocols.Lino;Lino;IListExtensions;Link;Parser</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/linksplatform/Documentation/18469f4d033ee9a5b7b84caab9c585acab2ac519/doc/Avatar-rainbow-icon-64x64.png</PackageIconUrl>
