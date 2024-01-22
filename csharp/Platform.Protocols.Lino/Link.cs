@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Platform.Collections;
@@ -9,11 +10,11 @@ using Platform.Collections.Lists;
 
 namespace Platform.Protocols.Lino
 {
-    public struct Link<TLinkAddress> : IEquatable<Link<TLinkAddress>>
+    public readonly struct Link<TLinkAddress> : IEquatable<Link<TLinkAddress>>
     {
         private readonly EqualityComparer<TLinkAddress> _equalityComparer = EqualityComparer<TLinkAddress>.Default;
 
-        public readonly TLinkAddress? Id;
+        public readonly TLinkAddress Id;
 
         public readonly IList<Link<TLinkAddress>> Values;
 
@@ -30,10 +31,10 @@ namespace Platform.Protocols.Lino
         public Link(TLinkAddress id) : this(id, default!) { }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override string ToString() => Values.IsNullOrEmpty() ? $"({EscapeReference(Id.ToString())})" : GetLinkValuesString();
+        public override string ToString() => Values.IsNullOrEmpty() ? $"({EscapeReference($"{Id}")})" : GetLinkValuesString();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private string GetLinkValuesString() => Id == null ? $"({GetValuesString()})" : $"({EscapeReference(Id.ToString())}: {GetValuesString()})";
+        private string GetLinkValuesString() => Id == null ? $"({GetValuesString()})" : $"({EscapeReference($"{Id}")}: {GetValuesString()})";
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string GetValuesString()
@@ -78,36 +79,16 @@ namespace Platform.Protocols.Lino
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetValueString(Link<TLinkAddress> value) => value.ToLinkOrIdString();
 
-        public static string EscapeReference(string reference)
-        {
-            if  (
-                    reference.Contains(":") ||
-                    reference.Contains("(") ||
-                    reference.Contains(")") ||
-                    reference.Contains(" ") ||
-                    reference.Contains("\t") ||
-                    reference.Contains("\n") ||
-                    reference.Contains("\r") ||
-                    reference.Contains("\"")
-                )
-            {
-                return $"'{reference}'";
-            }
-            else if (reference.Contains("'"))
-            {
-                return $"\"{reference}\"";
-            }
-            else
-            {
-                return reference;
-            }
-        }
+        public static string EscapeReference(string reference) 
+            => reference.Any(":() \t\n\r\"".Contains) ? $"'{reference}'"   : 
+                             reference.Contains('\'') ? $"\"{reference}\"" : 
+                             reference;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string ToLinkOrIdString() => Values.IsNullOrEmpty() ? Id == null ? "" : EscapeReference(Id.ToString()) : ToString();
+        public string ToLinkOrIdString() => Values.IsNullOrEmpty() ? Id == null ? "" : EscapeReference($"{Id}") : ToString();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link<TLinkAddress>(TLinkAddress value) => new Link<TLinkAddress>(value);
+        public static implicit operator Link<TLinkAddress>(TLinkAddress value) => new(value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator Link<TLinkAddress>((TLinkAddress, IList<Link<TLinkAddress>>) value) => new (value.Item1, value.Item2);
@@ -116,16 +97,16 @@ namespace Platform.Protocols.Lino
         public static implicit operator Link<TLinkAddress>((Link<TLinkAddress> source, Link<TLinkAddress> target) value) => new (value.source, value.target);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link<TLinkAddress>((id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> target) value) => new (value.id.Id, new [] { value.source, value.target });
+        public static implicit operator Link<TLinkAddress>((Id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> target) value) => new (value.id.id, new [] { value.source, value.target });
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator Link<TLinkAddress>((Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target) value) => new (value.source, value.linker, value.target);
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link<TLinkAddress>((id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target) value) => new (value.id.Id, new [] { value.source, value.linker, value.target });
+        public static implicit operator Link<TLinkAddress>((Id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target) value) => new (value.id.id, new [] { value.source, value.linker, value.target });
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is Link<TLinkAddress> link && Equals(link);
+        public override bool Equals(object? obj) => obj is Link<TLinkAddress> link && Equals(link);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() => (Id, Values.GenerateHashCode()).GetHashCode();

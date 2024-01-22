@@ -4,14 +4,12 @@ using System.Runtime.CompilerServices;
 
 namespace Platform.Protocols.Lino
 {
-    public struct id<TLinkAddress>
+    [method: MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public readonly struct Id<TLinkAddress>(TLinkAddress id)
     {
-        public readonly TLinkAddress Id;
+        public readonly TLinkAddress id = id;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public id(TLinkAddress id) => Id = id;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator id<TLinkAddress>(TLinkAddress id) => new (id);
+        public static explicit operator Id<TLinkAddress>(TLinkAddress id) => new (id);
     }
 }
