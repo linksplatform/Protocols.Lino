@@ -34,7 +34,7 @@ namespace Platform.Protocols.Lino
         public override string ToString() => Values.IsNullOrEmpty() ? $"({EscapeReference($"{Id}")})" : GetLinkValuesString();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private string GetLinkValuesString() => Id == null ? $"({GetValuesString()})" : $"({EscapeReference($"{Id}")}: {GetValuesString()})";
+        private string GetLinkValuesString() =>  $"({EscapeReference($"{Id}")}: {GetValuesString()})";
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string GetValuesString()
@@ -85,7 +85,7 @@ namespace Platform.Protocols.Lino
                              reference;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string ToLinkOrIdString() => Values.IsNullOrEmpty() ? Id == null ? "" : EscapeReference($"{Id}") : ToString();
+        public string ToLinkOrIdString() => Values.IsNullOrEmpty() ?  EscapeReference($"{Id}") : ToString();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator Link<TLinkAddress>(TLinkAddress value) => new(value);
@@ -97,13 +97,13 @@ namespace Platform.Protocols.Lino
         public static implicit operator Link<TLinkAddress>((Link<TLinkAddress> source, Link<TLinkAddress> target) value) => new (value.source, value.target);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link<TLinkAddress>((Id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> target) value) => new (value.id.id, new [] { value.source, value.target });
+        public static implicit operator Link<TLinkAddress>((Id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> target) value) => new (value.id.ID, new [] { value.source, value.target });
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator Link<TLinkAddress>((Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target) value) => new (value.source, value.linker, value.target);
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator Link<TLinkAddress>((Id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target) value) => new (value.id.id, new [] { value.source, value.linker, value.target });
+        public static implicit operator Link<TLinkAddress>((Id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target) value) => new (value.id.ID, new [] { value.source, value.linker, value.target });
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override bool Equals(object? obj) => obj is Link<TLinkAddress> link && Equals(link);
@@ -119,5 +119,8 @@ namespace Platform.Protocols.Lino
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool operator !=(Link<TLinkAddress> left, Link<TLinkAddress> right) => !(left == right);
+
+
+
     }
 }

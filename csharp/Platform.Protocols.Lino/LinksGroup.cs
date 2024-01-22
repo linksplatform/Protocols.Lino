@@ -1,15 +1,14 @@
-﻿using Platform.Collections;
-using Platform.Collections.Lists;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Platform.Collections;
+using Platform.Collections.Lists;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 namespace Platform.Protocols.Lino
 {
-    [method: MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public struct LinksGroup<TLinkAddress>(Link<TLinkAddress> link, IList<LinksGroup<TLinkAddress>> groups) : IEquatable<LinksGroup<TLinkAddress>>
+    public struct LinksGroup<TLinkAddress> : IEquatable<LinksGroup<TLinkAddress>>
     {
         public Link<TLinkAddress> Link
         {
@@ -17,7 +16,7 @@ namespace Platform.Protocols.Lino
             get;
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set;
-        } = link;
+        }
 
         public IList<LinksGroup<TLinkAddress>> Groups
         {
@@ -25,7 +24,14 @@ namespace Platform.Protocols.Lino
             get;
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set;
-        } = groups;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public LinksGroup(Link<TLinkAddress> link, IList<LinksGroup<TLinkAddress>> groups)
+        {
+            Link = link;
+            Groups = groups;
+        }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public LinksGroup(Link<TLinkAddress> link) : this(link, new List<LinksGroup<TLinkAddress>>()) { }
@@ -49,7 +55,7 @@ namespace Platform.Protocols.Lino
         {
             list.Add(dependency);
             var groups = group.Groups;
-            if (!groups.IsNullOrEmpty()) 
+            if (!groups.IsNullOrEmpty())
             {
                 for (int i = 0; i < groups.Count; i++)
                 {
@@ -60,7 +66,7 @@ namespace Platform.Protocols.Lino
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object? obj) => obj is LinksGroup<TLinkAddress> linksGroup && Equals(linksGroup);
+        public override bool Equals(object? obj) => obj is LinksGroup<TLinkAddress> linksGroup ? Equals(linksGroup) : false;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() => (Link, Groups.GenerateHashCode()).GetHashCode();
