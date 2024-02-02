@@ -182,5 +182,39 @@ users
             var formattedLinks = links.Format();
             Assert.Equal(target, formattedLinks);
         }
+
+        [Fact]
+        public static void EmptyLinkTest()
+        {
+            var source = @":";
+            var target = @":";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            var formattedLinks = links.Format();
+            Assert.Equal(target, formattedLinks);
+        }
+
+
+        [Fact]
+        public static void EmptyLinkWithParenthesesTest()
+        {
+            var source = @"()";
+            var target = @"()";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            var formattedLinks = links.Format();
+            Assert.Equal(target, formattedLinks);
+        }
+
+        [Fact]
+        public static void EmptyLinkWithEmptySelfReferenceTest()
+        {
+            var source = @"(:)";
+            var target = @"(:)";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            var formattedLinks = links.Format();
+            Assert.Equal(target, formattedLinks);
+        }
     }
 }
