@@ -216,5 +216,18 @@ users
             var formattedLinks = links.Format();
             Assert.Equal(target, formattedLinks);
         }
+
+        [Fact]
+        public static void DuplicateIdentifiersTest()
+        {
+            var source = @"(a: a b)
+(a: b c)";
+            var target = @"(a: a b)
+(a: b c)";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            var formattedLinks = links.Format();
+            Assert.Equal(target, formattedLinks);
+        }
     }
 }
