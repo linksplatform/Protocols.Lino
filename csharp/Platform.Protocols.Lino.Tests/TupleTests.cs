@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xunit;
 using Link = Platform.Protocols.Lino.Link<string>;
-using id = Platform.Protocols.Lino.id<string>;
+using Id = Platform.Protocols.Lino.Id<string>;
 using _ = Platform.Protocols.Lino._<string>;
 
 namespace Platform.Protocols.Lino.Tests
@@ -43,7 +43,7 @@ namespace Platform.Protocols.Lino.Tests
 
             IList<Link> constructedLinks = new List<Link>()
             {
-                ("papa", ((id)"lovesMama", "loves", "mama")),
+                ("papa", ((Id)"lovesMama", "loves", "mama")),
                 ("son", "lovesMama"),
                 ("daughter", "lovesMama"),
                 ("all", ("love", "mama")),

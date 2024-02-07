@@ -34,7 +34,7 @@ namespace Platform.Protocols.Lino
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public LinksGroup(Link<TLinkAddress> link) : this(link, null) { }
+        public LinksGroup(Link<TLinkAddress> link) : this(link, new List<LinksGroup<TLinkAddress>>()) { }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator List<Link<TLinkAddress>>(LinksGroup<TLinkAddress> value) => value.ToLinksList();
@@ -66,7 +66,7 @@ namespace Platform.Protocols.Lino
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is LinksGroup<TLinkAddress> linksGroup ? Equals(linksGroup) : false;
+        public override bool Equals(object? obj) => obj is LinksGroup<TLinkAddress> linksGroup ? Equals(linksGroup) : false;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() => (Link, Groups.GenerateHashCode()).GetHashCode();
