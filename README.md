@@ -1,6 +1,6 @@
 ﻿[![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/linksplatform/Protocols.Lino)
 
-[![NuGet Version and Downloads count](https://buildstats.info/nuget/Platform.Protocols.Lino)](https://www.nuget.org/packages/Platform.Protocols.Lino)
+[![NuGet Version and Downloads count](https://img.shields.io/nuget/v/Platform.Protocols.Lino?label=nuget&style=flat)](https://www.nuget.org/packages/Platform.Protocols.Lino)
 [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/CD/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=CD)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4e7eb0a883e9439280c1097381d46b50)](https://app.codacy.com/gh/linksplatform/Protocols.Lino?utm_source=github.com&utm_medium=referral&utm_content=linksplatform/Protocols.Lino&utm_campaign=Badge_Grade_Settings)
 [![CodeFactor](https://www.codefactor.io/repository/github/linksplatform/Protocols.Lino/badge)](https://www.codefactor.io/repository/github/linksplatform/Protocols.Lino)
