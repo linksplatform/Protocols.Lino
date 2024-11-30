@@ -146,19 +146,19 @@ mod tests {
         let input = "(1: 1 1)";
         let parsed = parse_lino(input).expect("Failed to parse input");
 
-        // Validate alternate formatting
-        let output = format!("{:#}", parsed);
+        // Validate regular formatting
+        let output = parsed.to_string();
+        let expected = "((1: 1 1))"; // Expected regular output
         assert_eq!(
-            input, output,
-            "Parsed and serialized output with alternate formatting should match the input"
+            expected, output,
+            "Parsed and serialized output with regular formatting should match the expected output"
         );
 
-        // Validate regular formatting
-        let output_regular = parsed.to_string();
-        let expected_regular = "((1: 1 1))"; // Expected regular output
+        // Validate alternate formatting
+        let output_alternate = format!("{:#}", parsed);
         assert_eq!(
-            expected_regular, output_regular,
-            "Parsed and serialized output with regular formatting should match the expected output"
+            input, output_alternate,
+            "Parsed and serialized output with alternate formatting should match the input"
         );
     }
 
@@ -168,19 +168,19 @@ mod tests {
 (2: 2 2)";
         let parsed = parse_lino(input).expect("Failed to parse input");
 
-        // Validate alternate formatting
-        let output = format!("{:#}", parsed);
+        // Validate regular formatting
+        let output = parsed.to_string();
+        let expected = "((1: 1 1) (2: 2 2))"; // Expected regular output
         assert_eq!(
-            input, output,
-            "Parsed and serialized output with alternate formatting should match the input"
+            expected, output,
+            "Parsed and serialized output with regular formatting should match the expected output"
         );
 
-        // Validate regular formatting
-        let output_regular = parsed.to_string();
-        let expected_regular = "((1: 1 1) (2: 2 2))"; // Expected regular output
+        // Validate alternate formatting
+        let output_alternate = format!("{:#}", parsed);
         assert_eq!(
-            expected_regular, output_regular,
-            "Parsed and serialized output with regular formatting should match the expected output"
+            input, output_alternate,
+            "Parsed and serialized output with alternate formatting should match the input"
         );
     }
 
@@ -189,19 +189,19 @@ mod tests {
         let input = "(index: source target)";
         let parsed = parse_lino(input).expect("Failed to parse input");
 
-        // Validate alternate formatting
-        let output = format!("{:#}", parsed);
+        // Validate regular formatting
+        let output = parsed.to_string();
+        let expected = "((index: source target))"; // Expected regular output
         assert_eq!(
-            input, output,
-            "Parsed and serialized output with alternate formatting should match the input"
+            expected, output,
+            "Parsed and serialized output with regular formatting should match the expected output"
         );
 
-        // Validate regular formatting
-        let output_regular = parsed.to_string();
-        let expected_regular = "((index: source target))"; // Expected regular output
+        // Validate alternate formatting
+        let output_alternate = format!("{:#}", parsed);
         assert_eq!(
-            expected_regular, output_regular,
-            "Parsed and serialized output with regular formatting should match the expected output"
+            input, output_alternate,
+            "Parsed and serialized output with alternate formatting should match the input"
         );
     }
 
@@ -210,19 +210,19 @@ mod tests {
         let input = "(index: source type target)";
         let parsed = parse_lino(input).expect("Failed to parse input");
 
-        // Validate alternate formatting
-        let output = format!("{:#}", parsed);
+        // Validate regular formatting
+        let output = parsed.to_string();
+        let expected = "((index: source type target))"; // Expected regular output
         assert_eq!(
-            input, output,
-            "Parsed and serialized output with alternate formatting should match the input"
+            expected, output,
+            "Parsed and serialized output with regular formatting should match the expected output"
         );
 
-        // Validate regular formatting
-        let output_regular = parsed.to_string();
-        let expected_regular = "((index: source type target))"; // Expected regular output
+        // Validate alternate formatting
+        let output_alternate = format!("{:#}", parsed);
         assert_eq!(
-            expected_regular, output_regular,
-            "Parsed and serialized output with regular formatting should match the expected output"
+            input, output_alternate,
+            "Parsed and serialized output with alternate formatting should match the input"
         );
     }
 }
