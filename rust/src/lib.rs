@@ -126,11 +126,31 @@ pub mod lino {
     }
 }
 
-/// копилот, напиши тесты
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::lino::*;
 
     #[test]
-    fn it_works() {}
+    fn test_simple_link() {
+        let input = "(1: 1 1)";
+        let parsed = parse_lino(input).expect("Failed to parse input");
+        let output = parsed.to_string();
+        assert_eq!(input, output, "Parsed and serialized output should match the input");
+    }
+
+    #[test]
+    fn test_link_with_source_target() {
+        let input = "(index: source target)";
+        let parsed = parse_lino(input).expect("Failed to parse input");
+        let output = parsed.to_string();
+        assert_eq!(input, output, "Parsed and serialized output should match the input");
+    }
+
+    #[test]
+    fn test_link_with_source_type_target() {
+        let input = "(index: source type target)";
+        let parsed = parse_lino(input).expect("Failed to parse input");
+        let output = parsed.to_string();
+        assert_eq!(input, output, "Parsed and serialized output should match the input");
+    }
 }
