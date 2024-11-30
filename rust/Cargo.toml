@@ -1,4 +1,7 @@
-# TODO: The project is archived
+[package]
+name = "lino"
+version = "0.0.1"
+edition = "2021"
 
 [dependencies]
 pest = "2.1.3"
