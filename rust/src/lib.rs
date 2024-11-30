@@ -29,14 +29,23 @@ pub mod lino {
                 LiNo::Link { id, values } => {
                     let id_str = id
                         .as_ref()
-                        .map(|id| format!("{}:", id.to_string()))
+                        .map(|id| format!("{}: ", id.to_string()))
                         .unwrap_or_default();
-                    let values_str = values
-                        .iter()
-                        .map(|value| value.to_string())
-                        .collect::<Vec<_>>()
-                        .join(" ");
-                    write!(f, "({}{})", id_str, values_str)
+    
+                    if f.alternate() {
+                        // Special formatting for the top level
+                        for value in values {
+                            writeln!(f, "{}{}", id_str, value)?;
+                        }
+                        Ok(())
+                    } else {
+                        let values_str = values
+                            .iter()
+                            .map(|value| value.to_string())
+                            .collect::<Vec<_>>()
+                            .join(" ");
+                        write!(f, "({}{})", id_str, values_str)
+                    }
                 }
             }
         }
@@ -134,7 +143,16 @@ mod tests {
     fn test_simple_link() {
         let input = "(1: 1 1)";
         let parsed = parse_lino(input).expect("Failed to parse input");
-        let output = parsed.to_string();
+        let output = format!("{:#}", parsed);
+        assert_eq!(input, output, "Parsed and serialized output should match the input");
+    }
+
+    #[test]
+    fn test_multiline_simple_links() {
+        let input = "(1: 1 1)
+(2: 2 2)";
+        let parsed = parse_lino(input).expect("Failed to parse input");
+        let output = format!("{:#}", parsed);
         assert_eq!(input, output, "Parsed and serialized output should match the input");
     }
 
@@ -142,7 +160,7 @@ mod tests {
     fn test_link_with_source_target() {
         let input = "(index: source target)";
         let parsed = parse_lino(input).expect("Failed to parse input");
-        let output = parsed.to_string();
+        let output = format!("{:#}", parsed);
         assert_eq!(input, output, "Parsed and serialized output should match the input");
     }
 
@@ -150,7 +168,7 @@ mod tests {
     fn test_link_with_source_type_target() {
         let input = "(index: source type target)";
         let parsed = parse_lino(input).expect("Failed to parse input");
-        let output = parsed.to_string();
+        let output = format!("{:#}", parsed);
         assert_eq!(input, output, "Parsed and serialized output should match the input");
     }
 }
