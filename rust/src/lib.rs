@@ -1,6 +1,6 @@
 pub mod lino {
 
-    use pest::error::{Error, ErrorVariant};
+    use pest::error::Error;
     use pest::iterators::{Pair, Pairs};
     use pest::Parser;
     use std::fmt;
@@ -13,11 +13,11 @@ pub mod lino {
     }
 
     impl<T> LiNo<T> {
-        fn is_ref(&self) -> bool {
+        pub fn is_ref(&self) -> bool {
             matches!(self, LiNo::Ref(_))
         }
 
-        fn is_link(&self) -> bool {
+        pub fn is_link(&self) -> bool {
             matches!(self, LiNo::Link { .. })
         }
     }
@@ -149,39 +149,26 @@ mod tests {
         // Validate regular formatting
         let output = parsed.to_string();
         let expected = "((1: 1 1))"; // Expected regular output
-        assert_eq!(
-            expected, output,
-            "Parsed and serialized output with regular formatting should match the expected output"
-        );
+        assert_eq!(expected, output);
 
         // Validate alternate formatting
         let output_alternate = format!("{:#}", parsed);
-        assert_eq!(
-            input, output_alternate,
-            "Parsed and serialized output with alternate formatting should match the input"
-        );
+        assert_eq!(input, output_alternate);
     }
 
     #[test]
     fn test_multiline_simple_links() {
-        let input = "(1: 1 1)
-(2: 2 2)";
+        let input = "(1: 1 1)\n(2: 2 2)";
         let parsed = parse_lino(input).expect("Failed to parse input");
 
         // Validate regular formatting
         let output = parsed.to_string();
         let expected = "((1: 1 1) (2: 2 2))"; // Expected regular output
-        assert_eq!(
-            expected, output,
-            "Parsed and serialized output with regular formatting should match the expected output"
-        );
+        assert_eq!(expected, output);
 
         // Validate alternate formatting
         let output_alternate = format!("{:#}", parsed);
-        assert_eq!(
-            input, output_alternate,
-            "Parsed and serialized output with alternate formatting should match the input"
-        );
+        assert_eq!(input, output_alternate);
     }
 
     #[test]
@@ -192,17 +179,11 @@ mod tests {
         // Validate regular formatting
         let output = parsed.to_string();
         let expected = "((index: source target))"; // Expected regular output
-        assert_eq!(
-            expected, output,
-            "Parsed and serialized output with regular formatting should match the expected output"
-        );
+        assert_eq!(expected, output);
 
         // Validate alternate formatting
         let output_alternate = format!("{:#}", parsed);
-        assert_eq!(
-            input, output_alternate,
-            "Parsed and serialized output with alternate formatting should match the input"
-        );
+        assert_eq!(input, output_alternate);
     }
 
     #[test]
@@ -213,16 +194,59 @@ mod tests {
         // Validate regular formatting
         let output = parsed.to_string();
         let expected = "((index: source type target))"; // Expected regular output
-        assert_eq!(
-            expected, output,
-            "Parsed and serialized output with regular formatting should match the expected output"
-        );
+        assert_eq!(expected, output);
 
         // Validate alternate formatting
         let output_alternate = format!("{:#}", parsed);
-        assert_eq!(
-            input, output_alternate,
-            "Parsed and serialized output with alternate formatting should match the input"
-        );
+        assert_eq!(input, output_alternate);
+    }
+
+    #[test]
+    fn test_is_ref() {
+        let reference = LiNo::Ref("some_value".to_string());
+        assert!(reference.is_ref());
+        assert!(!reference.is_link());
+    }
+
+    #[test]
+    fn test_is_link() {
+        let link = LiNo::Link {
+            id: Some("id".to_string()),
+            values: vec![LiNo::Ref("child".to_string())],
+        };
+        assert!(link.is_link());
+        assert!(!link.is_ref());
+    }
+
+    #[test]
+    fn test_empty_link() {
+        let link = LiNo::Link::<String> {
+            id: None,
+            values: vec![],
+        };
+        let output = link.to_string();
+        assert_eq!(output, "()");
+    }
+
+    #[test]
+    fn test_nested_links() {
+        let input = "(1: (2: (3: 3)))";
+        let parsed = parse_lino(input).expect("Failed to parse input");
+
+        // Validate regular formatting
+        let output = parsed.to_string();
+        let expected = "((1: (2: (3: 3))))";
+        assert_eq!(expected, output);
+
+        // Validate alternate formatting
+        let output_alternate = format!("{:#}", parsed);
+        assert_eq!(input, output_alternate);
+    }
+
+    #[test]
+    fn test_invalid_input() {
+        let input = "(invalid";
+        let result = parse_lino(input);
+        assert!(result.is_err());
     }
 }
