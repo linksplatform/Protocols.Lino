@@ -31,13 +31,15 @@ pub mod lino {
                         .as_ref()
                         .map(|id| format!("{}: ", id.to_string()))
                         .unwrap_or_default();
-    
+
                     if f.alternate() {
-                        // Special formatting for the top level
-                        for value in values {
-                            writeln!(f, "{}{}", id_str, value)?;
-                        }
-                        Ok(())
+                        // Format top-level as lines
+                        let lines = values
+                            .iter()
+                            .map(|value| format!("{}{}", id_str, value))
+                            .collect::<Vec<_>>()
+                            .join("\n");
+                        write!(f, "{}", lines)
                     } else {
                         let values_str = values
                             .iter()
@@ -144,7 +146,10 @@ mod tests {
         let input = "(1: 1 1)";
         let parsed = parse_lino(input).expect("Failed to parse input");
         let output = format!("{:#}", parsed);
-        assert_eq!(input, output, "Parsed and serialized output should match the input");
+        assert_eq!(
+            input, output,
+            "Parsed and serialized output should match the input"
+        );
     }
 
     #[test]
@@ -153,7 +158,10 @@ mod tests {
 (2: 2 2)";
         let parsed = parse_lino(input).expect("Failed to parse input");
         let output = format!("{:#}", parsed);
-        assert_eq!(input, output, "Parsed and serialized output should match the input");
+        assert_eq!(
+            input, output,
+            "Parsed and serialized output should match the input"
+        );
     }
 
     #[test]
@@ -161,7 +169,10 @@ mod tests {
         let input = "(index: source target)";
         let parsed = parse_lino(input).expect("Failed to parse input");
         let output = format!("{:#}", parsed);
-        assert_eq!(input, output, "Parsed and serialized output should match the input");
+        assert_eq!(
+            input, output,
+            "Parsed and serialized output should match the input"
+        );
     }
 
     #[test]
@@ -169,6 +180,9 @@ mod tests {
         let input = "(index: source type target)";
         let parsed = parse_lino(input).expect("Failed to parse input");
         let output = format!("{:#}", parsed);
-        assert_eq!(input, output, "Parsed and serialized output should match the input");
+        assert_eq!(
+            input, output,
+            "Parsed and serialized output should match the input"
+        );
     }
 }
