@@ -3,6 +3,7 @@ pub mod lino {
     use pest::error::{Error, ErrorVariant};
     use pest::iterators::{Pair, Pairs};
     use pest::Parser;
+    use std::fmt;
     // use std::mem;
 
     #[derive(Debug, Clone)]
@@ -18,6 +19,26 @@ pub mod lino {
 
         fn is_link(&self) -> bool {
             matches!(self, LiNo::Link { .. })
+        }
+    }
+
+    impl<T: ToString> fmt::Display for LiNo<T> {
+        fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+            match self {
+                LiNo::Ref(value) => write!(f, "{}", value.to_string()),
+                LiNo::Link { id, values } => {
+                    let id_str = id
+                        .as_ref()
+                        .map(|id| format!("{}:", id.to_string()))
+                        .unwrap_or_default();
+                    let values_str = values
+                        .iter()
+                        .map(|value| value.to_string())
+                        .collect::<Vec<_>>()
+                        .join(" ");
+                    write!(f, "({}{})", id_str, values_str)
+                }
+            }
         }
     }
 

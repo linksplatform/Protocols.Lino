@@ -8,8 +8,13 @@ fn main() {
     Array
     Value
   "#;
+
     match parse_lino(notation) {
-        Ok(result) => println!("{:#?}", result),
+        Ok(result) => {
+            println!("Parsed object:\n{:#?}", result);
+            let back_to_string = result.to_string(); // Преобразуем обратно в строку
+            println!("\nReconstructed notation:\n{}", back_to_string);
+        }
         Err(error) => eprintln!("Error: {:?}", error),
     }
 }
