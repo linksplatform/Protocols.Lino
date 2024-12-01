@@ -30,14 +30,19 @@ namespace Platform.Protocols.Lino
         public Link(TLinkAddress id) : this(id, default!) { }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override string ToString() => Values.IsNullOrEmpty() ? $"({EscapeReference(Id.ToString())})" : GetLinkValuesString();
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private string GetLinkValuesString() => Id == null ? $"({GetValuesString()})" : $"({EscapeReference(Id.ToString())}: {GetValuesString()})";
+        public override string ToString() => Id == null ?
+         $"({GetValuesString()})" : 
+            Values.IsNullOrEmpty() ? 
+                $"({EscapeReference(Id.ToString())})" :
+                $"({EscapeReference(Id.ToString())}: {GetValuesString()})";
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string GetValuesString()
         {
+            if (Values.IsNullOrEmpty())
+            {
+                return "";
+            }
             var sb = new StringBuilder();
             for (int i = 0; i < Values.Count; i++)
             {
@@ -80,6 +85,10 @@ namespace Platform.Protocols.Lino
 
         public static string EscapeReference(string reference)
         {
+            if (string.IsNullOrWhiteSpace(reference))
+            {
+                return "";
+            }
             if  (
                     reference.Contains(":") ||
                     reference.Contains("(") ||
