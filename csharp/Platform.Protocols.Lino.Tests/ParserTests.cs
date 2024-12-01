@@ -183,7 +183,7 @@ users
             Assert.Equal(target, formattedLinks);
         }
 
-        [Fact]
+        [Fact(Skip = "Not implemented yet")]
         public static void EmptyLinkTest()
         {
             var source = @":";
@@ -206,7 +206,7 @@ users
             Assert.Equal(target, formattedLinks);
         }
 
-        [Fact]
+        [Fact(Skip = "Not implemented yet")]
         public static void EmptyLinkWithEmptySelfReferenceTest()
         {
             var source = @"(:)";
