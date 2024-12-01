@@ -4,7 +4,7 @@
     <Description>LinksPlatform's Platform.Protocols.Lino Class Library</Description>
     <Copyright>Konstantin Diachenko</Copyright>
     <AssemblyTitle>Platform.Protocols.Lino</AssemblyTitle>
-    <VersionPrefix>0.4.0</VersionPrefix>
+    <VersionPrefix>0.4.1</VersionPrefix>
     <Authors>Konstantin Diachenko</Authors>
     <TargetFrameworks>net7;net8</TargetFrameworks>
     <PackageId>Platform.Protocols.Lino</PackageId>
@@ -22,12 +22,9 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>latest</LangVersion>
-    <PackageReleaseNotes>Id and Values properties replaced with readonly fields.
-It is easier to convert tuples to links.
-It is now possible to use all symbols except control symbols as reference symbols.
-_ struct is added to mark links with set address.
-Platform.Collections dependency updated from 0.2.0 to 0.3.0.
-.NET 5 support is added.</PackageReleaseNotes>
+    <PackageReleaseNotes>Quoted references are now supported.
+Empty link parsing is now supported.
+.NET 7 and 8 support is added.</PackageReleaseNotes>
     <Nullable>enable</Nullable>
     <RootNamespace>Platform.Protocols.Lino</RootNamespace>
   </PropertyGroup>
