@@ -221,11 +221,11 @@ users
             Assert.Equal(target, formattedLinks);
         }
 
-        [Fact(Skip = "Not implemented yet")]
+        [Fact]
         public static void EmptyLinkWithEmptySelfReferenceTest()
         {
             var source = @"(:)";
-            var target = @"(:)";
+            var target = @"()";
             var parser = new Parser();
             var links = parser.Parse(source);
             var formattedLinks = links.Format();
