@@ -4,7 +4,7 @@
     <Description>LinksPlatform's Platform.Protocols.Lino Class Library</Description>
     <Copyright>Konstantin Diachenko</Copyright>
     <AssemblyTitle>Platform.Protocols.Lino</AssemblyTitle>
-    <VersionPrefix>0.4.4</VersionPrefix>
+    <VersionPrefix>0.4.5</VersionPrefix>
     <Authors>Konstantin Diachenko</Authors>
     <TargetFrameworks>net7;net8</TargetFrameworks>
     <PackageId>Platform.Protocols.Lino</PackageId>
