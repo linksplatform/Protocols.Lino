@@ -112,13 +112,15 @@ export class Link {
     // Format values
     const formattedValues = this.values.map(v => {
       if (v.format) {
-        // For nested links, check if they need parentheses
-        const formatted = v.format(true);
-        // If the nested link has multiple parts or special chars, wrap it
+        // For nested links with values, format them with colon
         if (v.values && v.values.length > 0 && v.id) {
-          return `(${v.id}: ${v.values.map(vv => vv.format ? vv.format(true) : Link.escapeReference(vv.id || '')).join(' ')})`;
+          return `(${Link.escapeReference(v.id)}: ${v.values.map(vv => vv.format ? vv.format(true) : Link.escapeReference(vv.id || '')).join(' ')})`;
         }
-        return formatted;
+        // For simple values, just escape them
+        if (v.id !== null && (!v.values || v.values.length === 0)) {
+          return Link.escapeReference(v.id);
+        }
+        return v.format(true);
       }
       return Link.escapeReference(v.id || '');
     });
