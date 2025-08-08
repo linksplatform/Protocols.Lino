@@ -1,5 +1,4 @@
 import { Link } from './Link.js';
-import { LinksGroup } from './LinksGroup.js';
 
 export class Parser {
   constructor() {
@@ -30,12 +29,66 @@ export class Parser {
   }
 
   transformResult(rawResult) {
+    const links = [];
     if (Array.isArray(rawResult)) {
-      return rawResult.map(item => this.transformLink(item));
+      for (const item of rawResult) {
+        this.collectLinks(item, [], links);
+      }
     } else if (rawResult) {
-      return [this.transformLink(rawResult)];
+      this.collectLinks(rawResult, [], links);
     }
-    return [];
+    return links;
+  }
+
+  collectLinks(item, parentPath, result) {
+    if (!item) return;
+    
+    // Create current link
+    const currentPath = [...parentPath];
+    if (item.id !== undefined) {
+      currentPath.push(this.transformValue(item));
+    }
+    
+    // Add link for current element if it has an id
+    if (item.id !== undefined) {
+      const link = this.createLinkFromPath(currentPath);
+      result.push(link);
+    }
+    
+    // Process values (inline items)
+    if (item.values && Array.isArray(item.values)) {
+      const values = item.values.map(v => this.transformValue(v));
+      if (values.length > 0) {
+        const link = this.createLinkFromPath([...currentPath, ...values]);
+        result.push(link);
+      }
+    }
+    
+    // Process children (indented items)
+    if (item.children && Array.isArray(item.children)) {
+      for (const child of item.children) {
+        this.collectLinks(child, currentPath, result);
+      }
+    }
+  }
+  
+  transformValue(item) {
+    if (!item) return null;
+    if (typeof item === 'string') return new Link(item);
+    if (item.id !== undefined) return new Link(item.id);
+    return new Link(null, item.values ? item.values.map(v => this.transformValue(v)) : []);
+  }
+  
+  createLinkFromPath(path) {
+    if (path.length === 0) return new Link();
+    if (path.length === 1) return path[0];
+    
+    // Create nested link structure
+    let result = path[0];
+    for (let i = 1; i < path.length; i++) {
+      result = new Link(null, [result, path[i]]);
+    }
+    return result;
   }
 
   transformLink(item) {

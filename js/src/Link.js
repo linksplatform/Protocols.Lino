@@ -98,4 +98,32 @@ export class Link {
   static fromTriple(id, source, target) {
     return new Link(id, [source, target]);
   }
+  
+  format(lessParentheses = false) {
+    if (!this.values || this.values.length === 0) {
+      if (this.id === null) {
+        return lessParentheses ? '' : '()';
+      }
+      return lessParentheses && !this.id.includes(' ') && !this.id.includes(':') && !this.id.includes('(') && !this.id.includes(')') 
+        ? Link.escapeReference(this.id)
+        : `(${Link.escapeReference(this.id)})`;
+    }
+    
+    const valuesStr = this.values.map(v => v.format ? v.format(true) : Link.escapeReference(v.id || '')).join(' ');
+    
+    if (this.id === null) {
+      return lessParentheses ? valuesStr : `(${valuesStr})`;
+    }
+    
+    const idStr = Link.escapeReference(this.id);
+    if (lessParentheses && !this.id.includes(' ') && !this.id.includes(':') && !this.id.includes('(') && !this.id.includes(')')) {
+      return `${idStr}: ${valuesStr}`;
+    }
+    return `(${idStr}: ${valuesStr})`;
+  }
+}
+
+export function formatLinks(links, lessParentheses = false) {
+  if (!links || links.length === 0) return '';
+  return links.map(link => link.format(lessParentheses)).join('\n');
 }
