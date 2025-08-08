@@ -1,0 +1,26 @@
+{
+  "name": "@linksplatform/protocols-lino",
+  "version": "0.1.0",
+  "description": "Lino protocol parser for JavaScript",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "bun run build:grammar && bun build src/index.js --outdir=dist --target=node",
+    "build:grammar": "peggy -o src/parser.js src/grammar.pegjs",
+    "test": "bun test",
+    "test:watch": "bun test --watch"
+  },
+  "keywords": [
+    "lino",
+    "parser",
+    "protocol",
+    "links"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bun-types": "^1.1.0",
+    "peggy": "^4.0.0"
+  },
+  "dependencies": {}
+}
