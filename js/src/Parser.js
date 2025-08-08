@@ -43,38 +43,47 @@ export class Parser {
   collectLinks(item, parentPath, result) {
     if (!item) return;
     
-    // Build current path
-    const currentPath = [...parentPath];
-    let currentLink = null;
-    
-    if (item.id !== undefined || item.values) {
-      currentLink = this.transformLink(item);
-      
-      if (parentPath.length === 0) {
-        // Top-level item
-        if (item.children && item.children.length > 0) {
-          // Has indented children - create parent link and process children
-          result.push(currentLink);
-          for (const child of item.children) {
-            this.collectLinks(child, [currentLink], result);
-          }
+    // For items with children (indented structure)
+    if (item.children && item.children.length > 0) {
+      // Add the parent item alone first
+      if (item.id !== undefined) {
+        if (parentPath.length === 0) {
+          result.push(new Link(item.id));
         } else {
-          // No children - just add the link
-          result.push(currentLink);
-        }
-      } else {
-        // Child item - combine with parent path
-        const combined = this.combinePathWithLink(parentPath, currentLink);
-        result.push(combined);
-        
-        // Process any children of this item
-        if (item.children && item.children.length > 0) {
-          for (const child of item.children) {
-            this.collectLinks(child, [combined], result);
-          }
+          result.push(this.combinePathElements(parentPath, new Link(item.id)));
         }
       }
+      
+      // Process each child with parent in the path
+      const currentElement = item.id !== undefined ? new Link(item.id) : null;
+      const newPath = currentElement ? [...parentPath, currentElement] : parentPath;
+      
+      for (const child of item.children) {
+        this.collectLinks(child, newPath, result);
+      }
+    } else {
+      // Leaf item or item with inline values
+      const currentLink = this.transformLink(item);
+      
+      if (parentPath.length === 0) {
+        result.push(currentLink);
+      } else {
+        result.push(this.combinePathElements(parentPath, currentLink));
+      }
     }
+  }
+  
+  combinePathElements(pathElements, current) {
+    if (pathElements.length === 0) return current;
+    
+    // Build nested structure from path elements
+    let result = pathElements[0];
+    for (let i = 1; i < pathElements.length; i++) {
+      result = new Link(null, [result, pathElements[i]]);
+    }
+    
+    // Add current element
+    return new Link(null, [result, current]);
   }
   
   combinePathWithLink(path, link) {
