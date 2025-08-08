@@ -81,14 +81,18 @@ fn test_indentation_consistency() {
 fn test_empty_document() {
     let input = "";
     let result = parse_lino(input);
-    assert!(result.is_ok());
+    // Should fail like C#/JS version - empty documents are not allowed
+    assert!(result.is_err());
+    assert_eq!(result.unwrap_err(), "Failed to parse 'document'.");
 }
 
 #[test]
 fn test_whitespace_only() {
     let input = "   \n   \n   ";
     let result = parse_lino(input);
-    assert!(result.is_ok());
+    // Should fail like C#/JS version - whitespace-only documents are not allowed
+    assert!(result.is_err());
+    assert_eq!(result.unwrap_err(), "Failed to parse 'document'.");
 }
 
 #[test]

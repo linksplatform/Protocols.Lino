@@ -340,3 +340,157 @@ fn parse_values_only() {
         }
     }
 }
+
+// Additional comprehensive tests matching C# test names
+
+#[test]
+fn test_empty_document_test() {
+    let input = "";
+    let result = parse_lino(input);
+    // Should fail like C#/JS version - empty documents are not allowed  
+    assert!(result.is_err());
+    assert_eq!(result.unwrap_err(), "Failed to parse 'document'.");
+}
+
+#[test]
+fn test_whitespace_only_test() {
+    let input = "   \n   \n   ";
+    let result = parse_lino(input);
+    // Should fail like C#/JS version - whitespace-only documents are not allowed
+    assert!(result.is_err());
+    assert_eq!(result.unwrap_err(), "Failed to parse 'document'.");
+}
+
+#[test]
+fn test_all_features_test() {
+    // Test single-line link with id
+    let input = "id: value1 value2";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+
+    // Test multi-line link with id
+    let input = "(id: value1 value2)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+
+    // Test link without id (single-line)
+    let input = ": value1 value2";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+
+    // Test link without id (multi-line)
+    let input = "(: value1 value2)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+
+    // Test point link
+    let input = "(point)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+
+    // Test value link
+    let input = "(value1 value2 value3)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+
+    // Test quoted references
+    let input = r#"("id with spaces": "value with spaces")"#;
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+
+    // Test single-quoted references
+    let input = "('id': 'value')";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+
+    // Test nested links
+    let input = "(outer: (inner: value))";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+}
+
+#[test]
+fn test_indentation_consistency_test() {
+    // Test that indentation must be consistent
+    let input = "parent\n  child1\n   child2"; // Inconsistent indentation
+    let result = parse_lino(input);
+    // This should parse but child2 won't be a child of parent due to different indentation
+    assert!(result.is_ok());
+}
+
+#[test]
+fn test_complex_structure_test() {
+    let input = r#"(Type: Type Type)
+  Number
+  String
+  Array
+  Value
+    (property: name type)
+    (method: name params return)"#;
+    
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+}
+
+#[test]
+fn test_mixed_formats_test() {
+    // Mix of single-line and multi-line formats
+    let input = r#"id1: value1
+(id2: value2 value3)
+simple_ref
+(complex: 
+  nested1
+  nested2
+)"#;
+    
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+}
+
+#[test]
+fn test_special_characters_in_quotes_test() {
+    let input = r#"("key:with:colons": "value(with)parens")"#;
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+    
+    let input = r#"('key with spaces': 'value: with special chars')"#;
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+}
+
+#[test]
+fn test_deeply_nested_test() {
+    let input = "(a: (b: (c: (d: (e: value)))))";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+}
+
+#[test]
+fn test_empty_links_test() {
+    let input = "()";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+    
+    let input = "(:)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+    
+    let input = "(id:)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+}
+
+#[test]
+fn test_hyphenated_identifiers_test() {
+    // Test support for hyphenated identifiers like in BugTest1
+    let input = "(conan-center-index: repository info)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+}
+
+#[test]
+fn test_multiple_words_in_quotes_test() {
+    let input = r#"("New York": city state)"#;
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+}

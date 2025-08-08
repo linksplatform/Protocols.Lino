@@ -114,6 +114,16 @@ fn flatten_link_recursive(link: &parser::Link, parent: Option<LiNo<String>>, res
 }
 
 pub fn parse_lino(document: &str) -> Result<LiNo<String>, String> {
+    // Handle empty input like C#/JS version - throw equivalent of FormatException
+    if document.is_empty() {
+        return Err("Failed to parse 'document'.".to_string());
+    }
+    
+    // Handle whitespace-only input like C#/JS version
+    if document.trim().is_empty() {
+        return Err("Failed to parse 'document'.".to_string());
+    }
+    
     match parser::parse_document(document) {
         Ok((_, links)) => {
             if links.is_empty() {
