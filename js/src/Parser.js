@@ -75,15 +75,20 @@ export class Parser {
   
   combinePathElements(pathElements, current) {
     if (pathElements.length === 0) return current;
-    
-    // Build nested structure from path elements
-    let result = pathElements[0];
-    for (let i = 1; i < pathElements.length; i++) {
-      result = new Link(null, [result, pathElements[i]]);
+    if (pathElements.length === 1) {
+      return new Link(null, [pathElements[0], current]);
     }
     
-    // Add current element
-    return new Link(null, [result, current]);
+    // For multiple path elements, we need to build proper nesting
+    // The last element in the path should be combined with its parent
+    const parentPath = pathElements.slice(0, -1);
+    const lastElement = pathElements[pathElements.length - 1];
+    
+    // Build the parent structure
+    let parent = this.combinePathElements(parentPath, lastElement);
+    
+    // Add current element to the built structure
+    return new Link(null, [parent, current]);
   }
   
   combinePathWithLink(path, link) {

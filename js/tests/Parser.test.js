@@ -61,11 +61,20 @@ test('Parse nested structure with indentation', () => {
   child1
   child2`;
   const result = parser.parse(input);
-  expect(result.length).toBe(1);
+  expect(result.length).toBe(3);
+  // First link: (parent)
   expect(result[0].id).toBe('parent');
-  expect(result[0].values.length).toBe(2);
-  expect(result[0].values[0].id).toBe('child1');
-  expect(result[0].values[1].id).toBe('child2');
+  expect(result[0].values.length).toBe(0);
+  // Second link: (parent child1)
+  expect(result[1].id).toBe(null);
+  expect(result[1].values.length).toBe(2);
+  expect(result[1].values[0].id).toBe('parent');
+  expect(result[1].values[1].id).toBe('child1');
+  // Third link: (parent child2)
+  expect(result[2].id).toBe(null);
+  expect(result[2].values.length).toBe(2);
+  expect(result[2].values[0].id).toBe('parent');
+  expect(result[2].values[1].id).toBe('child2');
 });
 
 test('Parse quoted references', () => {

@@ -118,8 +118,16 @@ export class Link {
             // Has id and values - format with colon
             return `(${Link.escapeReference(v.id)}: ${v.values.map(vv => vv.format ? vv.format(true) : Link.escapeReference(vv.id || '')).join(' ')})`;
           } else {
-            // No id but has values - format as parenthesized group
-            return `(${v.values.map(vv => vv.format ? vv.format(true) : Link.escapeReference(vv.id || '')).join(' ')})`;
+            // No id but has values - needs to preserve parentheses for nested structures
+            // Check if this is a nested structure (values contain complex links)
+            const needsParens = v.values.some(vv => vv.values && vv.values.length > 0);
+            if (needsParens || v.values.length > 2) {
+              // Keep parentheses for complex nested structures
+              return v.format(false); // Force parentheses
+            } else {
+              // Simple pair can be formatted without outer parentheses when inside
+              return `(${v.values.map(vv => vv.format ? vv.format(true) : Link.escapeReference(vv.id || '')).join(' ')})`;
+            }
           }
         }
         // For simple values, just escape them
