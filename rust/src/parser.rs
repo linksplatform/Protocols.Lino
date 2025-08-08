@@ -1,0 +1,414 @@
+use nom::{
+    IResult,
+    branch::alt,
+    bytes::complete::{take_while, take_while1, is_not},
+    character::complete::{char, line_ending},
+    combinator::eof,
+    multi::{many0, many1},
+    sequence::{preceded, terminated, delimited},
+    Parser,
+};
+use std::cell::RefCell;
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct Link {
+    pub id: Option<String>,
+    pub values: Vec<Link>,
+    pub children: Vec<Link>,
+}
+
+impl Link {
+    pub fn new_point(id: String) -> Self {
+        Link {
+            id: Some(id),
+            values: vec![],
+            children: vec![],
+        }
+    }
+
+    pub fn new_value(values: Vec<Link>) -> Self {
+        Link {
+            id: None,
+            values,
+            children: vec![],
+        }
+    }
+
+    pub fn new_link(id: Option<String>, values: Vec<Link>) -> Self {
+        Link {
+            id,
+            values,
+            children: vec![],
+        }
+    }
+
+    pub fn with_children(mut self, children: Vec<Link>) -> Self {
+        self.children = children;
+        self
+    }
+}
+
+pub struct ParserState {
+    indentation_stack: RefCell<Vec<usize>>,
+}
+
+impl ParserState {
+    pub fn new() -> Self {
+        ParserState {
+            indentation_stack: RefCell::new(vec![0]),
+        }
+    }
+
+    pub fn push_indentation(&self, indent: usize) {
+        self.indentation_stack.borrow_mut().push(indent);
+    }
+
+    pub fn pop_indentation(&self) {
+        let mut stack = self.indentation_stack.borrow_mut();
+        if stack.len() > 1 {
+            stack.pop();
+        }
+    }
+
+    pub fn current_indentation(&self) -> usize {
+        *self.indentation_stack.borrow().last().unwrap_or(&0)
+    }
+
+    pub fn check_indentation(&self, indent: usize) -> bool {
+        indent == self.current_indentation()
+    }
+}
+
+fn is_whitespace_char(c: char) -> bool {
+    c == ' ' || c == '\t' || c == '\n' || c == '\r'
+}
+
+fn is_horizontal_whitespace(c: char) -> bool {
+    c == ' ' || c == '\t'
+}
+
+fn is_reference_char(c: char) -> bool {
+    !is_whitespace_char(c) && c != '(' && c != ':' && c != ')'
+}
+
+fn horizontal_whitespace(input: &str) -> IResult<&str, &str> {
+    take_while(is_horizontal_whitespace)(input)
+}
+
+fn whitespace(input: &str) -> IResult<&str, &str> {
+    take_while(is_whitespace_char)(input)
+}
+
+fn simple_reference(input: &str) -> IResult<&str, String> {
+    take_while1(is_reference_char)
+        .map(|s: &str| s.to_string())
+        .parse(input)
+}
+
+fn double_quoted_reference(input: &str) -> IResult<&str, String> {
+    delimited(
+        char('"'),
+        is_not("\""),
+        char('"')
+    )
+    .map(|s: &str| s.to_string())
+    .parse(input)
+}
+
+fn single_quoted_reference(input: &str) -> IResult<&str, String> {
+    delimited(
+        char('\''),
+        is_not("'"),
+        char('\'')
+    )
+    .map(|s: &str| s.to_string())
+    .parse(input)
+}
+
+fn reference(input: &str) -> IResult<&str, String> {
+    alt((
+        double_quoted_reference,
+        single_quoted_reference,
+        simple_reference,
+    )).parse(input)
+}
+
+fn eol(input: &str) -> IResult<&str, &str> {
+    alt((
+        preceded(horizontal_whitespace, line_ending),
+        preceded(horizontal_whitespace, eof),
+    )).parse(input)
+}
+
+fn point_link(input: &str) -> IResult<&str, Link> {
+    reference.map(Link::new_point).parse(input)
+}
+
+fn single_line_point_link(input: &str) -> IResult<&str, Link> {
+    preceded(horizontal_whitespace, point_link).parse(input)
+}
+
+fn multi_line_point_link(input: &str) -> IResult<&str, Link> {
+    delimited(
+        (char('('), whitespace),
+        point_link,
+        (whitespace, char(')'))
+    ).parse(input)
+}
+
+fn reference_or_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    alt((
+        |i| multi_line_any_link(i, state),
+        reference.map(Link::new_point),
+    )).parse(input)
+}
+
+fn multi_line_value_and_whitespace<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    terminated(
+        |i| reference_or_link(i, state),
+        whitespace
+    ).parse(input)
+}
+
+fn multi_line_values<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Vec<Link>> {
+    preceded(
+        whitespace,
+        many0(|i| multi_line_value_and_whitespace(i, state))
+    ).parse(input)
+}
+
+fn single_line_value_and_whitespace<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    preceded(
+        horizontal_whitespace,
+        |i| reference_or_link(i, state)
+    ).parse(input)
+}
+
+fn single_line_values<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Vec<Link>> {
+    many1(|i| single_line_value_and_whitespace(i, state)).parse(input)
+}
+
+fn single_line_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    alt((
+        (
+            horizontal_whitespace,
+            reference,
+            horizontal_whitespace,
+            char(':'),
+            |i| single_line_values(i, state)
+        ).map(|(_, id, _, _, values)| Link::new_link(Some(id), values)),
+        (
+            horizontal_whitespace,
+            char(':'),
+            |i| single_line_values(i, state)
+        ).map(|(_, _, values)| Link::new_link(None, values)),
+    )).parse(input)
+}
+
+fn multi_line_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    alt((
+        (
+            char('('),
+            whitespace,
+            reference,
+            whitespace,
+            char(':'),
+            |i| multi_line_values(i, state),
+            whitespace,
+            char(')')
+        ).map(|(_, _, id, _, _, values, _, _)| Link::new_link(Some(id), values)),
+        (
+            char('('),
+            whitespace,
+            char(':'),
+            |i| multi_line_values(i, state),
+            whitespace,
+            char(')')
+        ).map(|(_, _, _, values, _, _)| Link::new_link(None, values)),
+    )).parse(input)
+}
+
+fn single_line_value_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    (|i| single_line_values(i, state))
+        .map(Link::new_value)
+        .parse(input)
+}
+
+fn multi_line_value_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    (
+        char('('),
+        |i| multi_line_values(i, state),
+        whitespace,
+        char(')')
+    ).map(|(_, values, _, _)| Link::new_value(values))
+    .parse(input)
+}
+
+fn multi_line_any_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    alt((
+        multi_line_point_link,
+        |i| multi_line_value_link(i, state),
+        |i| multi_line_link(i, state),
+    )).parse(input)
+}
+
+fn single_line_any_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    alt((
+        terminated(|i| single_line_link(i, state), eol),
+        terminated(single_line_point_link, eol),
+        terminated(|i| single_line_value_link(i, state), eol),
+    )).parse(input)
+}
+
+fn any_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    alt((
+        terminated(|i| multi_line_any_link(i, state), eol),
+        |i| single_line_any_link(i, state),
+    )).parse(input)
+}
+
+fn count_indentation(input: &str) -> IResult<&str, usize> {
+    take_while(|c| c == ' ')
+        .map(|s: &str| s.len())
+        .parse(input)
+}
+
+fn push_indentation<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, ()> {
+    let (input, spaces) = count_indentation(input)?;
+    let current = state.current_indentation();
+    
+    if spaces > current {
+        state.push_indentation(spaces);
+        Ok((input, ()))
+    } else {
+        Err(nom::Err::Error(nom::error::Error::new(input, nom::error::ErrorKind::Verify)))
+    }
+}
+
+fn check_indentation<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, ()> {
+    let (input, spaces) = count_indentation(input)?;
+    
+    if state.check_indentation(spaces) {
+        Ok((input, ()))
+    } else {
+        Err(nom::Err::Error(nom::error::Error::new(input, nom::error::ErrorKind::Verify)))
+    }
+}
+
+fn element<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    let (input, link) = any_link(input, state)?;
+    
+    if let Ok((input, _)) = push_indentation(input, state) {
+        let (input, children) = links(input, state)?;
+        Ok((input, link.with_children(children)))
+    } else {
+        Ok((input, link))
+    }
+}
+
+fn first_line<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    element(input, state)
+}
+
+fn line<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
+    preceded(
+        |i| check_indentation(i, state),
+        |i| element(i, state)
+    ).parse(input)
+}
+
+fn links<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Vec<Link>> {
+    let (input, first) = first_line(input, state)?;
+    let (input, rest) = many0(|i| line(i, state)).parse(input)?;
+    
+    state.pop_indentation();
+    
+    let mut result = vec![first];
+    result.extend(rest);
+    Ok((input, result))
+}
+
+pub fn parse_document(input: &str) -> IResult<&str, Vec<Link>> {
+    let state = ParserState::new();
+    
+    // Skip leading whitespace but preserve the line structure
+    let input = input.trim_start_matches(|c: char| c == '\n' || c == '\r');
+    
+    // Handle empty or whitespace-only documents
+    if input.trim().is_empty() {
+        return Ok(("", vec![]));
+    }
+    
+    let (input, result) = links(input, &state)?;
+    let (input, _) = whitespace(input)?;
+    let (input, _) = eof(input)?;
+    
+    Ok((input, result))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_simple_reference() {
+        let result = parse_document("hello").unwrap();
+        assert_eq!(result.1.len(), 1);
+        assert_eq!(result.1[0].id, Some("hello".to_string()));
+    }
+
+    #[test]
+    fn test_quoted_reference() {
+        let result = parse_document("\"hello world\"").unwrap();
+        assert_eq!(result.1.len(), 1);
+        assert_eq!(result.1[0].id, Some("hello world".to_string()));
+    }
+
+    #[test]
+    fn test_point_link() {
+        let result = parse_document("(point)").unwrap();
+        assert_eq!(result.1.len(), 1);
+        assert_eq!(result.1[0].id, Some("point".to_string()));
+    }
+
+    #[test]
+    fn test_value_link() {
+        let result = parse_document("(a b c)").unwrap();
+        assert_eq!(result.1.len(), 1);
+        assert_eq!(result.1[0].values.len(), 3);
+    }
+
+    #[test]
+    fn test_link_with_id() {
+        let result = parse_document("(id: a b c)").unwrap();
+        assert_eq!(result.1.len(), 1);
+        assert_eq!(result.1[0].id, Some("id".to_string()));
+        assert_eq!(result.1[0].values.len(), 3);
+    }
+
+    #[test]
+    fn test_single_line_link() {
+        let result = parse_document("id: value1 value2").unwrap();
+        assert_eq!(result.1.len(), 1);
+        assert_eq!(result.1[0].id, Some("id".to_string()));
+        assert_eq!(result.1[0].values.len(), 2);
+    }
+
+    #[test]
+    fn test_indentation() {
+        let input = "parent\n  child1\n  child2";
+        let result = parse_document(input).unwrap();
+        assert_eq!(result.1.len(), 1);
+        assert_eq!(result.1[0].id, Some("parent".to_string()));
+        assert_eq!(result.1[0].children.len(), 2);
+    }
+
+    #[test]
+    fn test_nested_indentation() {
+        let input = "parent\n  child\n    grandchild";
+        let result = parse_document(input).unwrap();
+        assert_eq!(result.1.len(), 1);
+        assert_eq!(result.1[0].children.len(), 1);
+        assert_eq!(result.1[0].children[0].children.len(), 1);
+    }
+}

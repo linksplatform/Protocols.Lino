@@ -1,4 +1,4 @@
-use lino::lino::parse_lino;
+use lino::parse_lino;
 
 fn main() {
     let notation = r#"

@@ -1,145 +1,136 @@
-pub mod lino {
+pub mod parser;
 
-    use pest::error::Error;
-    use pest::iterators::{Pair, Pairs};
-    use pest::Parser;
-    use std::fmt;
-    // use std::mem;
+use std::fmt;
 
-    #[derive(Debug, Clone)]
-    pub enum LiNo<T> {
-        Link { id: Option<T>, values: Vec<Self> },
-        Ref(T),
+#[derive(Debug, Clone)]
+pub enum LiNo<T> {
+    Link { id: Option<T>, values: Vec<Self> },
+    Ref(T),
+}
+
+impl<T> LiNo<T> {
+    pub fn is_ref(&self) -> bool {
+        matches!(self, LiNo::Ref(_))
     }
 
-    impl<T> LiNo<T> {
-        pub fn is_ref(&self) -> bool {
-            matches!(self, LiNo::Ref(_))
-        }
-
-        pub fn is_link(&self) -> bool {
-            matches!(self, LiNo::Link { .. })
-        }
+    pub fn is_link(&self) -> bool {
+        matches!(self, LiNo::Link { .. })
     }
+}
 
-    impl<T: ToString> fmt::Display for LiNo<T> {
-        fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-            match self {
-                LiNo::Ref(value) => write!(f, "{}", value.to_string()),
-                LiNo::Link { id, values } => {
-                    let id_str = id
-                        .as_ref()
-                        .map(|id| format!("{}: ", id.to_string()))
-                        .unwrap_or_default();
+impl<T: ToString> fmt::Display for LiNo<T> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            LiNo::Ref(value) => write!(f, "{}", value.to_string()),
+            LiNo::Link { id, values } => {
+                let id_str = id
+                    .as_ref()
+                    .map(|id| format!("{}: ", id.to_string()))
+                    .unwrap_or_default();
 
-                    if f.alternate() {
-                        // Format top-level as lines
-                        let lines = values
-                            .iter()
-                            .map(|value| format!("{}{}", id_str, value))
-                            .collect::<Vec<_>>()
-                            .join("\n");
-                        write!(f, "{}", lines)
-                    } else {
-                        let values_str = values
-                            .iter()
-                            .map(|value| value.to_string())
-                            .collect::<Vec<_>>()
-                            .join(" ");
-                        write!(f, "({}{})", id_str, values_str)
-                    }
-                }
-            }
-        }
-    }
-
-    #[derive(pest_derive::Parser)]
-    #[grammar = "Test.pest"]
-    struct LiNoParser;
-
-    fn parse_link_or_ref(pair: Pair<Rule>) -> LiNo<String> {
-        match pair.as_rule() {
-            Rule::link => {
-                let mut id = None;
-                let mut values = Vec::new();
-
-                let mut pairs = pair.into_inner();
-                let first = pairs.next().unwrap();
-
-                if first.as_rule() == Rule::id {
-                    id = Some(first.as_str().to_string());
+                if f.alternate() {
+                    // Format top-level as lines
+                    let lines = values
+                        .iter()
+                        .map(|value| format!("{}{}", id_str, value))
+                        .collect::<Vec<_>>()
+                        .join("\n");
+                    write!(f, "{}", lines)
                 } else {
-                    values.push(parse_link_or_ref(first));
-                }
-
-                for value in pairs {
-                    values.push(parse_link_or_ref(value));
-                }
-                if values.len() == 1 {
-                    if let LiNo::Ref(val) = values.pop().unwrap() {
-                        LiNo::Ref(val)
-                    } else {
-                        LiNo::Link { id, values }
-                    }
-                } else {
-                    LiNo::Link { id, values }
+                    let values_str = values
+                        .iter()
+                        .map(|value| value.to_string())
+                        .collect::<Vec<_>>()
+                        .join(" ");
+                    write!(f, "({}{})", id_str, values_str)
                 }
             }
-            Rule::reference => LiNo::Ref(pair.as_str().to_string()),
-            _ => unreachable!(),
         }
     }
+}
 
-    fn parse_lino_values(pairs: Pairs<Rule>) -> Result<Vec<LiNo<String>>, Error<Rule>> {
-        let mut result = Vec::new();
-        let pairs: Vec<_> = pairs.collect();
-        for i in 0..pairs.len() {
-            let pair = pairs[i].clone();
-            if pair.as_rule() == Rule::children {
-                continue;
+// Convert from parser::Link to LiNo (without flattening)
+impl From<parser::Link> for LiNo<String> {
+    fn from(link: parser::Link) -> Self {
+        if link.values.is_empty() && link.children.is_empty() {
+            if let Some(id) = link.id {
+                LiNo::Ref(id)
+            } else {
+                LiNo::Link { id: None, values: vec![] }
             }
-            let value = parse_link_or_ref(pair);
-            if let Some(children) = pairs.get(i + 1) {
-                if children.as_rule() == Rule::children {
-                    for child in children.clone().into_inner() {
-                        let child = parse_link_or_ref(child);
-                        match child {
-                            LiNo::Link { id, values } => {
-                                result.push(LiNo::Link {
-                                    id,
-                                    values: [vec![value.clone()], values].concat(),
-                                });
-                            }
-                            LiNo::Ref(id) => {
-                                result.push(LiNo::Link {
-                                    id: None,
-                                    values: vec![value.clone(), LiNo::Ref(id)],
-                                });
-                            }
-                        }
-                    }
-                }
-            }
-            result.push(value);
+        } else {
+            let values: Vec<LiNo<String>> = link.values.into_iter().map(|v| v.into()).collect();
+            LiNo::Link { id: link.id, values }
         }
-        Ok(result)
     }
+}
 
-    pub fn parse_lino(document: &str) -> Result<LiNo<String>, Error<Rule>> {
-        let document = LiNoParser::parse(Rule::document, document)?.next().unwrap();
+// Helper function to flatten indented structures according to Lino spec
+fn flatten_links(links: Vec<parser::Link>) -> Vec<LiNo<String>> {
+    let mut result = vec![];
+    
+    for link in links {
+        flatten_link_recursive(&link, None, &mut result);
+    }
+    
+    result
+}
 
-        let root = LiNo::Link {
-            id: None,
-            values: parse_lino_values(document.into_inner())?,
-        };
+fn flatten_link_recursive(link: &parser::Link, parent: Option<LiNo<String>>, result: &mut Vec<LiNo<String>>) {
+    // Create the current link without children
+    let current = if link.values.is_empty() {
+        if let Some(id) = &link.id {
+            LiNo::Ref(id.clone())
+        } else {
+            LiNo::Link { id: None, values: vec![] }
+        }
+    } else {
+        let values: Vec<LiNo<String>> = link.values.iter().map(|v| {
+            parser::Link {
+                id: v.id.clone(),
+                values: v.values.clone(),
+                children: vec![]
+            }.into()
+        }).collect();
+        LiNo::Link { id: link.id.clone(), values }
+    };
+    
+    // Create the combined link (parent + current)
+    let combined = if let Some(parent) = parent {
+        LiNo::Link { 
+            id: None, 
+            values: vec![parent.clone(), current.clone()]
+        }
+    } else {
+        current.clone()
+    };
+    
+    result.push(combined.clone());
+    
+    // Process children
+    for child in &link.children {
+        flatten_link_recursive(child, Some(combined.clone()), result);
+    }
+}
 
-        Ok(root)
+pub fn parse_lino(document: &str) -> Result<LiNo<String>, String> {
+    match parser::parse_document(document) {
+        Ok((_, links)) => {
+            if links.is_empty() {
+                Ok(LiNo::Link { id: None, values: vec![] })
+            } else {
+                // Flatten the indented structure according to Lino spec
+                let flattened = flatten_links(links);
+                Ok(LiNo::Link { id: None, values: flattened })
+            }
+        }
+        Err(e) => Err(format!("Parse error: {:?}", e))
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use super::lino::*;
+    use super::*;
 
     #[test]
     fn test_simple_link() {
@@ -248,5 +239,37 @@ mod tests {
         let input = "(invalid";
         let result = parse_lino(input);
         assert!(result.is_err());
+    }
+
+    #[test]
+    fn test_single_line_format() {
+        let input = "id: value1 value2";
+        let parsed = parse_lino(input).expect("Failed to parse input");
+        
+        // The parser should handle single-line format
+        let output = parsed.to_string();
+        assert!(output.contains("id") && output.contains("value1") && output.contains("value2"));
+    }
+
+    #[test]
+    fn test_quoted_references() {
+        let input = r#"("quoted id": "value with spaces")"#;
+        let parsed = parse_lino(input).expect("Failed to parse input");
+        
+        let output = parsed.to_string();
+        assert!(output.contains("quoted id") && output.contains("value with spaces"));
+    }
+
+    #[test]
+    fn test_indented_children() {
+        let input = "parent\n  child1\n  child2";
+        let parsed = parse_lino(input).expect("Failed to parse input");
+        
+        // The parsed structure should have parent with children
+        if let LiNo::Link { values, .. } = parsed {
+            assert!(!values.is_empty());
+        } else {
+            panic!("Expected Link with children");
+        }
     }
 }
