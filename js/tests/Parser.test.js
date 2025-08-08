@@ -75,9 +75,11 @@ test('Parse quoted references', () => {
   
   const input = `"has space" 'has:colon'`;
   const result = parser.parse(input);
-  expect(result.length).toBe(2);
-  expect(result[0].id).toBe('has space');
-  expect(result[1].id).toBe('has:colon');
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values.length).toBe(2);
+  expect(result[0].values[0].id).toBe('has space');
+  expect(result[0].values[1].id).toBe('has:colon');
 });
 
 test('Parse values only', () => {
