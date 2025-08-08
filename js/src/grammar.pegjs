@@ -26,9 +26,9 @@ links = fl:firstLine list:line* { popIndentation(); return [fl].concat(list || [
 
 firstLine = l:element { return l; }
 
-line = &{ return checkIndentation(match[1] || ''); } spaces:" "* l:element { return l; }
+line = spaces:" "* &{ return checkIndentation(spaces); } l:element { return l; }
 
-element = e:anyLink &{ return match[1] && match[1].length > getCurrentIndentation(); } spaces:" "+ { pushIndentation(spaces); } l:links { 
+element = e:anyLink PUSH_INDENTATION l:links { 
     return { id: e.id, values: e.values, children: l }; 
   } 
   / e:anyLink { return e; }
@@ -74,6 +74,8 @@ simpleReference = chars:referenceSymbol+ { return chars.join(''); }
 doubleQuotedReference = '"' r:[^"]+ '"' { return r.join(''); }
 
 singleQuotedReference = "'" r:[^']+ "'" { return r.join(''); }
+
+PUSH_INDENTATION = spaces:" "* &{ return spaces.length > getCurrentIndentation(); } { pushIndentation(spaces); }
 
 eol = __ ([\r\n]+ / eof)
 

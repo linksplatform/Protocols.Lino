@@ -9,7 +9,7 @@ export class Parser {
   async initialize() {
     if (!this.parserModule) {
       try {
-        this.parserModule = await import('./parser.js');
+        this.parserModule = await import('./parser-generated.js');
       } catch (error) {
         throw new Error('Parser grammar not compiled. Run: bun run build:grammar');
       }
@@ -66,7 +66,7 @@ export class Parser {
   static parseSync(input) {
     let parserModule;
     try {
-      parserModule = require('./parser.js');
+      parserModule = require('./parser-generated.js');
     } catch (error) {
       throw new Error('Parser grammar not compiled. Run: bun run build:grammar');
     }
