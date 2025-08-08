@@ -102,3 +102,21 @@ simple_ref
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
+
+test('Test multiline with id', () => {
+  if (!parser.parserModule) return;
+  
+  // Test multi-line link with id
+  const input = "(id: value1 value2)";
+  const result = parser.parse(input);
+  expect(result.length).toBeGreaterThan(0);
+});
+
+test('Test multiple top level elements', () => {
+  if (!parser.parserModule) return;
+  
+  // Test multiple top-level elements
+  const input = "(elem1: val1)\n(elem2: val2)";
+  const result = parser.parse(input);
+  expect(result.length).toBeGreaterThan(0);
+});

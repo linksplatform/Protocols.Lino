@@ -138,3 +138,11 @@ fn test_multiple_top_level_elements() {
     let result = parse_lino(input);
     assert!(result.is_ok());
 }
+
+#[test]
+fn test_multiline_with_id() {
+    // Test multi-line link with id
+    let input = "(id: value1 value2)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+}

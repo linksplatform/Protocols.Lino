@@ -107,5 +107,14 @@ simple_ref
             var result = new Parser().Parse(input);
             Assert.NotEmpty(result);
         }
+
+        [Fact]
+        public static void TestMultipleTopLevelElementsTest()
+        {
+            // Test multiple top-level elements
+            var input = "(elem1: val1)\n(elem2: val2)";
+            var result = new Parser().Parse(input);
+            Assert.NotEmpty(result);
+        }
     }
 }
