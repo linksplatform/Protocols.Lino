@@ -5,20 +5,12 @@ export class Link {
   }
 
   toString() {
-    if (this.id === null) {
-      return `(${this.getValuesString()})`;
-    } else if (!this.values || this.values.length === 0) {
-      return `(${Link.escapeReference(this.id)})`;
-    } else {
-      return `(${Link.escapeReference(this.id)}: ${this.getValuesString()})`;
-    }
+    return this.format(false);
   }
 
   getValuesString() {
-    if (!this.values || this.values.length === 0) {
-      return '';
-    }
-    return this.values.map(v => Link.getValueString(v)).join(' ');
+    return (!this.values || this.values.length === 0) ? 
+      '' : this.values.map(v => Link.getValueString(v)).join(' ');
   }
 
   simplify() {

@@ -30,12 +30,12 @@ export class Parser {
 
   transformResult(rawResult) {
     const links = [];
-    if (Array.isArray(rawResult)) {
-      for (const item of rawResult) {
+    const items = Array.isArray(rawResult) ? rawResult : [rawResult];
+    
+    for (const item of items) {
+      if (item) {
         this.collectLinks(item, [], links);
       }
-    } else if (rawResult) {
-      this.collectLinks(rawResult, [], links);
     }
     return links;
   }
@@ -117,16 +117,4 @@ export class Parser {
     return link;
   }
 
-  static parseSync(input) {
-    let parserModule;
-    try {
-      parserModule = require('./parser-generated.js');
-    } catch (error) {
-      throw new Error('Parser grammar not compiled. Run: bun run build:grammar');
-    }
-    
-    const parser = new Parser();
-    parser.parserModule = parserModule;
-    return parser.parse(input);
-  }
 }
