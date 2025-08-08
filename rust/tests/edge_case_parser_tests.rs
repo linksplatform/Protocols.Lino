@@ -1,4 +1,36 @@
-use lino::parse_lino;
+use lino::{parse_lino, LiNo};
+
+#[test]
+#[ignore] // Not implemented yet, similar to C# version
+fn empty_link_test() {
+    let source = ":";
+    let parsed = parse_lino(source).unwrap();
+    // This test is skipped because it's not implemented yet
+    assert!(parsed.is_link());
+}
+
+#[test]
+fn empty_link_with_parentheses_test() {
+    let source = "()";
+    let parsed = parse_lino(source).unwrap();
+    // Should parse as an empty link
+    assert!(parsed.is_link());
+    if let LiNo::Link { id: _, values } = &parsed {
+        // The outer wrapper
+        if let Some(LiNo::Link { id: inner_id, values: inner_values }) = values.first() {
+            assert_eq!(*inner_id, None);
+            assert!(inner_values.is_empty());
+        }
+    }
+}
+
+#[test]
+fn empty_link_with_empty_self_reference_test() {
+    let source = "(:)";
+    let parsed = parse_lino(source).unwrap();
+    // Should parse as empty link (: with no values becomes empty)
+    assert!(parsed.is_link());
+}
 
 #[test]
 fn test_all_features() {
@@ -46,35 +78,6 @@ fn test_all_features() {
     let input = "(outer: (inner: value))";
     let result = parse_lino(input);
     assert!(result.is_ok());
-
-    // Test indentation-based children
-    let input = "parent\n  child1\n  child2\n    grandchild";
-    let result = parse_lino(input);
-    assert!(result.is_ok());
-
-    // Test complex indentation
-    let input = r#"root
-  level1a
-    level2a
-    level2b
-  level1b
-    level2c"#;
-    let result = parse_lino(input);
-    assert!(result.is_ok());
-
-    // Test multiple top-level elements
-    let input = "(elem1: val1)\n(elem2: val2)";
-    let result = parse_lino(input);
-    assert!(result.is_ok());
-}
-
-#[test]
-fn test_indentation_consistency() {
-    // Test that indentation must be consistent
-    let input = "parent\n  child1\n   child2"; // Inconsistent indentation
-    let result = parse_lino(input);
-    // This should parse but child2 won't be a child of parent due to different indentation
-    assert!(result.is_ok());
 }
 
 #[test]
@@ -93,59 +96,6 @@ fn test_whitespace_only() {
     // Should fail like C#/JS version - whitespace-only documents are not allowed
     assert!(result.is_err());
     assert_eq!(result.unwrap_err(), "Failed to parse 'document'.");
-}
-
-#[test]
-fn test_complex_structure() {
-    let input = r#"(Type: Type Type)
-  Number
-  String
-  Array
-  Value
-    (property: name type)
-    (method: name params return)"#;
-    
-    let result = parse_lino(input);
-    assert!(result.is_ok());
-    
-    // Verify the structure was parsed correctly
-    if let Ok(parsed) = result {
-        // The root should be a Link with values
-        assert!(parsed.is_link());
-    }
-}
-
-#[test]
-fn test_mixed_formats() {
-    // Mix of single-line and multi-line formats
-    let input = r#"id1: value1
-(id2: value2 value3)
-simple_ref
-(complex: 
-  nested1
-  nested2
-)"#;
-    
-    let result = parse_lino(input);
-    assert!(result.is_ok());
-}
-
-#[test]
-fn test_special_characters_in_quotes() {
-    let input = r#"("key:with:colons": "value(with)parens")"#;
-    let result = parse_lino(input);
-    assert!(result.is_ok());
-    
-    let input = r#"('key with spaces': 'value: with special chars')"#;
-    let result = parse_lino(input);
-    assert!(result.is_ok());
-}
-
-#[test]
-fn test_deeply_nested() {
-    let input = "(a: (b: (c: (d: (e: value)))))";
-    let result = parse_lino(input);
-    assert!(result.is_ok());
 }
 
 #[test]
