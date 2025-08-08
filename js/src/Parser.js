@@ -91,49 +91,6 @@ export class Parser {
     return new Link(null, [parent, current]);
   }
   
-  combinePathWithLink(path, link) {
-    if (path.length === 0) return link;
-    
-    // Combine all path elements with the link
-    let result = path[0];
-    for (let i = 1; i < path.length; i++) {
-      result = new Link(null, [result, path[i]]);
-    }
-    
-    // Add the current link to the path
-    if (link.values && link.values.length > 0) {
-      // If link has values, combine them
-      return new Link(null, [result, ...link.values]);
-    } else {
-      // Just add the link itself
-      return new Link(null, [result, link]);
-    }
-  }
-  
-  isParenthesizedExpression(item) {
-    // Check if this came from a parenthesized expression in the grammar
-    // This is a simple heuristic - parenthesized expressions don't have children
-    return false; // We'll need to mark these in the grammar
-  }
-  
-  transformValue(item) {
-    if (!item) return null;
-    if (typeof item === 'string') return new Link(item);
-    if (item.id !== undefined) return new Link(item.id);
-    return new Link(null, item.values ? item.values.map(v => this.transformValue(v)) : []);
-  }
-  
-  createLinkFromPath(path) {
-    if (path.length === 0) return new Link();
-    if (path.length === 1) return path[0];
-    
-    // Create nested link structure
-    let result = path[0];
-    for (let i = 1; i < path.length; i++) {
-      result = new Link(null, [result, path[i]]);
-    }
-    return result;
-  }
 
   transformLink(item) {
     if (!item) return null;

@@ -84,72 +84,45 @@ export class Link {
     return true;
   }
 
-  static fromValue(value) {
-    if (value instanceof Link) {
-      return value;
-    }
-    return new Link(value);
-  }
-
-  static fromTuple(source, target) {
-    return new Link(null, [source, target]);
-  }
-
-  static fromTriple(id, source, target) {
-    return new Link(id, [source, target]);
-  }
   
   format(lessParentheses = false) {
-    if (!this.values || this.values.length === 0) {
-      if (this.id === null) {
-        return lessParentheses ? '' : '()';
-      }
-      return lessParentheses && !this.needsParentheses(this.id)
-        ? Link.escapeReference(this.id)
-        : `(${Link.escapeReference(this.id)})`;
+    // Empty link
+    if (this.id === null && (!this.values || this.values.length === 0)) {
+      return lessParentheses ? '' : '()';
     }
     
-    // Format values
-    const formattedValues = this.values.map(v => {
-      if (v.format) {
-        // For nested links with values, format them appropriately
-        if (v.values && v.values.length > 0) {
-          if (v.id) {
-            // Has id and values - format with colon
-            return `(${Link.escapeReference(v.id)}: ${v.values.map(vv => vv.format ? vv.format(true) : Link.escapeReference(vv.id || '')).join(' ')})`;
-          } else {
-            // No id but has values - needs to preserve parentheses for nested structures
-            // Check if this is a nested structure (values contain complex links)
-            const needsParens = v.values.some(vv => vv.values && vv.values.length > 0);
-            if (needsParens || v.values.length > 2) {
-              // Keep parentheses for complex nested structures
-              return v.format(false); // Force parentheses
-            } else {
-              // Simple pair can be formatted without outer parentheses when inside
-              return `(${v.values.map(vv => vv.format ? vv.format(true) : Link.escapeReference(vv.id || '')).join(' ')})`;
-            }
-          }
-        }
-        // For simple values, just escape them
-        if (v.id !== null && (!v.values || v.values.length === 0)) {
-          return Link.escapeReference(v.id);
-        }
-        return v.format(true);
-      }
-      return Link.escapeReference(v.id || '');
-    });
+    // Link with only ID, no values
+    if (!this.values || this.values.length === 0) {
+      const escapedId = Link.escapeReference(this.id);
+      return lessParentheses && !this.needsParentheses(this.id) ? escapedId : `(${escapedId})`;
+    }
     
-    const valuesStr = formattedValues.join(' ');
+    // Format values recursively  
+    const valuesStr = this.values.map(v => this.formatValue(v)).join(' ');
     
+    // Link with values only
     if (this.id === null) {
       return lessParentheses ? valuesStr : `(${valuesStr})`;
     }
     
+    // Link with ID and values
     const idStr = Link.escapeReference(this.id);
-    if (lessParentheses && !this.needsParentheses(this.id)) {
-      return `${idStr}: ${valuesStr}`;
+    const withColon = `${idStr}: ${valuesStr}`;
+    return lessParentheses && !this.needsParentheses(this.id) ? withColon : `(${withColon})`;
+  }
+  
+  formatValue(value) {
+    if (!value.format) {
+      return Link.escapeReference(value.id || '');
     }
-    return `(${idStr}: ${valuesStr})`;
+    
+    // Simple value (just ID)
+    if (!value.values || value.values.length === 0) {
+      return Link.escapeReference(value.id);
+    }
+    
+    // Nested structure - always use parentheses for nested values to preserve structure
+    return value.format(false);
   }
   
   needsParentheses(str) {
