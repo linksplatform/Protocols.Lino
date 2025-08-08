@@ -44,7 +44,7 @@ test('EmptyLinkWithEmptySelfReferenceTest', () => {
   expect(formattedLinks).toBe(target);
 });
 
-test('Test all features', () => {
+test('TestAllFeaturesTest', () => {
   if (!parser.parserModule) return;
   
   // Test single-line link with id
@@ -93,7 +93,7 @@ test('Test all features', () => {
   expect(result.length).toBeGreaterThan(0);
 });
 
-test('Test empty document', () => {
+test('TestEmptyDocumentTest', () => {
   if (!parser.parserModule) return;
   
   const input = '';
@@ -101,7 +101,7 @@ test('Test empty document', () => {
   expect(() => parser.parse(input)).toThrow();
 });
 
-test('Test whitespace only', () => {
+test('TestWhitespaceOnlyTest', () => {
   if (!parser.parserModule) return;
   
   const input = '   \n   \n   ';
@@ -109,7 +109,7 @@ test('Test whitespace only', () => {
   expect(() => parser.parse(input)).toThrow();
 });
 
-test('Test empty links', () => {
+test('TestEmptyLinksTest', () => {
   if (!parser.parserModule) return;
   
   let input = '()';

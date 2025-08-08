@@ -33,7 +33,7 @@ fn empty_link_with_empty_self_reference_test() {
 }
 
 #[test]
-fn test_all_features() {
+fn test_all_features_test() {
     // Test single-line link with id
     let input = "id: value1 value2";
     let result = parse_lino(input);
@@ -81,7 +81,7 @@ fn test_all_features() {
 }
 
 #[test]
-fn test_empty_document() {
+fn test_empty_document_test() {
     let input = "";
     let result = parse_lino(input);
     // Should fail like C#/JS version - empty documents are not allowed
@@ -90,7 +90,7 @@ fn test_empty_document() {
 }
 
 #[test]
-fn test_whitespace_only() {
+fn test_whitespace_only_test() {
     let input = "   \n   \n   ";
     let result = parse_lino(input);
     // Should fail like C#/JS version - whitespace-only documents are not allowed
@@ -99,7 +99,7 @@ fn test_whitespace_only() {
 }
 
 #[test]
-fn test_empty_links() {
+fn test_empty_links_test() {
     let input = "()";
     let result = parse_lino(input);
     assert!(result.is_ok());
