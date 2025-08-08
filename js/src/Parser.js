@@ -20,6 +20,16 @@ export class Parser {
       throw new Error('Parser not initialized. Call initialize() first.');
     }
     
+    // Handle empty input like C# version - throw FormatException equivalent
+    if (input === '') {
+      throw new Error("Failed to parse 'document'.");
+    }
+    
+    // Handle whitespace-only input like C# version
+    if (input.trim() === '') {
+      throw new Error("Failed to parse 'document'.");
+    }
+    
     try {
       const rawResult = this.parserModule.parse(input);
       return this.transformResult(rawResult);
