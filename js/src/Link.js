@@ -104,22 +104,40 @@ export class Link {
       if (this.id === null) {
         return lessParentheses ? '' : '()';
       }
-      return lessParentheses && !this.id.includes(' ') && !this.id.includes(':') && !this.id.includes('(') && !this.id.includes(')') 
+      return lessParentheses && !this.needsParentheses(this.id)
         ? Link.escapeReference(this.id)
         : `(${Link.escapeReference(this.id)})`;
     }
     
-    const valuesStr = this.values.map(v => v.format ? v.format(true) : Link.escapeReference(v.id || '')).join(' ');
+    // Format values
+    const formattedValues = this.values.map(v => {
+      if (v.format) {
+        // For nested links, check if they need parentheses
+        const formatted = v.format(true);
+        // If the nested link has multiple parts or special chars, wrap it
+        if (v.values && v.values.length > 0 && v.id) {
+          return `(${v.id}: ${v.values.map(vv => vv.format ? vv.format(true) : Link.escapeReference(vv.id || '')).join(' ')})`;
+        }
+        return formatted;
+      }
+      return Link.escapeReference(v.id || '');
+    });
+    
+    const valuesStr = formattedValues.join(' ');
     
     if (this.id === null) {
       return lessParentheses ? valuesStr : `(${valuesStr})`;
     }
     
     const idStr = Link.escapeReference(this.id);
-    if (lessParentheses && !this.id.includes(' ') && !this.id.includes(':') && !this.id.includes('(') && !this.id.includes(')')) {
+    if (lessParentheses && !this.needsParentheses(this.id)) {
       return `${idStr}: ${valuesStr}`;
     }
     return `(${idStr}: ${valuesStr})`;
+  }
+  
+  needsParentheses(str) {
+    return str && (str.includes(' ') || str.includes(':') || str.includes('(') || str.includes(')'));
   }
 }
 

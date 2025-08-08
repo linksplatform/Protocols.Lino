@@ -43,33 +43,63 @@ export class Parser {
   collectLinks(item, parentPath, result) {
     if (!item) return;
     
-    // Create current link
+    // Build current path
     const currentPath = [...parentPath];
-    if (item.id !== undefined) {
-      currentPath.push(this.transformValue(item));
-    }
+    let currentLink = null;
     
-    // Add link for current element if it has an id
-    if (item.id !== undefined) {
-      const link = this.createLinkFromPath(currentPath);
-      result.push(link);
-    }
-    
-    // Process values (inline items)
-    if (item.values && Array.isArray(item.values)) {
-      const values = item.values.map(v => this.transformValue(v));
-      if (values.length > 0) {
-        const link = this.createLinkFromPath([...currentPath, ...values]);
-        result.push(link);
+    if (item.id !== undefined || item.values) {
+      currentLink = this.transformLink(item);
+      
+      if (parentPath.length === 0) {
+        // Top-level item
+        if (item.children && item.children.length > 0) {
+          // Has indented children - create parent link and process children
+          result.push(currentLink);
+          for (const child of item.children) {
+            this.collectLinks(child, [currentLink], result);
+          }
+        } else {
+          // No children - just add the link
+          result.push(currentLink);
+        }
+      } else {
+        // Child item - combine with parent path
+        const combined = this.combinePathWithLink(parentPath, currentLink);
+        result.push(combined);
+        
+        // Process any children of this item
+        if (item.children && item.children.length > 0) {
+          for (const child of item.children) {
+            this.collectLinks(child, [combined], result);
+          }
+        }
       }
     }
+  }
+  
+  combinePathWithLink(path, link) {
+    if (path.length === 0) return link;
     
-    // Process children (indented items)
-    if (item.children && Array.isArray(item.children)) {
-      for (const child of item.children) {
-        this.collectLinks(child, currentPath, result);
-      }
+    // Combine all path elements with the link
+    let result = path[0];
+    for (let i = 1; i < path.length; i++) {
+      result = new Link(null, [result, path[i]]);
     }
+    
+    // Add the current link to the path
+    if (link.values && link.values.length > 0) {
+      // If link has values, combine them
+      return new Link(null, [result, ...link.values]);
+    } else {
+      // Just add the link itself
+      return new Link(null, [result, link]);
+    }
+  }
+  
+  isParenthesizedExpression(item) {
+    // Check if this came from a parenthesized expression in the grammar
+    // This is a simple heuristic - parenthesized expressions don't have children
+    return false; // We'll need to mark these in the grammar
   }
   
   transformValue(item) {
