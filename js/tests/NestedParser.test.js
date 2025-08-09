@@ -139,3 +139,25 @@ test('Test indentation consistency', () => {
   // This should parse but child2 won't be a child of parent due to different indentation
   expect(result.length).toBeGreaterThan(0);
 });
+
+test('Indentation-based children', () => {
+  if (!parser.parserModule) return;
+  const input = `parent
+  child1
+  child2
+    grandchild`;
+  const result = parser.parse(input);
+  expect(result.length).toBe(4);
+});
+
+test('Complex indentation', () => {
+  if (!parser.parserModule) return;
+  const input = `root
+  level1a
+    level2a
+    level2b
+  level1b
+    level2c`;
+  const result = parser.parse(input);
+  expect(result.length).toBe(6);
+});

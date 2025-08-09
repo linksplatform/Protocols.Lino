@@ -1,4 +1,4 @@
-use lino::{parse_lino, LiNo};
+use lino::parse_lino;
 
 #[test]
 fn significant_whitespace_test() {
@@ -30,68 +30,59 @@ users
             Moscow
         age
             20"#;
-    
-    // The expected output shows how indentation creates nested structures
+
+    let target = "(users)\n(users user1)\n((users user1) id)\n(((users user1) id) 43)\n((users user1) name)\n(((users user1) name) first)\n((((users user1) name) first) John)\n(((users user1) name) last)\n((((users user1) name) last) Williams)\n((users user1) location)\n(((users user1) location) (New York))\n((users user1) age)\n(((users user1) age) 23)\n(users user2)\n((users user2) id)\n(((users user2) id) 56)\n((users user2) name)\n(((users user2) name) first)\n((((users user2) name) first) Igor)\n(((users user2) name) middle)\n((((users user2) name) middle) Petrovich)\n(((users user2) name) last)\n((((users user2) name) last) Ivanov)\n((users user2) location)\n(((users user2) location) Moscow)\n((users user2) age)\n(((users user2) age) 20)";
     let parsed = parse_lino(source).unwrap();
-    assert!(parsed.is_link());
-    // Verify the structure has the expected nesting
-    if let LiNo::Link { values, .. } = &parsed {
-        assert!(!values.is_empty());
-    }
+    let output = format!("{:#}", parsed);
+    assert_eq!(target, output);
 }
 
 #[test]
 fn simple_significant_whitespace_test() {
     let source = "a\n    b\n    c";
-    // This should parse as:
-    // (a)
-    // (a b)
-    // (a c)
+    let target = "(a)\n(a b)\n(a c)";
     let parsed = parse_lino(source).unwrap();
-    assert!(parsed.is_link());
-    if let LiNo::Link { values, .. } = &parsed {
-        // We expect 3 links total
-        assert_eq!(values.len(), 3);
-    }
+    let output = format!("{:#}", parsed);
+    assert_eq!(target, output);
 }
 
 #[test]
 fn two_spaces_sized_whitespace_test() {
     let source = "\nusers\n  user1";
+    let target = "(users)\n(users user1)";
     let parsed = parse_lino(source).unwrap();
-    assert!(parsed.is_link());
-    if let LiNo::Link { values, .. } = &parsed {
-        // Should have 2 elements: (users) and (users user1)
-        assert_eq!(values.len(), 2);
-    }
+    let output = format!("{:#}", parsed);
+    assert_eq!(target, output);
 }
 
 #[test]
 fn parse_nested_structure_with_indentation() {
     let input = "parent\n  child1\n  child2";
+    let target = "(parent)\n(parent child1)\n(parent child2)";
     let result = parse_lino(input).unwrap();
-    assert!(result.is_link());
-    if let LiNo::Link { values, .. } = &result {
-        // Should create 3 links: (parent), (parent child1), (parent child2)
-        assert_eq!(values.len(), 3);
-    }
+    let output = format!("{:#}", result);
+    assert_eq!(target, output);
 }
 
 #[test]
 fn test_indentation_consistency() {
     // Test that indentation must be consistent
     let input = "parent\n  child1\n   child2"; // Inconsistent indentation
-    let result = parse_lino(input);
-    // This should parse but child2 won't be a child of parent due to different indentation
-    assert!(result.is_ok());
+    let result = parse_lino(input).unwrap();
+    let output = format!("{:#}", result);
+    // Should produce at least the parent and child1 as separate links
+    assert!(output.contains("(parent)"));
+    assert!(output.contains("(parent child1)"));
 }
 
 #[test]
 fn test_indentation_based_children() {
     // Test indentation-based children
     let input = "parent\n  child1\n  child2\n    grandchild";
-    let result = parse_lino(input);
-    assert!(result.is_ok());
+    let result = parse_lino(input).unwrap();
+    let output = format!("{:#}", result);
+    let expected = "(parent)\n(parent child1)\n(parent child2)\n((parent child2) grandchild)";
+    assert_eq!(expected, output);
 }
 
 #[test]
@@ -103,6 +94,8 @@ fn test_complex_indentation() {
     level2b
   level1b
     level2c"#;
-    let result = parse_lino(input);
-    assert!(result.is_ok());
+    let result = parse_lino(input).unwrap();
+    let output = format!("{:#}", result);
+    let expected = "(root)\n(root level1a)\n((root level1a) level2a)\n((root level1a) level2b)\n(root level1b)\n((root level1b) level2c)";
+    assert_eq!(expected, output);
 }

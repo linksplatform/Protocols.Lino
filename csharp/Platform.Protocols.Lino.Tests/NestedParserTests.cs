@@ -122,5 +122,38 @@ users
             // This should parse but child2 won't be a child of parent due to different indentation
             Assert.NotEmpty(result);
         }
+
+        [Fact]
+        public static void IndentationBasedChildrenTest()
+        {
+            var input = @"parent
+  child1
+  child2
+    grandchild";
+            var parser = new Parser();
+            var result = parser.Parse(input);
+            Assert.NotNull(result);
+            // Expected flattened links:
+            // (parent), (parent child1), (parent child2), ((parent child2) grandchild)
+            Assert.Equal(4, result.Count);
+        }
+
+        [Fact]
+        public static void ComplexIndentationTest()
+        {
+            var input = @"root
+  level1a
+    level2a
+    level2b
+  level1b
+    level2c";
+            var parser = new Parser();
+            var result = parser.Parse(input);
+            Assert.NotNull(result);
+            // Expected flattened links:
+            // (root), (root level1a), ((root level1a) level2a), ((root level1a) level2b),
+            // (root level1b), ((root level1b) level2c)
+            Assert.Equal(6, result.Count);
+        }
     }
 }

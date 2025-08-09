@@ -32,7 +32,14 @@ impl<T: ToString> fmt::Display for LiNo<T> {
                     // Format top-level as lines
                     let lines = values
                         .iter()
-                        .map(|value| format!("{}{}", id_str, value))
+                        .map(|value| {
+                            // For alternate formatting, ensure standalone references are wrapped in parentheses
+                            // so that flattened structures like indented blocks render as "(ref)" lines
+                            match value {
+                                LiNo::Ref(_) => format!("{}({})", id_str, value),
+                                _ => format!("{}{}", id_str, value),
+                            }
+                        })
                         .collect::<Vec<_>>()
                         .join("\n");
                     write!(f, "{}", lines)
