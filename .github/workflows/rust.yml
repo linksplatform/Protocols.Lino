@@ -117,21 +117,23 @@ jobs:
           echo "=== Attempting to publish to crates.io ==="
           
           # Try to publish and capture the result
-          if cargo publish --token ${{ secrets.CARGO_TOKEN }} 2>&1 | tee publish_output.txt; then
+          set +e  # Don't exit on error
+          cargo publish --token ${{ secrets.CARGO_TOKEN }} 2>&1 | tee publish_output.txt
+          PUBLISH_EXIT_CODE=$?
+          set -e  # Re-enable exit on error
+          
+          if [ $PUBLISH_EXIT_CODE -eq 0 ]; then
             echo "✅ Successfully published $PACKAGE_NAME@$PACKAGE_VERSION to crates.io"
             echo "publish_result=success" >> $GITHUB_OUTPUT
+          elif grep -q "already exists on crates.io" publish_output.txt; then
+            echo "ℹ️ Version $PACKAGE_VERSION already exists on crates.io - this is OK"
+            echo "publish_result=already_exists" >> $GITHUB_OUTPUT
+            exit 0  # Don't fail the workflow
           else
-            # Check if failure is due to version already existing
-            if grep -q "already exists on crates.io" publish_output.txt; then
-              echo "ℹ️ Version $PACKAGE_VERSION already exists on crates.io - this is OK"
-              echo "publish_result=already_exists" >> $GITHUB_OUTPUT
-              exit 0  # Don't fail the workflow
-            else
-              echo "❌ Failed to publish for unknown reason"
-              cat publish_output.txt
-              echo "publish_result=failed" >> $GITHUB_OUTPUT
-              exit 1
-            fi
+            echo "❌ Failed to publish for unknown reason"
+            cat publish_output.txt
+            echo "publish_result=failed" >> $GITHUB_OUTPUT
+            exit 1
           fi
       - name: Report publish status
         if: always()

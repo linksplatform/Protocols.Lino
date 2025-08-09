@@ -64,7 +64,7 @@ jobs:
 
   pusnToNuget:
     runs-on: ubuntu-latest
-    needs: [test, findChangedCsFiles]
+    needs: [test]
     if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' }}
     steps:
       - uses: actions/checkout@v3
@@ -104,7 +104,7 @@ jobs:
 
   publiseRelease:
     runs-on: ubuntu-latest
-    needs: [test, findChangedCsFiles, generatePdfWithCode, publishDocumentation]
+    needs: [pusnToNuget, publishDocumentation]
     if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' && always() }}
     steps:
       - uses: actions/checkout@v3
@@ -144,7 +144,7 @@ jobs:
           bash ./publish-csharp-release.sh
   generatePdfWithCode:
     runs-on: ubuntu-latest
-    needs: [findChangedCsFiles]
+    needs: [test]
     if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' }}
     steps:
       - uses: actions/checkout@v3
@@ -192,7 +192,7 @@ jobs:
 
   publishDocumentation:
     runs-on: ubuntu-latest
-    needs: [findChangedCsFiles]
+    needs: [test, generatePdfWithCode]
     if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' }}
     steps:
       - uses: actions/checkout@v3
