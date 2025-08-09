@@ -15,9 +15,35 @@ This library gives you an ability to convert any string that contains links nota
 
 Links notation is based on two concepts references and links. Each reference references other link. The notation supports links with any number of references to other links.
 
-Namespace: [Platform.Protocols.Lino](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html)
+## Language Implementations
 
-NuGet package: [Platform.Protocols.Lino](https://www.nuget.org/packages/Platform.Protocols.Lino)
+Choose your preferred programming language for working with Links Notation:
+
+- **[C# Implementation](csharp/README.md)** - Full-featured .NET library with NuGet package
+- **[JavaScript Implementation](js/README.md)** - Modern ES6+ implementation using Bun and Peggy.js  
+- **[Rust Implementation](rust/README.md)** - High-performance parser using nom combinator library
+
+## Quick Start
+
+### C#
+```csharp
+var parser = new Platform.Protocols.Lino.Parser();
+var links = parser.Parse("papa (lovesMama: loves mama)");
+```
+
+### JavaScript
+```javascript
+import { Parser } from '@linksplatform/protocols-lino';
+const parser = new Parser();
+await parser.initialize();
+const links = parser.parse("papa (lovesMama: loves mama)");
+```
+
+### Rust
+```rust
+use lino::parse_lino;
+let links = parse_lino("papa (lovesMama: loves mama)").unwrap();
+```
 
 ## Examples
 ### Links notation (lino)
@@ -53,26 +79,27 @@ parentheses may be ommitted if the whole line is a single link
 
 So that means that *this* text is also links notation. So most of the text in the world already may be parsed as links notation. That makes links notation the most easy an natural/intuitive/native one.
 
-### Getting a [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.Link.html)\>
-```C#
-(new Platform.Protocols.Lino.Parser()).Parse(@string)
-```
-### Formatting the [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.Link.html)\> back to string
-```C#
-using Platform.Protocols.Lino;
-```
-```C#
-links.Format()
-```
+## What is Links Notation?
 
-## [Documentation](https://linksplatform.github.io/Protocols.Lino)
-*   Struct [Link](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.Link.html).
-*   Method [Parser](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.Parser.html).[Parse](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
-*   Method [IListExtensions](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.IListExtensions.html).[Format](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__)
+Links Notation (Lino) is a simple, intuitive format for representing structured data as links between entities. It's designed to be:
 
-[PDF file](https://linksplatform.github.io/Protocols.Lino/csharp/Platform.Protocols.Lino.pdf) with code for e-readers.
+- **Natural**: Most text can already be parsed as links notation
+- **Flexible**: Supports any number of references in each link  
+- **Universal**: Can represent doublets, triplets, and N-tuples
+- **Hierarchical**: Supports nested structures with indentation
 
-## Depend on
-*   [Microsoft.CSharp](https://www.nuget.org/packages/Microsoft.CSharp)
-*   [Pegasus](https://github.com/otac0n/Pegasus)
-*   [Platform.Collections](https://github.com/linksplatform/Collections)
+The notation uses two core concepts:
+- **References**: Point to other links (like variables or identifiers)
+- **Links**: Connect references together with optional identifiers
+
+## Documentation
+
+For detailed implementation guides and API references, see the language-specific documentation:
+
+- **[C# Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html)** - Complete API reference
+- **[C# README](csharp/README.md)** - Installation and usage guide
+- **[JavaScript README](js/README.md)** - Modern web development guide  
+- **[Rust README](rust/README.md)** - High-performance parsing guide
+
+Additional resources:
+- [PDF Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/Platform.Protocols.Lino.pdf) - Complete reference for offline reading
