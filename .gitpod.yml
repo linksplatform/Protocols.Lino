@@ -2,5 +2,25 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Test
-    command: (cd csharp && dotnet test -c Release -f net8)
+  - name: Test C#
+    command: |
+      echo "🔧 Testing C# implementation..."
+      cd csharp
+      dotnet test -c Release -f net8
+      echo "✅ C# tests completed"
+      
+  - name: Test JavaScript
+    command: |
+      echo "🔧 Testing JavaScript implementation..."
+      cd js
+      bun install
+      bun test
+      echo "✅ JavaScript tests completed"
+      
+  - name: Test Rust
+    command: |
+      echo "🔧 Testing Rust implementation..."
+      cd rust
+      cargo test
+      echo "✅ Rust tests completed"
+
