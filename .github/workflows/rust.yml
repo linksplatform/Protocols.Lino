@@ -33,13 +33,13 @@ jobs:
           isRustFilesChanged='false'
           echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
           for changedFile in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            if [[ $changedFile == *.rs ]] || [[ $changedFile == Cargo.toml ]] || [[ $changedFile == Cargo.lock ]]; then
+            if [[ $changedFile == rust/*.rs ]] || [[ $changedFile == rust/Cargo.toml ]] || [[ $changedFile == rust/Cargo.lock ]] || [[ $changedFile == rust/* ]] || [[ $changedFile == .github/workflows/rust.yml ]]; then
               echo "isRustFilesChanged='true'"
               isRustFilesChanged='true'
               break
             fi
           done
-          echo "::set-output name=isRustFilesChanged::${isRustFilesChanged}"
+          echo "isRustFilesChanged=${isRustFilesChanged}" >> $GITHUB_OUTPUT
           echo "isRustFilesChanged: ${isRustFilesChanged}"
 
   test:
@@ -117,10 +117,10 @@ jobs:
           # Check if version exists on crates.io
           if curl -f "https://crates.io/api/v1/crates/$PACKAGE_NAME/$PACKAGE_VERSION" > /dev/null 2>&1; then
             echo "Version $PACKAGE_VERSION already exists on crates.io"
-            echo "::set-output name=should_publish::false"
+            echo "should_publish=false" >> $GITHUB_OUTPUT
           else
             echo "Version $PACKAGE_VERSION does not exist on crates.io"
-            echo "::set-output name=should_publish::true"
+            echo "should_publish=true" >> $GITHUB_OUTPUT
           fi
       - name: Publish to Crates.io
         if: steps.version-check.outputs.should_publish == 'true'

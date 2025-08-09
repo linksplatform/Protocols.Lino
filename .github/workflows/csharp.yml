@@ -16,7 +16,35 @@ defaults:
     working-directory: csharp
 
 jobs:
+  findChangedCsFiles:
+    runs-on: ubuntu-latest
+    outputs:
+      isCsFilesChanged: ${{ steps.setIsCsFilesChangedOutput.outputs.isCsFilesChanged }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Get changed files using defaults
+        id: changed-files
+        uses: tj-actions/changed-files@v41
+      - name: Set output isCsFilesChanged
+        id: setIsCsFilesChangedOutput
+        run: |
+          isCsFilesChanged='false'
+          echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
+          for changedFile in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [[ $changedFile == csharp/*.cs ]] || [[ $changedFile == csharp/*.csproj ]] || [[ $changedFile == csharp/*.sln ]] || [[ $changedFile == csharp/* ]] || [[ $changedFile == .github/workflows/csharp.yml ]]; then
+              echo "isCsFilesChanged='true'"
+              isCsFilesChanged='true'
+              break
+            fi
+          done
+          echo "isCsFilesChanged=${isCsFilesChanged}" >> $GITHUB_OUTPUT
+          echo "isCsFilesChanged: ${isCsFilesChanged}"
+
   test:
+    needs: [findChangedCsFiles]
+    if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -34,7 +62,8 @@ jobs:
         run: dotnet test --configuration Release --no-build -f net8
 
   pushNuGetPackageToGitHubPackageRegistry:
-    needs: test
+    needs: [test, findChangedCsFiles]
+    if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -48,9 +77,27 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --configuration Release --no-restore
+      - name: Check if version already published to GitHub Packages
+        id: github-version-check
+        run: |
+          PACKAGE_VERSION=$(grep '<VersionPrefix>' Platform.Protocols.Lino/Platform.Protocols.Lino.csproj | sed 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/')
+          PACKAGE_ID="Platform.Protocols.Lino"
+          echo "Package: $PACKAGE_ID@$PACKAGE_VERSION"
+          
+          # Check if version exists on GitHub Packages
+          if curl -f -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+               "https://nuget.pkg.github.com/linksplatform/download/$PACKAGE_ID/$PACKAGE_VERSION/$PACKAGE_ID.$PACKAGE_VERSION.nupkg" > /dev/null 2>&1; then
+            echo "Version $PACKAGE_VERSION already exists on GitHub Packages"
+            echo "should_publish=false" >> $GITHUB_OUTPUT
+          else
+            echo "Version $PACKAGE_VERSION does not exist on GitHub Packages"
+            echo "should_publish=true" >> $GITHUB_OUTPUT
+          fi
       - name: Pack
+        if: steps.github-version-check.outputs.should_publish == 'true'
         run: dotnet pack --configuration Release --no-build --output ./nupkg
       - name: Configure NuGet Source
+        if: steps.github-version-check.outputs.should_publish == 'true'
         run: |
           dotnet nuget add source "https://nuget.pkg.github.com/linksplatform/index.json" \
             --name "github" \
@@ -58,6 +105,7 @@ jobs:
             --password "${{ secrets.GITHUB_TOKEN }}" \
             --store-password-in-clear-text
       - name: Push NuGet Package to GitHub Package Registry
+        if: steps.github-version-check.outputs.should_publish == 'true'
         run: |
           dotnet nuget push ./nupkg/*.nupkg \
             --source "github" \
@@ -66,7 +114,8 @@ jobs:
 
   pusnToNuget:
     runs-on: ubuntu-latest
-    needs: test
+    needs: [test, findChangedCsFiles]
+    if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -75,12 +124,29 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x' # Ensure this matches your project's target
+      - name: Check if version already published to NuGet.org
+        id: nuget-version-check
+        run: |
+          PACKAGE_VERSION=$(grep '<VersionPrefix>' Platform.Protocols.Lino/Platform.Protocols.Lino.csproj | sed 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/')
+          PACKAGE_ID="Platform.Protocols.Lino"
+          echo "Package: $PACKAGE_ID@$PACKAGE_VERSION"
+          
+          # Check if version exists on NuGet.org
+          if curl -f "https://api.nuget.org/v3-flatcontainer/$PACKAGE_ID/$PACKAGE_VERSION/$PACKAGE_ID.nuspec" > /dev/null 2>&1; then
+            echo "Version $PACKAGE_VERSION already exists on NuGet.org"
+            echo "should_publish=false" >> $GITHUB_OUTPUT
+          else
+            echo "Version $PACKAGE_VERSION does not exist on NuGet.org"
+            echo "should_publish=true" >> $GITHUB_OUTPUT
+          fi
       - name: Read project information
+        if: steps.nuget-version-check.outputs.should_publish == 'true'
         run: |
           export REPOSITORY_NAME=$(basename ${{ github.repository }})
           wget "$SCRIPTS_BASE_URL/read_csharp_package_info.sh"
           bash ./read_csharp_package_info.sh
       - name: Publish NuGet package
+        if: steps.nuget-version-check.outputs.should_publish == 'true'
         run: |
           export REPOSITORY_NAME=$(basename ${{ github.repository }})
           wget "$SCRIPTS_BASE_URL/push-csharp-nuget.sh"
@@ -88,7 +154,8 @@ jobs:
 
   publiseRelease:
     runs-on: ubuntu-latest
-    needs: test
+    needs: [test, findChangedCsFiles]
+    if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -110,33 +177,6 @@ jobs:
           chmod +x ./publish-release.sh
           wget "$SCRIPTS_BASE_URL/publish-csharp-release.sh"
           bash ./publish-csharp-release.sh
-
-  findChangedCsFiles:
-    runs-on: ubuntu-latest
-    needs: test
-    outputs:
-      isCsFilesChanged: ${{ steps.setIsCsFilesChangedOutput.outputs.isCsFilesChanged }}
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Get changed files using defaults
-        id: changed-files
-        uses: tj-actions/changed-files@v41
-      - name: Set output isCsFilesChanged
-        id: setIsCsFilesChangedOutput
-        run: |
-          isCsFilesChanged='false'
-          echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
-          for changedFile in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            if [[ $changedFile == *.cs ]]; then
-              echo "isCsFilesChanged='true'"
-              isCsFilesChanged='true'
-              break
-            fi
-          done
-          echo "::set-output name=isCsFilesChanged::${isCsFilesChanged}"
-          echo "isCsFilesChanged: ${isCsFilesChanged}"
 
   generatePdfWithCode:
     runs-on: ubuntu-latest
