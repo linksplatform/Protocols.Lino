@@ -230,9 +230,21 @@ jobs:
           sed -i 's/sudo apt-get install.*nuget.*/echo "Skipping nuget installation"/g' ./publish-csharp-docs.sh
           sed -i 's/nuget install docfx.console.*$/echo "Skipping docfx installation via nuget"/g' ./publish-csharp-docs.sh
           sed -i 's/mono.*docfx.exe.*docfx.json/docfx docfx.json/g' ./publish-csharp-docs.sh
+          # Also replace the line that directly calls nuget install without sudo apt-get
+          sed -i 's/^nuget install docfx.console.*$/echo "Skipping docfx installation via nuget"/g' ./publish-csharp-docs.sh
           
           # Debug: Show modified script
           echo "=== Modified script debug ==="
           cat ./publish-csharp-docs.sh
+          
+          # Debug: Check PATH and docfx availability before running script
+          echo "=== PATH debug ==="
+          echo "PATH: $PATH"
+          export PATH="$HOME/.dotnet/tools:$PATH"
+          echo "Updated PATH: $PATH"
+          which docfx || echo "docfx still not found"
+          
+          # Ensure the script uses the updated PATH
+          export PATH="$HOME/.dotnet/tools:$PATH"
           
           bash ./publish-csharp-docs.sh
