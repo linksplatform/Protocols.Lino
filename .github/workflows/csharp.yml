@@ -61,57 +61,6 @@ jobs:
       - name: Test
         run: dotnet test --configuration Release --no-build -f net8
 
-  pushNuGetPackageToGitHubPackageRegistry:
-    needs: [test, findChangedCsFiles]
-    if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '8.0.x' # Ensure this matches your project's target
-      - name: Restore Dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-      - name: Check if version already published to GitHub Packages
-        id: github-version-check
-        run: |
-          PACKAGE_VERSION=$(grep '<VersionPrefix>' Platform.Protocols.Lino/Platform.Protocols.Lino.csproj | sed 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/')
-          PACKAGE_ID="Platform.Protocols.Lino"
-          echo "Package: $PACKAGE_ID@$PACKAGE_VERSION"
-          
-          # Check if version exists on GitHub Packages
-          # Use NuGet API to check if package version exists
-          if curl -f -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-               "https://api.github.com/user/packages/nuget/$PACKAGE_ID/versions" 2>/dev/null | grep -q "\"name\": \"$PACKAGE_VERSION\""; then
-            echo "Version $PACKAGE_VERSION already exists on GitHub Packages"
-            echo "should_publish=false" >> $GITHUB_OUTPUT
-          else
-            echo "Version $PACKAGE_VERSION does not exist on GitHub Packages"
-            echo "should_publish=true" >> $GITHUB_OUTPUT
-          fi
-      - name: Pack
-        if: steps.github-version-check.outputs.should_publish == 'true'
-        run: dotnet pack --configuration Release --no-build --output ./nupkg
-      - name: Configure NuGet Source
-        if: steps.github-version-check.outputs.should_publish == 'true'
-        run: |
-          dotnet nuget add source "https://nuget.pkg.github.com/linksplatform/index.json" \
-            --name "github" \
-            --username "linksplatform" \
-            --password "${{ secrets.GITHUB_TOKEN }}" \
-            --store-password-in-clear-text
-      - name: Push NuGet Package to GitHub Package Registry
-        if: steps.github-version-check.outputs.should_publish == 'true'
-        run: |
-          dotnet nuget push ./nupkg/*.nupkg \
-            --source "github" \
-            --skip-duplicate \
-            --api-key ${{ secrets.GITHUB_TOKEN }}
 
   pusnToNuget:
     runs-on: ubuntu-latest
