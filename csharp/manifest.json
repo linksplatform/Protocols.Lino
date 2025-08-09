@@ -42,7 +42,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Platform.Protocols.Lino.ILinksGroupListExtensions",
-      "Summary": null
+      "Summary": "<p sourcefile=\"obj/api/Platform.Protocols.Lino.ILinksGroupListExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for collections of <xref href=\"Platform.Protocols.Lino.LinksGroup%601\" data-throw-if-not-resolved=\"false\"></xref> instances.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -56,7 +56,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Platform.Protocols.Lino.IListExtensions",
-      "Summary": null
+      "Summary": "<p sourcefile=\"obj/api/Platform.Protocols.Lino.IListExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for formatting collections of <xref href=\"Platform.Protocols.Lino.Link%601\" data-throw-if-not-resolved=\"false\"></xref> instances.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -70,7 +70,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Platform.Protocols.Lino.Link<TLinkAddress>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"obj/api/Platform.Protocols.Lino.Link-1.yml\" sourcestartlinenumber=\"1\">Represents a link in the Lino protocol with an optional identifier and nested values.\nLinks can represent simple references, complex nested structures, or relationships between entities.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -84,7 +84,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Platform.Protocols.Lino.LinksGroup<TLinkAddress>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"obj/api/Platform.Protocols.Lino.LinksGroup-1.yml\" sourcestartlinenumber=\"1\">Represents a group of links with hierarchical structure, where each group contains a primary link and optional nested groups.\nThis structure supports the indentation-based syntax of the Lino protocol.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -112,7 +112,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Platform.Protocols.Lino._<TLinkAddress>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"obj/api/Platform.Protocols.Lino._-1.yml\" sourcestartlinenumber=\"1\">A utility struct that provides convenient implicit conversions for creating links from various tuple combinations.\nThe underscore name follows functional programming conventions for placeholder/utility types.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -126,7 +126,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Platform.Protocols.Lino.id<TLinkAddress>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"obj/api/Platform.Protocols.Lino.id-1.yml\" sourcestartlinenumber=\"1\">A readonly struct that explicitly represents a link identifier/address.\nThis type is used to distinguish between regular values and explicit identifiers in link construction.</p>\n"
     },
     {
       "type": "ManagedReference",
