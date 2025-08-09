@@ -5,20 +5,18 @@ using System.Text;
 using Platform.Collections;
 using Platform.Collections.Lists;
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
 namespace Platform.Protocols.Lino
 {
     public struct Link<TLinkAddress> : IEquatable<Link<TLinkAddress>>
     {
-        private readonly EqualityComparer<TLinkAddress> _equalityComparer = EqualityComparer<TLinkAddress>.Default;
+        private static readonly EqualityComparer<TLinkAddress> EqualityComparerInstance = EqualityComparer<TLinkAddress>.Default;
 
         public readonly TLinkAddress? Id;
 
-        public readonly IList<Link<TLinkAddress>> Values;
+        public readonly IList<Link<TLinkAddress>>? Values;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Link(TLinkAddress id, IList<Link<TLinkAddress>> values) => (Id, Values) = (id, values);
+        public Link(TLinkAddress? id, IList<Link<TLinkAddress>>? values) => (Id, Values) = (id, values);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Link(IList<Link<TLinkAddress>> values) : this(default!, values) { }
@@ -32,14 +30,14 @@ namespace Platform.Protocols.Lino
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString() => Id == null ?
          $"({GetValuesString()})" : 
-            Values.IsNullOrEmpty() ? 
+            (Values == null || Values.Count == 0) ? 
                 $"({EscapeReference(Id.ToString())})" :
                 $"({EscapeReference(Id.ToString())}: {GetValuesString()})";
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string GetValuesString()
         {
-            if (Values.IsNullOrEmpty())
+            if (Values == null || Values.Count == 0)
             {
                 return "";
             }
@@ -58,7 +56,7 @@ namespace Platform.Protocols.Lino
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Link<TLinkAddress> Simplify()
         {
-            if (Values.IsNullOrEmpty())
+            if (Values == null || Values.Count == 0)
             {
                 return this;
             }
@@ -83,7 +81,7 @@ namespace Platform.Protocols.Lino
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetValueString(Link<TLinkAddress> value) => value.ToLinkOrIdString();
 
-        public static string EscapeReference(string reference)
+        public static string EscapeReference(string? reference)
         {
             if (string.IsNullOrWhiteSpace(reference))
             {
@@ -113,7 +111,7 @@ namespace Platform.Protocols.Lino
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string ToLinkOrIdString() => Values.IsNullOrEmpty() ? Id == null ? "" : EscapeReference(Id.ToString()) : ToString();
+        public string ToLinkOrIdString() => (Values == null || Values.Count == 0) ? (Id == null ? "" : EscapeReference(Id?.ToString())) : ToString();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator Link<TLinkAddress>(TLinkAddress value) => new Link<TLinkAddress>(value);
@@ -134,13 +132,13 @@ namespace Platform.Protocols.Lino
         public static implicit operator Link<TLinkAddress>((id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target) value) => new (value.id.Id, new [] { value.source, value.linker, value.target });
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is Link<TLinkAddress> link && Equals(link);
+        public override bool Equals(object? obj) => obj is Link<TLinkAddress> link && Equals(link);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() => (Id, Values.GenerateHashCode()).GetHashCode();
+        public override int GetHashCode() => (Id, (Values ?? Array.Empty<Link<TLinkAddress>>()).GenerateHashCode()).GetHashCode();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(Link<TLinkAddress> other) => Id != null && other.Id != null && _equalityComparer.Equals(Id, other.Id) && Values.EqualTo(other.Values);
+        public bool Equals(Link<TLinkAddress> other) => Id != null && other.Id != null && EqualityComparerInstance.Equals(Id, other.Id) && (Values ?? Array.Empty<Link<TLinkAddress>>()).EqualTo(other.Values ?? Array.Empty<Link<TLinkAddress>>());
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool operator ==(Link<TLinkAddress> left, Link<TLinkAddress> right) => left.Equals(right);

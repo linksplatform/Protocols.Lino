@@ -65,7 +65,7 @@ namespace Platform.Protocols.Lino.Tests
             Assert.NotNull(links);
             Assert.Single(links);
             // Simple reference without colon creates a link with that ID
-            Assert.Equal("test", links[0].Id);
+            Assert.Equal("test", links[0]!.Id);
             // Values can be null for simple references
             Assert.True(links[0].Values == null || links[0].Values.Count == 0);
         }
@@ -80,9 +80,9 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Single(links);
             Assert.Equal("parent", links[0].Id);
             Assert.NotNull(links[0].Values);
-            Assert.Equal(2, links[0].Values.Count);
-            Assert.Equal("child1", links[0].Values[0].Id);
-            Assert.Equal("child2", links[0].Values[1].Id);
+            Assert.Equal(2, links[0].Values!.Count);
+            Assert.Equal("child1", links[0].Values![0].Id);
+            Assert.Equal("child2", links[0].Values![1].Id);
         }
 
         [Fact]
@@ -95,7 +95,7 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Single(links);
             Assert.Equal("parent", links[0].Id);
             Assert.NotNull(links[0].Values);
-            Assert.Equal(2, links[0].Values.Count);
+            Assert.Equal(2, links[0].Values!.Count);
         }
 
         [Fact]
@@ -108,9 +108,9 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Single(links);
             Assert.Null(links[0].Id);
             Assert.NotNull(links[0].Values);
-            Assert.Equal(2, links[0].Values.Count);
-            Assert.Equal("value1", links[0].Values[0].Id);
-            Assert.Equal("value2", links[0].Values[1].Id);
+            Assert.Equal(2, links[0].Values!.Count);
+            Assert.Equal("value1", links[0].Values![0].Id);
+            Assert.Equal("value2", links[0].Values![1].Id);
         }
 
         [Fact]
@@ -159,9 +159,9 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Single(links);
             Assert.Null(links[0].Id);
             Assert.NotNull(links[0].Values);
-            Assert.Equal(2, links[0].Values.Count);
-            Assert.Equal("has space", links[0].Values[0].Id);
-            Assert.Equal("has:colon", links[0].Values[1].Id);
+            Assert.Equal(2, links[0].Values!.Count);
+            Assert.Equal("has space", links[0].Values![0].Id);
+            Assert.Equal("has:colon", links[0].Values![1].Id);
             var formatted = links.Format();
             Assert.Equal("('has space' 'has:colon')", formatted);
         }
