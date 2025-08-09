@@ -235,20 +235,14 @@ jobs:
           # Replace direct docfx call to add --force flag
           sed -i 's/^docfx docfx.json$/docfx docfx.json --force/g' ./publish-csharp-docs.sh
           
-          # Clean up ALL build artifacts to avoid framework conflicts
+          # Clean up ALL build artifacts to avoid conflicts
           echo "=== Cleaning up ALL build artifacts ==="
           find . -type d -name "obj" -exec rm -rf {} + 2>/dev/null || true
           find . -type d -name "bin" -exec rm -rf {} + 2>/dev/null || true
           rm -rf _site 2>/dev/null || true
           
-          # Build the project first to ensure correct framework is used
-          echo "=== Pre-building project for documentation ==="
-          dotnet build --configuration Release -f net8 || true
-          
-          # Clean netstandard artifacts if they were created
-          echo "=== Removing any netstandard artifacts ==="
-          find . -type d -path "*/obj/*/netstandard*" -exec rm -rf {} + 2>/dev/null || true
-          find . -type d -path "*/bin/*/netstandard*" -exec rm -rf {} + 2>/dev/null || true
+          # Skip the build - the test job already validated it builds correctly
+          # DocFX will build what it needs internally
           
           # Debug: Show modified script
           echo "=== Modified script debug ==="
