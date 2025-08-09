@@ -1,14 +1,16 @@
-﻿[![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/linksplatform/Protocols.Lino)
+# [Protocols.Lino](https://github.com/linksplatform/Protocols.Lino) ([русская версия](README.ru.md))
+
+| [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/csharp/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=csharp) | [![NuGet Version and Downloads count](https://img.shields.io/nuget/v/Platform.Protocols.Lino?label=nuget&style=flat)](https://www.nuget.org/packages/Platform.Protocols.Lino) | **[C#](csharp/README.md)** |
+|-|-|-|
+| [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/js/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=js) | [![npm Version and Downloads count](https://img.shields.io/npm/v/@linksplatform/protocols-lino?label=npm&style=flat)](https://www.npmjs.com/package/@linksplatform/protocols-lino) | **[JavaScript](js/README.md)** |
+| [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/rust/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=rust) | [![Crates.io Version and Downloads count](https://img.shields.io/crates/v/platform-lino?label=crates.io&style=flat)](https://crates.io/crates/platform-lino) | **[Rust](rust/README.md)** |
+
+[![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/linksplatform/Protocols.Lino)
 [![Open in GitHub Codespaces](https://img.shields.io/badge/GitHub%20Codespaces-Open-181717?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=linksplatform/Protocols.Lino)
 
-[![NuGet Version and Downloads count](https://img.shields.io/nuget/v/Platform.Protocols.Lino?label=nuget&style=flat)](https://www.nuget.org/packages/Platform.Protocols.Lino)
-[![npm Version and Downloads count](https://img.shields.io/npm/v/@linksplatform/protocols-lino?label=npm&style=flat)](https://www.npmjs.com/package/@linksplatform/protocols-lino)
-[![Crates.io Version and Downloads count](https://img.shields.io/crates/v/platform-lino?label=crates.io&style=flat)](https://crates.io/crates/platform-lino)
-[![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/CD/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=CD)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4e7eb0a883e9439280c1097381d46b50)](https://app.codacy.com/gh/linksplatform/Protocols.Lino?utm_source=github.com&utm_medium=referral&utm_content=linksplatform/Protocols.Lino&utm_campaign=Badge_Grade_Settings)
 [![CodeFactor](https://www.codefactor.io/repository/github/linksplatform/Protocols.Lino/badge)](https://www.codefactor.io/repository/github/linksplatform/Protocols.Lino)
 
-# [Protocols.Lino](https://github.com/linksplatform/Protocols.Lino) ([русская версия](README.ru.md))
 LinksPlatform's Platform.Protocols.Lino Class Library.
 
 ![introduction](https://github.com/linksplatform/Documentation/raw/master/doc/Examples/json_xml_lino_comparison/b%26w.png "json, xml and lino comparison")
@@ -16,14 +18,6 @@ LinksPlatform's Platform.Protocols.Lino Class Library.
 This library gives you an ability to convert any string that contains links notation into a list of links and back to the string after modifications are made.
 
 Links notation is based on two concepts references and links. Each reference references other link. The notation supports links with any number of references to other links.
-
-## Language Implementations
-
-Choose your preferred programming language for working with Links Notation:
-
-- **[C# Implementation](csharp/README.md)** - Full-featured .NET library with NuGet package
-- **[JavaScript Implementation](js/README.md)** - Modern ES6+ implementation using Bun and Peggy.js  
-- **[Rust Implementation](rust/README.md)** - High-performance parser using nom combinator library
 
 ## Quick Start
 

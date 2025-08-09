@@ -1,11 +1,16 @@
-﻿[![Версия NuGet пакета и количество загрузок](https://img.shields.io/nuget/v/Platform.Protocols.Lino?label=nuget&style=flat)](https://www.nuget.org/packages/Platform.Protocols.Lino)
-[![Версия npm пакета и количество загрузок](https://img.shields.io/npm/v/@linksplatform/protocols-lino?label=npm&style=flat)](https://www.npmjs.com/package/@linksplatform/protocols-lino)
-[![Версия Crates.io и количество загрузок](https://img.shields.io/crates/v/platform-lino?label=crates.io&style=flat)](https://crates.io/crates/platform-lino)
-[![Состояние сборки](https://github.com/linksplatform/Protocols.Lino/workflows/CD/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=CD)
+# [Protocols.Lino](https://github.com/linksplatform/Protocols.Lino) ([english version](README.md))
+
+| [![Состояние Actions](https://github.com/linksplatform/Protocols.Lino/workflows/csharp/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=csharp) | [![Версия NuGet пакета и количество загрузок](https://img.shields.io/nuget/v/Platform.Protocols.Lino?label=nuget&style=flat)](https://www.nuget.org/packages/Platform.Protocols.Lino) | **[C#](csharp/README.ru.md)** |
+|-|-|-|
+| [![Состояние Actions](https://github.com/linksplatform/Protocols.Lino/workflows/js/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=js) | [![Версия npm пакета и количество загрузок](https://img.shields.io/npm/v/@linksplatform/protocols-lino?label=npm&style=flat)](https://www.npmjs.com/package/@linksplatform/protocols-lino) | **[JavaScript](js/README.ru.md)** |
+| [![Состояние Actions](https://github.com/linksplatform/Protocols.Lino/workflows/rust/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=rust) | [![Версия Crates.io и количество загрузок](https://img.shields.io/crates/v/platform-lino?label=crates.io&style=flat)](https://crates.io/crates/platform-lino) | **[Rust](rust/README.ru.md)** |
+
+[![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/linksplatform/Protocols.Lino)
+[![Open in GitHub Codespaces](https://img.shields.io/badge/GitHub%20Codespaces-Open-181717?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=linksplatform/Protocols.Lino)
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4e7eb0a883e9439280c1097381d46b50)](https://app.codacy.com/gh/linksplatform/Protocols.Lino?utm_source=github.com&utm_medium=referral&utm_content=linksplatform/Protocols.Lino&utm_campaign=Badge_Grade_Settings)
 [![CodeFactor](https://www.codefactor.io/repository/github/linksplatform/Protocols.Lino/badge)](https://www.codefactor.io/repository/github/linksplatform/Protocols.Lino)
 
-# [Protocols.Lino](https://github.com/linksplatform/Protocols.Lino) ([english version](README.md))
 Библиотека классов ПлатформыСвязей Platform.Protocols.Lino.
 
 ![introduction](https://github.com/linksplatform/Documentation/raw/master/doc/Examples/json_xml_lino_comparison/b%26w.png "сравнение json, xml и lino")
@@ -13,14 +18,6 @@
 Эта библиотека дает вам возможность преобразовать любую строку, содержащую обозначение связей, в список связей и форматировать этот список обратно в строку после внесения изменений.
 
 Нотация связей основана на двух концепциях: ссылка и связь. Каждая ссылка ссылается на другую связь. Нотация поддерживает связи с любым количеством ссылок на другие связи.
-
-## Реализации для разных языков
-
-Выберите предпочитаемый язык программирования для работы с Нотацией Связей:
-
-- **[Реализация на C#](csharp/README.ru.md)** - Полнофункциональная .NET библиотека с NuGet пакетом
-- **[Реализация на JavaScript](js/README.ru.md)** - Современная ES6+ реализация использующая Bun и Peggy.js  
-- **[Реализация на Rust](rust/README.ru.md)** - Высокопроизводительный парсер использующий библиотеку комбинаторов nom
 
 ## Быстрый старт
 
