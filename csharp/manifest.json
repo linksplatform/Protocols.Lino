@@ -1,56 +1,174 @@
 {
-  "homepages": [],
   "source_base_path": "/home/runner/work/Protocols.Lino/Protocols.Lino/csharp",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
-      "type": "Toc",
-      "source_relative_path": "toc.yml",
+      "type": "Resource",
       "output": {
-        ".html": {
-          "relative_path": "toc.html",
-          "hash": "+sMUyjvPgu01Lo6XhHvaFA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    }
-  ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
-        "incrementalPhase": "build",
-        "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
-      },
-      "processors": {
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
+        "resource": {
+          "relative_path": "index.json"
         }
       }
     },
     {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
-        "incrementalPhase": "postProcessing",
-        "total_file_count": 0,
-        "skipped_file_count": 0
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
       },
-      "processors": {}
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.ru.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.ru.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.ILinksGroupListExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Protocols.Lino.ILinksGroupListExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Platform.Protocols.Lino.ILinksGroupListExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.IListExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Protocols.Lino.IListExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Platform.Protocols.Lino.IListExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.Link-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Protocols.Lino.Link-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Platform.Protocols.Lino.Link<TLinkAddress>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.LinksGroup-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Protocols.Lino.LinksGroup-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Platform.Protocols.Lino.LinksGroup<TLinkAddress>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.Parser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Protocols.Lino.Parser.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Platform.Protocols.Lino.Parser",
+      "Summary": "<p sourcefile=\"obj/api/Platform.Protocols.Lino.Parser.yml\" sourcestartlinenumber=\"1\">Parses a string according to the rules of the <xref href=\"Platform.Protocols.Lino.Parser\" data-throw-if-not-resolved=\"false\"></xref> grammar.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino._-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Protocols.Lino._-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Platform.Protocols.Lino._<TLinkAddress>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.id-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Protocols.Lino.id-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Platform.Protocols.Lino.id<TLinkAddress>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Platform.Protocols.Lino.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Platform.Protocols.Lino.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Platform.Protocols.Lino",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
     }
   ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"
