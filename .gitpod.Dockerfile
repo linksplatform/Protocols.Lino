@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full:latest
+FROM gitpod/workspace-dotnet:latest
 
 # Install gh and bun
 RUN brew install gh
