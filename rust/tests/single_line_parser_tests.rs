@@ -1,4 +1,5 @@
 use lino::{parse_lino, LiNo};
+use lino::parser::parse_document;
 
 /// Helper function to format links similar to C# and JS versions
 fn format_links(lino: &LiNo<String>, less_parentheses: bool) -> String {
@@ -268,4 +269,50 @@ fn test_multiple_words_in_quotes() {
     let input = r#"("New York": city state)"#;
     let result = parse_lino(input);
     assert!(result.is_ok());
+}
+
+// Tests moved from parser.rs
+
+#[test]
+fn test_simple_reference() {
+    let result = parse_document("hello").unwrap();
+    assert_eq!(result.1.len(), 1);
+    assert_eq!(result.1[0].id, Some("hello".to_string()));
+}
+
+#[test]
+fn test_quoted_reference() {
+    let result = parse_document("\"hello world\"").unwrap();
+    assert_eq!(result.1.len(), 1);
+    assert_eq!(result.1[0].id, Some("hello world".to_string()));
+}
+
+#[test]
+fn test_point_link_parser() {
+    let result = parse_document("(point)").unwrap();
+    assert_eq!(result.1.len(), 1);
+    assert_eq!(result.1[0].id, Some("point".to_string()));
+}
+
+#[test]
+fn test_value_link_parser() {
+    let result = parse_document("(a b c)").unwrap();
+    assert_eq!(result.1.len(), 1);
+    assert_eq!(result.1[0].values.len(), 3);
+}
+
+#[test]
+fn test_link_with_id() {
+    let result = parse_document("(id: a b c)").unwrap();
+    assert_eq!(result.1.len(), 1);
+    assert_eq!(result.1[0].id, Some("id".to_string()));
+    assert_eq!(result.1[0].values.len(), 3);
+}
+
+#[test]
+fn test_single_line_link() {
+    let result = parse_document("id: value1 value2").unwrap();
+    assert_eq!(result.1.len(), 1);
+    assert_eq!(result.1[0].id, Some("id".to_string()));
+    assert_eq!(result.1[0].values.len(), 2);
 }

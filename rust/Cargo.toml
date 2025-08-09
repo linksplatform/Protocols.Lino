@@ -2,6 +2,15 @@
 name = "lino"
 version = "0.0.1"
 edition = "2021"
+description = "Rust implementation of the Lino protocol parser"
+license = "MIT"
+repository = "https://github.com/linksplatform/Protocols.Lino"
+keywords = ["lino", "parser", "links", "notation", "protocol"]
+categories = ["parsing"]
+
+[lib]
+name = "lino"
+path = "src/lib.rs"
 
 [dependencies]
 nom = "8.0"

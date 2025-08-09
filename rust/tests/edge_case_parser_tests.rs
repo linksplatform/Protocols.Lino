@@ -111,3 +111,10 @@ fn test_empty_links_test() {
     let result = parse_lino(input);
     assert!(result.is_ok());
 }
+
+#[test]
+fn test_invalid_input() {
+    let input = "(invalid";
+    let result = parse_lino(input);
+    assert!(result.is_err());
+}

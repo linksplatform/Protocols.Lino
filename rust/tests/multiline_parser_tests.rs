@@ -153,3 +153,31 @@ fn test_multiline_with_id() {
     let result = parse_lino(input);
     assert!(result.is_ok());
 }
+
+#[test]
+fn test_multiline_simple_links() {
+    let input = "(1: 1 1)\n(2: 2 2)";
+    let parsed = parse_lino(input).expect("Failed to parse input");
+
+    // Validate regular formatting
+    let output = parsed.to_string();
+    let expected = "((1: 1 1) (2: 2 2))"; // Expected regular output
+    assert_eq!(expected, output);
+
+    // Validate alternate formatting
+    let output_alternate = format!("{:#}", parsed);
+    assert_eq!(input, output_alternate);
+}
+
+#[test]
+fn test_indented_children() {
+    let input = "parent\n  child1\n  child2";
+    let parsed = parse_lino(input).expect("Failed to parse input");
+    
+    // The parsed structure should have parent with children
+    if let LiNo::Link { values, .. } = parsed {
+        assert!(!values.is_empty());
+    } else {
+        panic!("Expected Link with children");
+    }
+}

@@ -1,4 +1,5 @@
 use lino::parse_lino;
+use lino::parser::parse_document;
 
 #[test]
 fn significant_whitespace_test() {
@@ -98,4 +99,39 @@ fn test_complex_indentation() {
     let output = format!("{:#}", result);
     let expected = "(root)\n(root level1a)\n((root level1a) level2a)\n((root level1a) level2b)\n(root level1b)\n((root level1b) level2c)";
     assert_eq!(expected, output);
+}
+
+#[test]
+fn test_nested_links() {
+    let input = "(1: (2: (3: 3)))";
+    let parsed = parse_lino(input).expect("Failed to parse input");
+
+    // Validate regular formatting
+    let output = parsed.to_string();
+    let expected = "((1: (2: (3: 3))))";
+    assert_eq!(expected, output);
+
+    // Validate alternate formatting
+    let output_alternate = format!("{:#}", parsed);
+    assert_eq!(input, output_alternate);
+}
+
+// Tests moved from parser.rs
+
+#[test]
+fn test_indentation() {
+    let input = "parent\n  child1\n  child2";
+    let result = parse_document(input).unwrap();
+    assert_eq!(result.1.len(), 1);
+    assert_eq!(result.1[0].id, Some("parent".to_string()));
+    assert_eq!(result.1[0].children.len(), 2);
+}
+
+#[test]
+fn test_nested_indentation() {
+    let input = "parent\n  child\n    grandchild";
+    let result = parse_document(input).unwrap();
+    assert_eq!(result.1.len(), 1);
+    assert_eq!(result.1[0].children.len(), 1);
+    assert_eq!(result.1[0].children[0].children.len(), 1);
 }
