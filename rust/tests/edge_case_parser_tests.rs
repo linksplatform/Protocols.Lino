@@ -15,13 +15,9 @@ fn empty_link_with_parentheses_test() {
     let parsed = parse_lino(source).unwrap();
     // Should parse as an empty link
     assert!(parsed.is_link());
-    if let LiNo::Link { id: _, values } = &parsed {
-        // The outer wrapper
-        if let Some(LiNo::Link { id: inner_id, values: inner_values }) = values.first() {
-            assert_eq!(*inner_id, None);
-            assert!(inner_values.is_empty());
-        }
-    }
+    // Verify formatted output matches C#/JS
+    let output = format!("{:#}", parsed);
+    assert_eq!("()", output);
 }
 
 #[test]
@@ -30,6 +26,9 @@ fn empty_link_with_empty_self_reference_test() {
     let parsed = parse_lino(source).unwrap();
     // Should parse as empty link (: with no values becomes empty)
     assert!(parsed.is_link());
+    // Verify formatted output matches C#/JS
+    let output = format!("{:#}", parsed);
+    assert_eq!("()", output);
 }
 
 #[test]
