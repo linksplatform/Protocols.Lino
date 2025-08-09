@@ -53,9 +53,8 @@ bun test --watch
 ```javascript
 import { Parser, Link } from '@linksplatform/protocols-lino';
 
-// Создание и инициализация парсера
+// Создание парсера
 const parser = new Parser();
-await parser.initialize();
 
 // Парсинг строки в формате Lino
 const input = `папа (любитМаму: любит маму)

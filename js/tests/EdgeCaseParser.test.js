@@ -1,22 +1,11 @@
-import { test, expect, beforeAll } from 'bun:test';
+import { test, expect } from 'bun:test';
 import { Parser } from '../src/Parser.js';
 import { formatLinks } from '../src/Link.js';
 
-let parser;
-
-beforeAll(async () => {
-  parser = new Parser();
-  try {
-    await parser.initialize();
-  } catch (error) {
-    console.warn('Parser not initialized. Run: bun run build:grammar');
-  }
-});
+const parser = new Parser();
 
 test.skip('EmptyLinkTest', () => {
   // Skipped: Not implemented yet in C# version
-  if (!parser.parserModule) return;
-  
   const source = ':';
   const target = ':';
   const links = parser.parse(source);
@@ -25,8 +14,6 @@ test.skip('EmptyLinkTest', () => {
 });
 
 test('EmptyLinkWithParenthesesTest', () => {
-  if (!parser.parserModule) return;
-  
   const source = '()';
   const target = '()';
   const links = parser.parse(source);
@@ -35,8 +22,6 @@ test('EmptyLinkWithParenthesesTest', () => {
 });
 
 test('EmptyLinkWithEmptySelfReferenceTest', () => {
-  if (!parser.parserModule) return;
-  
   const source = '(:)';
   const target = '()';
   const links = parser.parse(source);
@@ -45,8 +30,6 @@ test('EmptyLinkWithEmptySelfReferenceTest', () => {
 });
 
 test('TestAllFeaturesTest', () => {
-  if (!parser.parserModule) return;
-  
   // Test single-line link with id
   let input = 'id: value1 value2';
   let result = parser.parse(input);
@@ -94,24 +77,18 @@ test('TestAllFeaturesTest', () => {
 });
 
 test('TestEmptyDocumentTest', () => {
-  if (!parser.parserModule) return;
-  
   const input = '';
   // JavaScript parser throws error for empty documents (same behavior as C# version)
   expect(() => parser.parse(input)).toThrow();
 });
 
 test('TestWhitespaceOnlyTest', () => {
-  if (!parser.parserModule) return;
-  
   const input = '   \n   \n   ';
   // JavaScript parser throws error for whitespace-only input (same behavior as C# version)  
   expect(() => parser.parse(input)).toThrow();
 });
 
 test('TestEmptyLinksTest', () => {
-  if (!parser.parserModule) return;
-  
   let input = '()';
   let result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);

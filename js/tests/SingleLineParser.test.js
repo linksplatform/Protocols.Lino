@@ -1,21 +1,10 @@
-import { test, expect, beforeAll } from 'bun:test';
+import { test, expect } from 'bun:test';
 import { Parser } from '../src/Parser.js';
 import { formatLinks } from '../src/Link.js';
 
-let parser;
-
-beforeAll(async () => {
-  parser = new Parser();
-  try {
-    await parser.initialize();
-  } catch (error) {
-    console.warn('Parser not initialized. Run: bun run build:grammar');
-  }
-});
+const parser = new Parser();
 
 test('SingleLinkTest', () => {
-  if (!parser.parserModule) return;
-  
   const source = '(address: source target)';
   const links = parser.parse(source);
   const target = formatLinks(links);
@@ -23,8 +12,6 @@ test('SingleLinkTest', () => {
 });
 
 test('TripletSingleLinkTest', () => {
-  if (!parser.parserModule) return;
-  
   const source = '(papa has car)';
   const links = parser.parse(source);
   const target = formatLinks(links);
@@ -32,8 +19,6 @@ test('TripletSingleLinkTest', () => {
 });
 
 test('BugTest1', () => {
-  if (!parser.parserModule) return;
-  
   const source = '(ignore conan-center-index repository)';
   const links = parser.parse(source);
   const target = formatLinks(links);
@@ -41,8 +26,6 @@ test('BugTest1', () => {
 });
 
 test('QuotedReferencesTest', () => {
-  if (!parser.parserModule) return;
-  
   const source = `(a: 'b' "c")`;
   const target = `(a: b c)`;
   const links = parser.parse(source);
@@ -51,8 +34,6 @@ test('QuotedReferencesTest', () => {
 });
 
 test('QuotedReferencesWithSpacesTest', () => {
-  if (!parser.parserModule) return;
-  
   const source = `('a a': 'b b' "c c")`;
   const target = `('a a': 'b b' 'c c')`;
   const links = parser.parse(source);
@@ -61,8 +42,6 @@ test('QuotedReferencesWithSpacesTest', () => {
 });
 
 test('Parse simple reference', () => {
-  if (!parser.parserModule) return;
-  
   const input = 'test';
   const result = parser.parse(input);
   expect(result.length).toBe(1);
@@ -71,8 +50,6 @@ test('Parse simple reference', () => {
 });
 
 test('Parse reference with colon and values', () => {
-  if (!parser.parserModule) return;
-  
   const input = 'parent: child1 child2';
   const result = parser.parse(input);
   expect(result.length).toBe(1);
@@ -83,8 +60,6 @@ test('Parse reference with colon and values', () => {
 });
 
 test('Parse multiline link', () => {
-  if (!parser.parserModule) return;
-  
   const input = '(parent: child1 child2)';
   const result = parser.parse(input);
   expect(result.length).toBe(1);
@@ -93,8 +68,6 @@ test('Parse multiline link', () => {
 });
 
 test('Parse quoted references', () => {
-  if (!parser.parserModule) return;
-  
   const input = `"has space" 'has:colon'`;
   const result = parser.parse(input);
   expect(result.length).toBe(1);
@@ -107,8 +80,6 @@ test('Parse quoted references', () => {
 });
 
 test('Parse values only', () => {
-  if (!parser.parserModule) return;
-  
   const input = ': value1 value2';
   const result = parser.parse(input);
   expect(result.length).toBe(1);
@@ -119,80 +90,60 @@ test('Parse values only', () => {
 });
 
 test('Test single-line link with id', () => {
-  if (!parser.parserModule) return;
-  
   const input = 'id: value1 value2';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test multi-line link with id', () => {
-  if (!parser.parserModule) return;
-  
   const input = '(id: value1 value2)';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test link without id (single-line)', () => {
-  if (!parser.parserModule) return;
-  
   const input = ': value1 value2';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test link without id (multi-line)', () => {
-  if (!parser.parserModule) return;
-  
   const input = '(: value1 value2)';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test point link', () => {
-  if (!parser.parserModule) return;
-  
   const input = '(point)';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test value link', () => {
-  if (!parser.parserModule) return;
-  
   const input = '(value1 value2 value3)';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test quoted references', () => {
-  if (!parser.parserModule) return;
-  
   const input = '("id with spaces": "value with spaces")';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test single-quoted references', () => {
-  if (!parser.parserModule) return;
-  
   const input = "('id': 'value')";
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test nested links', () => {
-  if (!parser.parserModule) return;
-  
   const input = '(outer: (inner: value))';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test special characters in quotes', () => {
-  if (!parser.parserModule) return;
-  
   let input = '("key:with:colons": "value(with)parens")';
   let result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
@@ -203,24 +154,18 @@ test('Test special characters in quotes', () => {
 });
 
 test('Test deeply nested', () => {
-  if (!parser.parserModule) return;
-  
   const input = '(a: (b: (c: (d: (e: value)))))';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test hyphenated identifiers', () => {
-  if (!parser.parserModule) return;
-  
   const input = '(conan-center-index: repository info)';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
 
 test('Test multiple words in quotes', () => {
-  if (!parser.parserModule) return;
-  
   const input = '("New York": city state)';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
@@ -228,8 +173,6 @@ test('Test multiple words in quotes', () => {
 });
 
 test('Test simple ref', () => {
-  if (!parser.parserModule) return;
-  
   const input = 'simple_ref';
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);

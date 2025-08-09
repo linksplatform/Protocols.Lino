@@ -32,7 +32,6 @@ var links = parser.Parse("папа (любитМаму: любит маму)");
 ```javascript
 import { Parser } from '@linksplatform/protocols-lino';
 const parser = new Parser();
-await parser.initialize();
 const links = parser.parse("папа (любитМаму: любит маму)");
 ```
 

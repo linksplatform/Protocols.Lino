@@ -1,21 +1,10 @@
-import { test, expect, beforeAll } from 'bun:test';
+import { test, expect } from 'bun:test';
 import { Parser } from '../src/Parser.js';
 import { formatLinks } from '../src/Link.js';
 
-let parser;
-
-beforeAll(async () => {
-  parser = new Parser();
-  try {
-    await parser.initialize();
-  } catch (error) {
-    console.warn('Parser not initialized. Run: bun run build:grammar');
-  }
-});
+const parser = new Parser();
 
 test('SignificantWhitespaceTest', () => {
-  if (!parser.parserModule) return;
-  
   const source = `
 users
     user1
@@ -79,8 +68,6 @@ users
 });
 
 test('SimpleSignificantWhitespaceTest', () => {
-  if (!parser.parserModule) return;
-  
   const source = `a
     b
     c`;
@@ -93,8 +80,6 @@ test('SimpleSignificantWhitespaceTest', () => {
 });
 
 test('TwoSpacesSizedWhitespaceTest', () => {
-  if (!parser.parserModule) return;
-  
   const source = `
 users
   user1`;
@@ -106,8 +91,6 @@ users
 });
 
 test('Parse nested structure with indentation', () => {
-  if (!parser.parserModule) return;
-  
   const input = `parent
   child1
   child2`;
@@ -129,8 +112,6 @@ test('Parse nested structure with indentation', () => {
 });
 
 test('Test indentation consistency', () => {
-  if (!parser.parserModule) return;
-  
   // Test that indentation must be consistent
   const input = `parent
   child1
@@ -141,7 +122,6 @@ test('Test indentation consistency', () => {
 });
 
 test('Indentation-based children', () => {
-  if (!parser.parserModule) return;
   const input = `parent
   child1
   child2
@@ -151,7 +131,6 @@ test('Indentation-based children', () => {
 });
 
 test('Complex indentation', () => {
-  if (!parser.parserModule) return;
   const input = `root
   level1a
     level2a

@@ -1,24 +1,11 @@
 import { Link } from './Link.js';
+import * as parserModule from './parser-generated.js';
 
 export class Parser {
   constructor() {
-    this.parserModule = null;
-  }
-
-  async initialize() {
-    if (!this.parserModule) {
-      try {
-        this.parserModule = await import('./parser-generated.js');
-      } catch (error) {
-        throw new Error('Parser grammar not compiled. Run: bun run build:grammar');
-      }
-    }
   }
 
   parse(input) {
-    if (!this.parserModule) {
-      throw new Error('Parser not initialized. Call initialize() first.');
-    }
     
     // Handle empty input like C# version - throw FormatException equivalent
     if (input === '') {
@@ -31,7 +18,7 @@ export class Parser {
     }
     
     try {
-      const rawResult = this.parserModule.parse(input);
+      const rawResult = parserModule.parse(input);
       return this.transformResult(rawResult);
     } catch (error) {
       throw new Error(`Parse error: ${error.message}`);
