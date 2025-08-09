@@ -13,11 +13,9 @@ fn format_links(lino: &LiNo<String>, less_parentheses: bool) -> String {
         LiNo::Link { id, values } => {
             if values.is_empty() {
                 if let Some(id) = id {
-                    if less_parentheses {
-                        id.clone()
-                    } else {
-                        format!("({})", id)
-                    }
+                    // Escape id same as references
+                    let escaped_id = format_links(&LiNo::Ref(id.clone()), false);
+                    if less_parentheses { escaped_id } else { format!("({})", escaped_id) }
                 } else {
                     "()".to_string()
                 }
@@ -29,11 +27,11 @@ fn format_links(lino: &LiNo<String>, less_parentheses: bool) -> String {
                     .join(" ");
                 
                 if let Some(id) = id {
+                    let escaped_id = format_links(&LiNo::Ref(id.clone()), false);
                     if less_parentheses && values.len() == 1 {
-                        // For single value with id, we can skip parentheses in less_parentheses mode
-                        format!("{}: {}", id, formatted_values)
+                        format!("{}: {}", escaped_id, formatted_values)
                     } else {
-                        format!("({}: {})", id, formatted_values)
+                        format!("({}: {})", escaped_id, formatted_values)
                     }
                 } else {
                     if less_parentheses && values.iter().all(|v| matches!(v, LiNo::Ref(_))) {
@@ -159,20 +157,8 @@ fn parse_multiline_link() {
 fn parse_quoted_references() {
     let input = r#""has space" 'has:colon'"#;
     let result = parse_lino(input).unwrap();
-    assert!(result.is_link());
-    if let LiNo::Link { values, .. } = &result {
-        assert_eq!(values.len(), 1);
-        if let LiNo::Link { id, values } = &values[0] {
-            assert_eq!(id, &None);
-            assert_eq!(values.len(), 2);
-            if let LiNo::Ref(v1) = &values[0] {
-                assert_eq!(v1, "has space");
-            }
-            if let LiNo::Ref(v2) = &values[1] {
-                assert_eq!(v2, "has:colon");
-            }
-        }
-    }
+    let output = format_links_multiline(&result);
+    assert_eq!("('has space' 'has:colon')", output);
 }
 
 #[test]

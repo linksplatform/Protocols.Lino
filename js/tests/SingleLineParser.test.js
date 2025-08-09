@@ -102,6 +102,8 @@ test('Parse quoted references', () => {
   expect(result[0].values.length).toBe(2);
   expect(result[0].values[0].id).toBe('has space');
   expect(result[0].values[1].id).toBe('has:colon');
+  // Ensure formatting matches C# expectation
+  expect(formatLinks(result)).toBe(`('has space' 'has:colon')`);
 });
 
 test('Parse values only', () => {

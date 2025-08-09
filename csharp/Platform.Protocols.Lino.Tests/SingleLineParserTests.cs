@@ -150,6 +150,23 @@ namespace Platform.Protocols.Lino.Tests
         }
 
         [Fact]
+        public static void ParseQuotedReferencesValuesOnlyTest()
+        {
+            var source = "\"has space\" 'has:colon'";
+            var parser = new Parser();
+            var links = parser.Parse(source);
+            Assert.NotNull(links);
+            Assert.Single(links);
+            Assert.Null(links[0].Id);
+            Assert.NotNull(links[0].Values);
+            Assert.Equal(2, links[0].Values.Count);
+            Assert.Equal("has space", links[0].Values[0].Id);
+            Assert.Equal("has:colon", links[0].Values[1].Id);
+            var formatted = links.Format();
+            Assert.Equal("('has space' 'has:colon')", formatted);
+        }
+
+        [Fact]
         public static void TestNestedLinksSingleLineTest()
         {
             // Test nested links
