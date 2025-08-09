@@ -228,8 +228,8 @@ jobs:
           
           # Replace nuget commands and mono calls with docfx directly
           sed -i 's/sudo apt-get install.*nuget.*/echo "Skipping nuget installation"/g' ./publish-csharp-docs.sh
-          sed -i 's/mono .*docfx.exe/docfx/g' ./publish-csharp-docs.sh
-          sed -i 's/\.\/.*docfx.exe/docfx/g' ./publish-csharp-docs.sh
+          sed -i 's/nuget install docfx.console.*$/echo "Skipping docfx installation via nuget"/g' ./publish-csharp-docs.sh
+          sed -i 's/mono.*docfx.exe.*docfx.json/docfx docfx.json/g' ./publish-csharp-docs.sh
           
           # Debug: Show modified script
           echo "=== Modified script debug ==="
