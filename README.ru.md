@@ -10,11 +10,37 @@
 
 Эта библиотека дает вам возможность преобразовать любую строку, содержащую обозначение связей, в список связей и форматировать этот список обратно в строку после внесения изменений.
 
-Нотация связей основана на двух концепциях: ссылка и связь. Каждая ссылка ссылается на другую связь. Если никакая ссылка не определяет конкретную связь, предполагается, что такая связь является связью-точкой. Нотация поддерживает связи с любым количеством ссылок на другие связи.
+Нотация связей основана на двух концепциях: ссылка и связь. Каждая ссылка ссылается на другую связь. Нотация поддерживает связи с любым количеством ссылок на другие связи.
 
-Пространство имён: [Platform.Communication.Protocol.Lino](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.html)
+## Реализации для разных языков
 
-NuGet пакет: [Platform.Communication.Protocol.Lino](https://www.nuget.org/packages/Platform.Communication.Protocol.Lino)
+Выберите предпочитаемый язык программирования для работы с Нотацией Связей:
+
+- **[Реализация на C#](csharp/README.ru.md)** - Полнофункциональная .NET библиотека с NuGet пакетом
+- **[Реализация на JavaScript](js/README.ru.md)** - Современная ES6+ реализация использующая Bun и Peggy.js  
+- **[Реализация на Rust](rust/README.ru.md)** - Высокопроизводительный парсер использующий библиотеку комбинаторов nom
+
+## Быстрый старт
+
+### C#
+```csharp
+var parser = new Platform.Protocols.Lino.Parser();
+var links = parser.Parse("папа (любитМаму: любит маму)");
+```
+
+### JavaScript
+```javascript
+import { Parser } from '@linksplatform/protocols-lino';
+const parser = new Parser();
+await parser.initialize();
+const links = parser.parse("папа (любитМаму: любит маму)");
+```
+
+### Rust
+```rust
+use lino::parse_lino;
+let links = parse_lino("папа (любитМаму: любит маму)").unwrap();
+```
 
 ## Примеры
 ### Нотация связей
@@ -24,25 +50,27 @@ NuGet пакет: [Platform.Communication.Protocol.Lino](https://www.nuget.org/p
 дочь любитМаму
 все (любят маму)
 ```
-### Получаем [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\>
-```C#
-(new Platform.Communication.Protocol.Lino.Parser()).Parse(@string)
-```
-### Форматируем [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1)\<[Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html)\> обратно в строку
-```C#
-using Platform.Communication.Protocol.Lino;
-```
-```C#
-links.Format()
-```
+## Что такое Нотация Связей?
 
-## [Документация](https://linksplatform.github.io/Communication.Protocol.Lino)
-*   Структура [Link](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Link.html).
-*   Метод [Parser](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html).[Parse](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.Parser.html#Platform_Communication_Protocol_Lino_Parser_Parse_System_String_System_String_)
-*   Метод [IListExtensions](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html).[Format](https://linksplatform.github.io/Communication.Protocol.Lino/api/Platform.Communication.Protocol.Lino.IListExtensions.html#Platform_Communication_Protocol_Lino_IListExtensions_Format_System_Collections_Generic_IList_Platform_Communication_Protocol_Lino_Link__)
+Нотация Связей (Lino) - это простой, интуитивный формат для представления структурированных данных в виде связей между сущностями. Он разработан для того, чтобы быть:
 
-[PDF файл](https://linksplatform.github.io/Communication.Protocol.Lino/Platform.Communication.Protocol.Lino.pdf) с кодом для электронных книг.
+- **Естественным**: Большинство текстов уже может быть распарсено как нотация связей
+- **Гибким**: Поддерживает любое количество ссылок в каждой связи  
+- **Универсальным**: Может представлять дублеты, триплеты и N-кортежи
+- **Иерархическим**: Поддерживает вложенные структуры с отступами
 
-## Зависит напрямую от
-*   [Pegasus](https://github.com/otac0n/Pegasus)
-*   [Platform.Collections](https://github.com/linksplatform/Collections)
+Нотация использует две основные концепции:
+- **Ссылки**: Указывают на другие связи (как переменные или идентификаторы)
+- **Связи**: Соединяют ссылки вместе с опциональными идентификаторами
+
+## Документация
+
+Для подробных руководств по реализации и справочников API смотрите документацию для конкретных языков:
+
+- **[Документация C#](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html)** - Полный справочник API
+- **[README C#](csharp/README.ru.md)** - Руководство по установке и использованию
+- **[README JavaScript](js/README.ru.md)** - Руководство для современной веб-разработки  
+- **[README Rust](rust/README.ru.md)** - Руководство по высокопроизводительному парсингу
+
+Дополнительные ресурсы:
+- [PDF Документация](https://linksplatform.github.io/Protocols.Lino/csharp/Platform.Protocols.Lino.pdf) - Полный справочник для офлайн чтения
