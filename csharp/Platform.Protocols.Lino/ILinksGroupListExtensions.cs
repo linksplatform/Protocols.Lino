@@ -11,7 +11,7 @@ namespace Platform.Protocols.Lino
         /// <summary>
         /// Converts a collection of links groups to a flat list of links by processing each group hierarchically.
         /// </summary>
-        /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers.</typeparam>
+        /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers. This can be any type that uniquely identifies a link, such as string, int, or Guid.</typeparam>
         /// <param name="groups">The collection of links groups to convert.</param>
         /// <returns>A flat list of links representing all the links from the input groups.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

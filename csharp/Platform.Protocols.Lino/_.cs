@@ -6,7 +6,7 @@ namespace Platform.Protocols.Lino
     /// A utility struct that provides convenient implicit conversions for creating links from various tuple combinations.
     /// The underscore name follows functional programming conventions for placeholder/utility types.
     /// </summary>
-    /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers.</typeparam>
+    /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers. This can be any type that uniquely identifies a link, such as string, int, or Guid.</typeparam>
     public struct _<TLinkAddress>
     {
         /// <summary>

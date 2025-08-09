@@ -11,7 +11,7 @@ namespace Platform.Protocols.Lino
     /// Represents a link in the Lino protocol with an optional identifier and nested values.
     /// Links can represent simple references, complex nested structures, or relationships between entities.
     /// </summary>
-    /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers.</typeparam>
+    /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers. This can be any type that uniquely identifies a link, such as string, int, or Guid.</typeparam>
     public struct Link<TLinkAddress> : IEquatable<Link<TLinkAddress>>
     {
         private static readonly EqualityComparer<TLinkAddress> EqualityComparerInstance = EqualityComparer<TLinkAddress>.Default;

@@ -10,7 +10,7 @@ namespace Platform.Protocols.Lino
     /// Represents a group of links with hierarchical structure, where each group contains a primary link and optional nested groups.
     /// This structure supports the indentation-based syntax of the Lino protocol.
     /// </summary>
-    /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers.</typeparam>
+    /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers. This can be any type that uniquely identifies a link, such as string, int, or Guid.</typeparam>
     public struct LinksGroup<TLinkAddress> : IEquatable<LinksGroup<TLinkAddress>>
     {
         /// <summary>

@@ -6,7 +6,7 @@ namespace Platform.Protocols.Lino
     /// A readonly struct that explicitly represents a link identifier/address.
     /// This type is used to distinguish between regular values and explicit identifiers in link construction.
     /// </summary>
-    /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers.</typeparam>
+    /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers. This can be any type that uniquely identifies a link, such as string, int, or Guid.</typeparam>
     public readonly struct id<TLinkAddress>
     {
         /// <summary>
