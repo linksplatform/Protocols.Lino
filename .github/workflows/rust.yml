@@ -114,8 +114,8 @@ jobs:
           PACKAGE_VERSION=$(grep '^version = ' Cargo.toml | sed 's/version = "\(.*\)"/\1/')
           echo "Package: $PACKAGE_NAME@$PACKAGE_VERSION"
           
-          # Check if version exists on crates.io
-          if curl -f "https://crates.io/api/v1/crates/$PACKAGE_NAME/$PACKAGE_VERSION" > /dev/null 2>&1; then
+          # Check if version exists on crates.io using correct API endpoint
+          if curl -f "https://crates.io/api/v1/crates/$PACKAGE_NAME" -s | grep -q "\"$PACKAGE_VERSION\""; then
             echo "Version $PACKAGE_VERSION already exists on crates.io"
             echo "should_publish=false" >> $GITHUB_OUTPUT
           else
