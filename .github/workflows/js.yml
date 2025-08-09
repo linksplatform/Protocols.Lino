@@ -1,0 +1,144 @@
+name: js
+
+on:
+  push:
+    branches: main 
+    paths:
+      - 'js/**'
+      - '.github/workflows/js.yml'
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+defaults:
+  run:
+    working-directory: js
+
+jobs:
+  findChangedJsFiles:
+    runs-on: ubuntu-latest
+    outputs:
+      isJsFilesChanged: ${{ steps.setIsJsFilesChangedOutput.outputs.isJsFilesChanged }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Get changed files using defaults
+        id: changed-files
+        uses: tj-actions/changed-files@v41
+      - name: Set output isJsFilesChanged
+        id: setIsJsFilesChangedOutput
+        run: |
+          isJsFilesChanged='false'
+          echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
+          for changedFile in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [[ $changedFile == *.js ]] || [[ $changedFile == *.json ]] || [[ $changedFile == *.pegjs ]]; then
+              echo "isJsFilesChanged='true'"
+              isJsFilesChanged='true'
+              break
+            fi
+          done
+          echo "::set-output name=isJsFilesChanged::${isJsFilesChanged}"
+          echo "isJsFilesChanged: ${isJsFilesChanged}"
+
+  test:
+    needs: [findChangedJsFiles]
+    if: ${{ needs.findChangedJsFiles.outputs.isJsFilesChanged == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - name: Install Dependencies
+        run: bun install
+      - name: Build
+        run: bun run build
+      - name: Test
+        run: bun test
+
+  publishToNpm:
+    needs: [test, findChangedJsFiles]
+    if: ${{ needs.findChangedJsFiles.outputs.isJsFilesChanged == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - name: Install Dependencies
+        run: bun install
+      - name: Build
+        run: bun run build
+      - name: Check if version already published
+        id: version-check
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          echo "Package: $PACKAGE_NAME@$PACKAGE_VERSION"
+          
+          # Check if version exists on NPM
+          if npm view $PACKAGE_NAME@$PACKAGE_VERSION version 2>/dev/null; then
+            echo "Version $PACKAGE_VERSION already exists on NPM"
+            echo "::set-output name=should_publish::false"
+          else
+            echo "Version $PACKAGE_VERSION does not exist on NPM"
+            echo "::set-output name=should_publish::true"
+          fi
+      - name: Publish to NPM
+        if: steps.version-check.outputs.should_publish == 'true'
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          npm publish --access public
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publishToGitHubPackages:
+    needs: [test, findChangedJsFiles]
+    if: ${{ needs.findChangedJsFiles.outputs.isJsFilesChanged == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - name: Install Dependencies
+        run: bun install
+      - name: Build
+        run: bun run build
+      - name: Check if version already published to GitHub Packages
+        id: github-version-check
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          echo "Package: $PACKAGE_NAME@$PACKAGE_VERSION"
+          
+          # Check if version exists on GitHub Packages
+          if curl -f -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+               "https://npm.pkg.github.com/$PACKAGE_NAME/$PACKAGE_VERSION" > /dev/null 2>&1; then
+            echo "Version $PACKAGE_VERSION already exists on GitHub Packages"
+            echo "::set-output name=should_publish::false"
+          else
+            echo "Version $PACKAGE_VERSION does not exist on GitHub Packages"
+            echo "::set-output name=should_publish::true"
+          fi
+      - name: Setup NPM for GitHub Packages
+        if: steps.github-version-check.outputs.should_publish == 'true'
+        run: |
+          echo "@linksplatform:registry=https://npm.pkg.github.com/" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+      - name: Publish to GitHub Packages
+        if: steps.github-version-check.outputs.should_publish == 'true'
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
