@@ -6,7 +6,7 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <RootNamespace>Platform.Protocols.Lino.Tests</RootNamespace>
-    <NoWarn>$(NoWarn);CS8981;CS1591</NoWarn>
+    <NoWarn>$(NoWarn);CS8981;CS1591;CS1584;CS1658</NoWarn>
   </PropertyGroup>
   
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4')) AND '$(MSBuildRuntimeType)' == 'Core' AND '$(OS)' != 'Windows_NT'">

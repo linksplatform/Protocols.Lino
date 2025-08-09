@@ -1,4 +1,4 @@
-use lino::{parse_lino, LiNo};
+use lino::parse_lino;
 
 #[test]
 #[ignore] // Not implemented yet, similar to C# version

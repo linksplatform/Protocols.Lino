@@ -67,7 +67,7 @@ namespace Platform.Protocols.Lino.Tests
             // Simple reference without colon creates a link with that ID
             Assert.Equal("test", links[0]!.Id);
             // Values can be null for simple references
-            Assert.True(links[0].Values == null || links[0].Values.Count == 0);
+            Assert.True(links[0].Values?.Count == 0 || links[0].Values == null);
         }
 
         [Fact]
