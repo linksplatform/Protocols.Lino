@@ -229,17 +229,23 @@ jobs:
           # Replace nuget commands and mono calls with docfx directly
           sed -i 's/sudo apt-get install.*nuget.*/echo "Skipping nuget installation"/g' ./publish-csharp-docs.sh
           sed -i 's/nuget install docfx.console.*$/echo "Skipping docfx installation via nuget"/g' ./publish-csharp-docs.sh
-          sed -i 's/mono.*docfx.exe.*docfx.json/docfx docfx.json --force/g' ./publish-csharp-docs.sh
+          sed -i 's/mono.*docfx.exe.*docfx.json/docfx docfx.json/g' ./publish-csharp-docs.sh
           # Also replace the line that directly calls nuget install without sudo apt-get
           sed -i 's/^nuget install docfx.console.*$/echo "Skipping docfx installation via nuget"/g' ./publish-csharp-docs.sh
-          # Replace direct docfx call to add --force flag
-          sed -i 's/^docfx docfx.json$/docfx docfx.json --force/g' ./publish-csharp-docs.sh
+          # Remove --force flag as it's not supported in DocFX 2.78.3
+          sed -i 's/^docfx docfx.json --force$/docfx docfx.json/g' ./publish-csharp-docs.sh
           
           # Clean up ALL build artifacts to avoid conflicts
           echo "=== Cleaning up ALL build artifacts ==="
           find . -type d -name "obj" -exec rm -rf {} + 2>/dev/null || true
           find . -type d -name "bin" -exec rm -rf {} + 2>/dev/null || true
           rm -rf _site 2>/dev/null || true
+          
+          # Debug: Show project structure
+          echo "=== Project structure debug ==="
+          find . -name "*.csproj" -o -name "*.sln" | head -10
+          echo "Current directory: $(pwd)"
+          ls -la
           
           # Skip the build - the test job already validated it builds correctly
           # DocFX will build what it needs internally
@@ -258,4 +264,21 @@ jobs:
           # Ensure the script uses the updated PATH
           export PATH="$HOME/.dotnet/tools:$PATH"
           
-          bash ./publish-csharp-docs.sh
+          # Debug: Test docfx before running script
+          echo "=== DocFX test ==="
+          docfx --version || echo "DocFX version command failed"
+          docfx --help | head -5 || echo "DocFX help command failed"
+          
+          # Debug: Show docfx.json content
+          echo "=== DocFX configuration ==="
+          cat docfx.json || echo "No docfx.json found"
+          
+          echo "=== Running documentation script ==="
+          bash -x ./publish-csharp-docs.sh 2>&1 | tee docfx_output.log || {
+            echo "=== Script failed, showing debug info ==="
+            echo "Exit code: $?"
+            echo "Last 50 lines of output:"
+            tail -50 docfx_output.log || echo "No log file"
+            echo "=== End debug info ==="
+            exit 1
+          }
