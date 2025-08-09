@@ -85,8 +85,9 @@ jobs:
           echo "Package: $PACKAGE_ID@$PACKAGE_VERSION"
           
           # Check if version exists on GitHub Packages
-          if curl -f -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-               "https://nuget.pkg.github.com/linksplatform/download/$PACKAGE_ID/$PACKAGE_VERSION/$PACKAGE_ID.$PACKAGE_VERSION.nupkg" > /dev/null 2>&1; then
+          # Use NuGet API to check if package version exists
+          if curl -f -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               "https://api.github.com/user/packages/nuget/$PACKAGE_ID/versions" 2>/dev/null | grep -q "\"name\": \"$PACKAGE_VERSION\""; then
             echo "Version $PACKAGE_VERSION already exists on GitHub Packages"
             echo "should_publish=false" >> $GITHUB_OUTPUT
           else
@@ -189,12 +190,18 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x' # Ensure this matches your project's target
+      - name: Install dependencies for PDF generation
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive texlive-lang-cyrillic texlive-latex-extra python3-pygments ghostscript
       - name: Generate PDF with code
         run: |
           export REPOSITORY_NAME=$(basename ${{ github.repository }})
           wget "$SCRIPTS_BASE_URL/format-csharp-files.py"
           wget "$SCRIPTS_BASE_URL/format-csharp-document.sh"
           wget "$SCRIPTS_BASE_URL/generate-csharp-pdf.sh"
+          # Replace python-pygments with python3-pygments in the script
+          sed -i 's/python-pygments/python3-pygments/g' ./generate-csharp-pdf.sh
           bash ./generate-csharp-pdf.sh
 
   publishDocumentation:
@@ -209,6 +216,11 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x' # Ensure this matches your project's target
+      - name: Install NuGet for documentation
+        run: |
+          # Install dotnet SDK which includes nuget functionality
+          # No need to install separate nuget package in Ubuntu 24.04
+          echo "Using dotnet SDK's built-in NuGet functionality"
       - name: Publish documentation to gh-pages branch
         run: |
           export REPOSITORY_NAME=$(basename ${{ github.repository }})
@@ -216,4 +228,6 @@ jobs:
           wget "$SCRIPTS_BASE_URL/filter.yml"
           wget "$SCRIPTS_BASE_URL/toc.yml"
           wget "$SCRIPTS_BASE_URL/publish-csharp-docs.sh"
+          # Replace nuget command with dotnet nuget in the script if needed
+          sed -i 's/nuget install/dotnet add package/g' ./publish-csharp-docs.sh || true
           bash ./publish-csharp-docs.sh

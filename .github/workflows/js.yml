@@ -124,8 +124,9 @@ jobs:
           echo "Package: $PACKAGE_NAME@$PACKAGE_VERSION"
           
           # Check if version exists on GitHub Packages
-          if curl -f -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-               "https://npm.pkg.github.com/$PACKAGE_NAME/$PACKAGE_VERSION" > /dev/null 2>&1; then
+          # GitHub Packages uses different API endpoint
+          if curl -f -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               "https://api.github.com/user/packages/npm/${PACKAGE_NAME}/versions" 2>/dev/null | grep -q "\"name\": \"$PACKAGE_VERSION\""; then
             echo "Version $PACKAGE_VERSION already exists on GitHub Packages"
             echo "should_publish=false" >> $GITHUB_OUTPUT
           else
