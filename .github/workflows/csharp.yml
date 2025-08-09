@@ -177,7 +177,6 @@ jobs:
           chmod +x ./publish-release.sh
           wget "$SCRIPTS_BASE_URL/publish-csharp-release.sh"
           bash ./publish-csharp-release.sh
-
   generatePdfWithCode:
     runs-on: ubuntu-latest
     needs: [findChangedCsFiles]
