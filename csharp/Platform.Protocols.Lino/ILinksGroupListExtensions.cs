@@ -1,12 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
 namespace Platform.Protocols.Lino
 {
+    /// <summary>
+    /// Provides extension methods for collections of <see cref="LinksGroup{TLinkAddress}"/> instances.
+    /// </summary>
     public static class ILinksGroupListExtensions
     {
+        /// <summary>
+        /// Converts a collection of links groups to a flat list of links by processing each group hierarchically.
+        /// </summary>
+        /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers.</typeparam>
+        /// <param name="groups">The collection of links groups to convert.</param>
+        /// <returns>A flat list of links representing all the links from the input groups.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<Link<TLinkAddress>> ToLinksList<TLinkAddress>(this IList<LinksGroup<TLinkAddress>> groups)
         {
