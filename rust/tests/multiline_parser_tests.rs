@@ -13,11 +13,9 @@ fn format_links(lino: &LiNo<String>, less_parentheses: bool) -> String {
         LiNo::Link { id, values } => {
             if values.is_empty() {
                 if let Some(id) = id {
-                    if less_parentheses {
-                        id.clone()
-                    } else {
-                        format!("({})", id)
-                    }
+                    // Escape id same way as references
+                    let escaped_id = format_links(&LiNo::Ref(id.clone()), false);
+                    if less_parentheses { escaped_id } else { format!("({})", escaped_id) }
                 } else {
                     "()".to_string()
                 }
@@ -29,19 +27,16 @@ fn format_links(lino: &LiNo<String>, less_parentheses: bool) -> String {
                     .join(" ");
                 
                 if let Some(id) = id {
-                    if less_parentheses && values.len() == 1 {
-                        // For single value with id, we can skip parentheses in less_parentheses mode
-                        format!("{}: {}", id, formatted_values)
+                    let escaped_id = format_links(&LiNo::Ref(id.clone()), false);
+                    // Mirror JS/C#: if less_parentheses and id doesn't need parentheses, drop outer parens
+                    if less_parentheses && !escaped_id.contains(' ') && !escaped_id.contains(':') && !escaped_id.contains('(') && !escaped_id.contains(')') {
+                        format!("{}: {}", escaped_id, formatted_values)
                     } else {
-                        format!("({}: {})", id, formatted_values)
+                        format!("({}: {})", escaped_id, formatted_values)
                     }
                 } else {
-                    if less_parentheses && values.iter().all(|v| matches!(v, LiNo::Ref(_))) {
-                        // All values are references, can skip parentheses
-                        formatted_values
-                    } else {
-                        format!("({})", formatted_values)
-                    }
+                    // Values-only link: in less_parentheses mode always drop outer parentheses
+                    if less_parentheses { formatted_values } else { format!("({})", formatted_values) }
                 }
             }
         }
@@ -58,6 +53,19 @@ fn format_links_multiline(lino: &LiNo<String>) -> String {
                 .join("\n")
         }
         _ => format_links(lino, false),
+    }
+}
+
+fn format_links_multiline_with_less_parentheses(lino: &LiNo<String>) -> String {
+    match lino {
+        LiNo::Link { values, .. } if !values.is_empty() => {
+            values
+                .iter()
+                .map(|v| format_links(v, true))
+                .collect::<Vec<_>>()
+                .join("\n")
+        }
+        _ => format_links(lino, true),
     }
 }
 
@@ -81,17 +89,16 @@ fn parse_and_stringify_test() {
 fn parse_and_stringify_test_2() {
     let source = "father (lovesMom: loves mom)\nson lovesMom\ndaughter lovesMom\nall (love mom)";
     let parsed = parse_lino(source).unwrap();
-    // This test uses less_parentheses mode which we need to handle differently
-    // For now, we'll just verify it parses correctly
-    assert!(parsed.is_link());
+    let target = format_links_multiline_with_less_parentheses(&parsed);
+    assert_eq!(source, target);
 }
 
 #[test]
 fn parse_and_stringify_with_less_parentheses_test() {
     let source = "lovesMama: loves mama\npapa lovesMama\nson lovesMama\ndaughter lovesMama\nall (love mama)";
     let parsed = parse_lino(source).unwrap();
-    // Verify it parses correctly - formatting with less parentheses is complex
-    assert!(parsed.is_link());
+    let target = format_links_multiline_with_less_parentheses(&parsed);
+    assert_eq!(source, target);
 }
 
 #[test]
