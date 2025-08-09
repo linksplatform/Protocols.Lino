@@ -233,6 +233,15 @@ jobs:
           # Also replace the line that directly calls nuget install without sudo apt-get
           sed -i 's/^nuget install docfx.console.*$/echo "Skipping docfx installation via nuget"/g' ./publish-csharp-docs.sh
           
+          # Clean up any existing obj folders that might have wrong framework references
+          echo "=== Cleaning up build artifacts ==="
+          rm -rf Platform.Protocols.Lino/obj Platform.Protocols.Lino.Tests/obj || true
+          rm -rf Platform.Protocols.Lino/bin Platform.Protocols.Lino.Tests/bin || true
+          
+          # Build the project first to ensure correct framework is used
+          echo "=== Pre-building project for documentation ==="
+          dotnet build --configuration Release -f net8 || true
+          
           # Debug: Show modified script
           echo "=== Modified script debug ==="
           cat ./publish-csharp-docs.sh

@@ -110,8 +110,8 @@ jobs:
       - name: Check if version already published
         id: version-check
         run: |
-          PACKAGE_NAME=$(grep '^name = ' Cargo.toml | sed 's/name = "\(.*\)"/\1/')
-          PACKAGE_VERSION=$(grep '^version = ' Cargo.toml | sed 's/version = "\(.*\)"/\1/')
+          PACKAGE_NAME=$(grep '^name = ' Cargo.toml | head -1 | sed 's/name = "\(.*\)"/\1/')
+          PACKAGE_VERSION=$(grep '^version = ' Cargo.toml | head -1 | sed 's/version = "\(.*\)"/\1/')
           echo "Package: $PACKAGE_NAME@$PACKAGE_VERSION"
           
           # Debug: Show extracted values
