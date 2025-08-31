@@ -43,10 +43,12 @@ test('TestAllFeaturesTest', () => {
   input = '(: value1 value2)';
   expect(() => parser.parse(input)).toThrow();
 
-  // Test point link
-  input = '(point)';
+  // Test singlet link
+  input = '(singlet)';
   result = parser.parse(input);
-  expect(result.length).toBeGreaterThan(0);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe('singlet');
+  expect(result[0].values).toEqual([]);
 
   // Test value link
   input = '(value1 value2 value3)';
@@ -86,7 +88,9 @@ test('TestWhitespaceOnlyTest', () => {
 test('TestEmptyLinksTest', () => {
   let input = '()';
   let result = parser.parse(input);
-  expect(result.length).toBeGreaterThan(0);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values).toEqual([]);
   
   // '(:)' is now forbidden
   input = '(:)';
@@ -94,5 +98,46 @@ test('TestEmptyLinksTest', () => {
   
   input = '(id:)';
   result = parser.parse(input);
-  expect(result.length).toBeGreaterThan(0);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe('id');
+  expect(result[0].values).toEqual([]);
+});
+
+test('TestSingletLinksTest', () => {
+  // Test singlet (1)
+  let input = '(1)';
+  let result = parser.parse(input);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe('1');
+  expect(result[0].values).toEqual([]);
+  
+  // Test (1 2)
+  input = '(1 2)';
+  result = parser.parse(input);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values.length).toBe(2);
+  expect(result[0].values[0].id).toBe('1');
+  expect(result[0].values[1].id).toBe('2');
+  
+  // Test (1 2 3)
+  input = '(1 2 3)';
+  result = parser.parse(input);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values.length).toBe(3);
+  expect(result[0].values[0].id).toBe('1');
+  expect(result[0].values[1].id).toBe('2');
+  expect(result[0].values[2].id).toBe('3');
+  
+  // Test (1 2 3 4)
+  input = '(1 2 3 4)';
+  result = parser.parse(input);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values.length).toBe(4);
+  expect(result[0].values[0].id).toBe('1');
+  expect(result[0].values[1].id).toBe('2');
+  expect(result[0].values[2].id).toBe('3');
+  expect(result[0].values[3].id).toBe('4');
 });

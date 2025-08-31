@@ -28,6 +28,12 @@ export class Parser {
 
   collectLinks(item, parentPath, result) {
     if (!item) return;
+
+    // Handle singlet value links by promoting the single value to id
+    if (item.id == null && item.values && item.values.length === 1 && item.values[0].id !== null && (!item.values[0].values || item.values[0].values.length === 0)) {
+      item.id = item.values[0].id;
+      item.values = [];
+    }
     
     // For items with children (indented structure)
     if (item.children && item.children.length > 0) {

@@ -109,10 +109,12 @@ test('Test link without id (multi-line)', () => {
   expect(() => parser.parse(input)).toThrow();
 });
 
-test('Test point link', () => {
-  const input = '(point)';
+test('Test singlet link', () => {
+  const input = '(singlet)';
   const result = parser.parse(input);
-  expect(result.length).toBeGreaterThan(0);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe('singlet');
+  expect(result[0].values).toEqual([]);
 });
 
 test('Test value link', () => {

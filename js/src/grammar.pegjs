@@ -11,9 +11,9 @@
     }
   }
   
-  function checkIndentation(spaces) {
-    return spaces.length === indentationStack[indentationStack.length - 1];
-  }
+function checkIndentation(spaces) {
+  return spaces.length >= indentationStack[indentationStack.length - 1];
+}
   
   function getCurrentIndentation() {
     return indentationStack[indentationStack.length - 1];
@@ -38,10 +38,9 @@ referenceOrLink = l:multiLineAnyLink { return l; } / i:reference { return { id: 
 
 anyLink = ml:multiLineAnyLink eol { return ml; } / sl:singleLineAnyLink { return sl; }
 
-multiLineAnyLink = multiLinePointLink / multiLineValueLink / multiLineLink
+multiLineAnyLink = multiLineValueLink / multiLineLink
 
-singleLineAnyLink = fl:singleLineLink eol { return fl; } 
-  / pl:singleLinePointLink eol { return pl; } 
+singleLineAnyLink = fl:singleLineLink eol { return fl; }
   / vl:singleLineValueLink eol { return vl; }
 
 multiLineValueAndWhitespace = value:referenceOrLink _ { return value; }
@@ -60,11 +59,7 @@ singleLineValueLink = v:singleLineValues { return { values: v }; }
 
 multiLineValueLink = "(" v:multiLineValues _ ")" { return { values: v }; }
 
-pointLink = id:reference { return { id: id }; }
 
-singleLinePointLink = __ l:pointLink { return l; }
-
-multiLinePointLink = "(" _ l:pointLink _ ")" { return l; }
 
 reference = doubleQuotedReference / singleQuotedReference / simpleReference 
 

@@ -33,7 +33,7 @@ users
             Moscow
         age
             20`;
-            
+
   const target = `(users)
 (users user1)
 ((users user1) id)
