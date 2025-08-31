@@ -118,7 +118,7 @@ jobs:
           
           # Try to publish and capture the result
           set +e  # Don't exit on error
-          cargo publish --token ${{ secrets.CARGO_TOKEN }} 2>&1 | tee publish_output.txt
+          cargo publish --token ${{ secrets.CARGO_TOKEN }} --allow-dirty 2>&1 | tee publish_output.txt
           PUBLISH_EXIT_CODE=$?
           set -e  # Re-enable exit on error
           
