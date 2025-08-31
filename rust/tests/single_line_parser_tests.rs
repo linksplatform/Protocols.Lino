@@ -165,15 +165,9 @@ fn parse_quoted_references() {
 #[test]
 fn parse_values_only() {
     let input = ": value1 value2";
-    let result = parse_lino(input).unwrap();
-    assert!(result.is_link());
-    if let LiNo::Link { values, .. } = &result {
-        assert_eq!(values.len(), 1);
-        if let LiNo::Link { id, values } = &values[0] {
-            assert_eq!(id, &None);
-            assert_eq!(values.len(), 2);
-        }
-    }
+    // Standalone ':' is now forbidden and should return an error
+    let result = parse_lino(input);
+    assert!(result.is_err());
 }
 
 #[test]
@@ -193,15 +187,17 @@ fn test_multi_line_link_with_id() {
 #[test]
 fn test_link_without_id_single_line() {
     let input = ": value1 value2";
+    // Standalone ':' is now forbidden and should return an error
     let result = parse_lino(input);
-    assert!(result.is_ok());
+    assert!(result.is_err());
 }
 
 #[test]
 fn test_link_without_id_multi_line() {
     let input = "(: value1 value2)";
+    // '(:)' syntax is now forbidden and should return an error
     let result = parse_lino(input);
-    assert!(result.is_ok());
+    assert!(result.is_err());
 }
 
 #[test]

@@ -189,43 +189,28 @@ fn single_line_values<'a>(input: &'a str, state: &ParserState) -> IResult<&'a st
 }
 
 fn single_line_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
-    alt((
-        (
-            horizontal_whitespace,
-            reference,
-            horizontal_whitespace,
-            char(':'),
-            |i| single_line_values(i, state)
-        ).map(|(_, id, _, _, values)| Link::new_link(Some(id), values)),
-        (
-            horizontal_whitespace,
-            char(':'),
-            |i| single_line_values(i, state)
-        ).map(|(_, _, values)| Link::new_link(None, values)),
-    )).parse(input)
+    (
+        horizontal_whitespace,
+        reference,
+        horizontal_whitespace,
+        char(':'),
+        |i| single_line_values(i, state)
+    ).map(|(_, id, _, _, values)| Link::new_link(Some(id), values))
+    .parse(input)
 }
 
 fn multi_line_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
-    alt((
-        (
-            char('('),
-            whitespace,
-            reference,
-            whitespace,
-            char(':'),
-            |i| multi_line_values(i, state),
-            whitespace,
-            char(')')
-        ).map(|(_, _, id, _, _, values, _, _)| Link::new_link(Some(id), values)),
-        (
-            char('('),
-            whitespace,
-            char(':'),
-            |i| multi_line_values(i, state),
-            whitespace,
-            char(')')
-        ).map(|(_, _, _, values, _, _)| Link::new_link(None, values)),
-    )).parse(input)
+    (
+        char('('),
+        whitespace,
+        reference,
+        whitespace,
+        char(':'),
+        |i| multi_line_values(i, state),
+        whitespace,
+        char(')')
+    ).map(|(_, _, id, _, _, values, _, _)| Link::new_link(Some(id), values))
+    .parse(input)
 }
 
 fn single_line_value_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {

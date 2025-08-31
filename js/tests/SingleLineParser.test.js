@@ -81,12 +81,8 @@ test('Parse quoted references', () => {
 
 test('Parse values only', () => {
   const input = ': value1 value2';
-  const result = parser.parse(input);
-  expect(result.length).toBe(1);
-  expect(result[0].id).toBe(null);
-  expect(result[0].values.length).toBe(2);
-  expect(result[0].values[0].id).toBe('value1');
-  expect(result[0].values[1].id).toBe('value2');
+  // Standalone ':' is now forbidden and should throw an error
+  expect(() => parser.parse(input)).toThrow();
 });
 
 test('Test single-line link with id', () => {
@@ -103,14 +99,14 @@ test('Test multi-line link with id', () => {
 
 test('Test link without id (single-line)', () => {
   const input = ': value1 value2';
-  const result = parser.parse(input);
-  expect(result.length).toBeGreaterThan(0);
+  // Standalone ':' is now forbidden and should throw an error
+  expect(() => parser.parse(input)).toThrow();
 });
 
 test('Test link without id (multi-line)', () => {
   const input = '(: value1 value2)';
-  const result = parser.parse(input);
-  expect(result.length).toBeGreaterThan(0);
+  // '(:)' syntax is now forbidden and should throw an error
+  expect(() => parser.parse(input)).toThrow();
 });
 
 test('Test point link', () => {

@@ -21,6 +21,7 @@
 }
 
 document = _ links:links eof { return links.flat(); }
+  / _ eof { return []; }
 
 links = fl:firstLine list:line* { popIndentation(); return [fl].concat(list || []); }
 
@@ -52,10 +53,8 @@ singleLineValueAndWhitespace = __ value:referenceOrLink { return value; }
 singleLineValues = list:singleLineValueAndWhitespace+ { return list; }
 
 singleLineLink = __ id:reference __ ":" v:singleLineValues { return { id: id, values: v }; }
-  / __ ":" v:singleLineValues { return { id: null, values: v }; }
 
 multiLineLink = "(" _ id:reference _ ":" v:multiLineValues _ ")" { return { id: id, values: v }; }
-  / "(" _ ":" v:multiLineValues _ ")" { return { id: null, values: v }; }
 
 singleLineValueLink = v:singleLineValues { return { values: v }; }
 

@@ -37,7 +37,7 @@ const links = parser.parse("papa (lovesMama: loves mama)");
 
 ### Rust
 ```rust
-use platform_lino::parse_lino;
+use lino::parse_lino;
 let links = parse_lino("papa (lovesMama: loves mama)").unwrap();
 ```
 

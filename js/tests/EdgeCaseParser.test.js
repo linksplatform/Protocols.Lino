@@ -4,13 +4,10 @@ import { formatLinks } from '../src/Link.js';
 
 const parser = new Parser();
 
-test.skip('EmptyLinkTest', () => {
-  // Skipped: Not implemented yet in C# version
+test('EmptyLinkTest', () => {
   const source = ':';
-  const target = ':';
-  const links = parser.parse(source);
-  const formattedLinks = formatLinks(links);
-  expect(formattedLinks).toBe(target);
+  // Standalone ':' is now forbidden and should throw an error
+  expect(() => parser.parse(source)).toThrow();
 });
 
 test('EmptyLinkWithParenthesesTest', () => {
@@ -23,10 +20,8 @@ test('EmptyLinkWithParenthesesTest', () => {
 
 test('EmptyLinkWithEmptySelfReferenceTest', () => {
   const source = '(:)';
-  const target = '()';
-  const links = parser.parse(source);
-  const formattedLinks = formatLinks(links);
-  expect(formattedLinks).toBe(target);
+  // '(:)' is now forbidden and should throw an error
+  expect(() => parser.parse(source)).toThrow();
 });
 
 test('TestAllFeaturesTest', () => {
@@ -40,15 +35,13 @@ test('TestAllFeaturesTest', () => {
   result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 
-  // Test link without id (single-line)
+  // Test link without id (single-line) - now forbidden
   input = ': value1 value2';
-  result = parser.parse(input);
-  expect(result.length).toBeGreaterThan(0);
+  expect(() => parser.parse(input)).toThrow();
 
-  // Test link without id (multi-line)
+  // Test link without id (multi-line) - now forbidden
   input = '(: value1 value2)';
-  result = parser.parse(input);
-  expect(result.length).toBeGreaterThan(0);
+  expect(() => parser.parse(input)).toThrow();
 
   // Test point link
   input = '(point)';
@@ -78,14 +71,16 @@ test('TestAllFeaturesTest', () => {
 
 test('TestEmptyDocumentTest', () => {
   const input = '';
-  // JavaScript parser throws error for empty documents (same behavior as C# version)
-  expect(() => parser.parse(input)).toThrow();
+  // Empty document should return empty array
+  const result = parser.parse(input);
+  expect(result).toEqual([]);
 });
 
 test('TestWhitespaceOnlyTest', () => {
   const input = '   \n   \n   ';
-  // JavaScript parser throws error for whitespace-only input (same behavior as C# version)  
-  expect(() => parser.parse(input)).toThrow();
+  // Whitespace-only document should return empty array
+  const result = parser.parse(input);
+  expect(result).toEqual([]);
 });
 
 test('TestEmptyLinksTest', () => {
@@ -93,9 +88,9 @@ test('TestEmptyLinksTest', () => {
   let result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
   
+  // '(:)' is now forbidden
   input = '(:)';
-  result = parser.parse(input);
-  expect(result.length).toBeGreaterThan(0);
+  expect(() => parser.parse(input)).toThrow();
   
   input = '(id:)';
   result = parser.parse(input);

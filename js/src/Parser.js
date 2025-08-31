@@ -6,17 +6,6 @@ export class Parser {
   }
 
   parse(input) {
-    
-    // Handle empty input like C# version - throw FormatException equivalent
-    if (input === '') {
-      throw new Error("Failed to parse 'document'.");
-    }
-    
-    // Handle whitespace-only input like C# version
-    if (input.trim() === '') {
-      throw new Error("Failed to parse 'document'.");
-    }
-    
     try {
       const rawResult = parserModule.parse(input);
       return this.transformResult(rawResult);

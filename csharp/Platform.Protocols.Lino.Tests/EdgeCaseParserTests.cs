@@ -5,15 +5,13 @@ namespace Platform.Protocols.Lino.Tests
 {
     public static class EdgeCaseParserTests
     {
-        [Fact(Skip = "Not implemented yet")]
+        [Fact]
         public static void EmptyLinkTest()
         {
             var source = @":";
-            var target = @":";
             var parser = new Parser();
-            var links = parser.Parse(source);
-            var formattedLinks = links.Format();
-            Assert.Equal(target, formattedLinks);
+            // Standalone ':' is now forbidden and should throw an exception
+            Assert.Throws<FormatException>(() => parser.Parse(source));
         }
 
         [Fact]
@@ -31,11 +29,9 @@ namespace Platform.Protocols.Lino.Tests
         public static void EmptyLinkWithEmptySelfReferenceTest()
         {
             var source = @"(:)";
-            var target = @"()";
             var parser = new Parser();
-            var links = parser.Parse(source);
-            var formattedLinks = links.Format();
-            Assert.Equal(target, formattedLinks);
+            // '(:)' is now forbidden and should throw an exception
+            Assert.Throws<FormatException>(() => parser.Parse(source));
         }
 
         [Fact]
@@ -51,15 +47,13 @@ namespace Platform.Protocols.Lino.Tests
             result = new Parser().Parse(input);
             Assert.NotEmpty(result);
 
-            // Test link without id (single-line)
+            // Test link without id (single-line) - now forbidden
             input = ": value1 value2";
-            result = new Parser().Parse(input);
-            Assert.NotEmpty(result);
+            Assert.Throws<FormatException>(() => new Parser().Parse(input));
 
-            // Test link without id (multi-line)
+            // Test link without id (multi-line) - now forbidden
             input = "(: value1 value2)";
-            result = new Parser().Parse(input);
-            Assert.NotEmpty(result);
+            Assert.Throws<FormatException>(() => new Parser().Parse(input));
 
             // Test point link
             input = "(point)";
@@ -91,17 +85,18 @@ namespace Platform.Protocols.Lino.Tests
         public static void TestEmptyDocumentTest()
         {
             var input = "";
-            // C# parser throws exception for empty documents
-            Assert.Throws<FormatException>(() => new Parser().Parse(input));
+            // Empty document should return empty list
+            var result = new Parser().Parse(input);
+            Assert.Empty(result);
         }
 
         [Fact]
         public static void TestWhitespaceOnlyTest()
         {
             var input = "   \n   \n   ";
-            // C# parser may not handle whitespace-only documents like Rust version
-            // This is expected behavior difference
-            Assert.Throws<FormatException>(() => new Parser().Parse(input));
+            // Whitespace-only document should return empty list (similar to empty document)
+            var result = new Parser().Parse(input);
+            Assert.Empty(result);
         }
 
         [Fact]
@@ -111,9 +106,9 @@ namespace Platform.Protocols.Lino.Tests
             var result = new Parser().Parse(input);
             Assert.NotEmpty(result);
             
+            // '(:)' is now forbidden
             input = "(:)";
-            result = new Parser().Parse(input);
-            Assert.NotEmpty(result);
+            Assert.Throws<FormatException>(() => new Parser().Parse(input));
             
             input = "(id:)";
             result = new Parser().Parse(input);

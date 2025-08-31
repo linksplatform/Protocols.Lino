@@ -1,12 +1,11 @@
-use lino::parse_lino;
+use lino::{parse_lino, LiNo};
 
 #[test]
-#[ignore] // Not implemented yet, similar to C# version
 fn empty_link_test() {
     let source = ":";
-    let parsed = parse_lino(source).unwrap();
-    // This test is skipped because it's not implemented yet
-    assert!(parsed.is_link());
+    // Standalone ':' is now forbidden and should return an error
+    let result = parse_lino(source);
+    assert!(result.is_err());
 }
 
 #[test]
@@ -23,12 +22,9 @@ fn empty_link_with_parentheses_test() {
 #[test]
 fn empty_link_with_empty_self_reference_test() {
     let source = "(:)";
-    let parsed = parse_lino(source).unwrap();
-    // Should parse as empty link (: with no values becomes empty)
-    assert!(parsed.is_link());
-    // Verify formatted output matches C#/JS
-    let output = format!("{:#}", parsed);
-    assert_eq!("()", output);
+    // '(:)' is now forbidden and should return an error
+    let result = parse_lino(source);
+    assert!(result.is_err());
 }
 
 #[test]
@@ -43,15 +39,15 @@ fn test_all_features_test() {
     let result = parse_lino(input);
     assert!(result.is_ok());
 
-    // Test link without id (single-line)
+    // Test link without id (single-line) - now forbidden
     let input = ": value1 value2";
     let result = parse_lino(input);
-    assert!(result.is_ok());
+    assert!(result.is_err());
 
-    // Test link without id (multi-line)
+    // Test link without id (multi-line) - now forbidden
     let input = "(: value1 value2)";
     let result = parse_lino(input);
-    assert!(result.is_ok());
+    assert!(result.is_err());
 
     // Test point link
     let input = "(point)";
@@ -83,18 +79,28 @@ fn test_all_features_test() {
 fn test_empty_document_test() {
     let input = "";
     let result = parse_lino(input);
-    // Should fail like C#/JS version - empty documents are not allowed
-    assert!(result.is_err());
-    assert_eq!(result.unwrap_err(), "Failed to parse 'document'.");
+    // Empty document should return empty result
+    assert!(result.is_ok());
+    let parsed = result.unwrap();
+    assert!(parsed.is_link());
+    if let LiNo::Link { id, values } = parsed {
+        assert!(id.is_none());
+        assert!(values.is_empty());
+    }
 }
 
 #[test]
 fn test_whitespace_only_test() {
     let input = "   \n   \n   ";
     let result = parse_lino(input);
-    // Should fail like C#/JS version - whitespace-only documents are not allowed
-    assert!(result.is_err());
-    assert_eq!(result.unwrap_err(), "Failed to parse 'document'.");
+    // Whitespace-only document should return empty result
+    assert!(result.is_ok());
+    let parsed = result.unwrap();
+    assert!(parsed.is_link());
+    if let LiNo::Link { id, values } = parsed {
+        assert!(id.is_none());
+        assert!(values.is_empty());
+    }
 }
 
 #[test]
@@ -103,9 +109,10 @@ fn test_empty_links_test() {
     let result = parse_lino(input);
     assert!(result.is_ok());
     
+    // '(:)' is now forbidden
     let input = "(:)";
     let result = parse_lino(input);
-    assert!(result.is_ok());
+    assert!(result.is_err());
     
     let input = "(id:)";
     let result = parse_lino(input);

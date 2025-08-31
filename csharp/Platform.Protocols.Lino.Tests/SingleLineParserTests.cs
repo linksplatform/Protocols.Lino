@@ -103,14 +103,8 @@ namespace Platform.Protocols.Lino.Tests
         {
             var source = ": value1 value2";
             var parser = new Parser();
-            var links = parser.Parse(source);
-            Assert.NotNull(links);
-            Assert.Single(links);
-            Assert.Null(links[0].Id);
-            Assert.NotNull(links[0].Values);
-            Assert.Equal(2, links[0].Values!.Count);
-            Assert.Equal("value1", links[0].Values![0].Id);
-            Assert.Equal("value2", links[0].Values![1].Id);
+            // Standalone ':' is now forbidden and should throw an exception
+            Assert.Throws<FormatException>(() => parser.Parse(source));
         }
 
         [Fact]
@@ -229,19 +223,17 @@ namespace Platform.Protocols.Lino.Tests
         [Fact]
         public static void TestSingleLineWithoutIdTest()
         {
-            // Test link without id (single-line)
+            // Test link without id (single-line) - now forbidden
             var input = ": value1 value2";
-            var result = new Parser().Parse(input);
-            Assert.NotEmpty(result);
+            Assert.Throws<FormatException>(() => new Parser().Parse(input));
         }
 
         [Fact]
         public static void TestMultilineWithoutIdTest()
         {
-            // Test link without id (multi-line)
+            // Test link without id (multi-line) - now forbidden
             var input = "(: value1 value2)";
-            var result = new Parser().Parse(input);
-            Assert.NotEmpty(result);
+            Assert.Throws<FormatException>(() => new Parser().Parse(input));
         }
 
         [Fact]
