@@ -4,7 +4,7 @@
     <Description>LinksPlatform's Platform.Protocols.Lino Class Library</Description>
     <Copyright>Konstantin Diachenko</Copyright>
     <AssemblyTitle>Platform.Protocols.Lino</AssemblyTitle>
-    <VersionPrefix>0.5.0</VersionPrefix>
+    <VersionPrefix>0.6.0</VersionPrefix>
     <Authors>Konstantin Diachenko</Authors>
     <TargetFramework>net8</TargetFramework>
     <PackageId>Platform.Protocols.Lino</PackageId>
@@ -22,7 +22,9 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>latest</LangVersion>
-    <PackageReleaseNotes>Add more test cases.</PackageReleaseNotes>
+    <PackageReleaseNotes>Now empty list of links is supported.
+(:) and : syntax for empty links is now forbidden, to reduce confusion.
+Singlet links are supported, no more point link terminology.</PackageReleaseNotes>
     <Nullable>enable</Nullable>
     <RootNamespace>Platform.Protocols.Lino</RootNamespace>
     <NoWarn>$(NoWarn);CS8981;CS1591;CS1584;CS1658</NoWarn>
