@@ -85,7 +85,7 @@ Links Notation (Lino) is a simple, intuitive format for representing structured 
 - **Hierarchical**: Supports nested structures with indentation
 
 The notation uses two core concepts:
-- **References**: Point to other links (like variables or identifiers)
+- **References**: Points to other links (like variables or identifiers)
 - **Links**: Connect references together with optional identifiers
 
 ## Documentation

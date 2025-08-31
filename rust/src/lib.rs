@@ -152,3 +152,24 @@ pub fn parse_lino(document: &str) -> Result<LiNo<String>, String> {
     }
 }
 
+// New function that matches C# and JS API - returns collection of links
+pub fn parse_lino_to_links(document: &str) -> Result<Vec<LiNo<String>>, String> {
+    // Handle empty or whitespace-only input by returning empty collection
+    if document.trim().is_empty() {
+        return Ok(vec![]);
+    }
+    
+    match parser::parse_document(document) {
+        Ok((_, links)) => {
+            if links.is_empty() {
+                Ok(vec![])
+            } else {
+                // Flatten the indented structure according to Lino spec
+                let flattened = flatten_links(links);
+                Ok(flattened)
+            }
+        }
+        Err(e) => Err(format!("Parse error: {:?}", e))
+    }
+}
+

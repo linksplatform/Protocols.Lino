@@ -1,4 +1,4 @@
-use lino::{parse_lino, LiNo};
+use lino::{parse_lino, parse_lino_to_links, LiNo};
 
 #[test]
 fn empty_link_test() {
@@ -54,8 +54,12 @@ fn test_all_features_test() {
     let result = parse_lino(input);
     assert!(result.is_ok());
     let parsed = result.unwrap();
-    if let LiNo::Ref(id) = parsed {
-        assert_eq!(id, "singlet");
+    if let LiNo::Link { id, values } = parsed {
+        assert!(id.is_none());
+        assert_eq!(values.len(), 1);
+        if let LiNo::Ref(ref_id) = &values[0] {
+            assert_eq!(ref_id, "singlet");
+        }
     }
 
     // Test value link
@@ -82,29 +86,21 @@ fn test_all_features_test() {
 #[test]
 fn test_empty_document_test() {
     let input = "";
-    let result = parse_lino(input);
-    // Empty document should return empty result
+    // Empty document should return empty list (matching C#/JS behavior)
+    let result = parse_lino_to_links(input);
     assert!(result.is_ok());
     let parsed = result.unwrap();
-    assert!(parsed.is_link());
-    if let LiNo::Link { id, values } = parsed {
-        assert!(id.is_none());
-        assert!(values.is_empty());
-    }
+    assert!(parsed.is_empty());
 }
 
 #[test]
 fn test_whitespace_only_test() {
     let input = "   \n   \n   ";
-    let result = parse_lino(input);
-    // Whitespace-only document should return empty result
+    // Whitespace-only document should return empty list (matching C#/JS behavior)
+    let result = parse_lino_to_links(input);
     assert!(result.is_ok());
     let parsed = result.unwrap();
-    assert!(parsed.is_link());
-    if let LiNo::Link { id, values } = parsed {
-        assert!(id.is_none());
-        assert!(values.is_empty());
-    }
+    assert!(parsed.is_empty());
 }
 
 #[test]
@@ -130,8 +126,12 @@ fn test_singlet_links() {
     let result = parse_lino(input);
     assert!(result.is_ok());
     let parsed = result.unwrap();
-    if let LiNo::Ref(id) = parsed {
-        assert_eq!(id, "1");
+    if let LiNo::Link { id, values } = parsed {
+        assert!(id.is_none());
+        assert_eq!(values.len(), 1);
+        if let LiNo::Ref(ref_id) = &values[0] {
+            assert_eq!(ref_id, "1");
+        }
     }
 
     // Test (1 2)
