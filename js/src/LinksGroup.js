@@ -1,35 +1,30 @@
 export class LinksGroup {
   constructor(element, children = []) {
     this.element = element;
-    this.children = children || [];
+    this.children = children;
   }
 
   toList() {
     const result = [];
-    this.collectLinks(result);
+    this._appendToList(result);
     return result;
   }
 
-  collectLinks(result) {
-    if (this.element) {
-      result.push(this.element);
-    }
-    
-    for (const child of this.children) {
-      if (child instanceof LinksGroup) {
-        child.collectLinks(result);
-      } else if (child) {
-        result.push(child);
+  _appendToList(list) {
+    list.push(this.element);
+    if (this.children && this.children.length > 0) {
+      for (const child of this.children) {
+        if (child instanceof LinksGroup) {
+          child._appendToList(list);
+        } else {
+          list.push(child);
+        }
       }
     }
   }
 
   toString() {
-    let str = this.element ? this.element.toString() : '';
-    if (this.children && this.children.length > 0) {
-      const childrenStr = this.children.map(c => c.toString()).join('\n');
-      str += '\n' + childrenStr;
-    }
-    return str;
+    const list = this.toList();
+    return list.map(item => `(${item.id || item})`).join(' ');
   }
 }

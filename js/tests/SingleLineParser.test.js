@@ -127,6 +127,18 @@ test('Test value link', () => {
   expect(result.length).toBeGreaterThan(0);
 });
 
+test('ParseQuotedReferencesValuesOnly', () => {
+  const source = `"has space" 'has:colon'`;
+  const parser = new Parser();
+  const links = parser.parse(source);
+  expect(links).toBeTruthy();
+  expect(links.length).toBe(1);
+  expect(links[0].id).toBe(null);
+  expect(links[0].values.length).toBe(2);
+  expect(links[0].values[0].id).toBe('has space');
+  expect(links[0].values[1].id).toBe('has:colon');
+});
+
 test('Test quoted references', () => {
   const input = '("id with spaces": "value with spaces")';
   const result = parser.parse(input);
