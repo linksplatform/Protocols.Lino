@@ -62,7 +62,7 @@ jobs:
         run: dotnet test --configuration Release --no-build -f net8
 
 
-  pusnToNuget:
+  pushToNuget:
     runs-on: ubuntu-latest
     needs: [test]
     if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' }}
@@ -102,10 +102,10 @@ jobs:
           wget "$SCRIPTS_BASE_URL/push-csharp-nuget.sh"
           bash ./push-csharp-nuget.sh
 
-  publiseRelease:
+  publishRelease:
     runs-on: ubuntu-latest
-    needs: [pusnToNuget, publishDocumentation]
-    if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' && always() }}
+    needs: [pushToNuget, publishDocumentation]
+    if: ${{ needs.findChangedCsFiles.outputs.isCsFilesChanged == 'true' && needs.pushToNuget.result == 'success' }}
     steps:
       - uses: actions/checkout@v3
         with:
