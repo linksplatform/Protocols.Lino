@@ -64,10 +64,10 @@ namespace Platform.Protocols.Lino.Tests
             var links = parser.Parse(source);
             Assert.NotNull(links);
             Assert.Single(links);
-            // Simple reference without colon creates a link with that ID
+            // Simple reference creates a singlet link with that ID
             Assert.Equal("test", links[0]!.Id);
-            // Values can be null for simple references
-            Assert.True(links[0].Values?.Count == 0 || links[0].Values == null);
+            // Values should be null for singlet links
+            Assert.Null(links[0].Values);
         }
 
         [Fact]

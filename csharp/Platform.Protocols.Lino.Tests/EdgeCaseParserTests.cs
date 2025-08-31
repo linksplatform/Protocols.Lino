@@ -82,6 +82,50 @@ namespace Platform.Protocols.Lino.Tests
         }
 
         [Fact]
+        public static void TestSingletLinks()
+        {
+            // Test singlet (1)
+            var input = "(1)";
+            var result = new Parser().Parse(input);
+            Assert.Single(result);
+            Assert.Equal("1", result[0].Id);
+            Assert.Null(result[0].Values);
+
+            // Test (1 2)
+            input = "(1 2)";
+            result = new Parser().Parse(input);
+            Assert.Single(result);
+            Assert.Null(result[0].Id);
+            Assert.NotNull(result[0].Values);
+            Assert.Equal(2, result[0].Values.Count);
+            Assert.Equal("1", result[0].Values[0].Id);
+            Assert.Equal("2", result[0].Values[1].Id);
+
+            // Test (1 2 3)
+            input = "(1 2 3)";
+            result = new Parser().Parse(input);
+            Assert.Single(result);
+            Assert.Null(result[0].Id);
+            Assert.NotNull(result[0].Values);
+            Assert.Equal(3, result[0].Values.Count);
+            Assert.Equal("1", result[0].Values[0].Id);
+            Assert.Equal("2", result[0].Values[1].Id);
+            Assert.Equal("3", result[0].Values[2].Id);
+
+            // Test (1 2 3 4)
+            input = "(1 2 3 4)";
+            result = new Parser().Parse(input);
+            Assert.Single(result);
+            Assert.Null(result[0].Id);
+            Assert.NotNull(result[0].Values);
+            Assert.Equal(4, result[0].Values.Count);
+            Assert.Equal("1", result[0].Values[0].Id);
+            Assert.Equal("2", result[0].Values[1].Id);
+            Assert.Equal("3", result[0].Values[2].Id);
+            Assert.Equal("4", result[0].Values[3].Id);
+        }
+
+        [Fact]
         public static void TestEmptyDocumentTest()
         {
             var input = "";
