@@ -23,7 +23,7 @@ namespace Platform.Protocols.Lino.Tests
             var link = new Link<string>("id", values);
             Assert.Equal("id", link.Id);
             Assert.Single(link.Values);
-            Assert.Equal("child", link.Values[0].Id);
+            Assert.Equal("child", link.Values?[0].Id);
         }
 
         [Fact]

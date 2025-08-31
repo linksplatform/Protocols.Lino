@@ -62,8 +62,8 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Null(result[0].Id);
             Assert.NotNull(result[0].Values);
             Assert.Single(result[0].Values);
-            Assert.Equal("singlet", result[0].Values[0].Id);
-            Assert.Null(result[0].Values[0].Values);
+            Assert.Equal("singlet", result[0].Values?[0].Id);
+            Assert.Null(result[0].Values?[0].Values);
 
             // Test value link
             input = "(value1 value2 value3)";
@@ -96,8 +96,8 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Null(result[0].Id);
             Assert.NotNull(result[0].Values);
             Assert.Single(result[0].Values);
-            Assert.Equal("1", result[0].Values[0].Id);
-            Assert.Null(result[0].Values[0].Values);
+            Assert.Equal("1", result[0].Values?[0].Id);
+            Assert.Null(result[0].Values?[0].Values);
 
             // Test (1 2)
             input = "(1 2)";
@@ -105,11 +105,11 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Single(result);
             Assert.Null(result[0].Id);
             Assert.NotNull(result[0].Values);
-            Assert.Equal(2, result[0].Values.Count);
-            Assert.Equal("1", result[0].Values[0].Id);
-            Assert.Null(result[0].Values[0].Values);
-            Assert.Equal("2", result[0].Values[1].Id);
-            Assert.Null(result[0].Values[1].Values);
+            Assert.Equal(2, result[0].Values?.Count);
+            Assert.Equal("1", result[0].Values?[0].Id);
+            Assert.Null(result[0].Values?[0].Values);
+            Assert.Equal("2", result[0].Values?[1].Id);
+            Assert.Null(result[0].Values?[1].Values);
 
             // Test (1 2 3)
             input = "(1 2 3)";
@@ -117,13 +117,13 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Single(result);
             Assert.Null(result[0].Id);
             Assert.NotNull(result[0].Values);
-            Assert.Equal(3, result[0].Values.Count);
-            Assert.Equal("1", result[0].Values[0].Id);
-            Assert.Null(result[0].Values[0].Values);
-            Assert.Equal("2", result[0].Values[1].Id);
-            Assert.Null(result[0].Values[1].Values);
-            Assert.Equal("3", result[0].Values[2].Id);
-            Assert.Null(result[0].Values[2].Values);
+            Assert.Equal(3, result[0].Values?.Count);
+            Assert.Equal("1", result[0].Values?[0].Id);
+            Assert.Null(result[0].Values?[0].Values);
+            Assert.Equal("2", result[0].Values?[1].Id);
+            Assert.Null(result[0].Values?[1].Values);
+            Assert.Equal("3", result[0].Values?[2].Id);
+            Assert.Null(result[0].Values?[2].Values);
 
             // Test (1 2 3 4)
             input = "(1 2 3 4)";
@@ -131,15 +131,15 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Single(result);
             Assert.Null(result[0].Id);
             Assert.NotNull(result[0].Values);
-            Assert.Equal(4, result[0].Values.Count);
-            Assert.Equal("1", result[0].Values[0].Id);
-            Assert.Null(result[0].Values[0].Values);
-            Assert.Equal("2", result[0].Values[1].Id);
-            Assert.Null(result[0].Values[1].Values);
-            Assert.Equal("3", result[0].Values[2].Id);
-            Assert.Null(result[0].Values[2].Values);
-            Assert.Equal("4", result[0].Values[3].Id);
-            Assert.Null(result[0].Values[3].Values);
+            Assert.Equal(4, result[0].Values?.Count);
+            Assert.Equal("1", result[0].Values?[0].Id);
+            Assert.Null(result[0].Values?[0].Values);
+            Assert.Equal("2", result[0].Values?[1].Id);
+            Assert.Null(result[0].Values?[1].Values);
+            Assert.Equal("3", result[0].Values?[2].Id);
+            Assert.Null(result[0].Values?[2].Values);
+            Assert.Equal("4", result[0].Values?[3].Id);
+            Assert.Null(result[0].Values?[3].Values);
         }
 
         [Fact]

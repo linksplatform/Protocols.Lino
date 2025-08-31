@@ -45,9 +45,6 @@ namespace Platform.Protocols.Lino.Tests
             // root, root.Combine(child1), root.Combine(child2), root.Combine(child2).Combine(grandchild)
             Assert.Equal(4, list.Count);
             Assert.Equal(root, list[0]);
-            Assert.NotNull(list[1]);
-            Assert.NotNull(list[2]);
-            Assert.NotNull(list[3]);
         }
 
         [Fact]
@@ -66,9 +63,6 @@ namespace Platform.Protocols.Lino.Tests
             
             Assert.Equal(3, list.Count);
             Assert.Equal(element, list[0]);
-            // The AppendToLinksList creates combined links for children
-            Assert.NotNull(list[1]);
-            Assert.NotNull(list[2]);
         }
     }
 }

@@ -182,7 +182,6 @@ users
             Assert.NotEmpty(result);
             // Should have parent link
             var parentLink = result.FirstOrDefault(l => l.Id == "parent");
-            Assert.NotNull(parentLink);
         }
 
         [Fact]

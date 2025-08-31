@@ -20,7 +20,7 @@ namespace Platform.Protocols.Lino.Tests
             var values = new List<Link<string>> { new Link<string>("value1"), new Link<string>("value2") };
             var link = new Link<string>("parent", values);
             Assert.Equal("parent", link.Id);
-            Assert.Equal(2, link.Values.Count);
+            Assert.Equal(2, link.Values?.Count);
         }
 
         [Fact]
@@ -65,9 +65,9 @@ namespace Platform.Protocols.Lino.Tests
             var combined = link1.Combine(link2);
             
             Assert.Null(combined.Id);
-            Assert.Equal(2, combined.Values.Count);
-            Assert.Equal("first", combined.Values[0].Id);
-            Assert.Equal("second", combined.Values[1].Id);
+            Assert.Equal(2, combined.Values?.Count);
+            Assert.Equal("first", combined.Values?[0].Id);
+            Assert.Equal("second", combined.Values?[1].Id);
         }
 
         [Fact]

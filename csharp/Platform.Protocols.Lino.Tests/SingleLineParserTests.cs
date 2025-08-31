@@ -68,8 +68,8 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Null(links[0].Id);
             Assert.NotNull(links[0].Values);
             Assert.Single(links[0].Values);
-            Assert.Equal("test", links[0].Values[0].Id);
-            Assert.Null(links[0].Values[0].Values);
+            Assert.Equal("test", links[0].Values?[0].Id);
+            Assert.Null(links[0].Values?[0].Values);
         }
 
         [Fact]
@@ -119,8 +119,8 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Null(result[0].Id);
             Assert.NotNull(result[0].Values);
             Assert.Single(result[0].Values);
-            Assert.Equal("singlet", result[0].Values[0].Id);
-            Assert.Null(result[0].Values[0].Values);
+            Assert.Equal("singlet", result[0].Values?[0].Id);
+            Assert.Null(result[0].Values?[0].Values);
         }
 
         [Fact]
@@ -275,7 +275,7 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Null(result[0].Id);
             Assert.NotNull(result[0].Values);
             Assert.Single(result[0].Values);
-            Assert.Equal("hello", result[0].Values[0].Id);
+            Assert.Equal("hello", result[0].Values?[0].Id);
         }
 
         [Fact]
@@ -287,7 +287,7 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Null(result[0].Id);
             Assert.NotNull(result[0].Values);
             Assert.Single(result[0].Values);
-            Assert.Equal("hello world", result[0].Values[0].Id);
+            Assert.Equal("hello world", result[0].Values?[0].Id);
         }
 
         [Fact]
@@ -299,8 +299,8 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Null(result[0].Id);
             Assert.NotNull(result[0].Values);
             Assert.Single(result[0].Values);
-            Assert.Equal("singlet", result[0].Values[0].Id);
-            Assert.Null(result[0].Values[0].Values);
+            Assert.Equal("singlet", result[0].Values?[0].Id);
+            Assert.Null(result[0].Values?[0].Values);
         }
 
         [Fact]
@@ -310,7 +310,7 @@ namespace Platform.Protocols.Lino.Tests
             var result = new Parser().Parse(input);
             Assert.Single(result);
             Assert.Null(result[0].Id);
-            Assert.Equal(3, result[0].Values.Count);
+            Assert.Equal(3, result[0].Values?.Count);
         }
     }
 }
