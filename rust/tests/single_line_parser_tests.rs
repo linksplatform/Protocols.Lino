@@ -118,7 +118,8 @@ fn parse_simple_reference() {
     let input = "test";
     let result = parse_lino(input).unwrap();
     assert!(result.is_link());
-    if let LiNo::Link { values, .. } = &result {
+    if let LiNo::Link { id, values } = &result {
+        assert!(id.is_none());
         assert_eq!(values.len(), 1);
         if let LiNo::Ref(id) = &values[0] {
             assert_eq!(id, "test");
@@ -201,10 +202,17 @@ fn test_link_without_id_multi_line() {
 }
 
 #[test]
-fn test_point_link() {
-    let input = "(point)";
-    let result = parse_lino(input);
-    assert!(result.is_ok());
+fn test_singlet_link() {
+    let input = "(singlet)";
+    let result = parse_lino(input).unwrap();
+    assert!(result.is_link());
+    if let LiNo::Link { id, values } = &result {
+        assert!(id.is_none());
+        assert_eq!(values.len(), 1);
+        if let LiNo::Ref(ref_id) = &values[0] {
+            assert_eq!(ref_id, "singlet");
+        }
+    }
 }
 
 #[test]
@@ -284,10 +292,12 @@ fn test_quoted_reference() {
 }
 
 #[test]
-fn test_point_link_parser() {
-    let result = parse_document("(point)").unwrap();
+fn test_singlet_link_parser() {
+    let result = parse_document("(singlet)").unwrap();
     assert_eq!(result.1.len(), 1);
-    assert_eq!(result.1[0].id, Some("point".to_string()));
+    assert_eq!(result.1[0].id, Some("singlet".to_string()));
+    assert_eq!(result.1[0].values.len(), 0);
+    assert_eq!(result.1[0].children.len(), 0);
 }
 
 #[test]

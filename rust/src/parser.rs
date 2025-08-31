@@ -18,7 +18,7 @@ pub struct Link {
 }
 
 impl Link {
-    pub fn new_point(id: String) -> Self {
+    pub fn new_singlet(id: String) -> Self {
         Link {
             id: Some(id),
             values: vec![],
@@ -75,7 +75,7 @@ impl ParserState {
     }
 
     pub fn check_indentation(&self, indent: usize) -> bool {
-        indent == self.current_indentation()
+        indent >= self.current_indentation()
     }
 }
 
@@ -140,26 +140,12 @@ fn eol(input: &str) -> IResult<&str, &str> {
     )).parse(input)
 }
 
-fn point_link(input: &str) -> IResult<&str, Link> {
-    reference.map(Link::new_point).parse(input)
-}
 
-fn single_line_point_link(input: &str) -> IResult<&str, Link> {
-    preceded(horizontal_whitespace, point_link).parse(input)
-}
-
-fn multi_line_point_link(input: &str) -> IResult<&str, Link> {
-    delimited(
-        (char('('), whitespace),
-        point_link,
-        (whitespace, char(')'))
-    ).parse(input)
-}
 
 fn reference_or_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
     alt((
         |i| multi_line_any_link(i, state),
-        reference.map(Link::new_point),
+        reference.map(Link::new_singlet),
     )).parse(input)
 }
 
@@ -215,7 +201,13 @@ fn multi_line_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, 
 
 fn single_line_value_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
     (|i| single_line_values(i, state))
-        .map(Link::new_value)
+        .map(|values| {
+            if values.len() == 1 && values[0].id.is_some() && values[0].values.is_empty() && values[0].children.is_empty() {
+                Link::new_singlet(values[0].id.clone().unwrap())
+            } else {
+                Link::new_value(values)
+            }
+        })
         .parse(input)
 }
 
@@ -225,13 +217,18 @@ fn multi_line_value_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a
         |i| multi_line_values(i, state),
         whitespace,
         char(')')
-    ).map(|(_, values, _, _)| Link::new_value(values))
+    ).map(|(_, values, _, _)| {
+        if values.len() == 1 && values[0].id.is_some() && values[0].values.is_empty() && values[0].children.is_empty() {
+            Link::new_singlet(values[0].id.clone().unwrap())
+        } else {
+            Link::new_value(values)
+        }
+    })
     .parse(input)
 }
 
 fn multi_line_any_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
     alt((
-        multi_line_point_link,
         |i| multi_line_value_link(i, state),
         |i| multi_line_link(i, state),
     )).parse(input)
@@ -240,7 +237,6 @@ fn multi_line_any_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a s
 fn single_line_any_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
     alt((
         terminated(|i| single_line_link(i, state), eol),
-        terminated(single_line_point_link, eol),
         terminated(|i| single_line_value_link(i, state), eol),
     )).parse(input)
 }

@@ -49,10 +49,14 @@ fn test_all_features_test() {
     let result = parse_lino(input);
     assert!(result.is_err());
 
-    // Test point link
-    let input = "(point)";
+    // Test singlet link
+    let input = "(singlet)";
     let result = parse_lino(input);
     assert!(result.is_ok());
+    let parsed = result.unwrap();
+    if let LiNo::Ref(id) = parsed {
+        assert_eq!(id, "singlet");
+    }
 
     // Test value link
     let input = "(value1 value2 value3)";
@@ -117,6 +121,69 @@ fn test_empty_links_test() {
     let input = "(id:)";
     let result = parse_lino(input);
     assert!(result.is_ok());
+}
+
+#[test]
+fn test_singlet_links() {
+    // Test singlet (1)
+    let input = "(1)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+    let parsed = result.unwrap();
+    if let LiNo::Ref(id) = parsed {
+        assert_eq!(id, "1");
+    }
+
+    // Test (1 2)
+    let input = "(1 2)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+    let parsed = result.unwrap();
+    if let LiNo::Link { id, values } = parsed {
+        assert!(id.is_none());
+        assert_eq!(values.len(), 1);
+        if let LiNo::Link { id, values } = &values[0] {
+            assert!(id.is_none());
+            assert_eq!(values.len(), 2);
+            assert_eq!(values[0], LiNo::Ref("1".to_string()));
+            assert_eq!(values[1], LiNo::Ref("2".to_string()));
+        }
+    }
+
+    // Test (1 2 3)
+    let input = "(1 2 3)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+    let parsed = result.unwrap();
+    if let LiNo::Link { id, values } = parsed {
+        assert!(id.is_none());
+        assert_eq!(values.len(), 1);
+        if let LiNo::Link { id, values } = &values[0] {
+            assert!(id.is_none());
+            assert_eq!(values.len(), 3);
+            assert_eq!(values[0], LiNo::Ref("1".to_string()));
+            assert_eq!(values[1], LiNo::Ref("2".to_string()));
+            assert_eq!(values[2], LiNo::Ref("3".to_string()));
+        }
+    }
+
+    // Test (1 2 3 4)
+    let input = "(1 2 3 4)";
+    let result = parse_lino(input);
+    assert!(result.is_ok());
+    let parsed = result.unwrap();
+    if let LiNo::Link { id, values } = parsed {
+        assert!(id.is_none());
+        assert_eq!(values.len(), 1);
+        if let LiNo::Link { id, values } = &values[0] {
+            assert!(id.is_none());
+            assert_eq!(values.len(), 4);
+            assert_eq!(values[0], LiNo::Ref("1".to_string()));
+            assert_eq!(values[1], LiNo::Ref("2".to_string()));
+            assert_eq!(values[2], LiNo::Ref("3".to_string()));
+            assert_eq!(values[3], LiNo::Ref("4".to_string()));
+        }
+    }
 }
 
 #[test]

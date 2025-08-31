@@ -2,7 +2,7 @@ pub mod parser;
 
 use std::fmt;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum LiNo<T> {
     Link { id: Option<T>, values: Vec<Self> },
     Ref(T),
