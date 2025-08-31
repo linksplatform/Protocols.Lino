@@ -145,3 +145,29 @@ jobs:
           else
             echo "❌ Publishing failed - please check the logs"
           fi
+
+  publishRelease:
+    runs-on: ubuntu-latest
+    needs: [publishToCratesIO]
+    if: ${{ needs.findChangedRustFiles.outputs.isRustFilesChanged == 'true' && needs.publishToCratesIO.result == 'success' }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+      - name: Read project information and publish release
+        run: |
+          PACKAGE_NAME=$(grep '^name = ' Cargo.toml | head -1 | sed 's/name = "\(.*\)"/\1/')
+          PACKAGE_VERSION=$(grep '^version = ' Cargo.toml | head -1 | sed 's/version = "\(.*\)"/\1/')
+          
+          # Create release
+          gh release create "rust_$PACKAGE_VERSION" \
+            --title "[Rust] $PACKAGE_VERSION" \
+            --notes "https://crates.io/crates/$PACKAGE_NAME"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
