@@ -191,3 +191,39 @@ test('Test simple ref', () => {
   const result = parser.parse(input);
   expect(result.length).toBeGreaterThan(0);
 });
+
+test('Test simple reference (parser)', () => {
+  const input = 'hello';
+  const result = parser.parse(input);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values.length).toBe(1);
+  expect(result[0].values[0].id).toBe('hello');
+});
+
+test('Test quoted reference (parser)', () => {
+  const input = '"hello world"';
+  const result = parser.parse(input);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values.length).toBe(1);
+  expect(result[0].values[0].id).toBe('hello world');
+});
+
+test('Test singlet link (parser)', () => {
+  const input = '(singlet)';
+  const result = parser.parse(input);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values.length).toBe(1);
+  expect(result[0].values[0].id).toBe('singlet');
+  expect(result[0].values[0].values).toEqual([]);
+});
+
+test('Test value link (parser)', () => {
+  const input = '(a b c)';
+  const result = parser.parse(input);
+  expect(result.length).toBe(1);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values.length).toBe(3);
+});

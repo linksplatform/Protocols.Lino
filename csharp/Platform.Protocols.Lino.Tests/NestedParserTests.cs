@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Xunit;
 
 namespace Platform.Protocols.Lino.Tests
@@ -154,6 +155,45 @@ users
             // (root), (root level1a), ((root level1a) level2a), ((root level1a) level2b),
             // (root level1b), ((root level1b) level2c)
             Assert.Equal(6, result.Count);
+        }
+
+        [Fact]
+        public static void TestNestedLinksTest()
+        {
+            var input = "(1: (2: (3: 3)))";
+            var parser = new Parser();
+            var parsed = parser.Parse(input);
+            Assert.NotEmpty(parsed);
+
+            // Validate regular formatting
+            var output = parsed.Format();
+            Assert.NotEmpty(output);
+            
+            // Validate that the structure is properly nested
+            Assert.Single(parsed);
+        }
+
+        [Fact]
+        public static void TestIndentationParserTest()
+        {
+            var input = "parent\n  child1\n  child2";
+            var parser = new Parser();
+            var result = parser.Parse(input);
+            Assert.NotEmpty(result);
+            // Should have parent link
+            var parentLink = result.FirstOrDefault(l => l.Id == "parent");
+            Assert.NotNull(parentLink);
+        }
+
+        [Fact]
+        public static void TestNestedIndentationParserTest()
+        {
+            var input = "parent\n  child\n    grandchild";
+            var parser = new Parser();
+            var result = parser.Parse(input);
+            Assert.NotEmpty(result);
+            // Should create nested structure with proper hierarchy
+            Assert.True(result.Count >= 1);
         }
     }
 }

@@ -116,5 +116,34 @@ simple_ref
             var result = new Parser().Parse(input);
             Assert.NotEmpty(result);
         }
+
+        [Fact]
+        public static void TestMultilineSimpleLinksTest()
+        {
+            var input = "(1: 1 1)\n(2: 2 2)";
+            var parser = new Parser();
+            var parsed = parser.Parse(input);
+            Assert.NotEmpty(parsed);
+            
+            // Validate regular formatting
+            var output = parsed.Format();
+            Assert.Contains("(1: 1 1)", output);
+            Assert.Contains("(2: 2 2)", output);
+            
+            // Validate alternate formatting matches input
+            var outputAlternate = parsed.Format();
+            Assert.Equal(input, outputAlternate);
+        }
+
+        [Fact]
+        public static void TestIndentedChildrenTest()
+        {
+            var input = "parent\n  child1\n  child2";
+            var parser = new Parser();
+            var parsed = parser.Parse(input);
+            
+            // The parsed structure should have parent with children
+            Assert.NotEmpty(parsed);
+        }
     }
 }

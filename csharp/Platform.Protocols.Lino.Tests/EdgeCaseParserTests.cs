@@ -175,5 +175,13 @@ namespace Platform.Protocols.Lino.Tests
             result = new Parser().Parse(input);
             Assert.NotEmpty(result);
         }
+
+        [Fact]
+        public static void TestInvalidInputTest()
+        {
+            var input = "(invalid";
+            // Unclosed parentheses should throw an exception
+            Assert.Throws<FormatException>(() => new Parser().Parse(input));
+        }
     }
 }

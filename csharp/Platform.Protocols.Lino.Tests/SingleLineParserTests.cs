@@ -250,5 +250,67 @@ namespace Platform.Protocols.Lino.Tests
             var result = new Parser().Parse(input);
             Assert.NotEmpty(result);
         }
+
+        [Fact]
+        public static void TestMultiLineLinkWithIdTest()
+        {
+            var input = "(id: value1 value2)";
+            var result = new Parser().Parse(input);
+            Assert.NotEmpty(result);
+        }
+
+        [Fact]
+        public static void TestLinkWithoutIdMultiLineTest()
+        {
+            var input = "(: value1 value2)";
+            Assert.Throws<FormatException>(() => new Parser().Parse(input));
+        }
+
+        [Fact]
+        public static void TestSimpleReferenceParserTest()
+        {
+            var input = "hello";
+            var result = new Parser().Parse(input);
+            Assert.Single(result);
+            Assert.Null(result[0].Id);
+            Assert.NotNull(result[0].Values);
+            Assert.Single(result[0].Values);
+            Assert.Equal("hello", result[0].Values[0].Id);
+        }
+
+        [Fact]
+        public static void TestQuotedReferenceParserTest()
+        {
+            var input = "\"hello world\"";
+            var result = new Parser().Parse(input);
+            Assert.Single(result);
+            Assert.Null(result[0].Id);
+            Assert.NotNull(result[0].Values);
+            Assert.Single(result[0].Values);
+            Assert.Equal("hello world", result[0].Values[0].Id);
+        }
+
+        [Fact]
+        public static void TestSingletLinkParserTest()
+        {
+            var input = "(singlet)";
+            var result = new Parser().Parse(input);
+            Assert.Single(result);
+            Assert.Null(result[0].Id);
+            Assert.NotNull(result[0].Values);
+            Assert.Single(result[0].Values);
+            Assert.Equal("singlet", result[0].Values[0].Id);
+            Assert.Null(result[0].Values[0].Values);
+        }
+
+        [Fact]
+        public static void TestValueLinkParserTest()
+        {
+            var input = "(a b c)";
+            var result = new Parser().Parse(input);
+            Assert.Single(result);
+            Assert.Null(result[0].Id);
+            Assert.Equal(3, result[0].Values.Count);
+        }
     }
 }

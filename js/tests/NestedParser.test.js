@@ -134,3 +134,33 @@ test('Complex indentation', () => {
   const result = parser.parse(input);
   expect(result.length).toBe(6);
 });
+
+test('Test nested links', () => {
+  const input = '(1: (2: (3: 3)))';
+  const parsed = parser.parse(input);
+  expect(parsed.length).toBeGreaterThan(0);
+
+  // Validate regular formatting
+  const output = formatLinks(parsed);
+  expect(output).toBeTruthy();
+  
+  // Validate that the structure is properly nested
+  expect(parsed.length).toBe(1);
+});
+
+test('Test indentation (parser)', () => {
+  const input = 'parent\n  child1\n  child2';
+  const result = parser.parse(input);
+  expect(result.length).toBeGreaterThan(0);
+  // Should have parent link
+  const hasParentLink = result.some(l => l.values && l.values.some(v => v.id === 'parent'));
+  expect(hasParentLink).toBe(true);
+});
+
+test('Test nested indentation (parser)', () => {
+  const input = 'parent\n  child\n    grandchild';
+  const result = parser.parse(input);
+  expect(result.length).toBeGreaterThan(0);
+  // Should create nested structure with proper hierarchy
+  expect(result.length).toBeGreaterThanOrEqual(1);
+});

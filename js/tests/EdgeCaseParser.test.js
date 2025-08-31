@@ -154,3 +154,9 @@ test('TestSingletLinksTest', () => {
   expect(result[0].values[3].id).toBe('4');
   expect(result[0].values[3].values).toEqual([]);
 });
+
+test('TestInvalidInputTest', () => {
+  const input = '(invalid';
+  // Unclosed parentheses should throw an error
+  expect(() => parser.parse(input)).toThrow();
+});
