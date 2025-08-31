@@ -77,7 +77,7 @@ export class Link {
   }
 
   
-  format(lessParentheses = false) {
+  format(lessParentheses = false, isCompoundValue = false) {
     // Empty link
     if (this.id === null && (!this.values || this.values.length === 0)) {
       return lessParentheses ? '' : '()';
@@ -86,15 +86,33 @@ export class Link {
     // Link with only ID, no values
     if (!this.values || this.values.length === 0) {
       const escapedId = Link.escapeReference(this.id);
+      // When used as a value in a compound link (created from combining links), wrap in parentheses
+      if (isCompoundValue) {
+        return `(${escapedId})`;
+      }
       return lessParentheses && !this.needsParentheses(this.id) ? escapedId : `(${escapedId})`;
     }
     
     // Format values recursively  
     const valuesStr = this.values.map(v => this.formatValue(v)).join(' ');
     
-    // Link with values only
+    // Link with values only (null id)
     if (this.id === null) {
-      return lessParentheses ? valuesStr : `(${valuesStr})`;
+      // For lessParentheses mode with simple values, don't wrap the whole thing
+      if (lessParentheses) {
+        // Check if all values are simple (no nested values)
+        const allSimple = this.values.every(v => !v.values || v.values.length === 0);
+        if (allSimple) {
+          // Format each value without extra wrapping
+          const simpleValuesStr = this.values.map(v => Link.escapeReference(v.id)).join(' ');
+          return simpleValuesStr;
+        }
+        // For mixed or complex values in lessParentheses mode, still avoid outer wrapper
+        // but keep the inner formatting
+        return valuesStr;
+      }
+      // For normal mode, wrap in parentheses
+      return `(${valuesStr})`;
     }
     
     // Link with ID and values
@@ -108,13 +126,22 @@ export class Link {
       return Link.escapeReference(value.id || '');
     }
     
-    // Simple value (just ID)
+    // Check if we're in a compound link that was created from path combinations
+    // This is indicated by having a parent context passed through
+    const isCompoundFromPaths = this._isFromPathCombination === true;
+    
+    // For compound links from paths, format values with parentheses
+    if (isCompoundFromPaths) {
+      return value.format(false, true);
+    }
+    
+    // Simple link with just an ID - don't wrap in parentheses when used as a value
     if (!value.values || value.values.length === 0) {
       return Link.escapeReference(value.id);
     }
     
-    // Nested structure - always use parentheses for nested values to preserve structure
-    return value.format(false);
+    // Complex value with its own structure - format it normally with parentheses
+    return value.format(false, false);
   }
   
   needsParentheses(str) {

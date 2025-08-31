@@ -45,8 +45,10 @@ test('Parse simple reference', () => {
   const input = 'test';
   const result = parser.parse(input);
   expect(result.length).toBe(1);
-  expect(result[0].id).toBe('test');
-  expect(result[0].values).toEqual([]);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values.length).toBe(1);
+  expect(result[0].values[0].id).toBe('test');
+  expect(result[0].values[0].values).toEqual([]);
 });
 
 test('Parse reference with colon and values', () => {
@@ -113,8 +115,10 @@ test('Test singlet link', () => {
   const input = '(singlet)';
   const result = parser.parse(input);
   expect(result.length).toBe(1);
-  expect(result[0].id).toBe('singlet');
-  expect(result[0].values).toEqual([]);
+  expect(result[0].id).toBe(null);
+  expect(result[0].values.length).toBe(1);
+  expect(result[0].values[0].id).toBe('singlet');
+  expect(result[0].values[0].values).toEqual([]);
 });
 
 test('Test value link', () => {

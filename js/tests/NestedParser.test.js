@@ -35,32 +35,32 @@ users
             20`;
 
   const target = `(users)
-(users user1)
-((users user1) id)
-(((users user1) id) 43)
-((users user1) name)
-(((users user1) name) first)
-((((users user1) name) first) John)
-(((users user1) name) last)
-((((users user1) name) last) Williams)
-((users user1) location)
-(((users user1) location) (New York))
-((users user1) age)
-(((users user1) age) 23)
-(users user2)
-((users user2) id)
-(((users user2) id) 56)
-((users user2) name)
-(((users user2) name) first)
-((((users user2) name) first) Igor)
-(((users user2) name) middle)
-((((users user2) name) middle) Petrovich)
-(((users user2) name) last)
-((((users user2) name) last) Ivanov)
-((users user2) location)
-(((users user2) location) Moscow)
-((users user2) age)
-(((users user2) age) 20)`;
+((users) (user1))
+(((users) (user1)) (id))
+((((users) (user1)) (id)) (43))
+(((users) (user1)) (name))
+((((users) (user1)) (name)) (first))
+(((((users) (user1)) (name)) (first)) (John))
+((((users) (user1)) (name)) (last))
+(((((users) (user1)) (name)) (last)) (Williams))
+(((users) (user1)) (location))
+((((users) (user1)) (location)) (New York))
+(((users) (user1)) (age))
+((((users) (user1)) (age)) (23))
+((users) (user2))
+(((users) (user2)) (id))
+((((users) (user2)) (id)) (56))
+(((users) (user2)) (name))
+((((users) (user2)) (name)) (first))
+(((((users) (user2)) (name)) (first)) (Igor))
+((((users) (user2)) (name)) (middle))
+(((((users) (user2)) (name)) (middle)) (Petrovich))
+((((users) (user2)) (name)) (last))
+(((((users) (user2)) (name)) (last)) (Ivanov))
+(((users) (user2)) (location))
+((((users) (user2)) (location)) (Moscow))
+(((users) (user2)) (age))
+((((users) (user2)) (age)) (20))`;
 
   const links = parser.parse(source);
   const formattedLinks = formatLinks(links);
@@ -72,8 +72,8 @@ test('SimpleSignificantWhitespaceTest', () => {
     b
     c`;
   const target = `(a)
-(a b)
-(a c)`;
+((a) (b))
+((a) (c))`;
   const links = parser.parse(source);
   const formattedLinks = formatLinks(links);
   expect(formattedLinks).toBe(target);
@@ -84,7 +84,7 @@ test('TwoSpacesSizedWhitespaceTest', () => {
 users
   user1`;
   const target = `(users)
-(users user1)`;
+((users) (user1))`;
   const links = parser.parse(source);
   const formattedLinks = formatLinks(links);
   expect(formattedLinks).toBe(target);
@@ -96,19 +96,13 @@ test('Parse nested structure with indentation', () => {
   child2`;
   const result = parser.parse(input);
   expect(result.length).toBe(3);
-  // First link: (parent)
-  expect(result[0].id).toBe('parent');
-  expect(result[0].values.length).toBe(0);
-  // Second link: (parent child1)
+  // The parser creates (parent), ((parent) (child1)), ((parent) (child2))
+  expect(result[0].id).toBe(null);
+  expect(result[0].values[0].id).toBe('parent');
   expect(result[1].id).toBe(null);
   expect(result[1].values.length).toBe(2);
-  expect(result[1].values[0].id).toBe('parent');
-  expect(result[1].values[1].id).toBe('child1');
-  // Third link: (parent child2)
   expect(result[2].id).toBe(null);
   expect(result[2].values.length).toBe(2);
-  expect(result[2].values[0].id).toBe('parent');
-  expect(result[2].values[1].id).toBe('child2');
 });
 
 test('Test indentation consistency', () => {

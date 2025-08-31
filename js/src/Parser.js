@@ -29,26 +29,20 @@ export class Parser {
   collectLinks(item, parentPath, result) {
     if (!item) return;
 
-    // Handle singlet value links by promoting the single value to id
-    if (item.id == null && item.values && item.values.length === 1 && item.values[0].id !== null && (!item.values[0].values || item.values[0].values.length === 0)) {
-      item.id = item.values[0].id;
-      item.values = [];
-    }
-    
     // For items with children (indented structure)
     if (item.children && item.children.length > 0) {
-      // Add the parent item alone first
-      if (item.id !== undefined) {
-        if (parentPath.length === 0) {
-          result.push(new Link(item.id));
-        } else {
-          result.push(this.combinePathElements(parentPath, new Link(item.id)));
-        }
+      // First create the link for the current item
+      const currentLink = this.transformLink(item);
+      
+      // Add the link combined with parent path
+      if (parentPath.length === 0) {
+        result.push(currentLink);
+      } else {
+        result.push(this.combinePathElements(parentPath, currentLink));
       }
       
-      // Process each child with parent in the path
-      const currentElement = item.id !== undefined ? new Link(item.id) : null;
-      const newPath = currentElement ? [...parentPath, currentElement] : parentPath;
+      // Process each child with this item in the path
+      const newPath = [...parentPath, currentLink];
       
       for (const child of item.children) {
         this.collectLinks(child, newPath, result);
@@ -68,7 +62,9 @@ export class Parser {
   combinePathElements(pathElements, current) {
     if (pathElements.length === 0) return current;
     if (pathElements.length === 1) {
-      return new Link(null, [pathElements[0], current]);
+      const combined = new Link(null, [pathElements[0], current]);
+      combined._isFromPathCombination = true;
+      return combined;
     }
     
     // For multiple path elements, we need to build proper nesting
@@ -80,7 +76,9 @@ export class Parser {
     let parent = this.combinePathElements(parentPath, lastElement);
     
     // Add current element to the built structure
-    return new Link(null, [parent, current]);
+    const combined = new Link(null, [parent, current]);
+    combined._isFromPathCombination = true;
+    return combined;
   }
   
 
@@ -91,22 +89,21 @@ export class Parser {
       return item;
     }
 
-    const link = new Link(item.id || null, []);
-    
+    // Handle simple reference objects like {id: 'a'}
+    if (item.id !== undefined && !item.values && !item.children) {
+      return new Link(item.id);
+    }
+
+    // For items with values, create a link with those values
     if (item.values && Array.isArray(item.values)) {
+      // Create a link with id (if present) and transformed values
+      const link = new Link(item.id || null, []);
       link.values = item.values.map(v => this.transformLink(v));
+      return link;
     }
     
-    if (item.children && Array.isArray(item.children)) {
-      for (const child of item.children) {
-        const childLink = this.transformLink(child);
-        if (childLink) {
-          link.values.push(childLink);
-        }
-      }
-    }
-    
-    return link;
+    // Default case
+    return new Link(item.id || null, []);
   }
 
 }
