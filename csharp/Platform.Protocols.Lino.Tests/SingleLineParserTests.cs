@@ -108,10 +108,10 @@ namespace Platform.Protocols.Lino.Tests
         }
 
         [Fact]
-        public static void TestPointLinkTest()
+        public static void TestSingletLinkTest()
         {
-            // Test point link
-            var input = "(point)";
+            // Test singlet link
+            var input = "(singlet)";
             var result = new Parser().Parse(input);
             Assert.NotEmpty(result);
         }

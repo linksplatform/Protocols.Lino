@@ -55,8 +55,8 @@ namespace Platform.Protocols.Lino.Tests
             input = "(: value1 value2)";
             Assert.Throws<FormatException>(() => new Parser().Parse(input));
 
-            // Test point link
-            input = "(point)";
+            // Test singlet link
+            input = "(singlet)";
             result = new Parser().Parse(input);
             Assert.NotEmpty(result);
 
