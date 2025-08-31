@@ -102,11 +102,23 @@ fn flatten_link_recursive(link: &parser::Link, parent: Option<LiNo<String>>, res
         LiNo::Link { id: link.id.clone(), values }
     };
     
-    // Create the combined link (parent + current)
+    // Create the combined link (parent + current) with proper wrapping
     let combined = if let Some(parent) = parent {
+        // Wrap parent in parentheses if it's a reference
+        let wrapped_parent = match parent {
+            LiNo::Ref(ref_id) => LiNo::Link { id: None, values: vec![LiNo::Ref(ref_id)] },
+            link => link
+        };
+        
+        // Wrap current in parentheses if it's a reference
+        let wrapped_current = match current.clone() {
+            LiNo::Ref(ref_id) => LiNo::Link { id: None, values: vec![LiNo::Ref(ref_id)] },
+            link => link
+        };
+        
         LiNo::Link { 
             id: None, 
-            values: vec![parent.clone(), current.clone()]
+            values: vec![wrapped_parent, wrapped_current]
         }
     } else {
         current.clone()

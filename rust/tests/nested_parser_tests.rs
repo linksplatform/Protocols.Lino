@@ -73,7 +73,7 @@ fn test_indentation_consistency() {
     let output = format!("{:#}", result);
     // Should produce at least the parent and child1 as separate links
     assert!(output.contains("(parent)"));
-    assert!(output.contains("(parent child1)"));
+    assert!(output.contains("((parent) (child1))"));
 }
 
 #[test]
