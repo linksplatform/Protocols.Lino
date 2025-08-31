@@ -64,10 +64,12 @@ namespace Platform.Protocols.Lino.Tests
             var links = parser.Parse(source);
             Assert.NotNull(links);
             Assert.Single(links);
-            // Simple reference creates a singlet link with that ID
-            Assert.Equal("test", links[0]!.Id);
-            // Values should be null for singlet links
-            Assert.Null(links[0].Values);
+            // Simple reference creates a singlet link with null Id and one value
+            Assert.Null(links[0].Id);
+            Assert.NotNull(links[0].Values);
+            Assert.Single(links[0].Values);
+            Assert.Equal("test", links[0].Values[0].Id);
+            Assert.Null(links[0].Values[0].Values);
         }
 
         [Fact]
@@ -113,7 +115,12 @@ namespace Platform.Protocols.Lino.Tests
             // Test singlet link
             var input = "(singlet)";
             var result = new Parser().Parse(input);
-            Assert.NotEmpty(result);
+            Assert.Single(result);
+            Assert.Null(result[0].Id);
+            Assert.NotNull(result[0].Values);
+            Assert.Single(result[0].Values);
+            Assert.Equal("singlet", result[0].Values[0].Id);
+            Assert.Null(result[0].Values[0].Values);
         }
 
         [Fact]

@@ -16,8 +16,8 @@ singleLineValueAndWhitespace <Link<string>> = __ value:referenceOrLink { value }
 singleLineValues <IList<Link<string>>> = list:singleLineValueAndWhitespace+ { list }
 singleLineLink <Link<string>> = __ id:(reference) __ ":" v:singleLineValues { new Link<string>(id, v) }
 multiLineLink <Link<string>> = "(" _ id:(reference) _ ":" v:multiLineValues _ ")" { new Link<string>(id, v) }
-singleLineValueLink <Link<string>> = v:singleLineValues { v.Count == 1 && v[0].Id != null && (v[0].Values == null || v[0].Values.Count == 0) ? new Link<string>(v[0].Id) : new Link<string>(v) }
-multiLineValueLink <Link<string>> = "(" v:multiLineValues _ ")" { v.Count == 1 && v[0].Id != null && (v[0].Values == null || v[0].Values.Count == 0) ? new Link<string>(v[0].Id) : new Link<string>(v) }
+singleLineValueLink <Link<string>> = v:singleLineValues { new Link<string>(v) }
+multiLineValueLink <Link<string>> = "(" v:multiLineValues _ ")" { new Link<string>(v) }
 
 reference <string> = doubleQuotedReference / singleQuotedReference / simpleReference 
 simpleReference <string> = "" referenceSymbol+
