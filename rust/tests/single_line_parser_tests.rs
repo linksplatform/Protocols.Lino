@@ -322,3 +322,41 @@ fn test_single_line_link() {
     assert_eq!(result.1[0].id, Some("id".to_string()));
     assert_eq!(result.1[0].values.len(), 2);
 }
+
+#[test]
+fn test_right_arrow_syntax() {
+    let input = "(1 → 2)";
+    let result = parse_lino(input).unwrap();
+    let formatted = format_links_multiline(&result);
+    assert_eq!(formatted, "(1 2)");
+}
+
+#[test]
+fn test_left_arrow_syntax() {
+    let input = "(2 ← 1)";
+    let result = parse_lino(input).unwrap();
+    let formatted = format_links_multiline(&result);
+    assert_eq!(formatted, "(1 2)");
+}
+
+#[test]
+fn test_arrow_syntax_equivalence() {
+    let normal = parse_lino("(1 2)").unwrap();
+    let right_arrow = parse_lino("(1 → 2)").unwrap();
+    let left_arrow = parse_lino("(2 ← 1)").unwrap();
+
+    let normal_formatted = format_links_multiline(&normal);
+    let right_arrow_formatted = format_links_multiline(&right_arrow);
+    let left_arrow_formatted = format_links_multiline(&left_arrow);
+
+    assert_eq!(normal_formatted, right_arrow_formatted);
+    assert_eq!(normal_formatted, left_arrow_formatted);
+}
+
+#[test]
+fn test_arrow_syntax_with_names() {
+    let input = "(papa → mama)";
+    let result = parse_lino(input).unwrap();
+    let formatted = format_links_multiline(&result);
+    assert_eq!(formatted, "(papa mama)");
+}

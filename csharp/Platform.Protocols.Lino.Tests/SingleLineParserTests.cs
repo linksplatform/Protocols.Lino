@@ -312,5 +312,51 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Null(result[0].Id);
             Assert.Equal(3, result[0].Values?.Count);
         }
+
+        [Fact]
+        public static void TestRightArrowSyntaxTest()
+        {
+            var input = "(1 → 2)";
+            var parser = new Parser();
+            var links = parser.Parse(input);
+            var target = links.Format();
+            Assert.Equal("(1 2)", target);
+        }
+
+        [Fact]
+        public static void TestLeftArrowSyntaxTest()
+        {
+            var input = "(2 ← 1)";
+            var parser = new Parser();
+            var links = parser.Parse(input);
+            var target = links.Format();
+            Assert.Equal("(1 2)", target);
+        }
+
+        [Fact]
+        public static void TestArrowSyntaxEquivalenceTest()
+        {
+            var parser = new Parser();
+            var normal = parser.Parse("(1 2)");
+            var rightArrow = parser.Parse("(1 → 2)");
+            var leftArrow = parser.Parse("(2 ← 1)");
+
+            var normalFormatted = normal.Format();
+            var rightArrowFormatted = rightArrow.Format();
+            var leftArrowFormatted = leftArrow.Format();
+
+            Assert.Equal(normalFormatted, rightArrowFormatted);
+            Assert.Equal(normalFormatted, leftArrowFormatted);
+        }
+
+        [Fact]
+        public static void TestArrowSyntaxWithNamesTest()
+        {
+            var input = "(papa → mama)";
+            var parser = new Parser();
+            var links = parser.Parse(input);
+            var target = links.Format();
+            Assert.Equal("(papa mama)", target);
+        }
     }
 }
