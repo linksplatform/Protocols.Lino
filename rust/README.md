@@ -1,6 +1,6 @@
-# Lino Protocol Parser for Rust
+# Ln Protocol Parser for Rust
 
-Rust implementation of the Lino protocol parser using nom parser combinator library.
+Rust implementation of the Ln protocol parser using nom parser combinator library.
 
 ## Installation
 

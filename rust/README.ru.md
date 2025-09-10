@@ -1,6 +1,6 @@
-# Парсер протокола Lino для Rust
+# Парсер протокола Ln для Rust
 
-Реализация парсера протокола Lino для Rust с использованием библиотеки комбинаторов парсеров nom.
+Реализация парсера протокола Ln для Rust с использованием библиотеки комбинаторов парсеров nom.
 
 ## Установка
 
@@ -18,8 +18,8 @@ lino = { path = "." }  # Для локальной разработки
 Клонируйте репозиторий и соберите:
 
 ```bash
-git clone https://github.com/linksplatform/Protocols.Lino.git
-cd Protocols.Lino/rust
+git clone https://github.com/linksplatform/Protocols.Ln.git
+cd Protocols.Ln/rust
 cargo build
 ```
 
@@ -59,7 +59,7 @@ cargo test -- --nocapture
 use lino::{parse_lino, LiNo};
 
 fn main() {
-    // Парсинг строки в формате Lino
+    // Парсинг строки в формате Ln
     let input = r#"папа (любитМаму: любит маму)
 сын любитМаму
 дочь любитМаму
@@ -195,7 +195,7 @@ let parsed = parse_lino(quoted)?;
 ### Функции
 
 #### `parse_lino(document: &str) -> Result<LiNo<String>, String>`
-Парсит строку документа Lino и возвращает распарсенную структуру или ошибку.
+Парсит строку документа Ln и возвращает распарсенную структуру или ошибку.
 
 ### Форматирование
 

@@ -1,15 +1,15 @@
 [package]
-name = "platform-lino"
-version = "0.6.0"
+name = "platform-ln"
+version = "0.7.0"
 edition = "2021"
-description = "Rust implementation of the Lino protocol parser"
+description = "Rust implementation of the Ln protocol parser"
 license = "Unlicense"
-repository = "https://github.com/linksplatform/Protocols.Lino"
-keywords = ["lino", "parser", "links", "notation", "protocol"]
+repository = "https://github.com/linksplatform/Protocols.Ln"
+keywords = ["ln", "parser", "links", "notation", "protocol"]
 categories = ["parsing"]
 
 [lib]
-name = "lino"
+name = "ln"
 path = "src/lib.rs"
 
 [dependencies]
