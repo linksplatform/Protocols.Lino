@@ -211,6 +211,16 @@ fn single_line_value_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'
         .parse(input)
 }
 
+fn indented_id_link<'a>(input: &'a str, _state: &ParserState) -> IResult<&'a str, Link> {
+    (
+        reference,
+        horizontal_whitespace,
+        char(':'),
+        eol
+    ).map(|(id, _, _, _)| Link::new_singlet(id))
+    .parse(input)
+}
+
 fn multi_line_value_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
     (
         char('('),
@@ -244,6 +254,7 @@ fn single_line_any_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a 
 fn any_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
     alt((
         terminated(|i| multi_line_any_link(i, state), eol),
+        |i| indented_id_link(i, state),
         |i| single_line_any_link(i, state),
     )).parse(input)
 }
