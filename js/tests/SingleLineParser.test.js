@@ -227,3 +227,37 @@ test('Test value link (parser)', () => {
   expect(result[0].id).toBe(null);
   expect(result[0].values.length).toBe(3);
 });
+
+test('Test right arrow syntax', () => {
+  const input = '(1 → 2)';
+  const result = parser.parse(input);
+  const target = formatLinks(result);
+  expect(target).toBe('(1 2)');
+});
+
+test('Test left arrow syntax', () => {
+  const input = '(2 ← 1)';
+  const result = parser.parse(input);
+  const target = formatLinks(result);
+  expect(target).toBe('(1 2)');
+});
+
+test('Test arrow syntax equivalence', () => {
+  const normal = parser.parse('(1 2)');
+  const rightArrow = parser.parse('(1 → 2)');
+  const leftArrow = parser.parse('(2 ← 1)');
+
+  const normalFormatted = formatLinks(normal);
+  const rightArrowFormatted = formatLinks(rightArrow);
+  const leftArrowFormatted = formatLinks(leftArrow);
+
+  expect(rightArrowFormatted).toBe(normalFormatted);
+  expect(leftArrowFormatted).toBe(normalFormatted);
+});
+
+test('Test arrow syntax with names', () => {
+  const input = '(papa → mama)';
+  const result = parser.parse(input);
+  const target = formatLinks(result);
+  expect(target).toBe('(papa mama)');
+});

@@ -91,6 +91,35 @@ fn is_reference_char(c: char) -> bool {
     !is_whitespace_char(c) && c != '(' && c != ':' && c != ')'
 }
 
+fn arrow_values<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Vec<Link>> {
+    alt((
+        |i| right_arrow_values(i, state),
+        |i| left_arrow_values(i, state)
+    )).parse(input)
+}
+
+fn right_arrow_values<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Vec<Link>> {
+    (
+        |i| reference_or_link(i, state),
+        whitespace,
+        char('→'),
+        whitespace,
+        |i| reference_or_link(i, state)
+    ).map(|(left, _, _, _, right)| vec![left, right])
+    .parse(input)
+}
+
+fn left_arrow_values<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Vec<Link>> {
+    (
+        |i| reference_or_link(i, state),
+        whitespace,
+        char('←'),
+        whitespace,
+        |i| reference_or_link(i, state)
+    ).map(|(right, _, _, _, left)| vec![left, right])  // Note: order is swapped for left arrow
+    .parse(input)
+}
+
 fn horizontal_whitespace(input: &str) -> IResult<&str, &str> {
     take_while(is_horizontal_whitespace)(input)
 }
@@ -159,7 +188,10 @@ fn multi_line_value_and_whitespace<'a>(input: &'a str, state: &ParserState) -> I
 fn multi_line_values<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Vec<Link>> {
     preceded(
         whitespace,
-        many0(|i| multi_line_value_and_whitespace(i, state))
+        alt((
+            |i| arrow_values(i, state),
+            many0(|i| multi_line_value_and_whitespace(i, state))
+        ))
     ).parse(input)
 }
 
@@ -171,7 +203,10 @@ fn single_line_value_and_whitespace<'a>(input: &'a str, state: &ParserState) -> 
 }
 
 fn single_line_values<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Vec<Link>> {
-    many1(|i| single_line_value_and_whitespace(i, state)).parse(input)
+    alt((
+        |i| arrow_values(i, state),
+        many1(|i| single_line_value_and_whitespace(i, state))
+    )).parse(input)
 }
 
 fn single_line_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {

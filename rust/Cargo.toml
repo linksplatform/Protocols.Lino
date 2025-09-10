@@ -1,6 +1,6 @@
 [package]
 name = "platform-lino"
-version = "0.6.0"
+version = "0.7.0"
 edition = "2021"
 description = "Rust implementation of the Lino protocol parser"
 license = "Unlicense"

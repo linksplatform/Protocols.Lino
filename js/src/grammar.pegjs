@@ -45,11 +45,11 @@ singleLineAnyLink = fl:singleLineLink eol { return fl; }
 
 multiLineValueAndWhitespace = value:referenceOrLink _ { return value; }
 
-multiLineValues = _ list:multiLineValueAndWhitespace* { return list; }
+multiLineValues = _ list:arrowValues { return list; } / _ list:multiLineValueAndWhitespace* { return list; }
 
 singleLineValueAndWhitespace = __ value:referenceOrLink { return value; }
 
-singleLineValues = list:singleLineValueAndWhitespace+ { return list; }
+singleLineValues = arrowValues / list:singleLineValueAndWhitespace+ { return list; }
 
 singleLineLink = __ id:reference __ ":" v:singleLineValues { return { id: id, values: v }; }
 
@@ -82,3 +82,9 @@ _ = whiteSpaceSymbol*
 whiteSpaceSymbol = [ \t\n\r]
 
 referenceSymbol = [^ \t\n\r(:)]
+
+arrowValues = rightArrowValues / leftArrowValues
+
+rightArrowValues = left:referenceOrLink _ "→" _ right:referenceOrLink { return [left, right]; }
+
+leftArrowValues = right:referenceOrLink _ "←" _ left:referenceOrLink { return [left, right]; }
