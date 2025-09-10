@@ -1,0 +1,35 @@
+family:
+  parents:
+    father: John
+    mother: Mary
+  children:
+    son: Tom
+    daughter: Alice
+  
+relationships:
+  - subject: John
+    predicate: loves
+    object: Mary
+  - subject: Mary
+    predicate: loves
+    object: John
+  - subject: parents
+    predicate: love
+    object: children
+
+pets:
+  dog: Rex
+  cat: Whiskers
+
+pet_ownership:
+  - subject: Rex
+    predicate: belongs_to
+    object: family
+  - subject: Whiskers
+    predicate: belongs_to
+    object: family
+
+address:
+  street: "123 Main St"
+  city: Springfield
+  state: Illinois
