@@ -1,7 +1,7 @@
 use nom::{
     IResult,
     branch::alt,
-    bytes::complete::{take_while, take_while1, is_not},
+    bytes::complete::{take_while, take_while1},
     character::complete::{char, line_ending},
     combinator::eof,
     multi::{many0, many1},
@@ -108,7 +108,7 @@ fn simple_reference(input: &str) -> IResult<&str, String> {
 fn double_quoted_reference(input: &str) -> IResult<&str, String> {
     delimited(
         char('"'),
-        is_not("\""),
+        take_while(|c| c != '"'),
         char('"')
     )
     .map(|s: &str| s.to_string())
@@ -118,7 +118,7 @@ fn double_quoted_reference(input: &str) -> IResult<&str, String> {
 fn single_quoted_reference(input: &str) -> IResult<&str, String> {
     delimited(
         char('\''),
-        is_not("'"),
+        take_while(|c| c != '\''),
         char('\'')
     )
     .map(|s: &str| s.to_string())

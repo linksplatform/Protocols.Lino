@@ -63,9 +63,13 @@ reference = doubleQuotedReference / singleQuotedReference / simpleReference
 
 simpleReference = chars:referenceSymbol+ { return chars.join(''); }
 
-doubleQuotedReference = '"' r:[^"]+ '"' { return r.join(''); }
+doubleQuotedReference = '"' r:doubleQuotedChar+ '"' { return r.join(''); }
 
-singleQuotedReference = "'" r:[^']+ "'" { return r.join(''); }
+singleQuotedReference = "'" r:singleQuotedChar+ "'" { return r.join(''); }
+
+doubleQuotedChar = [^"]
+
+singleQuotedChar = [^']
 
 PUSH_INDENTATION = spaces:" "* &{ return spaces.length > getCurrentIndentation(); } { pushIndentation(spaces); }
 
