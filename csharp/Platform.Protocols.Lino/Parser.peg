@@ -21,8 +21,10 @@ multiLineValueLink <Link<string>> = "(" v:multiLineValues _ ")" { new Link<strin
 
 reference <string> = doubleQuotedReference / singleQuotedReference / simpleReference 
 simpleReference <string> = "" referenceSymbol+
-doubleQuotedReference <string> = '"' r:([^"]+) '"' { string.Join("", r) }
-singleQuotedReference <string> = "'" r:([^']+) "'" { string.Join("", r) }
+doubleQuotedReference <string> = '"' r:(doubleQuotedChar+) '"' { string.Join("", r) }
+singleQuotedReference <string> = "'" r:(singleQuotedChar+) "'" { string.Join("", r) }
+doubleQuotedChar = [^"]
+singleQuotedChar = [^']
 PUSH_INDENTATION = spaces:" "* &{ spaces.Count > state["IndentationStack"].Peek() } #{ state["IndentationStack"].Push(spaces.Count); }
 POP_INDENTATION = #{ state["IndentationStack"].Pop(); }
 CHECK_INDENTATION = spaces:" "* &{ spaces.Count >= state["IndentationStack"].Peek() }
