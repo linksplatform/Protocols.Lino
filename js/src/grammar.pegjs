@@ -38,10 +38,22 @@ referenceOrLink = l:multiLineAnyLink { return l; } / i:reference { return { id: 
 
 anyLink = ml:multiLineAnyLink eol { return ml; } / sl:singleLineAnyLink { return sl; }
 
-multiLineAnyLink = multiLineValueLink / multiLineLink
+multiLineAnyLink = multiLineValueLink / multiLineLink / multiLineArrowLink
+
+// Multiline arrow syntax support
+multiLineArrowLink = "(" _ left:referenceOrLink __ arrow:("←" / "→") __ right:referenceOrLink _ ")" {
+    if (arrow === "←") {
+        // left ← right means right points to left
+        return { values: [right, left] };
+    } else {
+        // left → right means left points to right  
+        return { values: [left, right] };
+    }
+}
 
 singleLineAnyLink = fl:singleLineLink eol { return fl; }
   / vl:singleLineValueLink eol { return vl; }
+  / al:arrowLink eol { return al; }
 
 multiLineValueAndWhitespace = value:referenceOrLink _ { return value; }
 
@@ -50,6 +62,17 @@ multiLineValues = _ list:multiLineValueAndWhitespace* { return list; }
 singleLineValueAndWhitespace = __ value:referenceOrLink { return value; }
 
 singleLineValues = list:singleLineValueAndWhitespace+ { return list; }
+
+// Arrow syntax support for directional links
+arrowLink = left:referenceOrLink __ arrow:("←" / "→") __ right:referenceOrLink {
+    if (arrow === "←") {
+        // left ← right means right points to left
+        return { values: [right, left] };
+    } else {
+        // left → right means left points to right  
+        return { values: [left, right] };
+    }
+}
 
 singleLineLink = __ id:reference __ ":" v:singleLineValues { return { id: id, values: v }; }
 
@@ -81,4 +104,4 @@ _ = whiteSpaceSymbol*
 
 whiteSpaceSymbol = [ \t\n\r]
 
-referenceSymbol = [^ \t\n\r(:)]
+referenceSymbol = [^ \t\n\r(:)←→]

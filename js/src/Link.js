@@ -77,7 +77,7 @@ export class Link {
   }
 
   
-  format(lessParentheses = false, isCompoundValue = false) {
+  format(lessParentheses = false, isCompoundValue = false, arrowMode = false) {
     // Empty link
     if (this.id === null && (!this.values || this.values.length === 0)) {
       return lessParentheses ? '' : '()';
@@ -94,10 +94,17 @@ export class Link {
     }
     
     // Format values recursively  
-    const valuesStr = this.values.map(v => this.formatValue(v)).join(' ');
+    const valuesStr = this.values.map(v => this.formatValue(v, arrowMode)).join(' ');
     
     // Link with values only (null id)
     if (this.id === null) {
+      // Arrow mode formatting for directional links
+      if (arrowMode && this.values && this.values.length === 2) {
+        const left = this.formatValue(this.values[0], arrowMode);
+        const right = this.formatValue(this.values[1], arrowMode);
+        return `${left} → ${right}`;
+      }
+      
       // For lessParentheses mode with simple values, don't wrap the whole thing
       if (lessParentheses) {
         // Check if all values are simple (no nested values)
@@ -121,7 +128,7 @@ export class Link {
     return lessParentheses && !this.needsParentheses(this.id) ? withColon : `(${withColon})`;
   }
   
-  formatValue(value) {
+  formatValue(value, arrowMode = false) {
     if (!value.format) {
       return Link.escapeReference(value.id || '');
     }
@@ -132,7 +139,7 @@ export class Link {
     
     // For compound links from paths, format values with parentheses
     if (isCompoundFromPaths) {
-      return value.format(false, true);
+      return value.format(false, true, arrowMode);
     }
     
     // Simple link with just an ID - don't wrap in parentheses when used as a value
@@ -141,7 +148,7 @@ export class Link {
     }
     
     // Complex value with its own structure - format it normally with parentheses
-    return value.format(false, false);
+    return value.format(false, false, arrowMode);
   }
   
   needsParentheses(str) {
@@ -149,7 +156,7 @@ export class Link {
   }
 }
 
-export function formatLinks(links, lessParentheses = false) {
+export function formatLinks(links, lessParentheses = false, arrowMode = false) {
   if (!links || links.length === 0) return '';
-  return links.map(link => link.format(lessParentheses)).join('\n');
+  return links.map(link => link.format(lessParentheses, false, arrowMode)).join('\n');
 }
