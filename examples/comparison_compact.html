@@ -1,1 +1,250 @@
-<\!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Format Comparison: LiNo, YAML / JSON, XML</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: white;
+            margin: 20px;
+            line-height: 1.4;
+            max-width: 1200px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        .header p {
+            color: #666;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        
+        .row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .format-box {
+            flex: 1;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            background: #f8f8f8;
+        }
+        
+        .format-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        
+        .lino { border-color: #4CAF50; }
+        .lino .format-title { background: #4CAF50; }
+        
+        .yaml { border-color: #2196F3; }
+        .yaml .format-title { background: #2196F3; }
+        
+        .json { border-color: #FF9800; }
+        .json .format-title { background: #FF9800; }
+        
+        .xml { border-color: #9C27B0; }
+        .xml .format-title { background: #9C27B0; }
+        
+        pre {
+            margin: 0;
+            font-size: 11px;
+            line-height: 1.3;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .advantages {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e8;
+            border-radius: 5px;
+            border: 1px solid #4CAF50;
+            text-align: center;
+        }
+        
+        .advantages h3 {
+            margin-top: 0;
+            color: #2e7d32;
+        }
+        
+        .advantages p {
+            color: #2e7d32;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Format Comparison</h1>
+        <p>LiNo, YAML</p>
+        <p>JSON, XML</p>
+    </div>
+    
+    <!-- First Row: LiNo, YAML -->
+    <div class="row">
+        <div class="format-box lino">
+            <div class="format-title">LiNo</div>
+            <pre>family: (parents: (father: John) (mother: Mary))
+family: (children: (son: Tom) (daughter: Alice))
+(John loves Mary)
+(Mary loves John) 
+(parents love children)
+pets: (dog: Rex) (cat: Whiskers)
+(Rex belongs_to family)
+(Whiskers belongs_to family)
+address: (street: "123 Main St") 
+         (city: Springfield) 
+         (state: Illinois)</pre>
+        </div>
+        
+        <div class="format-box yaml">
+            <div class="format-title">YAML</div>
+            <pre>family:
+  parents:
+    father: John
+    mother: Mary
+  children:
+    son: Tom
+    daughter: Alice
+
+relationships:
+  - subject: John
+    predicate: loves
+    object: Mary
+  - subject: Mary
+    predicate: loves
+    object: John
+  - subject: parents
+    predicate: love
+    object: children
+
+pets:
+  dog: Rex
+  cat: Whiskers
+
+address:
+  street: "123 Main St"
+  city: Springfield
+  state: Illinois</pre>
+        </div>
+    </div>
+    
+    <!-- Second Row: JSON, XML -->
+    <div class="row">
+        <div class="format-box json">
+            <div class="format-title">JSON</div>
+            <pre>{
+  "family": {
+    "parents": {
+      "father": "John",
+      "mother": "Mary"
+    },
+    "children": {
+      "son": "Tom",
+      "daughter": "Alice"
+    }
+  },
+  "relationships": [
+    {
+      "subject": "John",
+      "predicate": "loves",
+      "object": "Mary"
+    },
+    {
+      "subject": "Mary", 
+      "predicate": "loves",
+      "object": "John"
+    },
+    {
+      "subject": "parents",
+      "predicate": "love",
+      "object": "children"
+    }
+  ],
+  "pets": {
+    "dog": "Rex",
+    "cat": "Whiskers"
+  },
+  "address": {
+    "street": "123 Main St",
+    "city": Springfield",
+    "state": "Illinois"
+  }
+}</pre>
+        </div>
+        
+        <div class="format-box xml">
+            <div class="format-title">XML</div>
+            <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+  &lt;family&gt;
+    &lt;parents&gt;
+      &lt;father&gt;John&lt;/father&gt;
+      &lt;mother&gt;Mary&lt;/mother&gt;
+    &lt;/parents&gt;
+    &lt;children&gt;
+      &lt;son&gt;Tom&lt;/son&gt;
+      &lt;daughter&gt;Alice&lt;/daughter&gt;
+    &lt;/children&gt;
+  &lt;/family&gt;
+  
+  &lt;relationships&gt;
+    &lt;relationship&gt;
+      &lt;subject&gt;John&lt;/subject&gt;
+      &lt;predicate&gt;loves&lt;/predicate&gt;
+      &lt;object&gt;Mary&lt;/object&gt;
+    &lt;/relationship&gt;
+    &lt;relationship&gt;
+      &lt;subject&gt;Mary&lt;/subject&gt;
+      &lt;predicate&gt;loves&lt;/predicate&gt;
+      &lt;object&gt;John&lt;/object&gt;
+    &lt;/relationship&gt;
+    &lt;relationship&gt;
+      &lt;subject&gt;parents&lt;/subject&gt;
+      &lt;predicate&gt;love&lt;/predicate&gt;
+      &lt;object&gt;children&lt;/object&gt;
+    &lt;/relationship&gt;
+  &lt;/relationships&gt;
+  
+  &lt;pets&gt;
+    &lt;dog&gt;Rex&lt;/dog&gt;
+    &lt;cat&gt;Whiskers&lt;/cat&gt;
+  &lt;/pets&gt;
+  
+  &lt;address&gt;
+    &lt;street&gt;123 Main St&lt;/street&gt;
+    &lt;city&gt;Springfield&lt;/city&gt;
+    &lt;state&gt;Illinois&lt;/state&gt;
+  &lt;/address&gt;
+&lt;/root&gt;</pre>
+        </div>
+    </div>
+    
+    <div class="advantages">
+        <h3>LiNo: Natural • Concise • Intuitive • Flexible</h3>
+        <p>Most compact and readable format for representing relationships</p>
+    </div>
+</body>
+</html>
