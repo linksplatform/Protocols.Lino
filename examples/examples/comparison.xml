@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <family>
+    <parents>
+      <father>John</father>
+      <mother>Mary</mother>
+    </parents>
+    <children>
+      <son>Tom</son>
+      <daughter>Alice</daughter>
+    </children>
+  </family>
+  
+  <relationships>
+    <relationship>
+      <subject>John</subject>
+      <predicate>loves</predicate>
+      <object>Mary</object>
+    </relationship>
+    <relationship>
+      <subject>Mary</subject>
+      <predicate>loves</predicate>
+      <object>John</object>
+    </relationship>
+    <relationship>
+      <subject>parents</subject>
+      <predicate>love</predicate>
+      <object>children</object>
+    </relationship>
+  </relationships>
+  
+  <pets>
+    <dog>Rex</dog>
+    <cat>Whiskers</cat>
+  </pets>
+  
+  <pet_ownership>
+    <ownership>
+      <subject>Rex</subject>
+      <predicate>belongs_to</predicate>
+      <object>family</object>
+    </ownership>
+    <ownership>
+      <subject>Whiskers</subject>
+      <predicate>belongs_to</predicate>
+      <object>family</object>
+    </ownership>
+  </pet_ownership>
+  
+  <address>
+    <street>123 Main St</street>
+    <city>Springfield</city>
+    <state>Illinois</state>
+  </address>
+</root>
