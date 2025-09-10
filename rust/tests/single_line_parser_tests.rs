@@ -1,11 +1,18 @@
 use lino::{parse_lino, LiNo};
 use lino::parser::parse_document;
 
+/// Helper function to check if a reference needs quoting
+fn needs_quoting(value: &str) -> bool {
+    value.contains(' ') || value.contains(':') || value.contains('(') || value.contains(')') 
+        || value.contains('\t') || value.contains('\n') || value.contains('\r') 
+        || value.contains('"') || value.contains('\'')
+}
+
 /// Helper function to format links similar to C# and JS versions
 fn format_links(lino: &LiNo<String>, less_parentheses: bool) -> String {
     match lino {
         LiNo::Ref(value) => {
-            if value.contains(' ') || value.contains(':') || value.contains('(') || value.contains(')') {
+            if needs_quoting(value) {
                 format!("'{}'", value)
             } else {
                 value.clone()
@@ -21,25 +28,65 @@ fn format_links(lino: &LiNo<String>, less_parentheses: bool) -> String {
                     "()".to_string()
                 }
             } else {
-                let formatted_values = values
-                    .iter()
-                    .map(|v| format_links(v, false))
-                    .collect::<Vec<_>>()
-                    .join(" ");
+                // Check if ID or any values need quoting for multiline formatting
+                let id_needs_quotes = id.as_ref().map_or(false, |i| needs_quoting(i));
+                let values_need_quotes = values.iter().any(|v| {
+                    match v {
+                        LiNo::Ref(val) => needs_quoting(val),
+                        _ => false,
+                    }
+                });
+                let should_use_multiline = (id_needs_quotes || values_need_quotes) && values.len() > 1;
                 
                 if let Some(id) = id {
                     let escaped_id = format_links(&LiNo::Ref(id.clone()), false);
-                    if less_parentheses && values.len() == 1 {
-                        format!("{}: {}", escaped_id, formatted_values)
+                    
+                    if should_use_multiline {
+                        // Multiline format for quoted references
+                        let formatted_values = values
+                            .iter()
+                            .map(|v| format!("  {}", format_links(v, false)))
+                            .collect::<Vec<_>>()
+                            .join("\n");
+                        format!("({}:\n{}\n)", escaped_id, formatted_values)
                     } else {
-                        format!("({}: {})", escaped_id, formatted_values)
+                        // Standard single-line format
+                        let formatted_values = values
+                            .iter()
+                            .map(|v| format_links(v, false))
+                            .collect::<Vec<_>>()
+                            .join(" ");
+                        
+                        if less_parentheses && values.len() == 1 {
+                            format!("{}: {}", escaped_id, formatted_values)
+                        } else {
+                            format!("({}: {})", escaped_id, formatted_values)
+                        }
                     }
                 } else {
-                    if less_parentheses && values.iter().all(|v| matches!(v, LiNo::Ref(_))) {
-                        // All values are references, can skip parentheses
-                        formatted_values
+                    // Values-only link
+                    if should_use_multiline {
+                        // Multiline format for quoted references
+                        let formatted_values = values
+                            .iter()
+                            .map(|v| format!("  {}", format_links(v, false)))
+                            .collect::<Vec<_>>()
+                            .join("\n");
+                        format!("(\n{}\n)", formatted_values)
                     } else {
-                        format!("({})", formatted_values)
+                        // Standard single-line format
+                        let formatted_values = values
+                            .iter()
+                            .map(|v| format_links(v, false))
+                            .collect::<Vec<_>>()
+                            .join(" ");
+                        
+                        if less_parentheses && values.iter().all(|v| matches!(v, LiNo::Ref(_))) {
+                            // All values are references, can skip parentheses
+                            formatted_values
+                        } else {
+                            format!("({})", formatted_values)
+                        }
                     }
                 }
             }
@@ -160,7 +207,7 @@ fn parse_quoted_references() {
     let input = r#""has space" 'has:colon'"#;
     let result = parse_lino(input).unwrap();
     let output = format_links_multiline(&result);
-    assert_eq!("('has space' 'has:colon')", output);
+    assert_eq!("(\n  'has space'\n  'has:colon'\n)", output);
 }
 
 #[test]

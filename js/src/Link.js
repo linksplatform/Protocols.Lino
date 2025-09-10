@@ -32,6 +32,22 @@ export class Link {
     return value.toLinkOrIdString();
   }
 
+  static needsQuoting(reference) {
+    if (!reference || reference.trim() === '') {
+      return false;
+    }
+    
+    return reference.includes(':') ||
+      reference.includes('(') ||
+      reference.includes(')') ||
+      reference.includes(' ') ||
+      reference.includes('\t') ||
+      reference.includes('\n') ||
+      reference.includes('\r') ||
+      reference.includes('"') ||
+      reference.includes("'");
+  }
+
   static escapeReference(reference) {
     if (!reference || reference.trim() === '') {
       return '';
@@ -93,11 +109,23 @@ export class Link {
       return lessParentheses && !this.needsParentheses(this.id) ? escapedId : `(${escapedId})`;
     }
     
-    // Format values recursively  
-    const valuesStr = this.values.map(v => this.formatValue(v)).join(' ');
+    // Check if ID or any values contain quoted references (need escaping)
+    const idNeedsQuotes = this.id && Link.needsQuoting(this.id);
+    const valuesNeedQuotes = this.values.some(v => v.id && Link.needsQuoting(v.id));
+    // Only use multiline when there are multiple values AND quotes are needed
+    const shouldUseMultiline = (idNeedsQuotes || valuesNeedQuotes) && this.values.length > 1;
     
     // Link with values only (null id)
     if (this.id === null) {
+      if (shouldUseMultiline) {
+        // Multiline format for quoted references
+        const formattedValues = this.values.map(v => `  ${this.formatValue(v)}`).join('\n');
+        return `(\n${formattedValues}\n)`;
+      }
+      
+      // Format values recursively  
+      const valuesStr = this.values.map(v => this.formatValue(v)).join(' ');
+      
       // For lessParentheses mode with simple values, don't wrap the whole thing
       if (lessParentheses) {
         // Check if all values are simple (no nested values)
@@ -117,6 +145,15 @@ export class Link {
     
     // Link with ID and values
     const idStr = Link.escapeReference(this.id);
+    
+    if (shouldUseMultiline && this.values.length > 0) {
+      // Multiline format for quoted references
+      const formattedValues = this.values.map(v => `  ${this.formatValue(v)}`).join('\n');
+      return `(${idStr}:\n${formattedValues}\n)`;
+    }
+    
+    // Standard single-line format
+    const valuesStr = this.values.map(v => this.formatValue(v)).join(' ');
     const withColon = `${idStr}: ${valuesStr}`;
     return lessParentheses && !this.needsParentheses(this.id) ? withColon : `(${withColon})`;
   }

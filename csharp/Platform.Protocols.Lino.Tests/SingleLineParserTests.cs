@@ -49,7 +49,10 @@ namespace Platform.Protocols.Lino.Tests
         public static void QuotedReferencesWithSpacesTest()
         {
             var source = @"('a a': 'b b' ""c c"")";
-            var target = @"('a a': 'b b' 'c c')";
+            var target = @"('a a':
+  'b b'
+  'c c'
+)";
             var parser = new Parser();
             var links = parser.Parse(source);
             var formattedLinks = links.Format();
@@ -164,7 +167,7 @@ namespace Platform.Protocols.Lino.Tests
             Assert.Equal("has space", links[0].Values![0].Id);
             Assert.Equal("has:colon", links[0].Values![1].Id);
             var formatted = links.Format();
-            Assert.Equal("('has space' 'has:colon')", formatted);
+            Assert.Equal("(\n  'has space'\n  'has:colon'\n)", formatted);
         }
 
         [Fact]

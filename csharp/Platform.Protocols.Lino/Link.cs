@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Platform.Collections;
@@ -60,11 +61,39 @@ namespace Platform.Protocols.Lino
         /// </summary>
         /// <returns>A string representation of the link with proper escaping and formatting.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override string ToString() => Id == null ?
-         $"({GetValuesString()})" : 
-            (Values == null || Values.Count == 0) ? 
-                $"({EscapeReference(Id.ToString())})" :
-                $"({EscapeReference(Id.ToString())}: {GetValuesString()})";
+        public override string ToString()
+        {
+            // Check if ID or any values need quoting for multiline formatting
+            var idNeedsQuotes = Id != null && NeedsQuoting(Id.ToString());
+            var valuesNeedQuotes = Values != null && Values.Any(v => v.Id != null && NeedsQuoting(v.Id.ToString()));
+            var shouldUseMultiline = (idNeedsQuotes || valuesNeedQuotes) && Values != null && Values.Count > 1;
+
+            if (Id == null)
+            {
+                if (shouldUseMultiline)
+                {
+                    // Multiline format for quoted references
+                    var formattedValues = string.Join(Environment.NewLine, Values!.Select(v => $"  {v.ToLinkOrIdString()}"));
+                    return $"({Environment.NewLine}{formattedValues}{Environment.NewLine})";
+                }
+                return $"({GetValuesString()})";
+            }
+            else if (Values == null || Values.Count == 0)
+            {
+                return $"({EscapeReference(Id.ToString())})";
+            }
+            else
+            {
+                var escapedId = EscapeReference(Id.ToString());
+                if (shouldUseMultiline)
+                {
+                    // Multiline format for quoted references
+                    var formattedValues = string.Join(Environment.NewLine, Values!.Select(v => $"  {v.ToLinkOrIdString()}"));
+                    return $"({escapedId}:{Environment.NewLine}{formattedValues}{Environment.NewLine})";
+                }
+                return $"({escapedId}: {GetValuesString()})";
+            }
+        }
 
         /// <summary>
         /// Gets the string representation of the link's values.
@@ -130,6 +159,28 @@ namespace Platform.Protocols.Lino
         /// <returns>The string representation of the link value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetValueString(Link<TLinkAddress> value) => value.ToLinkOrIdString();
+
+        /// <summary>
+        /// Checks if a reference string needs quoting for safe use in Lino protocol format.
+        /// </summary>
+        /// <param name="reference">The reference string to check.</param>
+        /// <returns>True if the reference needs quoting, false otherwise.</returns>
+        public static bool NeedsQuoting(string? reference)
+        {
+            if (string.IsNullOrWhiteSpace(reference))
+            {
+                return false;
+            }
+            return reference.Contains(":") ||
+                   reference.Contains("(") ||
+                   reference.Contains(")") ||
+                   reference.Contains(" ") ||
+                   reference.Contains("\t") ||
+                   reference.Contains("\n") ||
+                   reference.Contains("\r") ||
+                   reference.Contains("\"") ||
+                   reference.Contains("'");
+        }
 
         /// <summary>
         /// Escapes a reference string for safe use in Lino protocol format by adding quotes if necessary.
