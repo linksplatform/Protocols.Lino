@@ -3,26 +3,26 @@ pub mod parser;
 use std::fmt;
 
 #[derive(Debug, Clone, PartialEq)]
-pub enum LiNo<T> {
+pub enum Ln<T> {
     Link { id: Option<T>, values: Vec<Self> },
     Ref(T),
 }
 
-impl<T> LiNo<T> {
+impl<T> Ln<T> {
     pub fn is_ref(&self) -> bool {
-        matches!(self, LiNo::Ref(_))
+        matches!(self, Ln::Ref(_))
     }
 
     pub fn is_link(&self) -> bool {
-        matches!(self, LiNo::Link { .. })
+        matches!(self, Ln::Link { .. })
     }
 }
 
-impl<T: ToString> fmt::Display for LiNo<T> {
+impl<T: ToString> fmt::Display for Ln<T> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            LiNo::Ref(value) => write!(f, "{}", value.to_string()),
-            LiNo::Link { id, values } => {
+            Ln::Ref(value) => write!(f, "{}", value.to_string()),
+            Ln::Link { id, values } => {
                 let id_str = id
                     .as_ref()
                     .map(|id| format!("{}: ", id.to_string()))
@@ -36,7 +36,7 @@ impl<T: ToString> fmt::Display for LiNo<T> {
                             // For alternate formatting, ensure standalone references are wrapped in parentheses
                             // so that flattened structures like indented blocks render as "(ref)" lines
                             match value {
-                                LiNo::Ref(_) => format!("{}({})", id_str, value),
+                                Ln::Ref(_) => format!("{}({})", id_str, value),
                                 _ => format!("{}{}", id_str, value),
                             }
                         })
@@ -56,24 +56,24 @@ impl<T: ToString> fmt::Display for LiNo<T> {
     }
 }
 
-// Convert from parser::Link to LiNo (without flattening)
-impl From<parser::Link> for LiNo<String> {
+// Convert from parser::Link to Ln (without flattening)
+impl From<parser::Link> for Ln<String> {
     fn from(link: parser::Link) -> Self {
         if link.values.is_empty() && link.children.is_empty() {
             if let Some(id) = link.id {
-                LiNo::Ref(id)
+                Ln::Ref(id)
             } else {
-                LiNo::Link { id: None, values: vec![] }
+                Ln::Link { id: None, values: vec![] }
             }
         } else {
-            let values: Vec<LiNo<String>> = link.values.into_iter().map(|v| v.into()).collect();
-            LiNo::Link { id: link.id, values }
+            let values: Vec<Ln<String>> = link.values.into_iter().map(|v| v.into()).collect();
+            Ln::Link { id: link.id, values }
         }
     }
 }
 
-// Helper function to flatten indented structures according to Lino spec
-fn flatten_links(links: Vec<parser::Link>) -> Vec<LiNo<String>> {
+// Helper function to flatten indented structures according to Ln spec
+fn flatten_links(links: Vec<parser::Link>) -> Vec<Ln<String>> {
     let mut result = vec![];
     
     for link in links {
@@ -83,40 +83,40 @@ fn flatten_links(links: Vec<parser::Link>) -> Vec<LiNo<String>> {
     result
 }
 
-fn flatten_link_recursive(link: &parser::Link, parent: Option<LiNo<String>>, result: &mut Vec<LiNo<String>>) {
+fn flatten_link_recursive(link: &parser::Link, parent: Option<Ln<String>>, result: &mut Vec<Ln<String>>) {
     // Create the current link without children
     let current = if link.values.is_empty() {
         if let Some(id) = &link.id {
-            LiNo::Ref(id.clone())
+            Ln::Ref(id.clone())
         } else {
-            LiNo::Link { id: None, values: vec![] }
+            Ln::Link { id: None, values: vec![] }
         }
     } else {
-        let values: Vec<LiNo<String>> = link.values.iter().map(|v| {
+        let values: Vec<Ln<String>> = link.values.iter().map(|v| {
             parser::Link {
                 id: v.id.clone(),
                 values: v.values.clone(),
                 children: vec![]
             }.into()
         }).collect();
-        LiNo::Link { id: link.id.clone(), values }
+        Ln::Link { id: link.id.clone(), values }
     };
     
     // Create the combined link (parent + current) with proper wrapping
     let combined = if let Some(parent) = parent {
         // Wrap parent in parentheses if it's a reference
         let wrapped_parent = match parent {
-            LiNo::Ref(ref_id) => LiNo::Link { id: None, values: vec![LiNo::Ref(ref_id)] },
+            Ln::Ref(ref_id) => Ln::Link { id: None, values: vec![Ln::Ref(ref_id)] },
             link => link
         };
         
         // Wrap current in parentheses if it's a reference
         let wrapped_current = match current.clone() {
-            LiNo::Ref(ref_id) => LiNo::Link { id: None, values: vec![LiNo::Ref(ref_id)] },
+            Ln::Ref(ref_id) => Ln::Link { id: None, values: vec![Ln::Ref(ref_id)] },
             link => link
         };
         
-        LiNo::Link { 
+        Ln::Link { 
             id: None, 
             values: vec![wrapped_parent, wrapped_current]
         }
@@ -132,20 +132,20 @@ fn flatten_link_recursive(link: &parser::Link, parent: Option<LiNo<String>>, res
     }
 }
 
-pub fn parse_lino(document: &str) -> Result<LiNo<String>, String> {
+pub fn parse_ln(document: &str) -> Result<Ln<String>, String> {
     // Handle empty or whitespace-only input by returning empty result
     if document.trim().is_empty() {
-        return Ok(LiNo::Link { id: None, values: vec![] });
+        return Ok(Ln::Link { id: None, values: vec![] });
     }
     
     match parser::parse_document(document) {
         Ok((_, links)) => {
             if links.is_empty() {
-                Ok(LiNo::Link { id: None, values: vec![] })
+                Ok(Ln::Link { id: None, values: vec![] })
             } else {
-                // Flatten the indented structure according to Lino spec
+                // Flatten the indented structure according to Ln spec
                 let flattened = flatten_links(links);
-                Ok(LiNo::Link { id: None, values: flattened })
+                Ok(Ln::Link { id: None, values: flattened })
             }
         }
         Err(e) => Err(format!("Parse error: {:?}", e))
@@ -153,7 +153,7 @@ pub fn parse_lino(document: &str) -> Result<LiNo<String>, String> {
 }
 
 // New function that matches C# and JS API - returns collection of links
-pub fn parse_lino_to_links(document: &str) -> Result<Vec<LiNo<String>>, String> {
+pub fn parse_ln_to_links(document: &str) -> Result<Vec<Ln<String>>, String> {
     // Handle empty or whitespace-only input by returning empty collection
     if document.trim().is_empty() {
         return Ok(vec![]);
@@ -164,7 +164,7 @@ pub fn parse_lino_to_links(document: &str) -> Result<Vec<LiNo<String>>, String> 
             if links.is_empty() {
                 Ok(vec![])
             } else {
-                // Flatten the indented structure according to Lino spec
+                // Flatten the indented structure according to Ln spec
                 let flattened = flatten_links(links);
                 Ok(flattened)
             }
