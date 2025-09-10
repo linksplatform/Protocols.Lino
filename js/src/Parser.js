@@ -31,21 +31,44 @@ export class Parser {
 
     // For items with children (indented structure)
     if (item.children && item.children.length > 0) {
-      // First create the link for the current item
-      const currentLink = this.transformLink(item);
-      
-      // Add the link combined with parent path
-      if (parentPath.length === 0) {
-        result.push(currentLink);
+      // Special case: If this is an ID with empty values but has children,
+      // the children should become the values of the link (indented ID syntax)
+      if (item.id && (!item.values || item.values.length === 0)) {
+        const childValues = item.children.map(child => {
+          // For indented children, extract the actual reference from the child's values
+          if (child.values && child.values.length === 1) {
+            return this.transformLink(child.values[0]);
+          }
+          return this.transformLink(child);
+        });
+        const linkWithChildren = {
+          id: item.id,
+          values: childValues
+        };
+        const currentLink = this.transformLink(linkWithChildren);
+        
+        if (parentPath.length === 0) {
+          result.push(currentLink);
+        } else {
+          result.push(this.combinePathElements(parentPath, currentLink));
+        }
       } else {
-        result.push(this.combinePathElements(parentPath, currentLink));
-      }
-      
-      // Process each child with this item in the path
-      const newPath = [...parentPath, currentLink];
-      
-      for (const child of item.children) {
-        this.collectLinks(child, newPath, result);
+        // Regular indented structure - process as before
+        const currentLink = this.transformLink(item);
+        
+        // Add the link combined with parent path
+        if (parentPath.length === 0) {
+          result.push(currentLink);
+        } else {
+          result.push(this.combinePathElements(parentPath, currentLink));
+        }
+        
+        // Process each child with this item in the path
+        const newPath = [...parentPath, currentLink];
+        
+        for (const child of item.children) {
+          this.collectLinks(child, newPath, result);
+        }
       }
     } else {
       // Leaf item or item with inline values

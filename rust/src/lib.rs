@@ -84,6 +84,46 @@ fn flatten_links(links: Vec<parser::Link>) -> Vec<LiNo<String>> {
 }
 
 fn flatten_link_recursive(link: &parser::Link, parent: Option<LiNo<String>>, result: &mut Vec<LiNo<String>>) {
+    // Special case: If this is an ID with no values but has children,
+    // the children should become the values of the link (indented ID syntax)
+    if link.id.is_some() && link.values.is_empty() && !link.children.is_empty() {
+        let child_values: Vec<LiNo<String>> = link.children.iter().map(|child| {
+            // For indented children, if they have single values, extract them
+            if child.values.len() == 1 && child.values[0].id.is_some() && child.values[0].values.is_empty() && child.values[0].children.is_empty() {
+                LiNo::Ref(child.values[0].id.clone().unwrap())
+            } else {
+                parser::Link {
+                    id: child.id.clone(),
+                    values: child.values.clone(),
+                    children: vec![]
+                }.into()
+            }
+        }).collect();
+        
+        let current = LiNo::Link { 
+            id: link.id.clone(), 
+            values: child_values 
+        };
+        
+        let combined = if let Some(parent) = parent {
+            // Wrap parent in parentheses if it's a reference
+            let wrapped_parent = match parent {
+                LiNo::Ref(ref_id) => LiNo::Link { id: None, values: vec![LiNo::Ref(ref_id)] },
+                link => link
+            };
+            
+            LiNo::Link { 
+                id: None, 
+                values: vec![wrapped_parent, current]
+            }
+        } else {
+            current
+        };
+        
+        result.push(combined);
+        return; // Don't process children again
+    }
+    
     // Create the current link without children
     let current = if link.values.is_empty() {
         if let Some(id) = &link.id {
