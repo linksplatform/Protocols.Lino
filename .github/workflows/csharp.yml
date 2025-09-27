@@ -141,6 +141,10 @@ jobs:
           wget "$SCRIPTS_BASE_URL/publish-release.sh"
           chmod +x ./publish-release.sh
           wget "$SCRIPTS_BASE_URL/publish-csharp-release.sh"
+
+          # Override tag format to use version_language instead of language_version
+          sed -i 's/csharp_\$PACKAGE_VERSION/\${PACKAGE_VERSION}_csharp/g' ./publish-csharp-release.sh
+
           bash ./publish-csharp-release.sh
   generatePdfWithCode:
     runs-on: ubuntu-latest
