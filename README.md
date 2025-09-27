@@ -99,3 +99,4 @@ For detailed implementation guides and API references, see the language-specific
 
 Additional resources:
 - [PDF Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/Platform.Protocols.Lino.pdf) - Complete reference for offline reading
+- [Links Theory 0.0.2](https://habr.com/en/articles/895896) - Theoretical foundation that Links Notation fully supports

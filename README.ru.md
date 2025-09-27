@@ -97,3 +97,4 @@ let links = parse_lino("папа (любитМаму: любит маму)").unw
 
 Дополнительные ресурсы:
 - [PDF Документация](https://linksplatform.github.io/Protocols.Lino/csharp/Platform.Protocols.Lino.pdf) - Полный справочник для офлайн чтения
+- [Теория связей 0.0.2](https://habr.com/ru/articles/804617) - Теоретическая основа, которую Нотация Связей полностью поддерживает
