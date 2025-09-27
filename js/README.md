@@ -4,14 +4,40 @@ JavaScript implementation of the Lino protocol parser using Bun and Peggy.js par
 
 ## Installation
 
-### Using Bun (recommended)
+### Installing from npm
+
+Install the package using your preferred package manager:
+
+#### Using npm (Node.js)
+
+```bash
+npm install @linksplatform/protocols-lino
+```
+
+#### Using Bun
+
+```bash
+bun add @linksplatform/protocols-lino
+```
+
+#### Using Deno
+
+```typescript
+import { Parser, Link } from "npm:@linksplatform/protocols-lino@^0.6.0";
+```
+
+### Local Development Setup
+
+For contributors working on the source code:
+
+#### Using Bun (recommended)
 
 ```bash
 cd js
 bun install
 ```
 
-### Using npm
+#### Using npm
 
 ```bash
 cd js
