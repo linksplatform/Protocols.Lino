@@ -10,7 +10,7 @@ This document compares key features across different data serialization formats,
 YAML supports repeated nodes through anchors (&) and aliases (*), but has significant limitations:
 
 - **Anchors** (&) define a value that can be referenced later
-- **Aliases** (*) reference previously defined anchors  
+- **Aliases** (*) reference previously defined anchors
 - **Limitation**: Anchors must be defined before they can be referenced
 - **No True Cycles**: Cannot create A→B→A circular references directly
 - **Forward References**: Not supported - aliases cannot reference anchors defined later
@@ -99,7 +99,7 @@ LINO is specifically designed to represent linked data structures and naturally 
 john (friend: jane)
 jane (friend: john)
 
-// Complex cycle in family relationships  
+// Complex cycle in family relationships
 alice (mother: bob)
 bob (son: alice, father: carol)
 carol (daughter: alice, mother: bob)
@@ -109,7 +109,7 @@ recursive_function (calls: recursive_function)
 
 // Multi-level cycles in data structures
 node_a (next: node_b)
-node_b (next: node_c) 
+node_b (next: node_c)
 node_c (next: node_a, data: "cycle complete")
 ```
 
@@ -131,7 +131,7 @@ node_c (next: node_a, data: "cycle complete")
 ### When Cyclic References Matter
 
 1. **Object-Relational Mapping**: Database entities with bidirectional relationships
-2. **Graph Algorithms**: Representing networks, social graphs, dependency graphs  
+2. **Graph Algorithms**: Representing networks, social graphs, dependency graphs
 3. **Recursive Data Structures**: Linked lists, trees with parent pointers
 4. **State Machines**: States that reference each other
 5. **Document Cross-References**: Academic papers, legal documents
@@ -140,7 +140,7 @@ node_c (next: node_a, data: "cycle complete")
 ### Format Recommendations
 
 - **YAML**: Good for configuration files, simple hierarchical data
-- **XML**: Good for document markup, when schema validation is important  
+- **XML**: Good for document markup, when schema validation is important
 - **JSON**: Good for web APIs, simple data exchange, when cycles aren't needed
 - **LINO**: Ideal for linked data, knowledge graphs, any data with natural relationships
 
@@ -150,7 +150,7 @@ node_c (next: node_a, data: "cycle complete")
 ```yaml
 # This creates a parsing error in most YAML processors:
 # parent: &parent
-#   children: 
+#   children:
 #     - child: &child
 #         parent: *parent  # Circular reference
 ```
@@ -160,7 +160,7 @@ node_c (next: node_a, data: "cycle complete")
 <!-- Requires custom processing to resolve relationships -->
 <graph>
   <nodes>
-    <node id="1" name="A"/>  
+    <node id="1" name="A"/>
     <node id="2" name="B"/>
   </nodes>
   <edges>
