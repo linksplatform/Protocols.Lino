@@ -1,6 +1,6 @@
-# Feature Comparison: YAML vs XML vs JSON vs LINO
+# Feature Comparison
 
-This document compares key features across different data serialization
+This document compares YAML, XML, JSON, and LINO data serialization
 formats, with a focus on cyclic reference support as requested in
 [issue #55](https://github.com/linksplatform/Protocols.Lino/issues/55).
 
