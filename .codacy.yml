@@ -2,7 +2,7 @@
 engines:
   markdownlint:
     enabled: true
-    exclude_patterns:
+    exclude_paths:
       - 'FEATURE_COMPARISON.md'
 
 exclude_paths:
