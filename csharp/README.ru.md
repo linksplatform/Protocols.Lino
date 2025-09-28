@@ -1,20 +1,24 @@
-# Парсер протокола Lino для C#
+# Парсер протокола Lino для C&#35;
 
-Реализация парсера протокола Lino для C# с использованием генератора парсеров Pegasus и Platform.Collections.
+Реализация парсера протокола Lino для C&#35; с использованием генератора
+парсеров Pegasus и Platform.Collections.
 
 ## Установка
 
 ### Менеджер пакетов
-```
+
+```text
 Install-Package Platform.Protocols.Lino
 ```
 
 ### .NET CLI
+
 ```bash
 dotnet add package Platform.Protocols.Lino
 ```
 
 ### PackageReference
+
 ```xml
 <PackageReference Include="Platform.Protocols.Lino" Version="0.4.5" />
 ```
@@ -100,7 +104,8 @@ var customParser = new Parser<Guid>();
 ## Примеры синтаксиса
 
 ### Дуплеты (2-кортежи)
-```
+
+```lino
 папа (любитМаму: любит маму)
 сын любитМаму
 дочь любитМаму
@@ -108,14 +113,16 @@ var customParser = new Parser<Guid>();
 ```
 
 ### Триплеты (3-кортежи)
-```
+
+```lino
 папа имеет машину
 мама имеет дом
 (папа и мама) счастливы
 ```
 
 ### N-кортежи со ссылками
-```
+
+```lino
 (нотацияСвязей: нотация связей)
 (Это тоже нотацияСвязей)
 (нотацияСвязей поддерживает (неограниченное количество (ссылок) в каждой связи))
@@ -143,4 +150,5 @@ var customParser = new Parser<Guid>();
 
 ## Документация
 
-Полная документация API: [Platform.Protocols.Lino Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html)
+Полная документация API:
+[Platform.Protocols.Lino Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html)
