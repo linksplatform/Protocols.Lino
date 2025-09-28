@@ -30,12 +30,9 @@ class LinoParser {
     }
 
     parseInput() {
-        if (!this.inputElement || !this.outputElement) {
-            return;
-        }
+        if (!this.inputElement || !this.outputElement) return;
 
         const text = this.inputElement.value.trim();
-
         if (!text) {
             this.outputElement.textContent = "Enter some Links Notation to see the parsed result...";
             return;
@@ -52,17 +49,19 @@ class LinoParser {
     parseLinksNotation(text) {
         const lines = text.split("\n").filter((line) => line.trim());
         const links = [];
-        
+
         for (let i = 0; i < lines.length; i++) {
-            const line = lines[i].trim();
-            if (!line) {continue;}
-            
-            const link = this.parseLine(line, i);
-            if (link) {
-                links.push(link);
+            if (i >= 0 && i < lines.length && lines[i]) {
+                const line = lines[i].trim();
+                if (!line) continue;
+
+                const link = this.parseLine(line, i);
+                if (link) {
+                    links.push(link);
+                }
             }
         }
-        
+
         return {
             type: "links-notation",
             version: "0.6.0",
@@ -101,19 +100,22 @@ class LinoParser {
         let inQuotes = false;
 
         for (let i = 0; i < content.length; i++) {
+            if (i < 0 || i >= content.length) continue;
             const char = content[i];
-            const prevChar = i > 0 ? content[i - 1] : null;
+            const prevChar = i > 0 && i - 1 >= 0 ? content[i - 1] : null;
 
             if (this.isQuoteToggle(char, prevChar)) {
                 inQuotes = !inQuotes;
                 current += char;
-            } else if (inQuotes) {
-                current += char;
-            } else {
-                const result = this.processChar(char, current, inParens, tokens);
-                current = result.current;
-                inParens = result.inParens;
+                continue;
             }
+            if (inQuotes) {
+                current += char;
+                continue;
+            }
+            const result = this.processChar(char, current, inParens, tokens);
+            current = result.current;
+            inParens = result.inParens;
         }
 
         this.addTokenIfValid(current, tokens);
@@ -125,15 +127,9 @@ class LinoParser {
     }
 
     processChar(char, current, inParens, tokens) {
-        if (char === "(") {
-            return this.handleOpenParen(current, inParens, tokens);
-        }
-        if (char === ")") {
-            return this.handleCloseParen(current, inParens, tokens);
-        }
-        if (this.isWhitespace(char) && inParens === 0) {
-            return this.handleWhitespace(current, inParens, tokens);
-        }
+        if (char === "(") return this.handleOpenParen(current, inParens, tokens);
+        if (char === ")") return this.handleCloseParen(current, inParens, tokens);
+        if (this.isWhitespace(char) && inParens === 0) return this.handleWhitespace(current, inParens, tokens);
         return { current: current + char, inParens };
     }
 
@@ -218,18 +214,8 @@ class LinoParser {
     }
 
     determineType(references) {
-        if (references.length === 0) {
-            return "empty";
-        }
-        if (references.length === 1) {
-            return "singleton";
-        }
-        if (references.length === 2) {
-            return "doublet";
-        }
-        if (references.length === 3) {
-            return "triplet";
-        }
+        const types = ["empty", "singleton", "doublet", "triplet"];
+        if (references.length < types.length) return types[references.length];
         return `${references.length}-tuple`;
     }
 }

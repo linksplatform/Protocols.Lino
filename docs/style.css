@@ -425,10 +425,6 @@ body {
     transition: color 0.2s;
 }
 
-.footer-section a:hover {
-    color: white;
-}
-
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
@@ -438,6 +434,10 @@ body {
 
 .footer-bottom a {
     color: #cbd5e1;
+}
+
+.footer-section a:hover {
+    color: white;
 }
 
 .nav-links a:hover {
