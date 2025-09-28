@@ -1,6 +1,8 @@
 # Feature Comparison: YAML vs XML vs JSON vs LINO
 
-This document compares key features across different data serialization formats, with a focus on cyclic reference support as requested in [issue #55](https://github.com/linksplatform/Protocols.Lino/issues/55).
+This document compares key features across different data serialization
+formats, with a focus on cyclic reference support as requested in
+[issue #55](https://github.com/linksplatform/Protocols.Lino/issues/55).
 
 ## Cyclic References Support
 
@@ -8,13 +10,15 @@ This document compares key features across different data serialization formats,
 
 **Support Level**: ❌ **Limited** - Anchors and aliases only
 
-YAML supports repeated nodes through anchors (&) and aliases (*), but has significant limitations:
+YAML supports repeated nodes through anchors (&) and aliases (*), but
+has significant limitations:
 
 - **Anchors** (&) define a value that can be referenced later
 - **Aliases** (*) reference previously defined anchors
 - **Limitation**: Anchors must be defined before they can be referenced
 - **No True Cycles**: Cannot create A→B→A circular references directly
-- **Forward References**: Not supported - aliases cannot reference anchors defined later
+- **Forward References**: Not supported - aliases cannot reference
+  anchors defined later
 
 **Example**:
 
@@ -41,10 +45,12 @@ production:
 
 XML itself has no built-in support for cyclic references:
 
-- **XPointer/XPath**: Can reference other parts of documents, but primarily for addressing
+- **XPointer/XPath**: Can reference other parts of documents, but
+  primarily for addressing
 - **IDREF/ID**: Allows references within documents, but limited scope
 - **XInclude**: For including external documents, not for cycles
-- **No Native Cycles**: Standard XML serialization cannot represent object graphs with cycles
+- **No Native Cycles**: Standard XML serialization cannot represent
+  object graphs with cycles
 - **External Solutions**: Some XML processors provide custom extensions
 
 **Example**:
@@ -67,7 +73,8 @@ JSON has fundamental limitations for cyclic references:
 
 - **Tree Structure Only**: JSON represents hierarchical data, not graphs
 - **Serialization Issues**: `JSON.stringify()` throws errors on cycles
-- **JSON Schema**: Can define references ($ref) but for schema composition, not data cycles
+- **JSON Schema**: Can define references ($ref) but for schema
+  composition, not data cycles
 - **JSON Pointer**: For addressing within documents, not for cycles
 - **Workarounds**: External libraries provide cycle detection/replacement
 
@@ -92,7 +99,8 @@ JSON.stringify(obj); // TypeError: circular structure
 
 **Support Level**: ✅ **Full Native Support**
 
-LINO is specifically designed to represent linked data structures and naturally supports cyclic references:
+LINO is specifically designed to represent linked data structures and
+naturally supports cyclic references:
 
 - **Link-Based Structure**: Every element can reference any other link by identifier
 - **Bidirectional Links**: Links can reference each other freely
@@ -128,8 +136,8 @@ node_c (next: node_a, data: "cycle complete")
 | **Cyclic References** | ❌ Limited | ❌ Very Limited | ❌ None | ✅ Full |
 | **Forward References** | ❌ No | ❌ Limited | ❌ No | ✅ Yes |
 | **Bidirectional Links** | ❌ No | ❌ Manual | ❌ No | ✅ Native |
-| **Graph Structures** | ❌ Trees Only | ❌ Trees Only | ❌ Trees Only | ✅ Full Graphs |
-| **Reference Syntax** | `&anchor *alias` | `id="x" ref="x"` | `$ref` (schema) | `identifier` |
+| **Graph Structures** | ❌ Trees | ❌ Trees | ❌ Trees | ✅ Full Graphs |
+| **Ref Syntax** | `&anchor *alias` | `id="x" ref="x"` | `$ref` | `identifier` |
 | **Self-Reference** | ❌ No | ❌ Manual | ❌ No | ✅ Yes |
 | **Complex Cycles** | ❌ No | ❌ No | ❌ No | ✅ Yes |
 | **Serialization** | ✅ Safe | ✅ Safe | ❌ Fails on cycles | ✅ Native |
@@ -206,6 +214,12 @@ jane (employer: company, manager: john, reports: john)
 
 ## Conclusion
 
-For applications requiring cyclic references, LINO provides the most natural and complete solution. While YAML, XML, and JSON can handle simple hierarchical data effectively, they require workarounds or external libraries to handle cycles, often with significant complexity or limitations.
+For applications requiring cyclic references, LINO provides the most
+natural and complete solution. While YAML, XML, and JSON can handle
+simple hierarchical data effectively, they require workarounds or
+external libraries to handle cycles, often with significant complexity
+or limitations.
 
-LINO's link-based design makes it uniquely suited for representing interconnected data where relationships are as important as the data itself.
+LINO's link-based design makes it uniquely suited for representing
+interconnected data where relationships are as important as the data
+itself.
