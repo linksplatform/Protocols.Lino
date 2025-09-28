@@ -1,4 +1,4 @@
-# [Protocols.Lino](https://github.com/linksplatform/Protocols.Lino) ([русская версия](README.ru.md))
+# [Protocols.Lino](https://github.com/linksplatform/Protocols.Lino) (languages: en • [ru](README.ru.md))
 
 | [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/js/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=js) | [![npm Version and Downloads count](https://img.shields.io/npm/v/@linksplatform/protocols-lino?label=npm&style=flat)](https://www.npmjs.com/package/@linksplatform/protocols-lino) | **[JavaScript](js/README.md)** |
 |:-|-:|:-|
@@ -116,3 +116,5 @@ Additional resources:
   feature analysis
 - [PDF Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/Platform.Protocols.Lino.pdf)
   \- Complete reference for offline reading
+- [Links Theory 0.0.2](https://habr.com/en/articles/895896) - Theoretical
+  foundation that Links Notation fully supports

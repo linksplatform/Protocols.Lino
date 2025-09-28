@@ -1,4 +1,4 @@
-# [Protocols.Lino](https://github.com/linksplatform/Protocols.Lino) ([english version](README.md))
+# [Protocols.Lino](https://github.com/linksplatform/Protocols.Lino) (languages: [en](README.md) • ru)
 
 | [![Состояние Actions](https://github.com/linksplatform/Protocols.Lino/workflows/js/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=js) | [![Версия npm пакета и количество загрузок](https://img.shields.io/npm/v/@linksplatform/protocols-lino?label=npm&style=flat)](https://www.npmjs.com/package/@linksplatform/protocols-lino) | **[JavaScript](js/README.ru.md)** |
 |:-|-:|:-|
@@ -118,3 +118,5 @@ let links = parse_lino("папа (любитМаму: любит маму)").unw
 
 - [PDF Документация](https://linksplatform.github.io/Protocols.Lino/csharp/Platform.Protocols.Lino.pdf)
   \- Полный справочник для офлайн чтения
+- [Теория связей 0.0.2](https://habr.com/ru/articles/804617) -
+  Теоретическая основа, которую Нотация Связей полностью поддерживает
