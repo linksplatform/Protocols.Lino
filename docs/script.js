@@ -239,7 +239,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const parser = new LinoParser();
     // Prevent unused variable warning
     void parser;
-    
+
+    // Mobile navigation toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener("click", () => {
+            const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+            navToggle.setAttribute("aria-expanded", !isExpanded);
+            navLinks.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                navToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove("active");
+                navToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
     // Smooth scrolling for anchor links
     document.querySelectorAll("a[href^=\"#\"]").forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
