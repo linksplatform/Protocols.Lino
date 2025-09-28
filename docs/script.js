@@ -1,3 +1,5 @@
+'use strict';
+
 // Links Notation Interactive Parser
 class LinoParser {
     constructor() {
@@ -103,7 +105,7 @@ class LinoParser {
         for (let i = 0; i < content.length; i++) {
             const char = content[i];
             
-            if (char === '"' && content[i-1] !== '\\') {
+            if (char === '"' && (i === 0 || content[i-1] !== '\\')) {
                 inQuotes = !inQuotes;
                 current += char;
             } else if (!inQuotes) {
