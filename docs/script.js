@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
 // Links Notation Interactive Parser
 class LinoParser {
     constructor() {
-        this.inputElement = document.getElementById('input');
-        this.outputElement = document.getElementById('output');
-        this.parseBtn = document.getElementById('parse-btn');
+        this.inputElement = document.getElementById("input");
+        this.outputElement = document.getElementById("output");
+        this.parseBtn = document.getElementById("parse-btn");
         this.parseTimeout = null;
         this.initializePlayground();
     }
@@ -15,11 +15,11 @@ class LinoParser {
             return;
         }
 
-        this.parseBtn.addEventListener('click', () => {
+        this.parseBtn.addEventListener("click", () => {
             this.parseInput();
         });
 
-        this.inputElement.addEventListener('input', () => {
+        this.inputElement.addEventListener("input", () => {
             clearTimeout(this.parseTimeout);
             this.parseTimeout = setTimeout(() => {
                 this.parseInput();
@@ -37,7 +37,7 @@ class LinoParser {
         const text = this.inputElement.value.trim();
 
         if (!text) {
-            this.outputElement.textContent = 'Enter some Links Notation to see the parsed result...';
+            this.outputElement.textContent = "Enter some Links Notation to see the parsed result...";
             return;
         }
 
@@ -50,12 +50,12 @@ class LinoParser {
     }
 
     parseLinksNotation(text) {
-        const lines = text.split('\n').filter(line => line.trim());
+        const lines = text.split('\n').filter((line) => line.trim());
         const links = [];
         
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();
-            if (!line) continue;
+            if (!line) {continue;}
             
             const link = this.parseLine(line, i);
             if (link) {
@@ -64,9 +64,9 @@ class LinoParser {
         }
         
         return {
-            type: 'links-notation',
-            version: '0.6.0',
-            links: links,
+            type: "links-notation",
+            version: "0.6.0",
+            links,
             totalLinks: links.length
         };
     }
@@ -77,7 +77,7 @@ class LinoParser {
         let content = trimmed;
         let isWrapped = false;
         
-        if (trimmed.startsWith('(') && trimmed.endsWith(')')) {
+        if (trimmed.startsWith("(") && trimmed.endsWith(')')) {
             content = trimmed.slice(1, -1);
             isWrapped = true;
         }
@@ -121,14 +121,14 @@ class LinoParser {
     }
 
     isQuoteToggle(char, prevChar) {
-        return char === '"' && prevChar !== '\\';
+        return char === "\"" && prevChar !== '\\';
     }
 
     processChar(char, current, inParens, tokens) {
-        if (char === '(') {
+        if (char === "(") {
             return this.handleOpenParen(current, inParens, tokens);
         }
-        if (char === ')') {
+        if (char === ")") {
             return this.handleCloseParen(current, inParens, tokens);
         }
         if (this.isWhitespace(char) && inParens === 0) {
@@ -139,22 +139,22 @@ class LinoParser {
 
     handleOpenParen(current, inParens, tokens) {
         this.addTokenIfValid(current, tokens);
-        return { current: '(', inParens: inParens + 1 };
+        return { current: "(", inParens: inParens + 1 };
     }
 
     handleCloseParen(current, inParens, tokens) {
         const newParens = inParens - 1;
-        const newCurrent = current + ')';
+        const newCurrent = current + ")";
         if (newParens === 0) {
             this.addTokenIfValid(newCurrent, tokens);
-            return { current: '', inParens: newParens };
+            return { current: "", inParens: newParens };
         }
         return { current: newCurrent, inParens: newParens };
     }
 
     handleWhitespace(current, inParens, tokens) {
         this.addTokenIfValid(current, tokens);
-        return { current: '', inParens };
+        return { current: "", inParens };
     }
 
     isWhitespace(char) {
@@ -181,14 +181,14 @@ class LinoParser {
     }
 
     isLabeledReference(text) {
-        const colonIndex = text.indexOf(':');
+        const colonIndex = text.indexOf(":");
         return colonIndex > 0 && colonIndex < text.length - 1;
     }
 
     createLabeledReference(text) {
-        const colonIndex = text.indexOf(':');
+        const colonIndex = text.indexOf(":");
         return {
-            type: 'labeled-reference',
+            type: "labeled-reference",
             label: text.substring(0, colonIndex).trim(),
             value: text.substring(colonIndex + 1).trim(),
             original: text
@@ -202,7 +202,7 @@ class LinoParser {
     createNestedLink(text) {
         const content = text.slice(1, -1);
         return {
-            type: 'nested-link',
+            type: "nested-link",
             content: content,
             references: this.tokenize(content),
             original: text
@@ -211,35 +211,35 @@ class LinoParser {
 
     createSimpleReference(text) {
         return {
-            type: 'reference',
+            type: "reference",
             value: text,
             original: text
         };
     }
 
     determineType(references) {
-        if (references.length === 0) return 'empty';
-        if (references.length === 1) return 'singleton';
-        if (references.length === 2) return 'doublet';
-        if (references.length === 3) return 'triplet';
+        if (references.length === 0) return "empty";
+        if (references.length === 1) return "singleton";
+        if (references.length === 2) return "doublet";
+        if (references.length === 3) return "triplet";
         return `${references.length}-tuple`;
     }
 }
 
 // Smooth scrolling for navigation links
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     // Initialize parser
     new LinoParser();
     
     // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(this.getAttribute("href"));
             if (target) {
                 target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                    behavior: "smooth",
+                    block: "start"
                 });
             }
         });
@@ -248,13 +248,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add animation on scroll
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: "0px 0px -50px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
+                entry.target.style.opacity = "1";
                 entry.target.style.transform = 'translateY(0)';
             }
         });
