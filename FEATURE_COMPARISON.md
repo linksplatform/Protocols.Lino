@@ -5,6 +5,7 @@ This document compares key features across different data serialization formats,
 ## Cyclic References Support
 
 ### YAML
+
 **Support Level**: ❌ **Limited** - Anchors and aliases only
 
 YAML supports repeated nodes through anchors (&) and aliases (*), but has significant limitations:
@@ -16,6 +17,7 @@ YAML supports repeated nodes through anchors (&) and aliases (*), but has signif
 - **Forward References**: Not supported - aliases cannot reference anchors defined later
 
 **Example**:
+
 ```yaml
 # Valid: Simple reference
 defaults: &defaults
@@ -34,6 +36,7 @@ production:
 ```
 
 ### XML
+
 **Support Level**: ❌ **Very Limited** - Through external mechanisms only
 
 XML itself has no built-in support for cyclic references:
@@ -45,6 +48,7 @@ XML itself has no built-in support for cyclic references:
 - **External Solutions**: Some XML processors provide custom extensions
 
 **Example**:
+
 ```xml
 <!-- Limited IDREF support -->
 <people>
@@ -56,6 +60,7 @@ XML itself has no built-in support for cyclic references:
 ```
 
 ### JSON
+
 **Support Level**: ❌ **No Native Support**
 
 JSON has fundamental limitations for cyclic references:
@@ -67,6 +72,7 @@ JSON has fundamental limitations for cyclic references:
 - **Workarounds**: External libraries provide cycle detection/replacement
 
 **Example**:
+
 ```javascript
 // This fails:
 const obj = { name: "A" };
@@ -83,6 +89,7 @@ JSON.stringify(obj); // TypeError: circular structure
 ```
 
 ### LINO (Links Notation)
+
 **Support Level**: ✅ **Full Native Support**
 
 LINO is specifically designed to represent linked data structures and naturally supports cyclic references:
@@ -94,6 +101,7 @@ LINO is specifically designed to represent linked data structures and naturally 
 - **No Special Syntax**: No additional constructs needed for cycles
 
 **Examples**:
+
 ```lino
 // Simple bidirectional relationship
 john (friend: jane)
@@ -147,6 +155,7 @@ node_c (next: node_a, data: "cycle complete")
 ## Technical Implementation Notes
 
 ### YAML Limitations in Practice
+
 ```yaml
 # This creates a parsing error in most YAML processors:
 # parent: &parent
@@ -156,6 +165,7 @@ node_c (next: node_a, data: "cycle complete")
 ```
 
 ### XML Workarounds
+
 ```xml
 <!-- Requires custom processing to resolve relationships -->
 <graph>
@@ -171,6 +181,7 @@ node_c (next: node_a, data: "cycle complete")
 ```
 
 ### JSON Alternatives
+
 ```javascript
 // Libraries like 'circular-json' provide workarounds:
 const CircularJSON = require('circular-json');
@@ -180,6 +191,7 @@ const serialized = CircularJSON.stringify(obj);
 ```
 
 ### LINO Natural Cycles
+
 ```lino
 // No special handling needed - cycles are natural:
 parent (children: child1 child2)
