@@ -141,7 +141,19 @@ jobs:
           wget "$SCRIPTS_BASE_URL/publish-release.sh"
           chmod +x ./publish-release.sh
           wget "$SCRIPTS_BASE_URL/publish-csharp-release.sh"
-          bash ./publish-csharp-release.sh
+          
+          # Override the tag format to use version_language instead of language_version
+          PACKAGE_VERSION=$(<CSHARP_PACKAGE_VERSION.txt)
+          PACKAGE_RELEASE_NOTES=$(<CSHARP_PACKAGE_RELEASE_NOTES.txt)
+          PACKAGE_URL="https://www.nuget.org/packages/Platform.$REPOSITORY_NAME/$PACKAGE_VERSION"
+          
+          TAG="${PACKAGE_VERSION}_csharp"
+          RELEASE_NAME="[C#] $PACKAGE_VERSION"
+          RELEASE_BODY="$PACKAGE_URL
+
+$PACKAGE_RELEASE_NOTES"
+          
+          ./publish-release.sh "$TAG" "$RELEASE_NAME" "$RELEASE_BODY"
   generatePdfWithCode:
     runs-on: ubuntu-latest
     needs: [test]
