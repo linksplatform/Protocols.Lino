@@ -4,7 +4,7 @@
     --secondary-color: #64748b;
     --text-primary: #1e293b;
     --text-secondary: #64748b;
-    --bg-primary: #ffffff;
+    --bg-primary: #fff;
     --bg-secondary: #f8fafc;
     --bg-alt: #f1f5f9;
     --border: #e2e8f0;
@@ -86,10 +86,6 @@ body {
     transition: opacity 0.2s;
 }
 
-.nav-links a:hover {
-    opacity: 0.8;
-}
-
 .hero-content {
     flex: 1;
     display: flex;
@@ -104,7 +100,7 @@ body {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    background: linear-gradient(135deg, #fff 0%, #f1f5f9 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -442,6 +438,10 @@ body {
 
 .footer-bottom a {
     color: #cbd5e1;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
 }
 
 /* Responsive */

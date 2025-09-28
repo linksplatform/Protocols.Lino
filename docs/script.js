@@ -50,7 +50,7 @@ class LinoParser {
     }
 
     parseLinksNotation(text) {
-        const lines = text.split('\n').filter((line) => line.trim());
+        const lines = text.split("\n").filter((line) => line.trim());
         const links = [];
         
         for (let i = 0; i < lines.length; i++) {
@@ -77,7 +77,7 @@ class LinoParser {
         let content = trimmed;
         let isWrapped = false;
         
-        if (trimmed.startsWith("(") && trimmed.endsWith(')')) {
+        if (trimmed.startsWith("(") && trimmed.endsWith(")")) {
             content = trimmed.slice(1, -1);
             isWrapped = true;
         }
@@ -96,7 +96,7 @@ class LinoParser {
 
     tokenize(content) {
         const tokens = [];
-        let current = '';
+        let current = "";
         let inParens = 0;
         let inQuotes = false;
 
@@ -121,7 +121,7 @@ class LinoParser {
     }
 
     isQuoteToggle(char, prevChar) {
-        return char === "\"" && prevChar !== '\\';
+        return char === "\"" && prevChar !== "\\";
     }
 
     processChar(char, current, inParens, tokens) {
@@ -158,7 +158,7 @@ class LinoParser {
     }
 
     isWhitespace(char) {
-        return char === ' ' || char === '\t';
+        return char === " " || char === "\t";
     }
 
     addTokenIfValid(text, tokens) {
@@ -196,14 +196,14 @@ class LinoParser {
     }
 
     isNestedLink(text) {
-        return text.startsWith('(') && text.endsWith(')');
+        return text.startsWith("(") && text.endsWith(")");
     }
 
     createNestedLink(text) {
         const content = text.slice(1, -1);
         return {
             type: "nested-link",
-            content: content,
+            content,
             references: this.tokenize(content),
             original: text
         };
@@ -218,10 +218,18 @@ class LinoParser {
     }
 
     determineType(references) {
-        if (references.length === 0) return "empty";
-        if (references.length === 1) return "singleton";
-        if (references.length === 2) return "doublet";
-        if (references.length === 3) return "triplet";
+        if (references.length === 0) {
+            return "empty";
+        }
+        if (references.length === 1) {
+            return "singleton";
+        }
+        if (references.length === 2) {
+            return "doublet";
+        }
+        if (references.length === 3) {
+            return "triplet";
+        }
         return `${references.length}-tuple`;
     }
 }
@@ -229,10 +237,12 @@ class LinoParser {
 // Smooth scrolling for navigation links
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize parser
-    new LinoParser();
+    const parser = new LinoParser();
+    // Prevent unused variable warning
+    void parser;
     
     // Smooth scrolling for anchor links
-    document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
+    document.querySelectorAll("a[href^=\"#\"]").forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute("href"));
@@ -255,16 +265,16 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = "1";
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.style.transform = "translateY(0)";
             }
         });
     }, observerOptions);
 
     // Observe elements for animation
-    document.querySelectorAll('.feature, .example-card, .doc-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    document.querySelectorAll(".feature, .example-card, .doc-card").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
         observer.observe(el);
     });
 });
