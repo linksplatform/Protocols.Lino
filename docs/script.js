@@ -40,6 +40,10 @@ class LinoParser {
             return;
         }
 
+        this.parseAndDisplay(text);
+    }
+
+    parseAndDisplay(text) {
         try {
             const links = this.parseLinksNotation(text);
             this.outputElement.textContent = JSON.stringify(links, null, 2);
@@ -53,6 +57,9 @@ class LinoParser {
         const links = [];
 
         for (let i = 0; i < lines.length; i++) {
+            if (i < 0 || i >= lines.length) {
+                continue;
+            }
             const line = lines[i].trim();
             if (!line) {
                 continue;
@@ -67,7 +74,7 @@ class LinoParser {
         return {
             type: "links-notation",
             version: "0.6.0",
-            links: links,
+            links,
             totalLinks: links.length
         };
     }
@@ -102,6 +109,9 @@ class LinoParser {
         let inQuotes = false;
 
         for (let i = 0; i < content.length; i++) {
+            if (i < 0 || i >= content.length) {
+                continue;
+            }
             const char = content[i];
             const prevChar = i > 0 && i - 1 >= 0 ? content[i - 1] : null;
 
@@ -114,9 +124,9 @@ class LinoParser {
                 current += char;
                 continue;
             }
-            const result = this.processChar(char, current, inParens, tokens);
-            current = result.current;
-            inParens = result.inParens;
+            const state = this.processChar(char, current, inParens, tokens);
+            current = state.current;
+            inParens = state.inParens;
         }
 
         this.addTokenIfValid(current, tokens);
@@ -128,16 +138,10 @@ class LinoParser {
     }
 
     processChar(char, current, inParens, tokens) {
-        if (char === "(") {
-            return this.handleOpenParen(current, inParens, tokens);
-        }
-        if (char === ")") {
-            return this.handleCloseParen(current, inParens, tokens);
-        }
-        if (this.isWhitespace(char) && inParens === 0) {
-            return this.handleWhitespace(current, inParens, tokens);
-        }
-        return { current: current + char, inParens: inParens };
+        if (char === "(") return this.handleOpenParen(current, inParens, tokens);
+        if (char === ")") return this.handleCloseParen(current, inParens, tokens);
+        if (this.isWhitespace(char) && inParens === 0) return this.handleWhitespace(current, inParens, tokens);
+        return { current: current + char, inParens };
     }
 
     handleOpenParen(current, inParens, tokens) {
@@ -157,7 +161,7 @@ class LinoParser {
 
     handleWhitespace(current, inParens, tokens) {
         this.addTokenIfValid(current, tokens);
-        return { current: "", inParens: inParens };
+        return { current: "", inParens };
     }
 
     isWhitespace(char) {
@@ -206,7 +210,7 @@ class LinoParser {
         const content = text.slice(1, -1);
         return {
             type: "nested-link",
-            content: content,
+            content,
             references: this.tokenize(content),
             original: text
         };
