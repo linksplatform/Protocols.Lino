@@ -1,6 +1,7 @@
 # Lino Protocol Parser for JavaScript
 
-JavaScript implementation of the Lino protocol parser using Bun and Peggy.js parser generator.
+JavaScript implementation of the Lino protocol parser using Bun and
+Peggy.js parser generator.
 
 ## Installation
 
@@ -110,7 +111,8 @@ console.log(group.format());
 ## Syntax Examples
 
 ### Doublets (2-tuple)
-```
+
+```lino
 papa (lovesMama: loves mama)
 son lovesMama
 daughter lovesMama
@@ -118,21 +120,24 @@ all (love mama)
 ```
 
 ### Triplets (3-tuple)
-```
+
+```lino
 papa has car
 mama has house
 (papa and mama) are happy
 ```
 
 ### N-tuples with References
-```
+
+```lino
 (linksNotation: links notation)
 (This is a linksNotation as well)
 (linksNotation supports (unlimited number (of references) in each link))
 ```
 
 ### Indented Structure
-```
+
+```lino
 parent
   child1
   child2
@@ -145,19 +150,25 @@ parent
 ### Classes
 
 #### `Parser`
+
 Main parser class for converting strings to links.
+
 - `initialize()` - Initialize the parser (async)
 - `parse(input)` - Parse a Lino string and return links
 
 #### `Link`
+
 Represents a single link with ID and values.
+
 - `constructor(id, values = [])` - Create a new link
 - `toString()` - Convert link to string format
 - `id` - Link identifier
 - `values` - Array of child values/links
 
 #### `LinksGroup`
+
 Container for grouping related links.
+
 - `constructor(links)` - Create a new group
 - `format()` - Format the group as a string
 
@@ -165,7 +176,7 @@ Container for grouping related links.
 
 - `src/grammar.pegjs` - Peggy.js grammar definition
 - `src/Link.js` - Link data structure
-- `src/LinksGroup.js` - Links group container  
+- `src/LinksGroup.js` - Links group container
 - `src/Parser.js` - Parser wrapper
 - `src/index.js` - Main entry point
 - `tests/` - Test files
