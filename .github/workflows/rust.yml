@@ -184,7 +184,7 @@ jobs:
           PACKAGE_VERSION=$(grep '^version = ' Cargo.toml | head -1 | sed 's/version = "\(.*\)"/\1/')
           
           # Create release
-          gh release create "rust_$PACKAGE_VERSION" \
+          gh release create "${PACKAGE_VERSION}_rust" \
             --title "[Rust] $PACKAGE_VERSION" \
             --notes "https://crates.io/crates/$PACKAGE_NAME"
         env:
