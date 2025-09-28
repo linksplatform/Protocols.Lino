@@ -94,9 +94,10 @@ For detailed implementation guides and API references, see the language-specific
 
 - **[C# Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html)** - Complete API reference
 - **[C# README](csharp/README.md)** - Installation and usage guide
-- **[JavaScript README](js/README.md)** - Modern web development guide  
+- **[JavaScript README](js/README.md)** - Modern web development guide
 - **[Rust README](rust/README.md)** - High-performance parsing guide
 
 Additional resources:
-- [Feature Comparison](FEATURE_COMPARISON.md) - LINO vs YAML/XML/JSON feature analysis  
+
+- [Feature Comparison](FEATURE_COMPARISON.md) - LINO vs YAML/XML/JSON feature analysis
 - [PDF Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/Platform.Protocols.Lino.pdf) - Complete reference for offline reading
