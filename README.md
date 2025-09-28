@@ -87,7 +87,7 @@ links notation the most easy an natural/intuitive/native one.
 ## What is Links Notation?
 
 Links Notation (Lino) is a simple, intuitive format for representing
-structured data as links between references to links. It's designed to be:
+structured data as links between ~~entities~~ references to links. It's designed to be:
 
 - **Natural**: Most text can already be parsed as links notation
 - **Flexible**: Supports any number of references in each link  
