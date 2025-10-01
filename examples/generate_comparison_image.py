@@ -2,10 +2,11 @@
 """
 Generate a comparison image showing LiNo vs YAML vs JSON vs XML
 """
+import os
 
 def create_ascii_comparison():
     """Create a text-based comparison image"""
-    
+
     comparison = """
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║                    Format Comparison: LiNo, YAML, JSON, XML                ║
@@ -90,16 +91,18 @@ def create_ascii_comparison():
 ║ • Universal: Can represent doublets, triplets, and N-tuples seamlessly     ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 """
-    
+
     return comparison
 
 def main():
     comparison = create_ascii_comparison()
-    
-    # Save to text file
-    with open('/tmp/gh-issue-solver-1757491093830/examples/comparison.txt', 'w') as f:
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    output_path = os.path.join(script_dir, 'comparison.txt')
+
+    with open(output_path, 'w') as f:
         f.write(comparison)
-    
+
     print("Comparison saved to comparison.txt")
     print("To create PNG: Use any tool to convert the HTML or SVG file to PNG")
     print("Example: Use a browser to open comparison.html and take a screenshot")
