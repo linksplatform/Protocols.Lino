@@ -57,9 +57,6 @@ class LinoParser {
         const links = [];
 
         for (let i = 0; i < lines.length; i++) {
-            if (i < 0 || i >= lines.length) {
-                continue;
-            }
             const line = lines[i].trim();
             if (!line) {
                 continue;
@@ -109,9 +106,6 @@ class LinoParser {
         let inQuotes = false;
 
         for (let i = 0; i < content.length; i++) {
-            if (i < 0 || i >= content.length) {
-                continue;
-            }
             const char = content[i];
             const prevChar = i > 0 && i - 1 >= 0 ? content[i - 1] : null;
 
