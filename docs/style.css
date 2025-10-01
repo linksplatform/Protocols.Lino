@@ -520,6 +520,7 @@ body {
 }
 
 /* Responsive - Mobile First */
+
 /* Tablet (min-width: 640px) */
 @media (min-width: 640px) {
     .container {
