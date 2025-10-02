@@ -1,7 +1,7 @@
 using System;
 using Platform.Protocols.Lino;
 
-class Program
+static class Program
 {
     static void Main()
     {
