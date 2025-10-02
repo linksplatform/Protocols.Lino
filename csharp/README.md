@@ -1,20 +1,24 @@
-# Lino Protocol Parser for C#
+# Lino Protocol Parser for C&#35;
 
-C# implementation of the Lino protocol parser using Pegasus parser generator and Platform.Collections.
+C&#35; implementation of the Lino protocol parser using Pegasus parser
+generator and Platform.Collections.
 
 ## Installation
 
 ### Package Manager
-```
+
+```text
 Install-Package Platform.Protocols.Lino
 ```
 
 ### .NET CLI
+
 ```bash
 dotnet add package Platform.Protocols.Lino
 ```
 
 ### PackageReference
+
 ```xml
 <PackageReference Include="Platform.Protocols.Lino" Version="0.4.5" />
 ```
@@ -100,7 +104,8 @@ var customParser = new Parser<Guid>();
 ## Syntax Examples
 
 ### Doublets (2-tuple)
-```
+
+```lino
 papa (lovesMama: loves mama)
 son lovesMama
 daughter lovesMama
@@ -108,14 +113,16 @@ all (love mama)
 ```
 
 ### Triplets (3-tuple)
-```
+
+```lino
 papa has car
 mama has house
 (papa and mama) are happy
 ```
 
 ### N-tuples with References
-```
+
+```lino
 (linksNotation: links notation)
 (This is a linksNotation as well)
 (linksNotation supports (unlimited number (of references) in each link))
@@ -143,4 +150,5 @@ mama has house
 
 ## Documentation
 
-For complete API documentation, visit: [Platform.Protocols.Lino Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html)
+For complete API documentation, visit:
+[Platform.Protocols.Lino Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html)
