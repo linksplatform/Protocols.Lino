@@ -84,9 +84,9 @@ fn flatten_links(links: Vec<parser::Link>) -> Vec<LiNo<String>> {
 }
 
 fn flatten_link_recursive(link: &parser::Link, parent: Option<LiNo<String>>, result: &mut Vec<LiNo<String>>) {
-    // Special case: If this is an ID with no values but has children,
+    // Special case: If this is an indented ID (with colon) with children,
     // the children should become the values of the link (indented ID syntax)
-    if link.id.is_some() && link.values.is_empty() && !link.children.is_empty() {
+    if link.is_indented_id && link.id.is_some() && link.values.is_empty() && !link.children.is_empty() {
         let child_values: Vec<LiNo<String>> = link.children.iter().map(|child| {
             // For indented children, if they have single values, extract them
             if child.values.len() == 1 && child.values[0].id.is_some() && child.values[0].values.is_empty() && child.values[0].children.is_empty() {
@@ -95,7 +95,8 @@ fn flatten_link_recursive(link: &parser::Link, parent: Option<LiNo<String>>, res
                 parser::Link {
                     id: child.id.clone(),
                     values: child.values.clone(),
-                    children: vec![]
+                    children: vec![],
+                    is_indented_id: false,
                 }.into()
             }
         }).collect();
@@ -136,7 +137,8 @@ fn flatten_link_recursive(link: &parser::Link, parent: Option<LiNo<String>>, res
             parser::Link {
                 id: v.id.clone(),
                 values: v.values.clone(),
-                children: vec![]
+                children: vec![],
+                is_indented_id: false,
             }.into()
         }).collect();
         LiNo::Link { id: link.id.clone(), values }

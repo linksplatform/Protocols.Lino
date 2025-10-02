@@ -15,6 +15,7 @@ pub struct Link {
     pub id: Option<String>,
     pub values: Vec<Link>,
     pub children: Vec<Link>,
+    pub is_indented_id: bool,
 }
 
 impl Link {
@@ -23,6 +24,16 @@ impl Link {
             id: Some(id),
             values: vec![],
             children: vec![],
+            is_indented_id: false,
+        }
+    }
+
+    pub fn new_indented_id(id: String) -> Self {
+        Link {
+            id: Some(id),
+            values: vec![],
+            children: vec![],
+            is_indented_id: true,
         }
     }
 
@@ -31,6 +42,7 @@ impl Link {
             id: None,
             values,
             children: vec![],
+            is_indented_id: false,
         }
     }
 
@@ -39,6 +51,7 @@ impl Link {
             id,
             values,
             children: vec![],
+            is_indented_id: false,
         }
     }
 
@@ -217,7 +230,7 @@ fn indented_id_link<'a>(input: &'a str, _state: &ParserState) -> IResult<&'a str
         horizontal_whitespace,
         char(':'),
         eol
-    ).map(|(id, _, _, _)| Link::new_singlet(id))
+    ).map(|(id, _, _, _)| Link::new_indented_id(id))
     .parse(input)
 }
 
