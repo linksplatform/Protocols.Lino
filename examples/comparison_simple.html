@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Format Comparison: LiNo, YAML, JSON, XML</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            max-width: 1800px;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+        .format-section {
+            border-right: 1px solid #000;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .format-section:last-child {
+            border-right: none;
+        }
+        .format-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #000;
+        }
+        .code-container {
+            position: relative;
+        }
+        .line {
+            display: flex;
+            white-space: pre;
+        }
+        .line-number {
+            color: #999;
+            padding-right: 10px;
+            text-align: right;
+            min-width: 30px;
+            user-select: none;
+        }
+        .line-content {
+            flex: 1;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="format-section">
+            <div class="format-title">LiNo</div>
+            <div class="code-container">
+                <div class="line"><span class="line-number">1</span><span class="line-content">empInfo</span></div>
+                <div class="line"><span class="line-number">2</span><span class="line-content">  employees</span></div>
+                <div class="line"><span class="line-number">3</span><span class="line-content">    1</span></div>
+                <div class="line"><span class="line-number">4</span><span class="line-content">      name (James Kirk)</span></div>
+                <div class="line"><span class="line-number">5</span><span class="line-content">      age 40</span></div>
+                <div class="line"><span class="line-number">6</span><span class="line-content">    2</span></div>
+                <div class="line"><span class="line-number">7</span><span class="line-content">      name (Jean-Luc Picard)</span></div>
+                <div class="line"><span class="line-number">8</span><span class="line-content">      age 45</span></div>
+                <div class="line"><span class="line-number">9</span><span class="line-content">    3</span></div>
+                <div class="line"><span class="line-number">10</span><span class="line-content">      name (Wesley Crusher)</span></div>
+                <div class="line"><span class="line-number">11</span><span class="line-content">      age 27</span></div>
+            </div>
+        </div>
+        <div class="format-section">
+            <div class="format-title">YAML</div>
+            <div class="code-container">
+                <div class="line"><span class="line-number">1</span><span class="line-content">empInfo:</span></div>
+                <div class="line"><span class="line-number">2</span><span class="line-content">  employees:</span></div>
+                <div class="line"><span class="line-number">3</span><span class="line-content">    - id: 1</span></div>
+                <div class="line"><span class="line-number">4</span><span class="line-content">      name: James Kirk</span></div>
+                <div class="line"><span class="line-number">5</span><span class="line-content">      age: 40</span></div>
+                <div class="line"><span class="line-number">6</span><span class="line-content">    - id: 2</span></div>
+                <div class="line"><span class="line-number">7</span><span class="line-content">      name: Jean-Luc Picard</span></div>
+                <div class="line"><span class="line-number">8</span><span class="line-content">      age: 45</span></div>
+                <div class="line"><span class="line-number">9</span><span class="line-content">    - id: 3</span></div>
+                <div class="line"><span class="line-number">10</span><span class="line-content">      name: Wesley Crusher</span></div>
+                <div class="line"><span class="line-number">11</span><span class="line-content">      age: 27</span></div>
+            </div>
+        </div>
+        <div class="format-section">
+            <div class="format-title">JSON</div>
+            <div class="code-container">
+                <div class="line"><span class="line-number">1</span><span class="line-content">{</span></div>
+                <div class="line"><span class="line-number">2</span><span class="line-content">  "empInfo": {</span></div>
+                <div class="line"><span class="line-number">3</span><span class="line-content">    "employees": [</span></div>
+                <div class="line"><span class="line-number">4</span><span class="line-content">      {</span></div>
+                <div class="line"><span class="line-number">5</span><span class="line-content">        "name": "James Kirk",</span></div>
+                <div class="line"><span class="line-number">6</span><span class="line-content">        "age": 40</span></div>
+                <div class="line"><span class="line-number">7</span><span class="line-content">      },</span></div>
+                <div class="line"><span class="line-number">8</span><span class="line-content">      {</span></div>
+                <div class="line"><span class="line-number">9</span><span class="line-content">        "name": "Jean-Luc Picard",</span></div>
+                <div class="line"><span class="line-number">10</span><span class="line-content">        "age": 45</span></div>
+                <div class="line"><span class="line-number">11</span><span class="line-content">      },</span></div>
+                <div class="line"><span class="line-number">12</span><span class="line-content">      {</span></div>
+                <div class="line"><span class="line-number">13</span><span class="line-content">        "name": "Wesley Crusher",</span></div>
+                <div class="line"><span class="line-number">14</span><span class="line-content">        "age": 27</span></div>
+                <div class="line"><span class="line-number">15</span><span class="line-content">      }</span></div>
+                <div class="line"><span class="line-number">16</span><span class="line-content">    ]</span></div>
+                <div class="line"><span class="line-number">17</span><span class="line-content">  }</span></div>
+                <div class="line"><span class="line-number">18</span><span class="line-content">}</span></div>
+            </div>
+        </div>
+        <div class="format-section">
+            <div class="format-title">XML</div>
+            <div class="code-container">
+                <div class="line"><span class="line-number">1</span><span class="line-content">&lt;empInfo&gt;</span></div>
+                <div class="line"><span class="line-number">2</span><span class="line-content">  &lt;employees&gt;</span></div>
+                <div class="line"><span class="line-number">3</span><span class="line-content">    &lt;employee&gt;</span></div>
+                <div class="line"><span class="line-number">4</span><span class="line-content">      &lt;name&gt;James Kirk&lt;/name&gt;</span></div>
+                <div class="line"><span class="line-number">5</span><span class="line-content">      &lt;age&gt;40&lt;/age&gt;</span></div>
+                <div class="line"><span class="line-number">6</span><span class="line-content">    &lt;/employee&gt;</span></div>
+                <div class="line"><span class="line-number">7</span><span class="line-content">    &lt;employee&gt;</span></div>
+                <div class="line"><span class="line-number">8</span><span class="line-content">      &lt;name&gt;Jean-Luc Picard&lt;/name&gt;</span></div>
+                <div class="line"><span class="line-number">9</span><span class="line-content">      &lt;age&gt;45&lt;/age&gt;</span></div>
+                <div class="line"><span class="line-number">10</span><span class="line-content">    &lt;/employee&gt;</span></div>
+                <div class="line"><span class="line-number">11</span><span class="line-content">    &lt;employee&gt;</span></div>
+                <div class="line"><span class="line-number">12</span><span class="line-content">      &lt;name&gt;Wesley Crusher&lt;/name&gt;</span></div>
+                <div class="line"><span class="line-number">13</span><span class="line-content">      &lt;age&gt;27&lt;/age&gt;</span></div>
+                <div class="line"><span class="line-number">14</span><span class="line-content">    &lt;/employee&gt;</span></div>
+                <div class="line"><span class="line-number">15</span><span class="line-content">  &lt;/employees&gt;</span></div>
+                <div class="line"><span class="line-number">16</span><span class="line-content">&lt;/empInfo&gt;</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

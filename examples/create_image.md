@@ -1,4 +1,4 @@
-## Creating the Comparison Image
+# Creating the Comparison Image
 
 This directory contains multiple format comparison examples showing
 the same data represented in LiNo, YAML, JSON, and XML formats.
