@@ -80,6 +80,23 @@ I'm a friendly AI.
 parentheses may be ommitted if the whole line is a single link
 ```
 
+#### Indented Syntax
+
+Links can also use indented syntax for better readability:
+
+```lino
+3:
+  papa
+  loves
+  mama
+```
+
+This is equivalent to:
+
+```lino
+(3: papa loves mama)
+```
+
 So that means that *this* text is also links notation. So most of the
 text in the world already may be parsed as links notation. That makes
 links notation the most easy an natural/intuitive/native one.
