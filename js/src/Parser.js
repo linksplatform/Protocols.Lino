@@ -34,7 +34,7 @@ export class Parser {
       // Special case: If this is an ID with empty values but has children,
       // the children should become the values of the link (indented ID syntax)
       if (item.id && (!item.values || item.values.length === 0)) {
-        const childValues = item.children.map(child => {
+        const childValues = item.children.map((child) => {
           // For indented children, extract the actual reference from the child's values
           if (child.values && child.values.length === 1) {
             return this.transformLink(child.values[0]);

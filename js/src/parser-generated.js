@@ -192,6 +192,26 @@ function peg$parse(input, options) {
   const peg$e11 = peg$classExpectation([" ", "\t", "\n", "\r"], false, false, false);
   const peg$e12 = peg$classExpectation([" ", "\t", "\n", "\r", "(", ":", ")"], true, false, false);
 
+  let indentationStack = [0];
+
+  function pushIndentation(spaces) {
+    indentationStack.push(spaces.length);
+  }
+
+  function popIndentation() {
+    if (indentationStack.length > 1) {
+      indentationStack.pop();
+    }
+  }
+
+  function checkIndentation(spaces) {
+    return spaces.length >= indentationStack[indentationStack.length - 1];
+  }
+
+  function getCurrentIndentation() {
+    return indentationStack[indentationStack.length - 1];
+  }
+
   function peg$f0(links) {    return links;  }
   function peg$f1() {    return [];  }
   function peg$f2(fl, list) {    popIndentation(); return [fl].concat(list || []);  }
@@ -212,14 +232,14 @@ function peg$parse(input, options) {
   function peg$f15(list) {    return list;  }
   function peg$f16(value) {    return value;  }
   function peg$f17(list) {    return list;  }
-  function peg$f18(id, v) {    return { id: id, values: v };  }
-  function peg$f19(id, v) {    return { id: id, values: v };  }
+  function peg$f18(id, v) {    return { id, values: v };  }
+  function peg$f19(id, v) {    return { id, values: v };  }
   function peg$f20(v) {    return { values: v };  }
   function peg$f21(v) {    return { values: v };  }
-  function peg$f22(id) {    return { id: id, values: [] };  }
-  function peg$f23(chars) {    return chars.join('');  }
-  function peg$f24(r) {    return r.join('');  }
-  function peg$f25(r) {    return r.join('');  }
+  function peg$f22(id) {    return { id, values: [] };  }
+  function peg$f23(chars) {    return chars.join("");  }
+  function peg$f24(r) {    return r.join("");  }
+  function peg$f25(r) {    return r.join("");  }
   function peg$f26(spaces) {    return spaces.length > getCurrentIndentation();  }
   function peg$f27(spaces) {    pushIndentation(spaces);  }
   function peg$f28(spaces) {    return checkIndentation(spaces);  }
@@ -1254,27 +1274,6 @@ function peg$parse(input, options) {
     }
 
     return s0;
-  }
-
-
-  let indentationStack = [0];
-  
-  function pushIndentation(spaces) {
-    indentationStack.push(spaces.length);
-  }
-  
-  function popIndentation() {
-    if (indentationStack.length > 1) {
-      indentationStack.pop();
-    }
-  }
-  
-  function checkIndentation(spaces) {
-    return spaces.length >= indentationStack[indentationStack.length - 1];
-  }
-  
-  function getCurrentIndentation() {
-    return indentationStack[indentationStack.length - 1];
   }
 
   peg$result = peg$startRuleFunction();

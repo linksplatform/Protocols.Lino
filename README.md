@@ -84,7 +84,7 @@ parentheses may be ommitted if the whole line is a single link
 
 Links can also use indented syntax for better readability:
 
-```
+```lino
 3:
   papa
   loves
@@ -93,7 +93,7 @@ Links can also use indented syntax for better readability:
 
 This is equivalent to:
 
-```
+```lino
 (3: papa loves mama)
 ```
 
