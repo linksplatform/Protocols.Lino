@@ -2,7 +2,11 @@ name: js
 
 on:
   push:
-    branches: main 
+    branches: main
+    paths:
+      - 'js/**'
+      - '.github/workflows/js.yml'
+  pull_request:
     paths:
       - 'js/**'
       - '.github/workflows/js.yml'
@@ -63,7 +67,7 @@ jobs:
 
   publishToNpm:
     needs: [test, findChangedJsFiles]
-    if: ${{ needs.findChangedJsFiles.outputs.isJsFilesChanged == 'true' }}
+    if: ${{ needs.findChangedJsFiles.outputs.isJsFilesChanged == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -103,7 +107,7 @@ jobs:
   publishRelease:
     runs-on: ubuntu-latest
     needs: [publishToNpm]
-    if: ${{ needs.findChangedJsFiles.outputs.isJsFilesChanged == 'true' && needs.publishToNpm.result == 'success' }}
+    if: ${{ needs.findChangedJsFiles.outputs.isJsFilesChanged == 'true' && needs.publishToNpm.result == 'success' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v3
         with:
