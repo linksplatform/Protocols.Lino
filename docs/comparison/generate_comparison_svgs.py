@@ -40,16 +40,19 @@ def create_svg_comparison(theme='light'):
 
     lino_lines = [
         "empInfo",
-        "  employees",
-        "    1",
+        "  employees:",
+        "    (",
         "      name (James Kirk)",
         "      age 40",
-        "    2",
+        "    )",
+        "    (",
         "      name (Jean-Luc Picard)",
         "      age 45",
-        "    3",
+        "    )",
+        "    (",
         "      name (Wesley Crusher)",
-        "      age 27"
+        "      age 27",
+        "    )"
     ]
 
     yaml_lines = [
@@ -113,30 +116,36 @@ def create_svg_comparison(theme='light'):
 
         content = line.lstrip(' ')
 
-        paren_match = re.match(r'^([^(]+)(\(.+\))$', content)
-        if paren_match:
-            key = paren_match.group(1).rstrip()
-            value = paren_match.group(2)
-            result.append((key, keyword_color))
-            result.append((' ', text_color))
-            result.append(('(', punctuation_color))
-            result.append((value[1:-1], string_color))
-            result.append((')', punctuation_color))
-        elif content and content[0].isdigit() and content.split()[0].isdigit():
-            parts = content.split(None, 1)
-            result.append((parts[0], number_color))
-            if len(parts) > 1:
-                result.append((' ' + parts[1], text_color))
-        elif ' ' in content:
-            parts = content.split(None, 1)
-            if parts[1].isdigit():
-                result.append((parts[0], keyword_color))
+        if content in ('(', ')'):
+            result.append((content, punctuation_color))
+        elif content.endswith(':'):
+            result.append((content[:-1], keyword_color))
+            result.append((':', punctuation_color))
+        else:
+            paren_match = re.match(r'^([^(]+)(\(.+\))$', content)
+            if paren_match:
+                key = paren_match.group(1).rstrip()
+                value = paren_match.group(2)
+                result.append((key, keyword_color))
                 result.append((' ', text_color))
-                result.append((parts[1], number_color))
+                result.append(('(', punctuation_color))
+                result.append((value[1:-1], string_color))
+                result.append((')', punctuation_color))
+            elif content and content[0].isdigit() and content.split()[0].isdigit():
+                parts = content.split(None, 1)
+                result.append((parts[0], number_color))
+                if len(parts) > 1:
+                    result.append((' ' + parts[1], text_color))
+            elif ' ' in content:
+                parts = content.split(None, 1)
+                if parts[1].isdigit():
+                    result.append((parts[0], keyword_color))
+                    result.append((' ', text_color))
+                    result.append((parts[1], number_color))
+                else:
+                    result.append((content, keyword_color))
             else:
                 result.append((content, keyword_color))
-        else:
-            result.append((content, keyword_color))
 
         return result
 

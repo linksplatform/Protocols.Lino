@@ -27,14 +27,14 @@
     <tspan x="40" y="115">2</tspan>
   </text>
   <text xml:space="preserve">
-    <tspan x="70" y="115" fill="#d4d4d4">  </tspan><tspan x="86.8" y="115" fill="#569cd6">employees</tspan>
+    <tspan x="70" y="115" fill="#d4d4d4">  </tspan><tspan x="86.8" y="115" fill="#569cd6">employees</tspan><tspan x="162.4" y="115" fill="#d4d4d4">:</tspan>
   </text>
 
   <text class="line-number">
     <tspan x="40" y="135">3</tspan>
   </text>
   <text xml:space="preserve">
-    <tspan x="70" y="135" fill="#d4d4d4">    </tspan><tspan x="103.6" y="135" fill="#b5cea8">1</tspan>
+    <tspan x="70" y="135" fill="#d4d4d4">    </tspan><tspan x="103.6" y="135" fill="#d4d4d4">(</tspan>
   </text>
 
   <text class="line-number">
@@ -55,42 +55,63 @@
     <tspan x="40" y="195">6</tspan>
   </text>
   <text xml:space="preserve">
-    <tspan x="70" y="195" fill="#d4d4d4">    </tspan><tspan x="103.6" y="195" fill="#b5cea8">2</tspan>
+    <tspan x="70" y="195" fill="#d4d4d4">    </tspan><tspan x="103.6" y="195" fill="#d4d4d4">)</tspan>
   </text>
 
   <text class="line-number">
     <tspan x="40" y="215">7</tspan>
   </text>
   <text xml:space="preserve">
-    <tspan x="70" y="215" fill="#d4d4d4">      </tspan><tspan x="120.4" y="215" fill="#569cd6">name</tspan><tspan x="154.0" y="215" fill="#d4d4d4"> </tspan><tspan x="162.4" y="215" fill="#d4d4d4">(</tspan><tspan x="170.8" y="215" fill="#ce9178">Jean-Luc Picard</tspan><tspan x="296.8" y="215" fill="#d4d4d4">)</tspan>
+    <tspan x="70" y="215" fill="#d4d4d4">    </tspan><tspan x="103.6" y="215" fill="#d4d4d4">(</tspan>
   </text>
 
   <text class="line-number">
     <tspan x="40" y="235">8</tspan>
   </text>
   <text xml:space="preserve">
-    <tspan x="70" y="235" fill="#d4d4d4">      </tspan><tspan x="120.4" y="235" fill="#569cd6">age</tspan><tspan x="145.60000000000002" y="235" fill="#d4d4d4"> </tspan><tspan x="154.00000000000003" y="235" fill="#b5cea8">45</tspan>
+    <tspan x="70" y="235" fill="#d4d4d4">      </tspan><tspan x="120.4" y="235" fill="#569cd6">name</tspan><tspan x="154.0" y="235" fill="#d4d4d4"> </tspan><tspan x="162.4" y="235" fill="#d4d4d4">(</tspan><tspan x="170.8" y="235" fill="#ce9178">Jean-Luc Picard</tspan><tspan x="296.8" y="235" fill="#d4d4d4">)</tspan>
   </text>
 
   <text class="line-number">
     <tspan x="40" y="255">9</tspan>
   </text>
   <text xml:space="preserve">
-    <tspan x="70" y="255" fill="#d4d4d4">    </tspan><tspan x="103.6" y="255" fill="#b5cea8">3</tspan>
+    <tspan x="70" y="255" fill="#d4d4d4">      </tspan><tspan x="120.4" y="255" fill="#569cd6">age</tspan><tspan x="145.60000000000002" y="255" fill="#d4d4d4"> </tspan><tspan x="154.00000000000003" y="255" fill="#b5cea8">45</tspan>
   </text>
 
   <text class="line-number">
     <tspan x="40" y="275">10</tspan>
   </text>
   <text xml:space="preserve">
-    <tspan x="70" y="275" fill="#d4d4d4">      </tspan><tspan x="120.4" y="275" fill="#569cd6">name</tspan><tspan x="154.0" y="275" fill="#d4d4d4"> </tspan><tspan x="162.4" y="275" fill="#d4d4d4">(</tspan><tspan x="170.8" y="275" fill="#ce9178">Wesley Crusher</tspan><tspan x="288.40000000000003" y="275" fill="#d4d4d4">)</tspan>
+    <tspan x="70" y="275" fill="#d4d4d4">    </tspan><tspan x="103.6" y="275" fill="#d4d4d4">)</tspan>
   </text>
 
   <text class="line-number">
     <tspan x="40" y="295">11</tspan>
   </text>
   <text xml:space="preserve">
-    <tspan x="70" y="295" fill="#d4d4d4">      </tspan><tspan x="120.4" y="295" fill="#569cd6">age</tspan><tspan x="145.60000000000002" y="295" fill="#d4d4d4"> </tspan><tspan x="154.00000000000003" y="295" fill="#b5cea8">27</tspan>
+    <tspan x="70" y="295" fill="#d4d4d4">    </tspan><tspan x="103.6" y="295" fill="#d4d4d4">(</tspan>
+  </text>
+
+  <text class="line-number">
+    <tspan x="40" y="315">12</tspan>
+  </text>
+  <text xml:space="preserve">
+    <tspan x="70" y="315" fill="#d4d4d4">      </tspan><tspan x="120.4" y="315" fill="#569cd6">name</tspan><tspan x="154.0" y="315" fill="#d4d4d4"> </tspan><tspan x="162.4" y="315" fill="#d4d4d4">(</tspan><tspan x="170.8" y="315" fill="#ce9178">Wesley Crusher</tspan><tspan x="288.40000000000003" y="315" fill="#d4d4d4">)</tspan>
+  </text>
+
+  <text class="line-number">
+    <tspan x="40" y="335">13</tspan>
+  </text>
+  <text xml:space="preserve">
+    <tspan x="70" y="335" fill="#d4d4d4">      </tspan><tspan x="120.4" y="335" fill="#569cd6">age</tspan><tspan x="145.60000000000002" y="335" fill="#d4d4d4"> </tspan><tspan x="154.00000000000003" y="335" fill="#b5cea8">27</tspan>
+  </text>
+
+  <text class="line-number">
+    <tspan x="40" y="355">14</tspan>
+  </text>
+  <text xml:space="preserve">
+    <tspan x="70" y="355" fill="#d4d4d4">    </tspan><tspan x="103.6" y="355" fill="#d4d4d4">)</tspan>
   </text>
 
   <rect x="620" y="50" width="560" height="360" class="border"/>
