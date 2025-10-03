@@ -13,7 +13,7 @@
 
 LinksPlatform's Platform.Protocols.Lino Class Library.
 
-![introduction](https://github.com/linksplatform/Documentation/raw/master/doc/Examples/json_xml_lino_comparison/b%26w.png "json, xml and lino comparison")
+![introduction](./docs/comparison/comparison.svg "json, xml and lino comparison")
 
 This library gives you an ability to convert any string that contains
 links notation into a list of links and back to the string after

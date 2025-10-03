@@ -41,7 +41,7 @@ def get_theme_colors(theme):
             'tag_color': '#660099',
             'punctuation_color': '#333333',
             'border_color': '#999999',
-            'title_color': '#000000'
+            'title_color': '#666666'
         }
 
 def highlight_lino(line, colors):
@@ -302,7 +302,7 @@ def create_svg_comparison(theme='light'):
     lino_lines, yaml_lines, json_lines, xml_lines = get_format_data()
 
     box_width = 560
-    box_height = 360
+    box_height = 390
     line_height = 20
     start_y = 95
 

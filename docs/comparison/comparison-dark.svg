@@ -13,7 +13,7 @@
 
   <text x="600" y="30" text-anchor="middle" class="title">Format Comparison: LiNo, YAML, JSON, XML</text>
 
-  <rect x="20" y="50" width="560" height="360" class="border"/>
+  <rect x="20" y="50" width="560" height="390" class="border"/>
   <text x="300" y="75" text-anchor="middle" class="format-title">LiNo</text>
 
   <text class="line-number">
@@ -114,7 +114,7 @@
     <tspan x="70" y="355" fill="#d4d4d4">    </tspan><tspan x="103.6" y="355" fill="#d4d4d4">)</tspan>
   </text>
 
-  <rect x="620" y="50" width="560" height="360" class="border"/>
+  <rect x="620" y="50" width="560" height="390" class="border"/>
   <text x="900" y="75" text-anchor="middle" class="format-title">YAML</text>
 
   <text class="line-number">
@@ -194,7 +194,7 @@
     <tspan x="670" y="295" fill="#d4d4d4">      </tspan><tspan x="720.4" y="295" fill="#569cd6">age</tspan><tspan x="745.6" y="295" fill="#d4d4d4">:</tspan><tspan x="754.0" y="295" fill="#d4d4d4"> </tspan><tspan x="762.4" y="295" fill="#b5cea8">27</tspan>
   </text>
 
-  <rect x="20" y="430" width="560" height="360" class="border"/>
+  <rect x="20" y="430" width="560" height="390" class="border"/>
   <text x="300" y="455" text-anchor="middle" class="format-title">JSON</text>
 
   <text class="line-number">
@@ -323,7 +323,7 @@
     <tspan x="70" y="815" fill="#d4d4d4">}</tspan>
   </text>
 
-  <rect x="620" y="430" width="560" height="360" class="border"/>
+  <rect x="620" y="430" width="560" height="390" class="border"/>
   <text x="900" y="455" text-anchor="middle" class="format-title">XML</text>
 
   <text class="line-number">
