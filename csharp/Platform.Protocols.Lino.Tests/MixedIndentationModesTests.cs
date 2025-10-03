@@ -112,12 +112,7 @@ namespace Platform.Protocols.Lino.Tests
             var formatted1 = result1.Format();
             var formatted2 = result2.Format();
 
-            Assert.Contains("empInfo", formatted1);
-            Assert.Contains("empInfo", formatted2);
-            Assert.Contains("employees", formatted1);
-            Assert.Contains("employees", formatted2);
-            Assert.Contains("James Kirk", formatted1);
-            Assert.Contains("James Kirk", formatted2);
+            Assert.Equal(formatted1, formatted2);
         }
 
         [Fact]
