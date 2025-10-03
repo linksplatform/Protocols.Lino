@@ -9,7 +9,7 @@ namespace Platform.Protocols.Lino
     /// <summary>
     /// Provides extension methods for formatting collections of <see cref="Link{TLinkAddress}"/> instances.
     /// </summary>
-    public static class IListExtensions
+    public static partial class IListExtensions
     {
         /// <summary>
         /// Formats a collection of links as a multi-line string with each link on a separate line.
