@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" style="font-family: 'Courier New', monospace; font-size: 14px;">
+  <defs>
+    <style>
+      .title { font-size: 18px; font-weight: bold; }
+      .format-title { font-size: 16px; font-weight: bold; }
+      .line-number { fill: #666; }
+      .code-text { fill: #000; }
+      .border { fill: none; stroke: #000; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- Main title -->
+  <text x="600" y="30" text-anchor="middle" class="title">Format Comparison: LiNo, YAML, JSON, XML</text>
+
+  <!-- LiNo section (top-left) -->
+  <rect x="20" y="50" width="560" height="360" class="border"/>
+  <text x="300" y="75" text-anchor="middle" class="format-title">LiNo</text>
+  <text x="40" y="105" class="line-number">1</text>
+  <text x="70" y="105" class="code-text">empInfo</text>
+  <text x="40" y="125" class="line-number">2</text>
+  <text x="70" y="125" class="code-text">  employees</text>
+  <text x="40" y="145" class="line-number">3</text>
+  <text x="70" y="145" class="code-text">    1</text>
+  <text x="40" y="165" class="line-number">4</text>
+  <text x="70" y="165" class="code-text">      name (James Kirk)</text>
+  <text x="40" y="185" class="line-number">5</text>
+  <text x="70" y="185" class="code-text">      age 40</text>
+  <text x="40" y="205" class="line-number">6</text>
+  <text x="70" y="205" class="code-text">    2</text>
+  <text x="40" y="225" class="line-number">7</text>
+  <text x="70" y="225" class="code-text">      name (Jean-Luc Picard)</text>
+  <text x="40" y="245" class="line-number">8</text>
+  <text x="70" y="245" class="code-text">      age 45</text>
+  <text x="40" y="265" class="line-number">9</text>
+  <text x="70" y="265" class="code-text">    3</text>
+  <text x="40" y="285" class="line-number">10</text>
+  <text x="70" y="285" class="code-text">      name (Wesley Crusher)</text>
+  <text x="40" y="305" class="line-number">11</text>
+  <text x="70" y="305" class="code-text">      age 27</text>
+
+  <!-- YAML section (top-right) -->
+  <rect x="620" y="50" width="560" height="360" class="border"/>
+  <text x="900" y="75" text-anchor="middle" class="format-title">YAML</text>
+  <text x="640" y="105" class="line-number">1</text>
+  <text x="670" y="105" class="code-text">empInfo:</text>
+  <text x="640" y="125" class="line-number">2</text>
+  <text x="670" y="125" class="code-text">  employees:</text>
+  <text x="640" y="145" class="line-number">3</text>
+  <text x="670" y="145" class="code-text">    - id: 1</text>
+  <text x="640" y="165" class="line-number">4</text>
+  <text x="670" y="165" class="code-text">      name: James Kirk</text>
+  <text x="640" y="185" class="line-number">5</text>
+  <text x="670" y="185" class="code-text">      age: 40</text>
+  <text x="640" y="205" class="line-number">6</text>
+  <text x="670" y="205" class="code-text">    - id: 2</text>
+  <text x="640" y="225" class="line-number">7</text>
+  <text x="670" y="225" class="code-text">      name: Jean-Luc Picard</text>
+  <text x="640" y="245" class="line-number">8</text>
+  <text x="670" y="245" class="code-text">      age: 45</text>
+  <text x="640" y="265" class="line-number">9</text>
+  <text x="670" y="265" class="code-text">    - id: 3</text>
+  <text x="640" y="285" class="line-number">10</text>
+  <text x="670" y="285" class="code-text">      name: Wesley Crusher</text>
+  <text x="640" y="305" class="line-number">11</text>
+  <text x="670" y="305" class="code-text">      age: 27</text>
+
+  <!-- JSON section (bottom-left) -->
+  <rect x="20" y="430" width="560" height="350" class="border"/>
+  <text x="300" y="455" text-anchor="middle" class="format-title">JSON</text>
+  <text x="40" y="485" class="line-number">1</text>
+  <text x="70" y="485" class="code-text">{</text>
+  <text x="40" y="505" class="line-number">2</text>
+  <text x="70" y="505" class="code-text">  "empInfo": {</text>
+  <text x="40" y="525" class="line-number">3</text>
+  <text x="70" y="525" class="code-text">    "employees": [</text>
+  <text x="40" y="545" class="line-number">4</text>
+  <text x="70" y="545" class="code-text">      {</text>
+  <text x="40" y="565" class="line-number">5</text>
+  <text x="70" y="565" class="code-text">        "name": "James Kirk",</text>
+  <text x="40" y="585" class="line-number">6</text>
+  <text x="70" y="585" class="code-text">        "age": 40</text>
+  <text x="40" y="605" class="line-number">7</text>
+  <text x="70" y="605" class="code-text">      },</text>
+  <text x="40" y="625" class="line-number">8</text>
+  <text x="70" y="625" class="code-text">      {</text>
+  <text x="40" y="645" class="line-number">9</text>
+  <text x="70" y="645" class="code-text">        "name": "Jean-Luc Picard",</text>
+  <text x="40" y="665" class="line-number">10</text>
+  <text x="70" y="665" class="code-text">        "age": 45</text>
+  <text x="40" y="685" class="line-number">11</text>
+  <text x="70" y="685" class="code-text">      },</text>
+  <text x="40" y="705" class="line-number">12</text>
+  <text x="70" y="705" class="code-text">      {</text>
+  <text x="40" y="725" class="line-number">13</text>
+  <text x="70" y="725" class="code-text">        "name": "Wesley Crusher",</text>
+  <text x="40" y="745" class="line-number">14</text>
+  <text x="70" y="745" class="code-text">        "age": 27</text>
+  <text x="40" y="765" class="line-number">15</text>
+  <text x="70" y="765" class="code-text">      }</text>
+
+  <!-- XML section (bottom-right) -->
+  <rect x="620" y="430" width="560" height="350" class="border"/>
+  <text x="900" y="455" text-anchor="middle" class="format-title">XML</text>
+  <text x="640" y="485" class="line-number">1</text>
+  <text x="670" y="485" class="code-text">&lt;empInfo&gt;</text>
+  <text x="640" y="505" class="line-number">2</text>
+  <text x="670" y="505" class="code-text">  &lt;employees&gt;</text>
+  <text x="640" y="525" class="line-number">3</text>
+  <text x="670" y="525" class="code-text">    &lt;employee&gt;</text>
+  <text x="640" y="545" class="line-number">4</text>
+  <text x="670" y="545" class="code-text">      &lt;name&gt;James Kirk&lt;/name&gt;</text>
+  <text x="640" y="565" class="line-number">5</text>
+  <text x="670" y="565" class="code-text">      &lt;age&gt;40&lt;/age&gt;</text>
+  <text x="640" y="585" class="line-number">6</text>
+  <text x="670" y="585" class="code-text">    &lt;/employee&gt;</text>
+  <text x="640" y="605" class="line-number">7</text>
+  <text x="670" y="605" class="code-text">    &lt;employee&gt;</text>
+  <text x="640" y="625" class="line-number">8</text>
+  <text x="670" y="625" class="code-text">      &lt;name&gt;Jean-Luc Picard&lt;/name&gt;</text>
+  <text x="640" y="645" class="line-number">9</text>
+  <text x="670" y="645" class="code-text">      &lt;age&gt;45&lt;/age&gt;</text>
+  <text x="640" y="665" class="line-number">10</text>
+  <text x="670" y="665" class="code-text">    &lt;/employee&gt;</text>
+  <text x="640" y="685" class="line-number">11</text>
+  <text x="670" y="685" class="code-text">    &lt;employee&gt;</text>
+  <text x="640" y="705" class="line-number">12</text>
+  <text x="670" y="705" class="code-text">      &lt;name&gt;Wesley Crusher&lt;/name&gt;</text>
+  <text x="640" y="725" class="line-number">13</text>
+  <text x="670" y="725" class="code-text">      &lt;age&gt;27&lt;/age&gt;</text>
+  <text x="640" y="745" class="line-number">14</text>
+  <text x="670" y="745" class="code-text">    &lt;/employee&gt;</text>
+  <text x="640" y="765" class="line-number">15</text>
+  <text x="670" y="765" class="code-text">  &lt;/employees&gt;</text>
+</svg>
