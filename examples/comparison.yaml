@@ -1,35 +1,11 @@
-family:
-  parents:
-    father: John
-    mother: Mary
-  children:
-    son: Tom
-    daughter: Alice
-  
-relationships:
-  - subject: John
-    predicate: loves
-    object: Mary
-  - subject: Mary
-    predicate: loves
-    object: John
-  - subject: parents
-    predicate: love
-    object: children
-
-pets:
-  dog: Rex
-  cat: Whiskers
-
-pet_ownership:
-  - subject: Rex
-    predicate: belongs_to
-    object: family
-  - subject: Whiskers
-    predicate: belongs_to
-    object: family
-
-address:
-  street: "123 Main St"
-  city: Springfield
-  state: Illinois
+empInfo:
+  employees:
+    - id: 1
+      name: James Kirk
+      age: 40
+    - id: 2
+      name: Jean-Luc Picard
+      age: 45
+    - id: 3
+      name: Wesley Crusher
+      age: 27
