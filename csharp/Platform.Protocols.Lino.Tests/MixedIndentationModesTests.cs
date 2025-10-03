@@ -191,8 +191,8 @@ namespace Platform.Protocols.Lino.Tests
             Assert.NotEmpty(result);
             var formatted = result.Format();
             Assert.Contains("company", formatted);
-            Assert.Contains("departments", formatted);
-            Assert.Contains("employees", formatted);
+            Assert.Contains("departments:", formatted);
+            Assert.Contains("employees:", formatted);
         }
 
         [Fact]
@@ -212,7 +212,7 @@ namespace Platform.Protocols.Lino.Tests
             Assert.NotEmpty(result);
             var formatted = result.Format();
             Assert.Contains("root", formatted);
-            Assert.Contains("level2", formatted);
+            Assert.Contains("level2:", formatted);
         }
     }
 }
