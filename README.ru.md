@@ -13,7 +13,7 @@
 
 Библиотека классов ПлатформыСвязей Platform.Protocols.Lino.
 
-![introduction](https://github.com/linksplatform/Documentation/raw/master/doc/Examples/json_xml_lino_comparison/b%26w.png "сравнение json, xml и lino")
+![introduction](./docs/comparison/comparison.svg "сравнение json, xml и lino")
 
 Эта библиотека дает вам возможность преобразовать любую строку,
 содержащую обозначение связей, в список связей и форматировать этот
