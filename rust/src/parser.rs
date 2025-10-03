@@ -15,6 +15,7 @@ pub struct Link {
     pub id: Option<String>,
     pub values: Vec<Link>,
     pub children: Vec<Link>,
+    pub is_indented_id: bool,
 }
 
 impl Link {
@@ -23,6 +24,16 @@ impl Link {
             id: Some(id),
             values: vec![],
             children: vec![],
+            is_indented_id: false,
+        }
+    }
+
+    pub fn new_indented_id(id: String) -> Self {
+        Link {
+            id: Some(id),
+            values: vec![],
+            children: vec![],
+            is_indented_id: true,
         }
     }
 
@@ -31,6 +42,7 @@ impl Link {
             id: None,
             values,
             children: vec![],
+            is_indented_id: false,
         }
     }
 
@@ -39,6 +51,7 @@ impl Link {
             id,
             values,
             children: vec![],
+            is_indented_id: false,
         }
     }
 
@@ -211,6 +224,16 @@ fn single_line_value_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'
         .parse(input)
 }
 
+fn indented_id_link<'a>(input: &'a str, _state: &ParserState) -> IResult<&'a str, Link> {
+    (
+        reference,
+        horizontal_whitespace,
+        char(':'),
+        eol
+    ).map(|(id, _, _, _)| Link::new_indented_id(id))
+    .parse(input)
+}
+
 fn multi_line_value_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
     (
         char('('),
@@ -244,6 +267,7 @@ fn single_line_any_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a 
 fn any_link<'a>(input: &'a str, state: &ParserState) -> IResult<&'a str, Link> {
     alt((
         terminated(|i| multi_line_any_link(i, state), eol),
+        |i| indented_id_link(i, state),
         |i| single_line_any_link(i, state),
     )).parse(input)
 }

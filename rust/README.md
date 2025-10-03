@@ -1,6 +1,7 @@
 # Lino Protocol Parser for Rust
 
-Rust implementation of the Lino protocol parser using nom parser combinator library.
+Rust implementation of the Lino protocol parser using nom parser combinator
+library.
 
 ## Installation
 
@@ -147,7 +148,8 @@ let parsed = parse_lino(quoted)?;
 ## Syntax Examples
 
 ### Doublets (2-tuple)
-```
+
+```lino
 papa (lovesMama: loves mama)
 son lovesMama
 daughter lovesMama
@@ -155,21 +157,24 @@ all (love mama)
 ```
 
 ### Triplets (3-tuple)
-```
+
+```lino
 papa has car
 mama has house
 (papa and mama) are happy
 ```
 
 ### N-tuples with References
-```
+
+```lino
 (linksNotation: links notation)
 (This is a linksNotation as well)
 (linksNotation supports (unlimited number (of references) in each link))
 ```
 
 ### Indented Structure
-```
+
+```lino
 parent
   child1
   child2
@@ -182,24 +187,30 @@ parent
 ### Enums
 
 #### `LiNo<T>`
+
 Represents either a Link or a Reference:
-- `Link { id: Option<T>, values: Vec<Self> }` - A link with optional ID and child values
+
+- `Link { id: Option<T>, values: Vec<Self> }` - A link with optional ID and
+  child values
 - `Ref(T)` - A reference to another link
 
 ### Methods
 
-#### `LiNo<T>`
+#### Methods for `LiNo<T>`
+
 - `is_ref() -> bool` - Returns true if this is a reference
 - `is_link() -> bool` - Returns true if this is a link
 
 ### Functions
 
 #### `parse_lino(document: &str) -> Result<LiNo<String>, String>`
+
 Parses a Lino document string and returns the parsed structure or an error.
 
 ### Formatting
 
 The `Display` trait is implemented for `LiNo<T>` where `T: ToString`:
+
 - Regular format: `format!("{}", lino)` - Parenthesized output
 - Alternate format: `format!("{:#}", lino)` - Line-based output
 
@@ -210,6 +221,7 @@ The `Display` trait is implemented for `LiNo<T>` where `T: ToString`:
 ## Error Handling
 
 The parser returns descriptive error messages for:
+
 - Empty or whitespace-only input
 - Malformed syntax
 - Unclosed parentheses

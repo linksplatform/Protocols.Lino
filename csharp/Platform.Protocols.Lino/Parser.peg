@@ -7,7 +7,7 @@ firstLine <LinksGroup<string>> = l:element { l }
 line <LinksGroup<string>> = CHECK_INDENTATION l:element { l }
 element <LinksGroup<string>> = e:anyLink PUSH_INDENTATION l:links { new LinksGroup<string>(e, l) } / e:anyLink { new LinksGroup<string>(e) }
 referenceOrLink <Link<string>> = l:multiLineAnyLink { l } / i:reference { i }
-anyLink <Link<string>> = ml:multiLineAnyLink eol { ml } / sl:singleLineAnyLink { sl }
+anyLink <Link<string>> = ml:multiLineAnyLink eol { ml } / il:indentedIdLink { il } / sl:singleLineAnyLink { sl }
 multiLineAnyLink <Link<string>> = multiLineValueLink / multiLineLink
 singleLineAnyLink <Link<string>> = fl:singleLineLink eol { fl } / vl:singleLineValueLink eol { vl }
 multiLineValueAndWhitespace <Link<string>> = value:referenceOrLink _ { value }
@@ -18,6 +18,7 @@ singleLineLink <Link<string>> = __ id:(reference) __ ":" v:singleLineValues { ne
 multiLineLink <Link<string>> = "(" _ id:(reference) _ ":" v:multiLineValues _ ")" { new Link<string>(id, v) }
 singleLineValueLink <Link<string>> = v:singleLineValues { new Link<string>(v) }
 multiLineValueLink <Link<string>> = "(" v:multiLineValues _ ")" { new Link<string>(v) }
+indentedIdLink <Link<string>> = id:(reference) __ ":" eol { new Link<string>(id) }
 
 reference <string> = doubleQuotedReference / singleQuotedReference / simpleReference 
 simpleReference <string> = "" referenceSymbol+

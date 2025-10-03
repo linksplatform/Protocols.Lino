@@ -36,7 +36,7 @@ element = e:anyLink PUSH_INDENTATION l:links {
 
 referenceOrLink = l:multiLineAnyLink { return l; } / i:reference { return { id: i }; }
 
-anyLink = ml:multiLineAnyLink eol { return ml; } / sl:singleLineAnyLink { return sl; }
+anyLink = ml:multiLineAnyLink eol { return ml; } / il:indentedIdLink { return il; } / sl:singleLineAnyLink { return sl; }
 
 multiLineAnyLink = multiLineValueLink / multiLineLink
 
@@ -58,6 +58,8 @@ multiLineLink = "(" _ id:reference _ ":" v:multiLineValues _ ")" { return { id: 
 singleLineValueLink = v:singleLineValues { return { values: v }; }
 
 multiLineValueLink = "(" v:multiLineValues _ ")" { return { values: v }; }
+
+indentedIdLink = id:reference __ ":" eol { return { id: id, values: [] }; }
 
 reference = doubleQuotedReference / singleQuotedReference / simpleReference 
 
