@@ -204,8 +204,15 @@ def render_line(tokens, x_start, y):
             x += len(text) * CHAR_WIDTH
     return ''.join(svg_parts)
 
-def render_format_box(format_name, box_x, box_y, lines, highlighter, colors, box_width, box_height, line_height, start_y):
-    svg = f'  <rect x="{box_x}" y="{box_y}" width="{box_width}" height="{box_height}" class="border"/>\n'
+def render_format_box(format_name, box_x, box_y, lines, highlighter, colors, box_width, box_height, line_height, start_y, is_shared_border=False):
+    # Only render border if not shared, or render partial border for shared borders
+    if is_shared_border:
+        # For shared borders, only draw left and top borders
+        svg = f'  <line x1="{box_x}" y1="{box_y}" x2="{box_x + box_width}" y2="{box_y}" class="border-line"/>\n'
+        svg += f'  <line x1="{box_x}" y1="{box_y}" x2="{box_x}" y2="{box_y + box_height}" class="border-line"/>\n'
+    else:
+        svg = f'  <rect x="{box_x}" y="{box_y}" width="{box_width}" height="{box_height}" class="border"/>\n'
+
     svg += f'  <text x="{box_x + box_width//2}" y="{box_y + 25}" text-anchor="middle" class="format-title">{format_name}</text>\n\n'
 
     for i, line in enumerate(lines):
@@ -301,37 +308,76 @@ def create_svg_comparison(theme='light'):
     colors = get_theme_colors(theme)
     lino_lines, yaml_lines, json_lines, xml_lines = get_format_data()
 
-    box_width = 560
-    box_height = 390
+    # Calculate box dimensions based on content
+    box_width = 580
+    box_height = 370
     line_height = 20
     start_y = 95
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" style="font-family: 'Courier New', monospace; font-size: 14px;">
+    # Total dimensions with shared borders
+    margin = 20
+    total_width = margin + (box_width * 2) + margin
+    total_height = margin + 20 + (box_height * 2) + margin  # +20 for title
+
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {total_width} {total_height}" style="font-family: 'Courier New', monospace; font-size: 14px;">
   <defs>
     <style>
       .title {{ font-size: 18px; font-weight: bold; fill: {colors['title_color']}; }}
       .format-title {{ font-size: 16px; font-weight: bold; fill: {colors['title_color']}; }}
       .line-number {{ fill: {colors['line_num_color']}; }}
       .border {{ fill: none; stroke: {colors['border_color']}; stroke-width: 2; }}
+      .border-line {{ stroke: {colors['border_color']}; stroke-width: 2; }}
       .bg {{ fill: {colors['bg_color']}; }}
     </style>
   </defs>
 
-  <rect x="0" y="0" width="1200" height="800" class="bg"/>
+  <rect x="0" y="0" width="{total_width}" height="{total_height}" class="bg"/>
 
-  <text x="600" y="30" text-anchor="middle" class="title">Format Comparison: LiNo, YAML, JSON, XML</text>
+  <text x="{total_width//2}" y="30" text-anchor="middle" class="title">Format Comparison: LiNo, YAML, JSON, XML</text>
 
 '''
 
+    # Draw outer border for the entire 2x2 grid
+    grid_x = margin
+    grid_y = 50
+    grid_width = box_width * 2
+    grid_height = box_height * 2
+
+    svg += f'  <rect x="{grid_x}" y="{grid_y}" width="{grid_width}" height="{grid_height}" class="border"/>\n'
+
+    # Draw center vertical line
+    svg += f'  <line x1="{grid_x + box_width}" y1="{grid_y}" x2="{grid_x + box_width}" y2="{grid_y + grid_height}" class="border-line"/>\n'
+
+    # Draw center horizontal line
+    svg += f'  <line x1="{grid_x}" y1="{grid_y + box_height}" x2="{grid_x + grid_width}" y2="{grid_y + box_height}" class="border-line"/>\n'
+
+    svg += '\n'
+
+    # Render boxes without their own borders (using the shared grid)
     boxes = [
-        ("LiNo", 20, 50, lino_lines, highlight_lino),
-        ("YAML", 620, 50, yaml_lines, highlight_yaml),
-        ("JSON", 20, 430, json_lines, highlight_json),
-        ("XML", 620, 430, xml_lines, highlight_xml)
+        ("LiNo", grid_x, grid_y, lino_lines, highlight_lino),
+        ("YAML", grid_x + box_width, grid_y, yaml_lines, highlight_yaml),
+        ("JSON", grid_x, grid_y + box_height, json_lines, highlight_json),
+        ("XML", grid_x + box_width, grid_y + box_height, xml_lines, highlight_xml)
     ]
 
     for format_name, box_x, box_y, lines, highlighter in boxes:
-        svg += render_format_box(format_name, box_x, box_y, lines, highlighter, colors, box_width, box_height, line_height, start_y)
+        # Add title
+        svg += f'  <text x="{box_x + box_width//2}" y="{box_y + 25}" text-anchor="middle" class="format-title">{format_name}</text>\n\n'
+
+        # Add content
+        for i, line in enumerate(lines):
+            y = box_y + start_y - 50 + (i * line_height)
+            line_num = i + 1
+
+            svg += '  <text class="line-number">\n'
+            svg += f'    <tspan x="{box_x + 20}" y="{y}">{line_num}</tspan>\n'
+            svg += '  </text>\n'
+
+            tokens = highlighter(line, colors)
+            svg += '  <text xml:space="preserve">\n'
+            svg += f'    {render_line(tokens, box_x + 50, y)}\n'
+            svg += '  </text>\n\n'
 
     svg += '</svg>\n'
 
