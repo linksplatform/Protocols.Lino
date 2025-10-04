@@ -70,7 +70,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Platform.Protocols.Lino.Link<TLinkAddress>",
-      "Summary": "<p sourcefile=\"obj/api/Platform.Protocols.Lino.Link-1.yml\" sourcestartlinenumber=\"1\">Represents a link in the Lino protocol with an optional identifier and nested values.\nLinks can represent simple references, complex nested structures, or relationships between entities.</p>\n"
+      "Summary": "<p sourcefile=\"obj/api/Platform.Protocols.Lino.Link-1.yml\" sourcestartlinenumber=\"1\">Represents a link in the Lino protocol with an optional identifier and nested values.\nLinks can represent simple references, complex nested structures, or relationships between references to links.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -146,11 +146,11 @@
       "type": "Toc",
       "source_relative_path": "obj/api/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "api/toc.json"
-        },
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -159,11 +159,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "toc.json"
-        },
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""

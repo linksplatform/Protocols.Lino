@@ -72,10 +72,11 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="lino-protocol-parser-for-c">Lino Protocol Parser for C#</h1>
 
-<p>C# implementation of the Lino protocol parser using Pegasus parser generator and Platform.Collections.</p>
+<p>C# implementation of the Lino protocol parser using Pegasus parser
+generator and Platform.Collections.</p>
 <h2 id="installation">Installation</h2>
 <h3 id="package-manager">Package Manager</h3>
-<pre><code>Install-Package Platform.Protocols.Lino
+<pre><code class="lang-text">Install-Package Platform.Protocols.Lino
 </code></pre>
 <h3 id="net-cli">.NET CLI</h3>
 <pre><code class="lang-bash">dotnet add package Platform.Protocols.Lino
@@ -142,18 +143,18 @@ var customParser = new Parser&lt;Guid&gt;();
 </code></pre>
 <h2 id="syntax-examples">Syntax Examples</h2>
 <h3 id="doublets-2-tuple">Doublets (2-tuple)</h3>
-<pre><code>papa (lovesMama: loves mama)
+<pre><code class="lang-lino">papa (lovesMama: loves mama)
 son lovesMama
 daughter lovesMama
 all (love mama)
 </code></pre>
 <h3 id="triplets-3-tuple">Triplets (3-tuple)</h3>
-<pre><code>papa has car
+<pre><code class="lang-lino">papa has car
 mama has house
 (papa and mama) are happy
 </code></pre>
 <h3 id="n-tuples-with-references">N-tuples with References</h3>
-<pre><code>(linksNotation: links notation)
+<pre><code class="lang-lino">(linksNotation: links notation)
 (This is a linksNotation as well)
 (linksNotation supports (unlimited number (of references) in each link))
 </code></pre>
@@ -177,7 +178,8 @@ mama has house
 <li>Platform.Collections (0.3.2)</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
-<p>For complete API documentation, visit: <a href="https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html">Platform.Protocols.Lino Documentation</a></p>
+<p>For complete API documentation, visit:
+<a href="https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html">Platform.Protocols.Lino Documentation</a></p>
 
 </article>
           </div>
