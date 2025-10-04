@@ -155,8 +155,8 @@ jobs:
           RELEASE_NAME="[C#] $PACKAGE_VERSION"
           RELEASE_BODY="$PACKAGE_URL
 
-$PACKAGE_RELEASE_NOTES"
-          
+          $PACKAGE_RELEASE_NOTES"
+
           ./publish-release.sh "$TAG" "$RELEASE_NAME" "$RELEASE_BODY"
   generatePdfWithCode:
     runs-on: ubuntu-latest
