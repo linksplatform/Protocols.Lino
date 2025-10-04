@@ -311,6 +311,7 @@ body {
     border-radius: 0.5rem;
     overflow-x: auto;
     border-left: 3px solid var(--primary-color);
+    -webkit-overflow-scrolling: touch;
 }
 
 .example-card code {
@@ -318,6 +319,8 @@ body {
     font-size: 0.8125rem;
     color: var(--text-primary);
     line-height: 1.5;
+    display: block;
+    min-width: fit-content;
 }
 
 /* Playground */
@@ -448,6 +451,7 @@ body {
     border-radius: 0.5rem;
     overflow-x: auto;
     border-left: 3px solid var(--primary-color);
+    -webkit-overflow-scrolling: touch;
 }
 
 .code-example code {
@@ -455,6 +459,8 @@ body {
     font-size: 0.8125rem;
     color: var(--text-primary);
     line-height: 1.5;
+    display: block;
+    min-width: fit-content;
 }
 
 /* Footer */
