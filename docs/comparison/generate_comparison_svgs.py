@@ -251,14 +251,11 @@ def get_format_data():
     yaml_lines = [
         "empInfo:",
         "  employees:",
-        "    - id: 1",
-        "      name: James Kirk",
+        "    - name: James Kirk",
         "      age: 40",
-        "    - id: 2",
-        "      name: Jean-Luc Picard",
+        "    - name: Jean-Luc Picard",
         "      age: 45",
-        "    - id: 3",
-        "      name: Wesley Crusher",
+        "    - name: Wesley Crusher",
         "      age: 27"
     ]
 
@@ -310,7 +307,7 @@ def create_svg_comparison(theme='light'):
 
     # Calculate box dimensions based on content
     box_width = 580
-    box_height = 370
+    box_height = 420
     line_height = 20
     start_y = 95
 
