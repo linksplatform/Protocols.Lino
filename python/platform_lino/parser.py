@@ -5,14 +5,12 @@ This module provides parsing functionality for Links Notation (Lino),
 converting text into structured Link objects.
 """
 
-import re
-from typing import List, Optional, Tuple, Dict, Any
+from typing import List, Optional, Dict, Any
 from .link import Link
 
 
 class ParseError(Exception):
     """Exception raised when parsing fails."""
-    pass
 
 
 class Parser:

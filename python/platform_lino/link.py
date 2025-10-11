@@ -2,7 +2,7 @@
 Link class representing a Lino link with optional ID and values.
 """
 
-from typing import List, Optional, Union
+from typing import List, Optional
 
 
 class Link:
@@ -15,15 +15,15 @@ class Link:
     - A link with only values (no id)
     """
 
-    def __init__(self, id: Optional[str] = None, values: Optional[List['Link']] = None):
+    def __init__(self, link_id: Optional[str] = None, values: Optional[List['Link']] = None):
         """
         Initialize a Link.
 
         Args:
-            id: Optional identifier for the link
+            link_id: Optional identifier for the link
             values: Optional list of child links
         """
-        self.id = id
+        self.id = link_id
         self.values = values if values is not None else []
         self._is_from_path_combination = False
 

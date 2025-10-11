@@ -1,6 +1,5 @@
 """API tests for Lino parser - ported from JS/Rust implementations."""
 
-import pytest
 from platform_lino import Parser, Link
 
 
