@@ -4,6 +4,7 @@
 |:-|-:|:-|
 | [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/rust/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=rust) | [![Crates.io Version and Downloads count](https://img.shields.io/crates/v/platform-lino?label=crates.io&style=flat)](https://crates.io/crates/platform-lino) | **[Rust](rust/README.md)** |
 | [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/csharp/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=csharp) | [![NuGet Version and Downloads count](https://img.shields.io/nuget/v/Platform.Protocols.Lino?label=nuget&style=flat)](https://www.nuget.org/packages/Platform.Protocols.Lino) | **[C#](csharp/README.md)** |
+| [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/python/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=python) | [![PyPI Version and Downloads count](https://img.shields.io/pypi/v/platform-lino?label=pypi&style=flat)](https://pypi.org/project/platform-lino/) | **[Python](python/README.md)** |
 
 [![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/linksplatform/Protocols.Lino)
 [![Open in GitHub Codespaces](https://img.shields.io/badge/GitHub%20Codespaces-Open-181717?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=linksplatform/Protocols.Lino)
@@ -45,6 +46,14 @@ const links = parser.parse("papa (lovesMama: loves mama)");
 ```rust
 use lino::parse_lino;
 let links = parse_lino("papa (lovesMama: loves mama)").unwrap();
+```
+
+### Python
+
+```python
+from platform_lino import Parser
+parser = Parser()
+links = parser.parse("papa (lovesMama: loves mama)")
 ```
 
 ## Examples
@@ -127,6 +136,7 @@ language-specific documentation:
 - **[C# README](csharp/README.md)** - Installation and usage guide
 - **[JavaScript README](js/README.md)** - Modern web development guide
 - **[Rust README](rust/README.md)** - High-performance parsing guide
+- **[Python README](python/README.md)** - Python package guide
 
 Additional resources:
 
