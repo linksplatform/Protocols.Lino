@@ -1,4 +1,4 @@
-use lino::{parse_lino, LiNo};
+use links_notation::{parse_lino, LiNo};
 
 #[test]
 fn test_is_ref() {

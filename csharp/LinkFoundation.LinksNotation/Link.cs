@@ -5,7 +5,7 @@ using System.Text;
 using Platform.Collections;
 using Platform.Collections.Lists;
 
-namespace Platform.Protocols.Lino
+namespace LinkFoundation.LinksNotation
 {
     /// <summary>
     /// Represents a link in the Lino protocol with an optional identifier and nested values.

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace Platform.Protocols.Lino
+namespace LinkFoundation.LinksNotation
 {
     /// <summary>
     /// Provides extension methods for collections of <see cref="LinksGroup{TLinkAddress}"/> instances.

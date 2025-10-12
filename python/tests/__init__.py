@@ -1,1 +1,1 @@
-"""Test suite for platform_lino."""
+"""Test suite for links_notation."""

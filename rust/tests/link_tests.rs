@@ -1,4 +1,4 @@
-use lino::LiNo;
+use links_notation::LiNo;
 
 #[test]
 fn link_constructor_with_id_only_test() {

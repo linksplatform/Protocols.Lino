@@ -57,7 +57,7 @@ cargo test -- --nocapture
 ### Базовый парсинг
 
 ```rust
-use lino::{parse_lino, LiNo};
+use links_notation::{parse_lino, LiNo};
 
 fn main() {
     // Парсинг строки в формате Lino
@@ -85,7 +85,7 @@ fn main() {
 ### Работа со связями
 
 ```rust
-use lino::LiNo;
+use links_notation::LiNo;
 
 // Создание связей программно
 let reference = LiNo::Ref("некоторое_значение".to_string());
@@ -109,7 +109,7 @@ if reference.is_ref() {
 ### Форматирование вывода
 
 ```rust
-use lino::parse_lino;
+use links_notation::parse_lino;
 
 let input = "(родитель: ребенок1 ребенок2)";
 let parsed = parse_lino(input).unwrap();
@@ -124,7 +124,7 @@ println!("Альтернативное: {:#}", parsed);
 ### Обработка различных форматов ввода
 
 ```rust
-use lino::parse_lino;
+use links_notation::parse_lino;
 
 // Формат одной строки
 let single_line = "идентификатор: значение1 значение2";

@@ -1,4 +1,4 @@
-use lino::LiNo;
+use links_notation::LiNo;
 
 #[test]
 fn links_group_constructor_equivalent_test() {

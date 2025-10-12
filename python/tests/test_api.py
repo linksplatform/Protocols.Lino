@@ -1,6 +1,6 @@
 """API tests for Lino parser - ported from JS/Rust implementations."""
 
-from platform_lino import Parser, Link
+from links_notation import Parser, Link
 
 
 parser = Parser()

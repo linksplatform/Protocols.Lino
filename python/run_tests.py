@@ -7,7 +7,7 @@ import os
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(__file__))
 
-from platform_lino import Parser, Link, format_links
+from links_notation import Parser, Link, format_links
 
 
 def test_link_basic():

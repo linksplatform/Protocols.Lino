@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace Platform.Protocols.Lino
+namespace LinkFoundation.LinksNotation
 {
     /// <summary>
     /// A utility struct that provides convenient implicit conversions for creating links from various tuple combinations.

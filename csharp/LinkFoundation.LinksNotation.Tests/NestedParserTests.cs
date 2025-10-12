@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Xunit;
 
-namespace Platform.Protocols.Lino.Tests
+namespace LinkFoundation.LinksNotation.Tests
 {
     public static class NestedParserTests
     {

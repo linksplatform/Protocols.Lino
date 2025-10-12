@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace Platform.Protocols.Lino.Tests
+namespace LinkFoundation.LinksNotation.Tests
 {
     public static class EdgeCaseParserTests
     {

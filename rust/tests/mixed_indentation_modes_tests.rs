@@ -1,4 +1,4 @@
-use lino::parse_lino_to_links;
+use links_notation::parse_lino_to_links;
 
 #[cfg(test)]
 mod tests {

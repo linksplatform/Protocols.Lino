@@ -1,4 +1,4 @@
-@namespace Platform.Protocols.Lino
+@namespace LinkFoundation.LinksNotation
 @classname Parser
 @using System.Linq
 document <IList<Link<string>>> = #{ state["IndentationStack"] = new Stack<int>(); state["IndentationStack"].Push(0); } _ l:links eof { l.ToLinksList() } / #{ state["IndentationStack"] = new Stack<int>(); state["IndentationStack"].Push(0); } _ eof { new List<Link<string>>() }

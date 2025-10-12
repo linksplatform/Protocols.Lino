@@ -57,7 +57,7 @@ cargo test -- --nocapture
 ### Basic Parsing
 
 ```rust
-use lino::{parse_lino, LiNo};
+use links_notation::{parse_lino, LiNo};
 
 fn main() {
     // Parse Lino format string
@@ -85,7 +85,7 @@ all (love mama)"#;
 ### Working with Links
 
 ```rust
-use lino::LiNo;
+use links_notation::LiNo;
 
 // Create links programmatically
 let reference = LiNo::Ref("some_value".to_string());
@@ -109,7 +109,7 @@ if reference.is_ref() {
 ### Formatting Output
 
 ```rust
-use lino::parse_lino;
+use links_notation::parse_lino;
 
 let input = "(parent: child1 child2)";
 let parsed = parse_lino(input).unwrap();
@@ -124,7 +124,7 @@ println!("Alternate: {:#}", parsed);
 ### Handling Different Input Formats
 
 ```rust
-use lino::parse_lino;
+use links_notation::parse_lino;
 
 // Single line format
 let single_line = "id: value1 value2";

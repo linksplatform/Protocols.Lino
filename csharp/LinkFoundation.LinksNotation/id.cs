@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace Platform.Protocols.Lino
+namespace LinkFoundation.LinksNotation
 {
     /// <summary>
     /// A readonly struct that explicitly represents a link identifier/address.

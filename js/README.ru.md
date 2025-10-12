@@ -52,7 +52,7 @@ bun test --watch
 ### Базовый парсинг
 
 ```javascript
-import { Parser, Link } from '@linksplatform/protocols-lino';
+import { Parser, Link } from 'links-notation';
 
 // Создание парсера
 const parser = new Parser();
@@ -75,7 +75,7 @@ result.forEach(link => {
 ### Работа со связями
 
 ```javascript
-import { Link } from '@linksplatform/protocols-lino';
+import { Link } from 'links-notation';
 
 // Создание связей программно
 const link = new Link('родитель', [
@@ -103,7 +103,7 @@ const input = `родитель
 const parsed = await parser.parse(input);
 
 // Работа с группами
-import { LinksGroup } from '@linksplatform/protocols-lino';
+import { LinksGroup } from 'links-notation';
 const group = new LinksGroup(parsed);
 console.log(group.format());
 ```
@@ -188,6 +188,6 @@ console.log(group.format());
 
 ## Информация о пакете
 
-- Пакет: `@linksplatform/protocols-lino`
+- Пакет: `links-notation`
 - Версия: 0.1.0
 - Лицензия: MIT

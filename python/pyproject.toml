@@ -3,8 +3,8 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "platform-lino"
-version = "0.7.0"
+name = "links-notation"
+version = "0.8.0"
 description = "Python implementation of the Lino protocol parser"
 readme = "README.md"
 license = {text = "Unlicense"}
@@ -33,7 +33,7 @@ Repository = "https://github.com/linksplatform/Protocols.Lino"
 Issues = "https://github.com/linksplatform/Protocols.Lino/issues"
 
 [tool.setuptools]
-packages = ["platform_lino"]
+packages = ["links_notation"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

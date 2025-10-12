@@ -1,5 +1,5 @@
-use lino::parse_lino;
-use lino::parser::parse_document;
+use links_notation::parse_lino;
+use links_notation::parser::parse_document;
 
 #[test]
 fn significant_whitespace_test() {

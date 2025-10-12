@@ -1,6 +1,6 @@
 """Single-line parser tests - ported from JS implementation."""
 
-from platform_lino import Parser, format_links
+from links_notation import Parser, format_links
 
 
 parser = Parser()

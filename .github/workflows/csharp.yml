@@ -81,8 +81,8 @@ jobs:
       - name: Check if version already published to NuGet.org
         id: nuget-version-check
         run: |
-          PACKAGE_VERSION=$(grep '<VersionPrefix>' Platform.Protocols.Lino/Platform.Protocols.Lino.csproj | sed 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/')
-          PACKAGE_ID="Platform.Protocols.Lino"
+          PACKAGE_VERSION=$(grep '<VersionPrefix>' LinkFoundation.LinksNotation/LinkFoundation.LinksNotation.csproj | sed 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/')
+          PACKAGE_ID="LinkFoundation.LinksNotation"
           echo "Package: $PACKAGE_ID@$PACKAGE_VERSION"
           
           # Check if version exists on NuGet.org
