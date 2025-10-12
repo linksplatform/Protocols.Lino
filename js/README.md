@@ -12,19 +12,19 @@ Install the package using your preferred package manager:
 #### Using npm (Node.js)
 
 ```bash
-npm install @linksplatform/protocols-lino
+npm install links-notation
 ```
 
 #### Using Bun
 
 ```bash
-bun add @linksplatform/protocols-lino
+bun add links-notation
 ```
 
 #### Using Deno
 
 ```typescript
-import { Parser, Link } from "npm:@linksplatform/protocols-lino@^0.6.0";
+import { Parser, Link } from "npm:links-notation@^0.6.0";
 ```
 
 ### Local Development Setup
@@ -78,7 +78,7 @@ bun test --watch
 ### Basic Parsing
 
 ```javascript
-import { Parser, Link } from '@linksplatform/protocols-lino';
+import { Parser, Link } from 'links-notation';
 
 // Create parser
 const parser = new Parser();
@@ -101,7 +101,7 @@ result.forEach(link => {
 ### Working with Links
 
 ```javascript
-import { Link } from '@linksplatform/protocols-lino';
+import { Link } from 'links-notation';
 
 // Create links programmatically
 const link = new Link('parent', [
@@ -129,7 +129,7 @@ const input = `parent
 const parsed = await parser.parse(input);
 
 // Work with groups
-import { LinksGroup } from '@linksplatform/protocols-lino';
+import { LinksGroup } from 'links-notation';
 const group = new LinksGroup(parsed);
 console.log(group.format());
 ```
@@ -214,6 +214,6 @@ Container for grouping related links.
 
 ## Package Information
 
-- Package: `@linksplatform/protocols-lino`
+- Package: `links-notation`
 - Version: 0.1.0
 - License: MIT
