@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Xunit;
-using Link = Platform.Protocols.Lino.Link<string>;
-using id = Platform.Protocols.Lino.id<string>;
-using _ = Platform.Protocols.Lino._<string>;
+using Link = LinkFoundation.LinksNotation.Link<string>;
+using id = LinkFoundation.LinksNotation.id<string>;
+using _ = LinkFoundation.LinksNotation._<string>;
 
 namespace LinkFoundation.LinksNotation.Tests
 {
