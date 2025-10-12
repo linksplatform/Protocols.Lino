@@ -1,4 +1,4 @@
-use lino::{parse_lino, parse_lino_to_links, LiNo};
+use links_notation::{parse_lino, parse_lino_to_links, LiNo};
 
 #[test]
 fn empty_link_test() {
