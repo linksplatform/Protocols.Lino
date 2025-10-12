@@ -1,6 +1,6 @@
 """Link class tests - ported from JS implementation."""
 
-from platform_lino import Link
+from links_notation import Link
 
 
 def test_link_constructor_with_id_only():
