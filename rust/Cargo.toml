@@ -1,6 +1,6 @@
 [package]
-name = "platform-lino"
-version = "0.7.0"
+name = "links-notation"
+version = "0.8.0"
 edition = "2021"
 description = "Rust implementation of the Lino protocol parser"
 license = "Unlicense"
@@ -9,7 +9,7 @@ keywords = ["lino", "parser", "links", "notation", "protocol"]
 categories = ["parsing"]
 
 [lib]
-name = "lino"
+name = "links_notation"
 path = "src/lib.rs"
 
 [dependencies]
