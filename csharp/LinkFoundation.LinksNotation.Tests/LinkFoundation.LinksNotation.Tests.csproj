@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Platform.Protocols.Lino\Platform.Protocols.Lino.csproj" />
+    <ProjectReference Include="..\LinkFoundation.LinksNotation\LinkFoundation.LinksNotation.csproj" />
   </ItemGroup>
 
 </Project>
