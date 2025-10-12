@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using System.Collections.Generic;
 
-namespace Platform.Protocols.Lino.Tests
+namespace LinkFoundation.LinksNotation.Tests
 {
     public static class LinkTests
     {

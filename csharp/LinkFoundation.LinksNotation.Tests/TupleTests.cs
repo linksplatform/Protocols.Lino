@@ -4,7 +4,7 @@ using Link = Platform.Protocols.Lino.Link<string>;
 using id = Platform.Protocols.Lino.id<string>;
 using _ = Platform.Protocols.Lino._<string>;
 
-namespace Platform.Protocols.Lino.Tests
+namespace LinkFoundation.LinksNotation.Tests
 {
     public class TupleTests
     {
