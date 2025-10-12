@@ -9,11 +9,11 @@
     <TargetFramework>net8</TargetFramework>
     <PackageId>LinkFoundation.LinksNotation</PackageId>
     <PackageTags>LinksPlatform;Protocols.Lino;Lino;IListExtensions;Link;Parser</PackageTags>
-    <PackageIconUrl>https://raw.githubusercontent.com/linksplatform/Documentation/18469f4d033ee9a5b7b84caab9c585acab2ac519/doc/Avatar-rainbow-icon-64x64.png</PackageIconUrl>
-    <PackageProjectUrl>https://linksplatform.github.io/Protocols.Lino</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/link-foundation/Documentation/18469f4d033ee9a5b7b84caab9c585acab2ac519/doc/Avatar-rainbow-icon-64x64.png</PackageIconUrl>
+    <PackageProjectUrl>https://link-foundation.github.io/links-notation</PackageProjectUrl>
     <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>git://github.com/linksplatform/Protocols.Lino</RepositoryUrl>
+    <RepositoryUrl>git://github.com/link-foundation/links-notation</RepositoryUrl>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>

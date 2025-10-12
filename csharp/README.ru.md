@@ -28,8 +28,8 @@ dotnet add package Platform.Protocols.Lino
 Клонируйте репозиторий и соберите проект:
 
 ```bash
-git clone https://github.com/linksplatform/Protocols.Lino.git
-cd Protocols.Lino/csharp
+git clone https://github.com/link-foundation/links-notation.git
+cd links-notation/csharp
 dotnet build Platform.Protocols.Lino.sln
 ```
 
@@ -151,4 +151,4 @@ var customParser = new Parser<Guid>();
 ## Документация
 
 Полная документация API:
-[Platform.Protocols.Lino Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html)
+[LinkFoundation.LinksNotation Documentation](https://link-foundation.github.io/links-notation/csharp/api/LinkFoundation.LinksNotation.html)

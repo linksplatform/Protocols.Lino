@@ -4,7 +4,7 @@ version = "0.8.0"
 edition = "2021"
 description = "Rust implementation of the Lino protocol parser"
 license = "Unlicense"
-repository = "https://github.com/linksplatform/Protocols.Lino"
+repository = "https://github.com/link-foundation/links-notation"
 keywords = ["lino", "parser", "links", "notation", "protocol"]
 categories = ["parsing"]
 

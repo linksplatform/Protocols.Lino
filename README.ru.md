@@ -1,17 +1,17 @@
-# [Protocols.Lino](https://github.com/linksplatform/Protocols.Lino) (languages: [en](README.md) • ru)
+# [links-notation](https://github.com/link-foundation/links-notation) (languages: [en](README.md) • ru)
 
-| [![Состояние Actions](https://github.com/linksplatform/Protocols.Lino/workflows/js/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=js) | [![Версия npm пакета и количество загрузок](https://img.shields.io/npm/v/links-notation?label=npm&style=flat)](https://www.npmjs.com/package/links-notation) | **[JavaScript](js/README.ru.md)** |
+| [![Состояние Actions](https://github.com/link-foundation/links-notation/workflows/js/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=js) | [![Версия npm пакета и количество загрузок](https://img.shields.io/npm/v/links-notation?label=npm&style=flat)](https://www.npmjs.com/package/links-notation) | **[JavaScript](js/README.ru.md)** |
 |:-|-:|:-|
-| [![Состояние Actions](https://github.com/linksplatform/Protocols.Lino/workflows/rust/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=rust) | [![Версия Crates.io и количество загрузок](https://img.shields.io/crates/v/links-notation?label=crates.io&style=flat)](https://crates.io/crates/links-notation) | **[Rust](rust/README.ru.md)** |
-| [![Состояние Actions](https://github.com/linksplatform/Protocols.Lino/workflows/csharp/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=csharp) | [![Версия NuGet пакета и количество загрузок](https://img.shields.io/nuget/v/LinkFoundation.LinksNotation?label=nuget&style=flat)](https://www.nuget.org/packages/LinkFoundation.LinksNotation) | **[C#](csharp/README.ru.md)** |
+| [![Состояние Actions](https://github.com/link-foundation/links-notation/workflows/rust/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=rust) | [![Версия Crates.io и количество загрузок](https://img.shields.io/crates/v/links-notation?label=crates.io&style=flat)](https://crates.io/crates/links-notation) | **[Rust](rust/README.ru.md)** |
+| [![Состояние Actions](https://github.com/link-foundation/links-notation/workflows/csharp/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=csharp) | [![Версия NuGet пакета и количество загрузок](https://img.shields.io/nuget/v/LinkFoundation.LinksNotation?label=nuget&style=flat)](https://www.nuget.org/packages/LinkFoundation.LinksNotation) | **[C#](csharp/README.ru.md)** |
 
-[![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/linksplatform/Protocols.Lino)
-[![Open in GitHub Codespaces](https://img.shields.io/badge/GitHub%20Codespaces-Open-181717?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=linksplatform/Protocols.Lino)
+[![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/link-foundation/links-notation)
+[![Open in GitHub Codespaces](https://img.shields.io/badge/GitHub%20Codespaces-Open-181717?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=link-foundation/links-notation)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4e7eb0a883e9439280c1097381d46b50)](https://app.codacy.com/gh/linksplatform/Protocols.Lino?utm_source=github.com&utm_medium=referral&utm_content=linksplatform/Protocols.Lino&utm_campaign=Badge_Grade_Settings)
-[![CodeFactor](https://www.codefactor.io/repository/github/linksplatform/Protocols.Lino/badge)](https://www.codefactor.io/repository/github/linksplatform/Protocols.Lino)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4e7eb0a883e9439280c1097381d46b50)](https://app.codacy.com/gh/link-foundation/links-notation?utm_source=github.com&utm_medium=referral&utm_content=link-foundation/links-notation&utm_campaign=Badge_Grade_Settings)
+[![CodeFactor](https://www.codefactor.io/repository/github/link-foundation/links-notation/badge)](https://www.codefactor.io/repository/github/link-foundation/links-notation)
 
-Библиотека классов ПлатформыСвязей LinkFoundation.LinksNotation.
+Библиотека классов Link Foundation LinkFoundation.LinksNotation.
 
 ![introduction](./docs/comparison/comparison.svg "сравнение json, xml и lino")
 
@@ -106,17 +106,17 @@ let links = parse_lino("папа (любитМаму: любит маму)").unw
 Для подробных руководств по реализации и справочников API смотрите
 документацию для конкретных языков:
 
-- **[Документация C#](https://linksplatform.github.io/Protocols.Lino/csharp/api/LinkFoundation.LinksNotation.html)**
+- **[Документация C#](https://link-foundation.github.io/links-notation/csharp/api/LinkFoundation.LinksNotation.html)**
   \- Полный справочник API
 - **[README C#](csharp/README.ru.md)** - Руководство по установке и использованию
 - **[README JavaScript](js/README.ru.md)** - Руководство для современной
-  веб-разработки  
+  веб-разработки
 - **[README Rust](rust/README.ru.md)** - Руководство по
   высокопроизводительному парсингу
 
 Дополнительные ресурсы:
 
-- [PDF Документация](https://linksplatform.github.io/Protocols.Lino/csharp/LinkFoundation.LinksNotation.pdf)
+- [PDF Документация](https://link-foundation.github.io/links-notation/csharp/LinkFoundation.LinksNotation.pdf)
   \- Полный справочник для офлайн чтения
 - [Теория связей 0.0.2](https://habr.com/ru/articles/804617) -
   Теоретическая основа, которую Нотация Связей полностью поддерживает

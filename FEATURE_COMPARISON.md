@@ -2,7 +2,7 @@
 
 This document compares YAML, XML, JSON, and LINO data serialization
 formats, with a focus on cyclic reference support as requested in
-[issue #55](https://github.com/linksplatform/Protocols.Lino/issues/55).
+[issue #55](https://github.com/link-foundation/links-notation/issues/55).
 
 ## Cyclic References Support
 

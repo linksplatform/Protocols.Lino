@@ -158,6 +158,6 @@ This project is released into the public domain under the [Unlicense](../LICENSE
 
 ## Links
 
-- [Main Repository](https://github.com/linksplatform/Protocols.Lino)
+- [Main Repository](https://github.com/link-foundation/links-notation)
 - [PyPI Package](https://pypi.org/project/platform-lino/)
-- [Documentation](https://linksplatform.github.io/Protocols.Lino/)
+- [Documentation](https://link-foundation.github.io/links-notation/)

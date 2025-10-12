@@ -28,9 +28,9 @@ classifiers = [
 requires-python = ">=3.8"
 
 [project.urls]
-Homepage = "https://github.com/linksplatform/Protocols.Lino"
-Repository = "https://github.com/linksplatform/Protocols.Lino"
-Issues = "https://github.com/linksplatform/Protocols.Lino/issues"
+Homepage = "https://github.com/link-foundation/links-notation"
+Repository = "https://github.com/link-foundation/links-notation"
+Issues = "https://github.com/link-foundation/links-notation/issues"
 
 [tool.setuptools]
 packages = ["links_notation"]
