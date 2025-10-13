@@ -19,8 +19,8 @@ lino = { path = "." }  # Для локальной разработки
 Клонируйте репозиторий и соберите:
 
 ```bash
-git clone https://github.com/linksplatform/Protocols.Lino.git
-cd Protocols.Lino/rust
+git clone https://github.com/link-foundation/links-notation.git
+cd links-notation/rust
 cargo build
 ```
 

@@ -1,18 +1,18 @@
-# [Protocols.Lino](https://github.com/linksplatform/Protocols.Lino) (languages: en • [ru](README.ru.md))
+# [links-notation](https://github.com/link-foundation/links-notation) (languages: en • [ru](README.ru.md))
 
-| [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/js/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=js) | [![npm Version and Downloads count](https://img.shields.io/npm/v/links-notation?label=npm&style=flat)](https://www.npmjs.com/package/links-notation) | **[JavaScript](js/README.md)** |
+| [![Actions Status](https://github.com/link-foundation/links-notation/workflows/js/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=js) | [![npm Version and Downloads count](https://img.shields.io/npm/v/links-notation?label=npm&style=flat)](https://www.npmjs.com/package/links-notation) | **[JavaScript](js/README.md)** |
 |:-|-:|:-|
-| [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/rust/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=rust) | [![Crates.io Version and Downloads count](https://img.shields.io/crates/v/links-notation?label=crates.io&style=flat)](https://crates.io/crates/links-notation) | **[Rust](rust/README.md)** |
-| [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/csharp/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=csharp) | [![NuGet Version and Downloads count](https://img.shields.io/nuget/v/LinkFoundation.LinksNotation?label=nuget&style=flat)](https://www.nuget.org/packages/LinkFoundation.LinksNotation) | **[C#](csharp/README.md)** |
-| [![Actions Status](https://github.com/linksplatform/Protocols.Lino/workflows/python/badge.svg)](https://github.com/linksplatform/Protocols.Lino/actions?workflow=python) | [![PyPI Version and Downloads count](https://img.shields.io/pypi/v/links-notation?label=pypi&style=flat)](https://pypi.org/project/links-notation/) | **[Python](python/README.md)** |
+| [![Actions Status](https://github.com/link-foundation/links-notation/workflows/rust/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=rust) | [![Crates.io Version and Downloads count](https://img.shields.io/crates/v/links-notation?label=crates.io&style=flat)](https://crates.io/crates/links-notation) | **[Rust](rust/README.md)** |
+| [![Actions Status](https://github.com/link-foundation/links-notation/workflows/csharp/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=csharp) | [![NuGet Version and Downloads count](https://img.shields.io/nuget/v/LinkFoundation.LinksNotation?label=nuget&style=flat)](https://www.nuget.org/packages/LinkFoundation.LinksNotation) | **[C#](csharp/README.md)** |
+| [![Actions Status](https://github.com/link-foundation/links-notation/workflows/python/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=python) | [![PyPI Version and Downloads count](https://img.shields.io/pypi/v/links-notation?label=pypi&style=flat)](https://pypi.org/project/links-notation/) | **[Python](python/README.md)** |
 
-[![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/linksplatform/Protocols.Lino)
-[![Open in GitHub Codespaces](https://img.shields.io/badge/GitHub%20Codespaces-Open-181717?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=linksplatform/Protocols.Lino)
+[![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/link-foundation/links-notation)
+[![Open in GitHub Codespaces](https://img.shields.io/badge/GitHub%20Codespaces-Open-181717?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=link-foundation/links-notation)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4e7eb0a883e9439280c1097381d46b50)](https://app.codacy.com/gh/linksplatform/Protocols.Lino?utm_source=github.com&utm_medium=referral&utm_content=linksplatform/Protocols.Lino&utm_campaign=Badge_Grade_Settings)
-[![CodeFactor](https://www.codefactor.io/repository/github/linksplatform/Protocols.Lino/badge)](https://www.codefactor.io/repository/github/linksplatform/Protocols.Lino)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4e7eb0a883e9439280c1097381d46b50)](https://app.codacy.com/gh/link-foundation/links-notation?utm_source=github.com&utm_medium=referral&utm_content=link-foundation/links-notation&utm_campaign=Badge_Grade_Settings)
+[![CodeFactor](https://www.codefactor.io/repository/github/link-foundation/links-notation/badge)](https://www.codefactor.io/repository/github/link-foundation/links-notation)
 
-LinksPlatform's Platform.Protocols.Lino Class Library.
+Link Foundation's Links Notation Class Library.
 
 ![introduction](./docs/comparison/comparison.svg "json, xml and lino comparison")
 
@@ -131,7 +131,7 @@ The notation uses two core concepts:
 For detailed implementation guides and API references, see the
 language-specific documentation:
 
-- **[C# Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/api/Platform.Protocols.Lino.html)**
+- **[C# Documentation](https://link-foundation.github.io/links-notation/csharp/api/LinkFoundation.LinksNotation.html)**
   \- Complete API reference
 - **[C# README](csharp/README.md)** - Installation and usage guide
 - **[JavaScript README](js/README.md)** - Modern web development guide
@@ -142,7 +142,7 @@ Additional resources:
 
 - [Feature Comparison](FEATURE_COMPARISON.md) - LINO vs YAML/XML/JSON
   feature analysis
-- [PDF Documentation](https://linksplatform.github.io/Protocols.Lino/csharp/Platform.Protocols.Lino.pdf)
+- [PDF Documentation](https://link-foundation.github.io/links-notation/csharp/LinkFoundation.LinksNotation.pdf)
   \- Complete reference for offline reading
 - [Links Theory 0.0.2](https://habr.com/en/articles/895896) - Theoretical
   foundation that Links Notation fully supports
