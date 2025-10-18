@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LinkFoundation.LinksNotation\LinkFoundation.LinksNotation.csproj" />
+    <ProjectReference Include="..\Platform.links-notation\Platform.links-notation.csproj" />
   </ItemGroup>
 
 </Project>
