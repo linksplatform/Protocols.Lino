@@ -70,7 +70,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Link.Foundation.Links.Notation.Link<TLinkAddress>",
-      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation.Link-1.yml\" sourcestartlinenumber=\"1\">Represents a link in the Lino protocol with an optional identifier and nested values.\nLinks can represent simple references, complex nested structures, or relationships between references to links.</p>\n"
+      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation.Link-1.yml\" sourcestartlinenumber=\"1\">Represents a link in the Links Notation with an optional identifier and nested values.\nLinks can represent simple references, complex nested structures, or relationships between references to links.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -84,7 +84,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>",
-      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation.LinksGroup-1.yml\" sourcestartlinenumber=\"1\">Represents a group of links with hierarchical structure, where each group contains a primary link and optional nested groups.\nThis structure supports the indentation-based syntax of the Lino protocol.</p>\n"
+      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation.LinksGroup-1.yml\" sourcestartlinenumber=\"1\">Represents a group of links with hierarchical structure, where each group contains a primary link and optional nested groups.\nThis structure supports the indentation-based syntax of the Links Notation.</p>\n"
     },
     {
       "type": "ManagedReference",
