@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Description>LinksPlatform's Platform.Protocols.Lino Class Library</Description>
     <Copyright>Konstantin Diachenko</Copyright>
-    <AssemblyTitle>LinkFoundation.LinksNotation</AssemblyTitle>
-    <VersionPrefix>0.8.0</VersionPrefix>
+    <AssemblyTitle>Link.Foundation.Links.Notation</AssemblyTitle>
+    <VersionPrefix>0.9.0</VersionPrefix>
     <Authors>Konstantin Diachenko</Authors>
     <TargetFramework>net8</TargetFramework>
-    <PackageId>LinkFoundation.LinksNotation</PackageId>
+    <PackageId>Link.Foundation.Links.Notation</PackageId>
     <PackageTags>LinksPlatform;Protocols.Lino;Lino;IListExtensions;Link;Parser</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/link-foundation/Documentation/18469f4d033ee9a5b7b84caab9c585acab2ac519/doc/Avatar-rainbow-icon-64x64.png</PackageIconUrl>
     <PackageProjectUrl>https://link-foundation.github.io/links-notation</PackageProjectUrl>
