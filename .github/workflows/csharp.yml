@@ -82,7 +82,7 @@ jobs:
         id: nuget-version-check
         run: |
           PACKAGE_VERSION=$(grep '<VersionPrefix>' LinkFoundation.LinksNotation/LinkFoundation.LinksNotation.csproj | sed 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/')
-          PACKAGE_ID="LinkFoundation.LinksNotation"
+          PACKAGE_ID="Link.Foundation.Links.Notation"
           echo "Package: $PACKAGE_ID@$PACKAGE_VERSION"
           
           # Check if version exists on NuGet.org

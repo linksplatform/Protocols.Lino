@@ -3,7 +3,7 @@
 | [![Actions Status](https://github.com/link-foundation/links-notation/workflows/js/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=js) | [![npm Version and Downloads count](https://img.shields.io/npm/v/links-notation?label=npm&style=flat)](https://www.npmjs.com/package/links-notation) | **[JavaScript](js/README.md)** |
 |:-|-:|:-|
 | [![Actions Status](https://github.com/link-foundation/links-notation/workflows/rust/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=rust) | [![Crates.io Version and Downloads count](https://img.shields.io/crates/v/links-notation?label=crates.io&style=flat)](https://crates.io/crates/links-notation) | **[Rust](rust/README.md)** |
-| [![Actions Status](https://github.com/link-foundation/links-notation/workflows/csharp/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=csharp) | [![NuGet Version and Downloads count](https://img.shields.io/nuget/v/LinkFoundation.LinksNotation?label=nuget&style=flat)](https://www.nuget.org/packages/LinkFoundation.LinksNotation) | **[C#](csharp/README.md)** |
+| [![Actions Status](https://github.com/link-foundation/links-notation/workflows/csharp/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=csharp) | [![NuGet Version and Downloads count](https://img.shields.io/nuget/v/Link.Foundation.Links.Notation?label=nuget&style=flat)](https://www.nuget.org/packages/Link.Foundation.Links.Notation) | **[C#](csharp/README.md)** |
 | [![Actions Status](https://github.com/link-foundation/links-notation/workflows/python/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=python) | [![PyPI Version and Downloads count](https://img.shields.io/pypi/v/links-notation?label=pypi&style=flat)](https://pypi.org/project/links-notation/) | **[Python](python/README.md)** |
 
 [![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/link-foundation/links-notation)
@@ -29,7 +29,7 @@ number of references to other links.
 ### C&#35;
 
 ```csharp
-var parser = new LinkFoundation.LinksNotation.Parser();
+var parser = new Link.Foundation.Links.Notation.Parser();
 var links = parser.Parse("papa (lovesMama: loves mama)");
 ```
 
@@ -131,7 +131,7 @@ The notation uses two core concepts:
 For detailed implementation guides and API references, see the
 language-specific documentation:
 
-- **[C# Documentation](https://link-foundation.github.io/links-notation/csharp/api/LinkFoundation.LinksNotation.html)**
+- **[C# Documentation](https://link-foundation.github.io/links-notation/csharp/api/Link.Foundation.Links.Notation.html)**
   \- Complete API reference
 - **[C# README](csharp/README.md)** - Installation and usage guide
 - **[JavaScript README](js/README.md)** - Modern web development guide
@@ -142,7 +142,7 @@ Additional resources:
 
 - [Feature Comparison](FEATURE_COMPARISON.md) - LINO vs YAML/XML/JSON
   feature analysis
-- [PDF Documentation](https://link-foundation.github.io/links-notation/csharp/LinkFoundation.LinksNotation.pdf)
+- [PDF Documentation](https://link-foundation.github.io/links-notation/csharp/Link.Foundation.Links.Notation.pdf)
   \- Complete reference for offline reading
 - [Links Theory 0.0.2](https://habr.com/en/articles/895896) - Theoretical
   foundation that Links Notation fully supports
