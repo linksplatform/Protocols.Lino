@@ -26,7 +26,7 @@
 (:) and : syntax for empty links is now forbidden, to reduce confusion.
 Singlet links are supported, no more point link terminology.</PackageReleaseNotes>
     <Nullable>enable</Nullable>
-    <RootNamespace>LinkFoundation.LinksNotation</RootNamespace>
+    <RootNamespace>Link.Foundation.Links.Notation</RootNamespace>
     <NoWarn>$(NoWarn);CS8981;CS1591;CS1584;CS1658</NoWarn>
   </PropertyGroup>
 

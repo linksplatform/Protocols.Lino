@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace LinkFoundation.LinksNotation.Tests
+namespace Link.Foundation.Links.Notation.Tests
 {
     public static class MultilineQuotedStringTests
     {

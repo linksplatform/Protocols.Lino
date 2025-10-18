@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace LinkFoundation.LinksNotation
+namespace Link.Foundation.Links.Notation
 {
     /// <summary>
     /// A utility struct that provides convenient implicit conversions for creating links from various tuple combinations.

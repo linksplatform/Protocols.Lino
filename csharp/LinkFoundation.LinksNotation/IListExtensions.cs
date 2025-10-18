@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace LinkFoundation.LinksNotation
+namespace Link.Foundation.Links.Notation
 {
     /// <summary>
     /// Provides extension methods for formatting collections of <see cref="Link{TLinkAddress}"/> instances.
