@@ -1,6 +1,6 @@
-# Парсер протокола Lino для C&#35;
+# Парсер Links Notation для C&#35;
 
-Реализация парсера протокола Lino для C&#35; с использованием генератора
+Реализация парсера Links Notation для C&#35; с использованием генератора
 парсеров Pegasus и Platform.Collections.
 
 ## Установка
@@ -8,19 +8,19 @@
 ### Менеджер пакетов
 
 ```text
-Install-Package Platform.Protocols.Lino
+Install-Package Link.Foundation.Links.Notation
 ```
 
 ### .NET CLI
 
 ```bash
-dotnet add package Platform.Protocols.Lino
+dotnet add package Link.Foundation.Links.Notation
 ```
 
 ### PackageReference
 
 ```xml
-<PackageReference Include="Platform.Protocols.Lino" Version="0.4.5" />
+<PackageReference Include="Link.Foundation.Links.Notation" Version="0.9.0" />
 ```
 
 ## Сборка из исходного кода
@@ -30,7 +30,7 @@ dotnet add package Platform.Protocols.Lino
 ```bash
 git clone https://github.com/link-foundation/links-notation.git
 cd links-notation/csharp
-dotnet build Platform.Protocols.Lino.sln
+dotnet build Link.Foundation.Links.Notation.sln
 ```
 
 ## Тестирование
@@ -46,12 +46,12 @@ dotnet test
 ### Базовый парсинг
 
 ```csharp
-using Platform.Protocols.Lino;
+using Link.Foundation.Links.Notation;
 
 // Создаем парсер
 var parser = new Parser();
 
-// Парсим строку в формате Lino
+// Парсим строку в формате Links Notation
 string input = @"папа (любитМаму: любит маму)
 сын любитМаму
 дочь любитМаму
@@ -69,7 +69,7 @@ foreach (var link in links)
 ### Преобразование обратно в строку
 
 ```csharp
-using Platform.Protocols.Lino;
+using Link.Foundation.Links.Notation;
 
 // Форматирование связей обратно в строку
 string formatted = links.Format();

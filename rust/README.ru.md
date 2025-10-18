@@ -1,6 +1,6 @@
-# Парсер протокола Lino для Rust
+# Парсер Links Notation для Rust
 
-Реализация парсера протокола Lino для Rust с использованием библиотеки
+Реализация парсера Links Notation для Rust с использованием библиотеки
 комбинаторов парсеров nom.
 
 ## Установка
@@ -9,9 +9,9 @@
 
 ```toml
 [dependencies]
-lino = { path = "." }  # Для локальной разработки
+links-notation = { path = "." }  # Для локальной разработки
 # Или из реестра:
-# lino = "0.0.1"
+# links-notation = "0.9.0"
 ```
 
 ### Из исходного кода
@@ -60,7 +60,7 @@ cargo test -- --nocapture
 use links_notation::{parse_lino, LiNo};
 
 fn main() {
-    // Парсинг строки в формате Lino
+    // Парсинг строки в формате Links Notation
     let input = r#"папа (любитМаму: любит маму)
 сын любитМаму
 дочь любитМаму
@@ -205,7 +205,7 @@ let parsed = parse_lino(quoted)?;
 
 #### `parse_lino(document: &str) -> Result<LiNo<String>, String>`
 
-Парсит строку документа Lino и возвращает распарсенную структуру или ошибку.
+Парсит строку документа Links Notation и возвращает распарсенную структуру или ошибку.
 
 ### Форматирование
 

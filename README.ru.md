@@ -4,6 +4,7 @@
 |:-|-:|:-|
 | [![Состояние Actions](https://github.com/link-foundation/links-notation/workflows/rust/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=rust) | [![Версия Crates.io и количество загрузок](https://img.shields.io/crates/v/links-notation?label=crates.io&style=flat)](https://crates.io/crates/links-notation) | **[Rust](rust/README.ru.md)** |
 | [![Состояние Actions](https://github.com/link-foundation/links-notation/workflows/csharp/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=csharp) | [![Версия NuGet пакета и количество загрузок](https://img.shields.io/nuget/v/Link.Foundation.Links.Notation?label=nuget&style=flat)](https://www.nuget.org/packages/Link.Foundation.Links.Notation) | **[C#](csharp/README.ru.md)** |
+| [![Состояние Actions](https://github.com/link-foundation/links-notation/workflows/python/badge.svg)](https://github.com/link-foundation/links-notation/actions?workflow=python) | [![Версия PyPI и количество загрузок](https://img.shields.io/pypi/v/links-notation?label=pypi&style=flat)](https://pypi.org/project/links-notation/) | **[Python](python/README.ru.md)** |
 
 [![Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/link-foundation/links-notation)
 [![Open in GitHub Codespaces](https://img.shields.io/badge/GitHub%20Codespaces-Open-181717?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=link-foundation/links-notation)
@@ -43,8 +44,16 @@ const links = parser.parse("папа (любитМаму: любит маму)")
 ### Rust
 
 ```rust
-use lino::parse_lino;
+use links_notation::parse_lino;
 let links = parse_lino("папа (любитМаму: любит маму)").unwrap();
+```
+
+### Python
+
+```python
+from links_notation import Parser
+parser = Parser()
+links = parser.parse("папа (любитМаму: любит маму)")
 ```
 
 ## Примеры
@@ -113,8 +122,12 @@ let links = parse_lino("папа (любитМаму: любит маму)").unw
   веб-разработки
 - **[README Rust](rust/README.ru.md)** - Руководство по
   высокопроизводительному парсингу
+- **[README Python](python/README.ru.md)** - Руководство по работе с пакетом Python
 
 Дополнительные ресурсы:
+
+- [Сравнение возможностей](FEATURE_COMPARISON.md) - Анализ возможностей LINO
+  по сравнению с YAML/XML/JSON
 
 - [PDF Документация](https://link-foundation.github.io/links-notation/csharp/Link.Foundation.Links.Notation.pdf)
   \- Полный справочник для офлайн чтения

@@ -1,6 +1,6 @@
-# Lino Protocol Parser for C&#35;
+# Links Notation Parser for C&#35;
 
-C&#35; implementation of the Lino protocol parser using Pegasus parser
+C&#35; implementation of the Links Notation parser using Pegasus parser
 generator and Platform.Collections.
 
 ## Installation
@@ -8,19 +8,19 @@ generator and Platform.Collections.
 ### Package Manager
 
 ```text
-Install-Package Platform.Protocols.Lino
+Install-Package Link.Foundation.Links.Notation
 ```
 
 ### .NET CLI
 
 ```bash
-dotnet add package Platform.Protocols.Lino
+dotnet add package Link.Foundation.Links.Notation
 ```
 
 ### PackageReference
 
 ```xml
-<PackageReference Include="Platform.Protocols.Lino" Version="0.4.5" />
+<PackageReference Include="Link.Foundation.Links.Notation" Version="0.9.0" />
 ```
 
 ## Build from Source
@@ -30,7 +30,7 @@ Clone the repository and build:
 ```bash
 git clone https://github.com/link-foundation/links-notation.git
 cd links-notation/csharp
-dotnet build Platform.Protocols.Lino.sln
+dotnet build Link.Foundation.Links.Notation.sln
 ```
 
 ## Test
@@ -46,12 +46,12 @@ dotnet test
 ### Basic Parsing
 
 ```csharp
-using Platform.Protocols.Lino;
+using Link.Foundation.Links.Notation;
 
 // Create parser
 var parser = new Parser();
 
-// Parse Lino format string
+// Parse Links Notation format string
 string input = @"papa (lovesMama: loves mama)
 son lovesMama
 daughter lovesMama
@@ -69,7 +69,7 @@ foreach (var link in links)
 ### Converting Back to String
 
 ```csharp
-using Platform.Protocols.Lino;
+using Link.Foundation.Links.Notation;
 
 // Format links back to string
 string formatted = links.Format();
