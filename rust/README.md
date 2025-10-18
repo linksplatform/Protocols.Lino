@@ -1,6 +1,6 @@
-# Lino Protocol Parser for Rust
+# Links Notation Parser for Rust
 
-Rust implementation of the Lino protocol parser using nom parser combinator
+Rust implementation of the Links Notation parser using nom parser combinator
 library.
 
 ## Installation
@@ -9,9 +9,9 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-lino = { path = "." }  # For local development
+links-notation = { path = "." }  # For local development
 # Or from a registry:
-# lino = "0.0.1"
+# links-notation = "0.9.0"
 ```
 
 ### From Source
@@ -60,7 +60,7 @@ cargo test -- --nocapture
 use links_notation::{parse_lino, LiNo};
 
 fn main() {
-    // Parse Lino format string
+    // Parse Links Notation format string
     let input = r#"papa (lovesMama: loves mama)
 son lovesMama
 daughter lovesMama
@@ -205,7 +205,7 @@ Represents either a Link or a Reference:
 
 #### `parse_lino(document: &str) -> Result<LiNo<String>, String>`
 
-Parses a Lino document string and returns the parsed structure or an error.
+Parses a Links Notation document string and returns the parsed structure or an error.
 
 ### Formatting
 
