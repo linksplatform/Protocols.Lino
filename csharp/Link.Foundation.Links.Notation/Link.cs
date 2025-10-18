@@ -8,7 +8,7 @@ using Platform.Collections.Lists;
 namespace Link.Foundation.Links.Notation
 {
     /// <summary>
-    /// Represents a link in the Lino protocol with an optional identifier and nested values.
+    /// Represents a link in the Links Notation with an optional identifier and nested values.
     /// Links can represent simple references, complex nested structures, or relationships between references to links.
     /// </summary>
     /// <typeparam name="TLinkAddress">The type used for link addresses/identifiers. This can be any type that uniquely identifies a link, such as string, int, or Guid.</typeparam>
@@ -56,7 +56,7 @@ namespace Link.Foundation.Links.Notation
         public Link(TLinkAddress id) : this(id, default!) { }
 
         /// <summary>
-        /// Returns the string representation of this link in Lino protocol format.
+        /// Returns the string representation of this link in Links Notation format.
         /// </summary>
         /// <returns>A string representation of the link with proper escaping and formatting.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -132,7 +132,7 @@ namespace Link.Foundation.Links.Notation
         public static string GetValueString(Link<TLinkAddress> value) => value.ToLinkOrIdString();
 
         /// <summary>
-        /// Escapes a reference string for safe use in Lino protocol format by adding quotes if necessary.
+        /// Escapes a reference string for safe use in Links Notation format by adding quotes if necessary.
         /// </summary>
         /// <param name="reference">The reference string to escape.</param>
         /// <returns>The escaped reference string with appropriate quoting.</returns>

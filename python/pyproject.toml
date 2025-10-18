@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "links-notation"
-version = "0.10.0"
-description = "Python implementation of the Lino protocol parser"
+version = "0.11.0"
+description = "Python implementation of the Links Notation parser"
 readme = "README.md"
 license = {text = "Unlicense"}
 authors = [
-    {name = "LinksPlatform", email = "noreply@linksplatform.com"}
+    {name = "Link.Foundation", email = "drakonard@gmail.com"}
 ]
 keywords = ["lino", "parser", "links", "notation", "protocol"]
 classifiers = [

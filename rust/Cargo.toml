@@ -1,8 +1,8 @@
 [package]
 name = "links-notation"
-version = "0.9.0"
+version = "0.11.0"
 edition = "2021"
-description = "Rust implementation of the Lino protocol parser"
+description = "Rust implementation of the Links Notation parser"
 license = "Unlicense"
 repository = "https://github.com/link-foundation/links-notation"
 keywords = ["lino", "parser", "links", "notation", "protocol"]

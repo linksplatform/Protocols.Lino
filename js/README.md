@@ -1,6 +1,6 @@
 # Lino Protocol Parser for JavaScript
 
-JavaScript implementation of the Lino protocol parser using Bun and
+JavaScript implementation of the Links Notation parser using Bun and
 Peggy.js parser generator.
 
 ## Installation

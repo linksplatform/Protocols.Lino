@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>LinksPlatform's Platform.Protocols.Lino Class Library</Description>
+    <Description>Link.Foundation's Platform.Protocols.Lino Class Library</Description>
     <Copyright>Konstantin Diachenko</Copyright>
     <AssemblyTitle>Link.Foundation.Links.Notation</AssemblyTitle>
-    <VersionPrefix>0.9.0</VersionPrefix>
+    <VersionPrefix>0.11.0</VersionPrefix>
     <Authors>Konstantin Diachenko</Authors>
     <TargetFramework>net8</TargetFramework>
     <PackageId>Link.Foundation.Links.Notation</PackageId>
-    <PackageTags>LinksPlatform;Protocols.Lino;Lino;IListExtensions;Link;Parser</PackageTags>
+    <PackageTags>Link.Foundation;Protocols.Lino;Lino;IListExtensions;Link;Parser</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/link-foundation/Documentation/18469f4d033ee9a5b7b84caab9c585acab2ac519/doc/Avatar-rainbow-icon-64x64.png</PackageIconUrl>
     <PackageProjectUrl>https://link-foundation.github.io/links-notation</PackageProjectUrl>
     <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
@@ -22,9 +22,7 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>latest</LangVersion>
-    <PackageReleaseNotes>Now empty list of links is supported.
-(:) and : syntax for empty links is now forbidden, to reduce confusion.
-Singlet links are supported, no more point link terminology.</PackageReleaseNotes>
+    <PackageReleaseNotes>Moved to Link.Foundation.</PackageReleaseNotes>
     <Nullable>enable</Nullable>
     <RootNamespace>Link.Foundation.Links.Notation</RootNamespace>
     <NoWarn>$(NoWarn);CS8981;CS1591;CS1584;CS1658</NoWarn>
