@@ -151,4 +151,4 @@ mama has house
 ## Documentation
 
 For complete API documentation, visit:
-[LinkFoundation.LinksNotation Documentation](https://link-foundation.github.io/links-notation/csharp/api/LinkFoundation.LinksNotation.html)
+[Link.Foundation.Links.Notation Documentation](https://link-foundation.github.io/links-notation/csharp/api/Link.Foundation.Links.Notation.html)
