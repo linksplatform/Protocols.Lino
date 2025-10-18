@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Lino Protocol Parser for C# | LinksPlatform&#39;s Platform.links-notation Library </title>
+      <title>Links Notation Parser for C# | LinksPlatform&#39;s Platform.links-notation Library </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Lino Protocol Parser for C# | LinksPlatform&#39;s Platform.links-notation Library ">
+      <meta name="title" content="Links Notation Parser for C# | LinksPlatform&#39;s Platform.links-notation Library ">
     
     
       <link rel="shortcut icon" href="favicon.ico">
@@ -70,25 +70,25 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="lino-protocol-parser-for-c">Lino Protocol Parser for C#</h1>
+<h1 id="links-notation-parser-for-c">Links Notation Parser for C#</h1>
 
-<p>C# implementation of the Lino protocol parser using Pegasus parser
+<p>C# implementation of the Links Notation parser using Pegasus parser
 generator and Platform.Collections.</p>
 <h2 id="installation">Installation</h2>
 <h3 id="package-manager">Package Manager</h3>
-<pre><code class="lang-text">Install-Package Platform.Protocols.Lino
+<pre><code class="lang-text">Install-Package Link.Foundation.Links.Notation
 </code></pre>
 <h3 id="net-cli">.NET CLI</h3>
-<pre><code class="lang-bash">dotnet add package Platform.Protocols.Lino
+<pre><code class="lang-bash">dotnet add package Link.Foundation.Links.Notation
 </code></pre>
 <h3 id="packagereference">PackageReference</h3>
-<pre><code class="lang-xml">&lt;PackageReference Include=&quot;Platform.Protocols.Lino&quot; Version=&quot;0.4.5&quot; /&gt;
+<pre><code class="lang-xml">&lt;PackageReference Include=&quot;Link.Foundation.Links.Notation&quot; Version=&quot;0.9.0&quot; /&gt;
 </code></pre>
 <h2 id="build-from-source">Build from Source</h2>
 <p>Clone the repository and build:</p>
 <pre><code class="lang-bash">git clone https://github.com/link-foundation/links-notation.git
 cd links-notation/csharp
-dotnet build Platform.Protocols.Lino.sln
+dotnet build Link.Foundation.Links.Notation.sln
 </code></pre>
 <h2 id="test">Test</h2>
 <p>Run tests:</p>
@@ -96,12 +96,12 @@ dotnet build Platform.Protocols.Lino.sln
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="basic-parsing">Basic Parsing</h3>
-<pre><code class="lang-csharp">using Platform.Protocols.Lino;
+<pre><code class="lang-csharp">using Link.Foundation.Links.Notation;
 
 // Create parser
 var parser = new Parser();
 
-// Parse Lino format string
+// Parse Links Notation format string
 string input = @&quot;papa (lovesMama: loves mama)
 son lovesMama
 daughter lovesMama
@@ -116,7 +116,7 @@ foreach (var link in links)
 }
 </code></pre>
 <h3 id="converting-back-to-string">Converting Back to String</h3>
-<pre><code class="lang-csharp">using Platform.Protocols.Lino;
+<pre><code class="lang-csharp">using Link.Foundation.Links.Notation;
 
 // Format links back to string
 string formatted = links.Format();
