@@ -81,7 +81,7 @@ jobs:
       - name: Check if version already published to NuGet.org
         id: nuget-version-check
         run: |
-          PACKAGE_VERSION=$(grep '<VersionPrefix>' Platform.links-notation/Platform.links-notation.csproj | sed 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/')
+          PACKAGE_VERSION=$(grep '<VersionPrefix>' Link.Foundation.Links.Notation/Link.Foundation.Links.Notation.csproj | sed 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/')
           PACKAGE_ID="Link.Foundation.Links.Notation"
           echo "Package: $PACKAGE_ID@$PACKAGE_VERSION"
           
@@ -98,6 +98,8 @@ jobs:
         run: |
           export REPOSITORY_NAME=$(basename ${{ github.repository }})
           wget "$SCRIPTS_BASE_URL/read_csharp_package_info.sh"
+          # Override path to use namespace-based directory structure
+          sed -i 's|Platform.$REPOSITORY_NAME/Platform.$REPOSITORY_NAME.csproj|Link.Foundation.Links.Notation/Link.Foundation.Links.Notation.csproj|g' ./read_csharp_package_info.sh
           bash ./read_csharp_package_info.sh
       - name: Publish NuGet package
         if: steps.nuget-version-check.outputs.should_publish == 'true'
@@ -123,21 +125,23 @@ jobs:
         run: |
           export REPOSITORY_NAME=$(basename ${{ github.repository }})
           wget "$SCRIPTS_BASE_URL/read_csharp_package_info.sh"
-          
+
           # Debug: Check apt lock status
           echo "=== APT lock debug ==="
           lsof /var/lib/dpkg/lock-frontend 2>/dev/null || echo "No process holding dpkg lock"
           ps aux | grep -i apt || echo "No apt processes found"
-          
+
           # Wait for any running apt processes to finish
           while sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1; do
             echo "Waiting for other apt process to finish..."
             sleep 5
           done
-          
+
           # Add retry logic for apt operations in the script
           sed -i 's/sudo apt-get install/sudo apt-get install --fix-missing -y/g' ./read_csharp_package_info.sh
-          
+          # Override path to use namespace-based directory structure
+          sed -i 's|Platform.$REPOSITORY_NAME/Platform.$REPOSITORY_NAME.csproj|Link.Foundation.Links.Notation/Link.Foundation.Links.Notation.csproj|g' ./read_csharp_package_info.sh
+
           bash ./read_csharp_package_info.sh
       - name: Publish release
         run: |
@@ -149,7 +153,7 @@ jobs:
           # Override the tag format to use version_language instead of language_version
           PACKAGE_VERSION=$(<CSHARP_PACKAGE_VERSION.txt)
           PACKAGE_RELEASE_NOTES=$(<CSHARP_PACKAGE_RELEASE_NOTES.txt)
-          PACKAGE_URL="https://www.nuget.org/packages/Platform.$REPOSITORY_NAME/$PACKAGE_VERSION"
+          PACKAGE_URL="https://www.nuget.org/packages/Link.Foundation.Links.Notation/$PACKAGE_VERSION"
           
           TAG="${PACKAGE_VERSION}_csharp"
           RELEASE_NAME="[C#] $PACKAGE_VERSION"

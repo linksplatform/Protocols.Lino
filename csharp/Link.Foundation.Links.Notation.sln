@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.links-notation", "Platform.links-notation\Platform.links-notation.csproj", "{32B7D0AD-ED13-4B2B-90FC-000F94C4BECA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.Foundation.Links.Notation", "Link.Foundation.Links.Notation\Link.Foundation.Links.Notation.csproj", "{32B7D0AD-ED13-4B2B-90FC-000F94C4BECA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.links-notation.Tests", "Platform.links-notation.Tests\Platform.links-notation.Tests.csproj", "{98C50F40-6CC2-4E40-A2BE-30163DCF5220}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.Foundation.Links.Notation.Tests", "Link.Foundation.Links.Notation.Tests\Link.Foundation.Links.Notation.Tests.csproj", "{98C50F40-6CC2-4E40-A2BE-30163DCF5220}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
