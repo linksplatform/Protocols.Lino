@@ -32,114 +32,114 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/LinkFoundation.LinksNotation.ILinksGroupListExtensions.yml",
+      "source_relative_path": "obj/api/Link.Foundation.Links.Notation.ILinksGroupListExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LinkFoundation.LinksNotation.ILinksGroupListExtensions.html"
+          "relative_path": "api/Link.Foundation.Links.Notation.ILinksGroupListExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "LinkFoundation.LinksNotation.ILinksGroupListExtensions",
-      "Summary": "<p sourcefile=\"obj/api/LinkFoundation.LinksNotation.ILinksGroupListExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for collections of <xref href=\"LinkFoundation.LinksNotation.LinksGroup%601\" data-throw-if-not-resolved=\"false\"></xref> instances.</p>\n"
+      "Title": "Link.Foundation.Links.Notation.ILinksGroupListExtensions",
+      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation.ILinksGroupListExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for collections of <xref href=\"Link.Foundation.Links.Notation.LinksGroup%601\" data-throw-if-not-resolved=\"false\"></xref> instances.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/LinkFoundation.LinksNotation.IListExtensions.yml",
+      "source_relative_path": "obj/api/Link.Foundation.Links.Notation.IListExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LinkFoundation.LinksNotation.IListExtensions.html"
+          "relative_path": "api/Link.Foundation.Links.Notation.IListExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "LinkFoundation.LinksNotation.IListExtensions",
-      "Summary": "<p sourcefile=\"obj/api/LinkFoundation.LinksNotation.IListExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for formatting collections of <xref href=\"LinkFoundation.LinksNotation.Link%601\" data-throw-if-not-resolved=\"false\"></xref> instances.</p>\n"
+      "Title": "Link.Foundation.Links.Notation.IListExtensions",
+      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation.IListExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for formatting collections of <xref href=\"Link.Foundation.Links.Notation.Link%601\" data-throw-if-not-resolved=\"false\"></xref> instances.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/LinkFoundation.LinksNotation.Link-1.yml",
+      "source_relative_path": "obj/api/Link.Foundation.Links.Notation.Link-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LinkFoundation.LinksNotation.Link-1.html"
+          "relative_path": "api/Link.Foundation.Links.Notation.Link-1.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "LinkFoundation.LinksNotation.Link<TLinkAddress>",
-      "Summary": "<p sourcefile=\"obj/api/LinkFoundation.LinksNotation.Link-1.yml\" sourcestartlinenumber=\"1\">Represents a link in the Lino protocol with an optional identifier and nested values.\nLinks can represent simple references, complex nested structures, or relationships between references to links.</p>\n"
+      "Title": "Link.Foundation.Links.Notation.Link<TLinkAddress>",
+      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation.Link-1.yml\" sourcestartlinenumber=\"1\">Represents a link in the Lino protocol with an optional identifier and nested values.\nLinks can represent simple references, complex nested structures, or relationships between references to links.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/LinkFoundation.LinksNotation.LinksGroup-1.yml",
+      "source_relative_path": "obj/api/Link.Foundation.Links.Notation.LinksGroup-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LinkFoundation.LinksNotation.LinksGroup-1.html"
+          "relative_path": "api/Link.Foundation.Links.Notation.LinksGroup-1.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>",
-      "Summary": "<p sourcefile=\"obj/api/LinkFoundation.LinksNotation.LinksGroup-1.yml\" sourcestartlinenumber=\"1\">Represents a group of links with hierarchical structure, where each group contains a primary link and optional nested groups.\nThis structure supports the indentation-based syntax of the Lino protocol.</p>\n"
+      "Title": "Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>",
+      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation.LinksGroup-1.yml\" sourcestartlinenumber=\"1\">Represents a group of links with hierarchical structure, where each group contains a primary link and optional nested groups.\nThis structure supports the indentation-based syntax of the Lino protocol.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/LinkFoundation.LinksNotation.Parser.yml",
+      "source_relative_path": "obj/api/Link.Foundation.Links.Notation.Parser.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LinkFoundation.LinksNotation.Parser.html"
+          "relative_path": "api/Link.Foundation.Links.Notation.Parser.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "LinkFoundation.LinksNotation.Parser",
-      "Summary": "<p sourcefile=\"obj/api/LinkFoundation.LinksNotation.Parser.yml\" sourcestartlinenumber=\"1\">Parses a string according to the rules of the <xref href=\"LinkFoundation.LinksNotation.Parser\" data-throw-if-not-resolved=\"false\"></xref> grammar.</p>\n"
+      "Title": "Link.Foundation.Links.Notation.Parser",
+      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation.Parser.yml\" sourcestartlinenumber=\"1\">Parses a string according to the rules of the <xref href=\"Link.Foundation.Links.Notation.Parser\" data-throw-if-not-resolved=\"false\"></xref> grammar.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/LinkFoundation.LinksNotation._-1.yml",
+      "source_relative_path": "obj/api/Link.Foundation.Links.Notation._-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LinkFoundation.LinksNotation._-1.html"
+          "relative_path": "api/Link.Foundation.Links.Notation._-1.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "LinkFoundation.LinksNotation._<TLinkAddress>",
-      "Summary": "<p sourcefile=\"obj/api/LinkFoundation.LinksNotation._-1.yml\" sourcestartlinenumber=\"1\">A utility struct that provides convenient implicit conversions for creating links from various tuple combinations.\nThe underscore name follows functional programming conventions for placeholder/utility types.</p>\n"
+      "Title": "Link.Foundation.Links.Notation._<TLinkAddress>",
+      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation._-1.yml\" sourcestartlinenumber=\"1\">A utility struct that provides convenient implicit conversions for creating links from various tuple combinations.\nThe underscore name follows functional programming conventions for placeholder/utility types.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/LinkFoundation.LinksNotation.id-1.yml",
+      "source_relative_path": "obj/api/Link.Foundation.Links.Notation.id-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LinkFoundation.LinksNotation.id-1.html"
+          "relative_path": "api/Link.Foundation.Links.Notation.id-1.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "LinkFoundation.LinksNotation.id<TLinkAddress>",
-      "Summary": "<p sourcefile=\"obj/api/LinkFoundation.LinksNotation.id-1.yml\" sourcestartlinenumber=\"1\">A readonly struct that explicitly represents a link identifier/address.\nThis type is used to distinguish between regular values and explicit identifiers in link construction.</p>\n"
+      "Title": "Link.Foundation.Links.Notation.id<TLinkAddress>",
+      "Summary": "<p sourcefile=\"obj/api/Link.Foundation.Links.Notation.id-1.yml\" sourcestartlinenumber=\"1\">A readonly struct that explicitly represents a link identifier/address.\nThis type is used to distinguish between regular values and explicit identifiers in link construction.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/LinkFoundation.LinksNotation.yml",
+      "source_relative_path": "obj/api/Link.Foundation.Links.Notation.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LinkFoundation.LinksNotation.html"
+          "relative_path": "api/Link.Foundation.Links.Notation.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "LinkFoundation.LinksNotation",
+      "Title": "Link.Foundation.Links.Notation",
       "Summary": null
     },
     {

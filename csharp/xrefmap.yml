@@ -1,794 +1,794 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: LinkFoundation.LinksNotation
-  name: LinkFoundation.LinksNotation
-  href: api/LinkFoundation.LinksNotation.html
-  commentId: N:LinkFoundation.LinksNotation
-  fullName: LinkFoundation.LinksNotation
-  nameWithType: LinkFoundation.LinksNotation
-- uid: LinkFoundation.LinksNotation.ILinksGroupListExtensions
+- uid: Link.Foundation.Links.Notation
+  name: Link.Foundation.Links.Notation
+  href: api/Link.Foundation.Links.Notation.html
+  commentId: N:Link.Foundation.Links.Notation
+  fullName: Link.Foundation.Links.Notation
+  nameWithType: Link.Foundation.Links.Notation
+- uid: Link.Foundation.Links.Notation.ILinksGroupListExtensions
   name: ILinksGroupListExtensions
-  href: api/LinkFoundation.LinksNotation.ILinksGroupListExtensions.html
-  commentId: T:LinkFoundation.LinksNotation.ILinksGroupListExtensions
-  fullName: LinkFoundation.LinksNotation.ILinksGroupListExtensions
+  href: api/Link.Foundation.Links.Notation.ILinksGroupListExtensions.html
+  commentId: T:Link.Foundation.Links.Notation.ILinksGroupListExtensions
+  fullName: Link.Foundation.Links.Notation.ILinksGroupListExtensions
   nameWithType: ILinksGroupListExtensions
-- uid: LinkFoundation.LinksNotation.ILinksGroupListExtensions.ToLinksList*
+- uid: Link.Foundation.Links.Notation.ILinksGroupListExtensions.ToLinksList*
   name: ToLinksList
-  href: api/LinkFoundation.LinksNotation.ILinksGroupListExtensions.html#LinkFoundation_LinksNotation_ILinksGroupListExtensions_ToLinksList_
-  commentId: Overload:LinkFoundation.LinksNotation.ILinksGroupListExtensions.ToLinksList
+  href: api/Link.Foundation.Links.Notation.ILinksGroupListExtensions.html#Link_Foundation_Links_Notation_ILinksGroupListExtensions_ToLinksList_
+  commentId: Overload:Link.Foundation.Links.Notation.ILinksGroupListExtensions.ToLinksList
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.ILinksGroupListExtensions.ToLinksList
+  fullName: Link.Foundation.Links.Notation.ILinksGroupListExtensions.ToLinksList
   nameWithType: ILinksGroupListExtensions.ToLinksList
-- uid: LinkFoundation.LinksNotation.ILinksGroupListExtensions.ToLinksList``1(System.Collections.Generic.IList{LinkFoundation.LinksNotation.LinksGroup{``0}})
+- uid: Link.Foundation.Links.Notation.ILinksGroupListExtensions.ToLinksList``1(System.Collections.Generic.IList{Link.Foundation.Links.Notation.LinksGroup{``0}})
   name: ToLinksList<TLinkAddress>(IList<LinksGroup<TLinkAddress>>)
-  href: api/LinkFoundation.LinksNotation.ILinksGroupListExtensions.html#LinkFoundation_LinksNotation_ILinksGroupListExtensions_ToLinksList__1_System_Collections_Generic_IList_LinkFoundation_LinksNotation_LinksGroup___0___
-  commentId: M:LinkFoundation.LinksNotation.ILinksGroupListExtensions.ToLinksList``1(System.Collections.Generic.IList{LinkFoundation.LinksNotation.LinksGroup{``0}})
+  href: api/Link.Foundation.Links.Notation.ILinksGroupListExtensions.html#Link_Foundation_Links_Notation_ILinksGroupListExtensions_ToLinksList__1_System_Collections_Generic_IList_Link_Foundation_Links_Notation_LinksGroup___0___
+  commentId: M:Link.Foundation.Links.Notation.ILinksGroupListExtensions.ToLinksList``1(System.Collections.Generic.IList{Link.Foundation.Links.Notation.LinksGroup{``0}})
   name.vb: ToLinksList(Of TLinkAddress)(IList(Of LinksGroup(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation.ILinksGroupListExtensions.ToLinksList<TLinkAddress>(System.Collections.Generic.IList<LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>>)
-  fullName.vb: LinkFoundation.LinksNotation.ILinksGroupListExtensions.ToLinksList(Of TLinkAddress)(System.Collections.Generic.IList(Of LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation.ILinksGroupListExtensions.ToLinksList<TLinkAddress>(System.Collections.Generic.IList<Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>>)
+  fullName.vb: Link.Foundation.Links.Notation.ILinksGroupListExtensions.ToLinksList(Of TLinkAddress)(System.Collections.Generic.IList(Of Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress)))
   nameWithType: ILinksGroupListExtensions.ToLinksList<TLinkAddress>(IList<LinksGroup<TLinkAddress>>)
   nameWithType.vb: ILinksGroupListExtensions.ToLinksList(Of TLinkAddress)(IList(Of LinksGroup(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation.IListExtensions
+- uid: Link.Foundation.Links.Notation.IListExtensions
   name: IListExtensions
-  href: api/LinkFoundation.LinksNotation.IListExtensions.html
-  commentId: T:LinkFoundation.LinksNotation.IListExtensions
-  fullName: LinkFoundation.LinksNotation.IListExtensions
+  href: api/Link.Foundation.Links.Notation.IListExtensions.html
+  commentId: T:Link.Foundation.Links.Notation.IListExtensions
+  fullName: Link.Foundation.Links.Notation.IListExtensions
   nameWithType: IListExtensions
-- uid: LinkFoundation.LinksNotation.IListExtensions.Format*
+- uid: Link.Foundation.Links.Notation.IListExtensions.Format*
   name: Format
-  href: api/LinkFoundation.LinksNotation.IListExtensions.html#LinkFoundation_LinksNotation_IListExtensions_Format_
-  commentId: Overload:LinkFoundation.LinksNotation.IListExtensions.Format
+  href: api/Link.Foundation.Links.Notation.IListExtensions.html#Link_Foundation_Links_Notation_IListExtensions_Format_
+  commentId: Overload:Link.Foundation.Links.Notation.IListExtensions.Format
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.IListExtensions.Format
+  fullName: Link.Foundation.Links.Notation.IListExtensions.Format
   nameWithType: IListExtensions.Format
-- uid: LinkFoundation.LinksNotation.IListExtensions.Format``1(System.Collections.Generic.IList{LinkFoundation.LinksNotation.Link{``0}})
+- uid: Link.Foundation.Links.Notation.IListExtensions.Format``1(System.Collections.Generic.IList{Link.Foundation.Links.Notation.Link{``0}})
   name: Format<TLinkAddress>(IList<Link<TLinkAddress>>)
-  href: api/LinkFoundation.LinksNotation.IListExtensions.html#LinkFoundation_LinksNotation_IListExtensions_Format__1_System_Collections_Generic_IList_LinkFoundation_LinksNotation_Link___0___
-  commentId: M:LinkFoundation.LinksNotation.IListExtensions.Format``1(System.Collections.Generic.IList{LinkFoundation.LinksNotation.Link{``0}})
+  href: api/Link.Foundation.Links.Notation.IListExtensions.html#Link_Foundation_Links_Notation_IListExtensions_Format__1_System_Collections_Generic_IList_Link_Foundation_Links_Notation_Link___0___
+  commentId: M:Link.Foundation.Links.Notation.IListExtensions.Format``1(System.Collections.Generic.IList{Link.Foundation.Links.Notation.Link{``0}})
   name.vb: Format(Of TLinkAddress)(IList(Of Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation.IListExtensions.Format<TLinkAddress>(System.Collections.Generic.IList<LinkFoundation.LinksNotation.Link<TLinkAddress>>)
-  fullName.vb: LinkFoundation.LinksNotation.IListExtensions.Format(Of TLinkAddress)(System.Collections.Generic.IList(Of LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation.IListExtensions.Format<TLinkAddress>(System.Collections.Generic.IList<Link.Foundation.Links.Notation.Link<TLinkAddress>>)
+  fullName.vb: Link.Foundation.Links.Notation.IListExtensions.Format(Of TLinkAddress)(System.Collections.Generic.IList(Of Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: IListExtensions.Format<TLinkAddress>(IList<Link<TLinkAddress>>)
   nameWithType.vb: IListExtensions.Format(Of TLinkAddress)(IList(Of Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation.IListExtensions.Format``1(System.Collections.Generic.IList{LinkFoundation.LinksNotation.Link{``0}},System.Boolean)
+- uid: Link.Foundation.Links.Notation.IListExtensions.Format``1(System.Collections.Generic.IList{Link.Foundation.Links.Notation.Link{``0}},System.Boolean)
   name: Format<TLinkAddress>(IList<Link<TLinkAddress>>, bool)
-  href: api/LinkFoundation.LinksNotation.IListExtensions.html#LinkFoundation_LinksNotation_IListExtensions_Format__1_System_Collections_Generic_IList_LinkFoundation_LinksNotation_Link___0___System_Boolean_
-  commentId: M:LinkFoundation.LinksNotation.IListExtensions.Format``1(System.Collections.Generic.IList{LinkFoundation.LinksNotation.Link{``0}},System.Boolean)
+  href: api/Link.Foundation.Links.Notation.IListExtensions.html#Link_Foundation_Links_Notation_IListExtensions_Format__1_System_Collections_Generic_IList_Link_Foundation_Links_Notation_Link___0___System_Boolean_
+  commentId: M:Link.Foundation.Links.Notation.IListExtensions.Format``1(System.Collections.Generic.IList{Link.Foundation.Links.Notation.Link{``0}},System.Boolean)
   name.vb: Format(Of TLinkAddress)(IList(Of Link(Of TLinkAddress)), Boolean)
-  fullName: LinkFoundation.LinksNotation.IListExtensions.Format<TLinkAddress>(System.Collections.Generic.IList<LinkFoundation.LinksNotation.Link<TLinkAddress>>, bool)
-  fullName.vb: LinkFoundation.LinksNotation.IListExtensions.Format(Of TLinkAddress)(System.Collections.Generic.IList(Of LinkFoundation.LinksNotation.Link(Of TLinkAddress)), Boolean)
+  fullName: Link.Foundation.Links.Notation.IListExtensions.Format<TLinkAddress>(System.Collections.Generic.IList<Link.Foundation.Links.Notation.Link<TLinkAddress>>, bool)
+  fullName.vb: Link.Foundation.Links.Notation.IListExtensions.Format(Of TLinkAddress)(System.Collections.Generic.IList(Of Link.Foundation.Links.Notation.Link(Of TLinkAddress)), Boolean)
   nameWithType: IListExtensions.Format<TLinkAddress>(IList<Link<TLinkAddress>>, bool)
   nameWithType.vb: IListExtensions.Format(Of TLinkAddress)(IList(Of Link(Of TLinkAddress)), Boolean)
-- uid: LinkFoundation.LinksNotation.Link`1
+- uid: Link.Foundation.Links.Notation.Link`1
   name: Link<TLinkAddress>
-  href: api/LinkFoundation.LinksNotation.Link-1.html
-  commentId: T:LinkFoundation.LinksNotation.Link`1
+  href: api/Link.Foundation.Links.Notation.Link-1.html
+  commentId: T:Link.Foundation.Links.Notation.Link`1
   name.vb: Link(Of TLinkAddress)
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress)
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress)
   nameWithType: Link<TLinkAddress>
   nameWithType.vb: Link(Of TLinkAddress)
-- uid: LinkFoundation.LinksNotation.Link`1.#ctor(LinkFoundation.LinksNotation.Link{`0}[])
+- uid: Link.Foundation.Links.Notation.Link`1.#ctor(Link.Foundation.Links.Notation.Link{`0}[])
   name: Link(params Link<TLinkAddress>[])
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1__ctor_LinkFoundation_LinksNotation_Link__0____
-  commentId: M:LinkFoundation.LinksNotation.Link`1.#ctor(LinkFoundation.LinksNotation.Link{`0}[])
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1__ctor_Link_Foundation_Links_Notation_Link__0____
+  commentId: M:Link.Foundation.Links.Notation.Link`1.#ctor(Link.Foundation.Links.Notation.Link{`0}[])
   name.vb: New(ParamArray Link(Of TLinkAddress)())
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Link(params LinkFoundation.LinksNotation.Link<TLinkAddress>[])
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).New(ParamArray LinkFoundation.LinksNotation.Link(Of TLinkAddress)())
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Link(params Link.Foundation.Links.Notation.Link<TLinkAddress>[])
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).New(ParamArray Link.Foundation.Links.Notation.Link(Of TLinkAddress)())
   nameWithType: Link<TLinkAddress>.Link(params Link<TLinkAddress>[])
   nameWithType.vb: Link(Of TLinkAddress).New(ParamArray Link(Of TLinkAddress)())
-- uid: LinkFoundation.LinksNotation.Link`1.#ctor(System.Collections.Generic.IList{LinkFoundation.LinksNotation.Link{`0}})
+- uid: Link.Foundation.Links.Notation.Link`1.#ctor(System.Collections.Generic.IList{Link.Foundation.Links.Notation.Link{`0}})
   name: Link(IList<Link<TLinkAddress>>)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1__ctor_System_Collections_Generic_IList_LinkFoundation_LinksNotation_Link__0___
-  commentId: M:LinkFoundation.LinksNotation.Link`1.#ctor(System.Collections.Generic.IList{LinkFoundation.LinksNotation.Link{`0}})
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1__ctor_System_Collections_Generic_IList_Link_Foundation_Links_Notation_Link__0___
+  commentId: M:Link.Foundation.Links.Notation.Link`1.#ctor(System.Collections.Generic.IList{Link.Foundation.Links.Notation.Link{`0}})
   name.vb: New(IList(Of Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Link(System.Collections.Generic.IList<LinkFoundation.LinksNotation.Link<TLinkAddress>>)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).New(System.Collections.Generic.IList(Of LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Link(System.Collections.Generic.IList<Link.Foundation.Links.Notation.Link<TLinkAddress>>)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).New(System.Collections.Generic.IList(Of Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: Link<TLinkAddress>.Link(IList<Link<TLinkAddress>>)
   nameWithType.vb: Link(Of TLinkAddress).New(IList(Of Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation.Link`1.#ctor(`0)
+- uid: Link.Foundation.Links.Notation.Link`1.#ctor(`0)
   name: Link(TLinkAddress)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1__ctor__0_
-  commentId: M:LinkFoundation.LinksNotation.Link`1.#ctor(`0)
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1__ctor__0_
+  commentId: M:Link.Foundation.Links.Notation.Link`1.#ctor(`0)
   name.vb: New(TLinkAddress)
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Link(TLinkAddress)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).New(TLinkAddress)
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Link(TLinkAddress)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).New(TLinkAddress)
   nameWithType: Link<TLinkAddress>.Link(TLinkAddress)
   nameWithType.vb: Link(Of TLinkAddress).New(TLinkAddress)
-- uid: LinkFoundation.LinksNotation.Link`1.#ctor(`0,System.Collections.Generic.IList{LinkFoundation.LinksNotation.Link{`0}})
+- uid: Link.Foundation.Links.Notation.Link`1.#ctor(`0,System.Collections.Generic.IList{Link.Foundation.Links.Notation.Link{`0}})
   name: Link(TLinkAddress?, IList<Link<TLinkAddress>>?)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1__ctor__0_System_Collections_Generic_IList_LinkFoundation_LinksNotation_Link__0___
-  commentId: M:LinkFoundation.LinksNotation.Link`1.#ctor(`0,System.Collections.Generic.IList{LinkFoundation.LinksNotation.Link{`0}})
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1__ctor__0_System_Collections_Generic_IList_Link_Foundation_Links_Notation_Link__0___
+  commentId: M:Link.Foundation.Links.Notation.Link`1.#ctor(`0,System.Collections.Generic.IList{Link.Foundation.Links.Notation.Link{`0}})
   name.vb: New(TLinkAddress, IList(Of Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Link(TLinkAddress?, System.Collections.Generic.IList<LinkFoundation.LinksNotation.Link<TLinkAddress>>?)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).New(TLinkAddress, System.Collections.Generic.IList(Of LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Link(TLinkAddress?, System.Collections.Generic.IList<Link.Foundation.Links.Notation.Link<TLinkAddress>>?)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).New(TLinkAddress, System.Collections.Generic.IList(Of Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: Link<TLinkAddress>.Link(TLinkAddress?, IList<Link<TLinkAddress>>?)
   nameWithType.vb: Link(Of TLinkAddress).New(TLinkAddress, IList(Of Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation.Link`1.#ctor*
+- uid: Link.Foundation.Links.Notation.Link`1.#ctor*
   name: Link
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1__ctor_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.#ctor
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1__ctor_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Link
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).New
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Link
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).New
   nameWithType: Link<TLinkAddress>.Link
   nameWithType.vb: Link(Of TLinkAddress).New
-- uid: LinkFoundation.LinksNotation.Link`1.Combine(LinkFoundation.LinksNotation.Link{`0})
+- uid: Link.Foundation.Links.Notation.Link`1.Combine(Link.Foundation.Links.Notation.Link{`0})
   name: Combine(Link<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_Combine_LinkFoundation_LinksNotation_Link__0__
-  commentId: M:LinkFoundation.LinksNotation.Link`1.Combine(LinkFoundation.LinksNotation.Link{`0})
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_Combine_Link_Foundation_Links_Notation_Link__0__
+  commentId: M:Link.Foundation.Links.Notation.Link`1.Combine(Link.Foundation.Links.Notation.Link{`0})
   name.vb: Combine(Link(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Combine(LinkFoundation.LinksNotation.Link<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).Combine(LinkFoundation.LinksNotation.Link(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Combine(Link.Foundation.Links.Notation.Link<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).Combine(Link.Foundation.Links.Notation.Link(Of TLinkAddress))
   nameWithType: Link<TLinkAddress>.Combine(Link<TLinkAddress>)
   nameWithType.vb: Link(Of TLinkAddress).Combine(Link(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.Link`1.Combine*
+- uid: Link.Foundation.Links.Notation.Link`1.Combine*
   name: Combine
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_Combine_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.Combine
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_Combine_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.Combine
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Combine
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).Combine
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Combine
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).Combine
   nameWithType: Link<TLinkAddress>.Combine
   nameWithType.vb: Link(Of TLinkAddress).Combine
-- uid: LinkFoundation.LinksNotation.Link`1.Equals(LinkFoundation.LinksNotation.Link{`0})
+- uid: Link.Foundation.Links.Notation.Link`1.Equals(Link.Foundation.Links.Notation.Link{`0})
   name: Equals(Link<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_Equals_LinkFoundation_LinksNotation_Link__0__
-  commentId: M:LinkFoundation.LinksNotation.Link`1.Equals(LinkFoundation.LinksNotation.Link{`0})
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_Equals_Link_Foundation_Links_Notation_Link__0__
+  commentId: M:Link.Foundation.Links.Notation.Link`1.Equals(Link.Foundation.Links.Notation.Link{`0})
   name.vb: Equals(Link(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Equals(LinkFoundation.LinksNotation.Link<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).Equals(LinkFoundation.LinksNotation.Link(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Equals(Link.Foundation.Links.Notation.Link<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).Equals(Link.Foundation.Links.Notation.Link(Of TLinkAddress))
   nameWithType: Link<TLinkAddress>.Equals(Link<TLinkAddress>)
   nameWithType.vb: Link(Of TLinkAddress).Equals(Link(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.Link`1.Equals(System.Object)
+- uid: Link.Foundation.Links.Notation.Link`1.Equals(System.Object)
   name: Equals(object?)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_Equals_System_Object_
-  commentId: M:LinkFoundation.LinksNotation.Link`1.Equals(System.Object)
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_Equals_System_Object_
+  commentId: M:Link.Foundation.Links.Notation.Link`1.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Equals(object?)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).Equals(Object)
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Equals(object?)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).Equals(Object)
   nameWithType: Link<TLinkAddress>.Equals(object?)
   nameWithType.vb: Link(Of TLinkAddress).Equals(Object)
-- uid: LinkFoundation.LinksNotation.Link`1.Equals*
+- uid: Link.Foundation.Links.Notation.Link`1.Equals*
   name: Equals
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_Equals_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.Equals
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_Equals_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.Equals
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Equals
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).Equals
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Equals
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).Equals
   nameWithType: Link<TLinkAddress>.Equals
   nameWithType.vb: Link(Of TLinkAddress).Equals
-- uid: LinkFoundation.LinksNotation.Link`1.EscapeReference(System.String)
+- uid: Link.Foundation.Links.Notation.Link`1.EscapeReference(System.String)
   name: EscapeReference(string?)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_EscapeReference_System_String_
-  commentId: M:LinkFoundation.LinksNotation.Link`1.EscapeReference(System.String)
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_EscapeReference_System_String_
+  commentId: M:Link.Foundation.Links.Notation.Link`1.EscapeReference(System.String)
   name.vb: EscapeReference(String)
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.EscapeReference(string?)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).EscapeReference(String)
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.EscapeReference(string?)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).EscapeReference(String)
   nameWithType: Link<TLinkAddress>.EscapeReference(string?)
   nameWithType.vb: Link(Of TLinkAddress).EscapeReference(String)
-- uid: LinkFoundation.LinksNotation.Link`1.EscapeReference*
+- uid: Link.Foundation.Links.Notation.Link`1.EscapeReference*
   name: EscapeReference
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_EscapeReference_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.EscapeReference
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_EscapeReference_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.EscapeReference
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.EscapeReference
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).EscapeReference
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.EscapeReference
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).EscapeReference
   nameWithType: Link<TLinkAddress>.EscapeReference
   nameWithType.vb: Link(Of TLinkAddress).EscapeReference
-- uid: LinkFoundation.LinksNotation.Link`1.GetHashCode
+- uid: Link.Foundation.Links.Notation.Link`1.GetHashCode
   name: GetHashCode()
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_GetHashCode
-  commentId: M:LinkFoundation.LinksNotation.Link`1.GetHashCode
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.GetHashCode()
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).GetHashCode()
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_GetHashCode
+  commentId: M:Link.Foundation.Links.Notation.Link`1.GetHashCode
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.GetHashCode()
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).GetHashCode()
   nameWithType: Link<TLinkAddress>.GetHashCode()
   nameWithType.vb: Link(Of TLinkAddress).GetHashCode()
-- uid: LinkFoundation.LinksNotation.Link`1.GetHashCode*
+- uid: Link.Foundation.Links.Notation.Link`1.GetHashCode*
   name: GetHashCode
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_GetHashCode_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.GetHashCode
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_GetHashCode_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.GetHashCode
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.GetHashCode
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).GetHashCode
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.GetHashCode
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).GetHashCode
   nameWithType: Link<TLinkAddress>.GetHashCode
   nameWithType.vb: Link(Of TLinkAddress).GetHashCode
-- uid: LinkFoundation.LinksNotation.Link`1.GetValueString(LinkFoundation.LinksNotation.Link{`0})
+- uid: Link.Foundation.Links.Notation.Link`1.GetValueString(Link.Foundation.Links.Notation.Link{`0})
   name: GetValueString(Link<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_GetValueString_LinkFoundation_LinksNotation_Link__0__
-  commentId: M:LinkFoundation.LinksNotation.Link`1.GetValueString(LinkFoundation.LinksNotation.Link{`0})
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_GetValueString_Link_Foundation_Links_Notation_Link__0__
+  commentId: M:Link.Foundation.Links.Notation.Link`1.GetValueString(Link.Foundation.Links.Notation.Link{`0})
   name.vb: GetValueString(Link(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.GetValueString(LinkFoundation.LinksNotation.Link<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).GetValueString(LinkFoundation.LinksNotation.Link(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.GetValueString(Link.Foundation.Links.Notation.Link<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).GetValueString(Link.Foundation.Links.Notation.Link(Of TLinkAddress))
   nameWithType: Link<TLinkAddress>.GetValueString(Link<TLinkAddress>)
   nameWithType.vb: Link(Of TLinkAddress).GetValueString(Link(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.Link`1.GetValueString*
+- uid: Link.Foundation.Links.Notation.Link`1.GetValueString*
   name: GetValueString
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_GetValueString_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.GetValueString
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_GetValueString_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.GetValueString
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.GetValueString
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).GetValueString
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.GetValueString
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).GetValueString
   nameWithType: Link<TLinkAddress>.GetValueString
   nameWithType.vb: Link(Of TLinkAddress).GetValueString
-- uid: LinkFoundation.LinksNotation.Link`1.GetValuesString
+- uid: Link.Foundation.Links.Notation.Link`1.GetValuesString
   name: GetValuesString()
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_GetValuesString
-  commentId: M:LinkFoundation.LinksNotation.Link`1.GetValuesString
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.GetValuesString()
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).GetValuesString()
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_GetValuesString
+  commentId: M:Link.Foundation.Links.Notation.Link`1.GetValuesString
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.GetValuesString()
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).GetValuesString()
   nameWithType: Link<TLinkAddress>.GetValuesString()
   nameWithType.vb: Link(Of TLinkAddress).GetValuesString()
-- uid: LinkFoundation.LinksNotation.Link`1.GetValuesString*
+- uid: Link.Foundation.Links.Notation.Link`1.GetValuesString*
   name: GetValuesString
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_GetValuesString_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.GetValuesString
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_GetValuesString_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.GetValuesString
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.GetValuesString
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).GetValuesString
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.GetValuesString
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).GetValuesString
   nameWithType: Link<TLinkAddress>.GetValuesString
   nameWithType.vb: Link(Of TLinkAddress).GetValuesString
-- uid: LinkFoundation.LinksNotation.Link`1.Id
+- uid: Link.Foundation.Links.Notation.Link`1.Id
   name: Id
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_Id
-  commentId: F:LinkFoundation.LinksNotation.Link`1.Id
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Id
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).Id
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_Id
+  commentId: F:Link.Foundation.Links.Notation.Link`1.Id
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Id
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).Id
   nameWithType: Link<TLinkAddress>.Id
   nameWithType.vb: Link(Of TLinkAddress).Id
-- uid: LinkFoundation.LinksNotation.Link`1.Simplify
+- uid: Link.Foundation.Links.Notation.Link`1.Simplify
   name: Simplify()
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_Simplify
-  commentId: M:LinkFoundation.LinksNotation.Link`1.Simplify
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Simplify()
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).Simplify()
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_Simplify
+  commentId: M:Link.Foundation.Links.Notation.Link`1.Simplify
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Simplify()
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).Simplify()
   nameWithType: Link<TLinkAddress>.Simplify()
   nameWithType.vb: Link(Of TLinkAddress).Simplify()
-- uid: LinkFoundation.LinksNotation.Link`1.Simplify*
+- uid: Link.Foundation.Links.Notation.Link`1.Simplify*
   name: Simplify
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_Simplify_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.Simplify
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_Simplify_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.Simplify
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Simplify
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).Simplify
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Simplify
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).Simplify
   nameWithType: Link<TLinkAddress>.Simplify
   nameWithType.vb: Link(Of TLinkAddress).Simplify
-- uid: LinkFoundation.LinksNotation.Link`1.ToLinkOrIdString
+- uid: Link.Foundation.Links.Notation.Link`1.ToLinkOrIdString
   name: ToLinkOrIdString()
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_ToLinkOrIdString
-  commentId: M:LinkFoundation.LinksNotation.Link`1.ToLinkOrIdString
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.ToLinkOrIdString()
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).ToLinkOrIdString()
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_ToLinkOrIdString
+  commentId: M:Link.Foundation.Links.Notation.Link`1.ToLinkOrIdString
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.ToLinkOrIdString()
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).ToLinkOrIdString()
   nameWithType: Link<TLinkAddress>.ToLinkOrIdString()
   nameWithType.vb: Link(Of TLinkAddress).ToLinkOrIdString()
-- uid: LinkFoundation.LinksNotation.Link`1.ToLinkOrIdString*
+- uid: Link.Foundation.Links.Notation.Link`1.ToLinkOrIdString*
   name: ToLinkOrIdString
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_ToLinkOrIdString_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.ToLinkOrIdString
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_ToLinkOrIdString_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.ToLinkOrIdString
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.ToLinkOrIdString
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).ToLinkOrIdString
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.ToLinkOrIdString
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).ToLinkOrIdString
   nameWithType: Link<TLinkAddress>.ToLinkOrIdString
   nameWithType.vb: Link(Of TLinkAddress).ToLinkOrIdString
-- uid: LinkFoundation.LinksNotation.Link`1.ToString
+- uid: Link.Foundation.Links.Notation.Link`1.ToString
   name: ToString()
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_ToString
-  commentId: M:LinkFoundation.LinksNotation.Link`1.ToString
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.ToString()
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).ToString()
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_ToString
+  commentId: M:Link.Foundation.Links.Notation.Link`1.ToString
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.ToString()
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).ToString()
   nameWithType: Link<TLinkAddress>.ToString()
   nameWithType.vb: Link(Of TLinkAddress).ToString()
-- uid: LinkFoundation.LinksNotation.Link`1.ToString*
+- uid: Link.Foundation.Links.Notation.Link`1.ToString*
   name: ToString
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_ToString_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.ToString
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_ToString_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.ToString
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.ToString
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).ToString
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.ToString
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).ToString
   nameWithType: Link<TLinkAddress>.ToString
   nameWithType.vb: Link(Of TLinkAddress).ToString
-- uid: LinkFoundation.LinksNotation.Link`1.Values
+- uid: Link.Foundation.Links.Notation.Link`1.Values
   name: Values
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_Values
-  commentId: F:LinkFoundation.LinksNotation.Link`1.Values
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.Values
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).Values
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_Values
+  commentId: F:Link.Foundation.Links.Notation.Link`1.Values
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.Values
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).Values
   nameWithType: Link<TLinkAddress>.Values
   nameWithType.vb: Link(Of TLinkAddress).Values
-- uid: LinkFoundation.LinksNotation.Link`1.op_Equality(LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0})
+- uid: Link.Foundation.Links.Notation.Link`1.op_Equality(Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0})
   name: operator ==(Link<TLinkAddress>, Link<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Equality_LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0__
-  commentId: M:LinkFoundation.LinksNotation.Link`1.op_Equality(LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0})
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Equality_Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0__
+  commentId: M:Link.Foundation.Links.Notation.Link`1.op_Equality(Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0})
   name.vb: =(Link(Of TLinkAddress), Link(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.operator ==(LinkFoundation.LinksNotation.Link<TLinkAddress>, LinkFoundation.LinksNotation.Link<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).=(LinkFoundation.LinksNotation.Link(Of TLinkAddress), LinkFoundation.LinksNotation.Link(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.operator ==(Link.Foundation.Links.Notation.Link<TLinkAddress>, Link.Foundation.Links.Notation.Link<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).=(Link.Foundation.Links.Notation.Link(Of TLinkAddress), Link.Foundation.Links.Notation.Link(Of TLinkAddress))
   nameWithType: Link<TLinkAddress>.operator ==(Link<TLinkAddress>, Link<TLinkAddress>)
   nameWithType.vb: Link(Of TLinkAddress).=(Link(Of TLinkAddress), Link(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.Link`1.op_Equality*
+- uid: Link.Foundation.Links.Notation.Link`1.op_Equality*
   name: operator ==
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Equality_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.op_Equality
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Equality_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.op_Equality
   isSpec: "True"
   name.vb: =
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.operator ==
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).=
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.operator ==
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).=
   nameWithType: Link<TLinkAddress>.operator ==
   nameWithType.vb: Link(Of TLinkAddress).=
-- uid: LinkFoundation.LinksNotation.Link`1.op_Implicit(System.ValueTuple{LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation.Link{`0}
+- uid: Link.Foundation.Links.Notation.Link`1.op_Implicit(System.ValueTuple{Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation.Link{`0}
   name: implicit operator Link<TLinkAddress>((Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target))
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Implicit_System_ValueTuple_LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0____LinkFoundation_LinksNotation_Link__0_
-  commentId: M:LinkFoundation.LinksNotation.Link`1.op_Implicit(System.ValueTuple{LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation.Link{`0}
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Implicit_System_ValueTuple_Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0____Link_Foundation_Links_Notation_Link__0_
+  commentId: M:Link.Foundation.Links.Notation.Link`1.op_Implicit(System.ValueTuple{Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation.Link{`0}
   name.vb: CType((source As Link(Of TLinkAddress), linker As Link(Of TLinkAddress), target As Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.implicit operator LinkFoundation.LinksNotation.Link<TLinkAddress>((LinkFoundation.LinksNotation.Link<TLinkAddress> source, LinkFoundation.LinksNotation.Link<TLinkAddress> linker, LinkFoundation.LinksNotation.Link<TLinkAddress> target))
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).CType((source As LinkFoundation.LinksNotation.Link(Of TLinkAddress), linker As LinkFoundation.LinksNotation.Link(Of TLinkAddress), target As LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.implicit operator Link.Foundation.Links.Notation.Link<TLinkAddress>((Link.Foundation.Links.Notation.Link<TLinkAddress> source, Link.Foundation.Links.Notation.Link<TLinkAddress> linker, Link.Foundation.Links.Notation.Link<TLinkAddress> target))
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).CType((source As Link.Foundation.Links.Notation.Link(Of TLinkAddress), linker As Link.Foundation.Links.Notation.Link(Of TLinkAddress), target As Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: Link<TLinkAddress>.implicit operator Link<TLinkAddress>((Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target))
   nameWithType.vb: Link(Of TLinkAddress).CType((source As Link(Of TLinkAddress), linker As Link(Of TLinkAddress), target As Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation.Link`1.op_Implicit(System.ValueTuple{LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation.Link{`0}
+- uid: Link.Foundation.Links.Notation.Link`1.op_Implicit(System.ValueTuple{Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation.Link{`0}
   name: implicit operator Link<TLinkAddress>((Link<TLinkAddress> source, Link<TLinkAddress> target))
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Implicit_System_ValueTuple_LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0____LinkFoundation_LinksNotation_Link__0_
-  commentId: M:LinkFoundation.LinksNotation.Link`1.op_Implicit(System.ValueTuple{LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation.Link{`0}
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Implicit_System_ValueTuple_Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0____Link_Foundation_Links_Notation_Link__0_
+  commentId: M:Link.Foundation.Links.Notation.Link`1.op_Implicit(System.ValueTuple{Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation.Link{`0}
   name.vb: CType((source As Link(Of TLinkAddress), target As Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.implicit operator LinkFoundation.LinksNotation.Link<TLinkAddress>((LinkFoundation.LinksNotation.Link<TLinkAddress> source, LinkFoundation.LinksNotation.Link<TLinkAddress> target))
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).CType((source As LinkFoundation.LinksNotation.Link(Of TLinkAddress), target As LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.implicit operator Link.Foundation.Links.Notation.Link<TLinkAddress>((Link.Foundation.Links.Notation.Link<TLinkAddress> source, Link.Foundation.Links.Notation.Link<TLinkAddress> target))
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).CType((source As Link.Foundation.Links.Notation.Link(Of TLinkAddress), target As Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: Link<TLinkAddress>.implicit operator Link<TLinkAddress>((Link<TLinkAddress> source, Link<TLinkAddress> target))
   nameWithType.vb: Link(Of TLinkAddress).CType((source As Link(Of TLinkAddress), target As Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation.Link`1.op_Implicit(System.ValueTuple{LinkFoundation.LinksNotation.id{`0},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation.Link{`0}
+- uid: Link.Foundation.Links.Notation.Link`1.op_Implicit(System.ValueTuple{Link.Foundation.Links.Notation.id{`0},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation.Link{`0}
   name: implicit operator Link<TLinkAddress>((id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target))
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Implicit_System_ValueTuple_LinkFoundation_LinksNotation_id__0__LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0____LinkFoundation_LinksNotation_Link__0_
-  commentId: M:LinkFoundation.LinksNotation.Link`1.op_Implicit(System.ValueTuple{LinkFoundation.LinksNotation.id{`0},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation.Link{`0}
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Implicit_System_ValueTuple_Link_Foundation_Links_Notation_id__0__Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0____Link_Foundation_Links_Notation_Link__0_
+  commentId: M:Link.Foundation.Links.Notation.Link`1.op_Implicit(System.ValueTuple{Link.Foundation.Links.Notation.id{`0},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation.Link{`0}
   name.vb: CType((id As id(Of TLinkAddress), source As Link(Of TLinkAddress), linker As Link(Of TLinkAddress), target As Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.implicit operator LinkFoundation.LinksNotation.Link<TLinkAddress>((LinkFoundation.LinksNotation.id<TLinkAddress> id, LinkFoundation.LinksNotation.Link<TLinkAddress> source, LinkFoundation.LinksNotation.Link<TLinkAddress> linker, LinkFoundation.LinksNotation.Link<TLinkAddress> target))
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).CType((id As LinkFoundation.LinksNotation.id(Of TLinkAddress), source As LinkFoundation.LinksNotation.Link(Of TLinkAddress), linker As LinkFoundation.LinksNotation.Link(Of TLinkAddress), target As LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.implicit operator Link.Foundation.Links.Notation.Link<TLinkAddress>((Link.Foundation.Links.Notation.id<TLinkAddress> id, Link.Foundation.Links.Notation.Link<TLinkAddress> source, Link.Foundation.Links.Notation.Link<TLinkAddress> linker, Link.Foundation.Links.Notation.Link<TLinkAddress> target))
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).CType((id As Link.Foundation.Links.Notation.id(Of TLinkAddress), source As Link.Foundation.Links.Notation.Link(Of TLinkAddress), linker As Link.Foundation.Links.Notation.Link(Of TLinkAddress), target As Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: Link<TLinkAddress>.implicit operator Link<TLinkAddress>((id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> linker, Link<TLinkAddress> target))
   nameWithType.vb: Link(Of TLinkAddress).CType((id As id(Of TLinkAddress), source As Link(Of TLinkAddress), linker As Link(Of TLinkAddress), target As Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation.Link`1.op_Implicit(System.ValueTuple{LinkFoundation.LinksNotation.id{`0},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation.Link{`0}
+- uid: Link.Foundation.Links.Notation.Link`1.op_Implicit(System.ValueTuple{Link.Foundation.Links.Notation.id{`0},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation.Link{`0}
   name: implicit operator Link<TLinkAddress>((id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> target))
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Implicit_System_ValueTuple_LinkFoundation_LinksNotation_id__0__LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0____LinkFoundation_LinksNotation_Link__0_
-  commentId: M:LinkFoundation.LinksNotation.Link`1.op_Implicit(System.ValueTuple{LinkFoundation.LinksNotation.id{`0},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation.Link{`0}
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Implicit_System_ValueTuple_Link_Foundation_Links_Notation_id__0__Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0____Link_Foundation_Links_Notation_Link__0_
+  commentId: M:Link.Foundation.Links.Notation.Link`1.op_Implicit(System.ValueTuple{Link.Foundation.Links.Notation.id{`0},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation.Link{`0}
   name.vb: CType((id As id(Of TLinkAddress), source As Link(Of TLinkAddress), target As Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.implicit operator LinkFoundation.LinksNotation.Link<TLinkAddress>((LinkFoundation.LinksNotation.id<TLinkAddress> id, LinkFoundation.LinksNotation.Link<TLinkAddress> source, LinkFoundation.LinksNotation.Link<TLinkAddress> target))
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).CType((id As LinkFoundation.LinksNotation.id(Of TLinkAddress), source As LinkFoundation.LinksNotation.Link(Of TLinkAddress), target As LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.implicit operator Link.Foundation.Links.Notation.Link<TLinkAddress>((Link.Foundation.Links.Notation.id<TLinkAddress> id, Link.Foundation.Links.Notation.Link<TLinkAddress> source, Link.Foundation.Links.Notation.Link<TLinkAddress> target))
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).CType((id As Link.Foundation.Links.Notation.id(Of TLinkAddress), source As Link.Foundation.Links.Notation.Link(Of TLinkAddress), target As Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: Link<TLinkAddress>.implicit operator Link<TLinkAddress>((id<TLinkAddress> id, Link<TLinkAddress> source, Link<TLinkAddress> target))
   nameWithType.vb: Link(Of TLinkAddress).CType((id As id(Of TLinkAddress), source As Link(Of TLinkAddress), target As Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation.Link`1.op_Implicit(System.ValueTuple{`0,System.Collections.Generic.IList{LinkFoundation.LinksNotation.Link{`0}}})~LinkFoundation.LinksNotation.Link{`0}
+- uid: Link.Foundation.Links.Notation.Link`1.op_Implicit(System.ValueTuple{`0,System.Collections.Generic.IList{Link.Foundation.Links.Notation.Link{`0}}})~Link.Foundation.Links.Notation.Link{`0}
   name: implicit operator Link<TLinkAddress>((TLinkAddress, IList<Link<TLinkAddress>>))
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Implicit_System_ValueTuple__0_System_Collections_Generic_IList_LinkFoundation_LinksNotation_Link__0_____LinkFoundation_LinksNotation_Link__0_
-  commentId: M:LinkFoundation.LinksNotation.Link`1.op_Implicit(System.ValueTuple{`0,System.Collections.Generic.IList{LinkFoundation.LinksNotation.Link{`0}}})~LinkFoundation.LinksNotation.Link{`0}
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Implicit_System_ValueTuple__0_System_Collections_Generic_IList_Link_Foundation_Links_Notation_Link__0_____Link_Foundation_Links_Notation_Link__0_
+  commentId: M:Link.Foundation.Links.Notation.Link`1.op_Implicit(System.ValueTuple{`0,System.Collections.Generic.IList{Link.Foundation.Links.Notation.Link{`0}}})~Link.Foundation.Links.Notation.Link{`0}
   name.vb: CType((TLinkAddress, IList(Of Link(Of TLinkAddress))))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.implicit operator LinkFoundation.LinksNotation.Link<TLinkAddress>((TLinkAddress, System.Collections.Generic.IList<LinkFoundation.LinksNotation.Link<TLinkAddress>>))
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).CType((TLinkAddress, System.Collections.Generic.IList(Of LinkFoundation.LinksNotation.Link(Of TLinkAddress))))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.implicit operator Link.Foundation.Links.Notation.Link<TLinkAddress>((TLinkAddress, System.Collections.Generic.IList<Link.Foundation.Links.Notation.Link<TLinkAddress>>))
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).CType((TLinkAddress, System.Collections.Generic.IList(Of Link.Foundation.Links.Notation.Link(Of TLinkAddress))))
   nameWithType: Link<TLinkAddress>.implicit operator Link<TLinkAddress>((TLinkAddress, IList<Link<TLinkAddress>>))
   nameWithType.vb: Link(Of TLinkAddress).CType((TLinkAddress, IList(Of Link(Of TLinkAddress))))
-- uid: LinkFoundation.LinksNotation.Link`1.op_Implicit(`0)~LinkFoundation.LinksNotation.Link{`0}
+- uid: Link.Foundation.Links.Notation.Link`1.op_Implicit(`0)~Link.Foundation.Links.Notation.Link{`0}
   name: implicit operator Link<TLinkAddress>(TLinkAddress)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Implicit__0__LinkFoundation_LinksNotation_Link__0_
-  commentId: M:LinkFoundation.LinksNotation.Link`1.op_Implicit(`0)~LinkFoundation.LinksNotation.Link{`0}
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Implicit__0__Link_Foundation_Links_Notation_Link__0_
+  commentId: M:Link.Foundation.Links.Notation.Link`1.op_Implicit(`0)~Link.Foundation.Links.Notation.Link{`0}
   name.vb: CType(TLinkAddress)
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.implicit operator LinkFoundation.LinksNotation.Link<TLinkAddress>(TLinkAddress)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).CType(TLinkAddress)
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.implicit operator Link.Foundation.Links.Notation.Link<TLinkAddress>(TLinkAddress)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).CType(TLinkAddress)
   nameWithType: Link<TLinkAddress>.implicit operator Link<TLinkAddress>(TLinkAddress)
   nameWithType.vb: Link(Of TLinkAddress).CType(TLinkAddress)
-- uid: LinkFoundation.LinksNotation.Link`1.op_Implicit*
+- uid: Link.Foundation.Links.Notation.Link`1.op_Implicit*
   name: implicit operator
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Implicit_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.op_Implicit
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Implicit_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.op_Implicit
   isSpec: "True"
   name.vb: CType
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.implicit operator
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).CType
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.implicit operator
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).CType
   nameWithType: Link<TLinkAddress>.implicit operator
   nameWithType.vb: Link(Of TLinkAddress).CType
-- uid: LinkFoundation.LinksNotation.Link`1.op_Inequality(LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0})
+- uid: Link.Foundation.Links.Notation.Link`1.op_Inequality(Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0})
   name: operator !=(Link<TLinkAddress>, Link<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Inequality_LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0__
-  commentId: M:LinkFoundation.LinksNotation.Link`1.op_Inequality(LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0})
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Inequality_Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0__
+  commentId: M:Link.Foundation.Links.Notation.Link`1.op_Inequality(Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0})
   name.vb: <>(Link(Of TLinkAddress), Link(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.operator !=(LinkFoundation.LinksNotation.Link<TLinkAddress>, LinkFoundation.LinksNotation.Link<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).<>(LinkFoundation.LinksNotation.Link(Of TLinkAddress), LinkFoundation.LinksNotation.Link(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.operator !=(Link.Foundation.Links.Notation.Link<TLinkAddress>, Link.Foundation.Links.Notation.Link<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).<>(Link.Foundation.Links.Notation.Link(Of TLinkAddress), Link.Foundation.Links.Notation.Link(Of TLinkAddress))
   nameWithType: Link<TLinkAddress>.operator !=(Link<TLinkAddress>, Link<TLinkAddress>)
   nameWithType.vb: Link(Of TLinkAddress).<>(Link(Of TLinkAddress), Link(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.Link`1.op_Inequality*
+- uid: Link.Foundation.Links.Notation.Link`1.op_Inequality*
   name: operator !=
-  href: api/LinkFoundation.LinksNotation.Link-1.html#LinkFoundation_LinksNotation_Link_1_op_Inequality_
-  commentId: Overload:LinkFoundation.LinksNotation.Link`1.op_Inequality
+  href: api/Link.Foundation.Links.Notation.Link-1.html#Link_Foundation_Links_Notation_Link_1_op_Inequality_
+  commentId: Overload:Link.Foundation.Links.Notation.Link`1.op_Inequality
   isSpec: "True"
   name.vb: <>
-  fullName: LinkFoundation.LinksNotation.Link<TLinkAddress>.operator !=
-  fullName.vb: LinkFoundation.LinksNotation.Link(Of TLinkAddress).<>
+  fullName: Link.Foundation.Links.Notation.Link<TLinkAddress>.operator !=
+  fullName.vb: Link.Foundation.Links.Notation.Link(Of TLinkAddress).<>
   nameWithType: Link<TLinkAddress>.operator !=
   nameWithType.vb: Link(Of TLinkAddress).<>
-- uid: LinkFoundation.LinksNotation.LinksGroup`1
+- uid: Link.Foundation.Links.Notation.LinksGroup`1
   name: LinksGroup<TLinkAddress>
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html
-  commentId: T:LinkFoundation.LinksNotation.LinksGroup`1
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html
+  commentId: T:Link.Foundation.Links.Notation.LinksGroup`1
   name.vb: LinksGroup(Of TLinkAddress)
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress)
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress)
   nameWithType: LinksGroup<TLinkAddress>
   nameWithType.vb: LinksGroup(Of TLinkAddress)
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.#ctor(LinkFoundation.LinksNotation.Link{`0})
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.#ctor(Link.Foundation.Links.Notation.Link{`0})
   name: LinksGroup(Link<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1__ctor_LinkFoundation_LinksNotation_Link__0__
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.#ctor(LinkFoundation.LinksNotation.Link{`0})
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1__ctor_Link_Foundation_Links_Notation_Link__0__
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.#ctor(Link.Foundation.Links.Notation.Link{`0})
   name.vb: New(Link(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.LinksGroup(LinkFoundation.LinksNotation.Link<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).New(LinkFoundation.LinksNotation.Link(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.LinksGroup(Link.Foundation.Links.Notation.Link<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).New(Link.Foundation.Links.Notation.Link(Of TLinkAddress))
   nameWithType: LinksGroup<TLinkAddress>.LinksGroup(Link<TLinkAddress>)
   nameWithType.vb: LinksGroup(Of TLinkAddress).New(Link(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.#ctor(LinkFoundation.LinksNotation.Link{`0},System.Collections.Generic.IList{LinkFoundation.LinksNotation.LinksGroup{`0}})
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.#ctor(Link.Foundation.Links.Notation.Link{`0},System.Collections.Generic.IList{Link.Foundation.Links.Notation.LinksGroup{`0}})
   name: LinksGroup(Link<TLinkAddress>, IList<LinksGroup<TLinkAddress>>?)
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1__ctor_LinkFoundation_LinksNotation_Link__0__System_Collections_Generic_IList_LinkFoundation_LinksNotation_LinksGroup__0___
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.#ctor(LinkFoundation.LinksNotation.Link{`0},System.Collections.Generic.IList{LinkFoundation.LinksNotation.LinksGroup{`0}})
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1__ctor_Link_Foundation_Links_Notation_Link__0__System_Collections_Generic_IList_Link_Foundation_Links_Notation_LinksGroup__0___
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.#ctor(Link.Foundation.Links.Notation.Link{`0},System.Collections.Generic.IList{Link.Foundation.Links.Notation.LinksGroup{`0}})
   name.vb: New(Link(Of TLinkAddress), IList(Of LinksGroup(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.LinksGroup(LinkFoundation.LinksNotation.Link<TLinkAddress>, System.Collections.Generic.IList<LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>>?)
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).New(LinkFoundation.LinksNotation.Link(Of TLinkAddress), System.Collections.Generic.IList(Of LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.LinksGroup(Link.Foundation.Links.Notation.Link<TLinkAddress>, System.Collections.Generic.IList<Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>>?)
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).New(Link.Foundation.Links.Notation.Link(Of TLinkAddress), System.Collections.Generic.IList(Of Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress)))
   nameWithType: LinksGroup<TLinkAddress>.LinksGroup(Link<TLinkAddress>, IList<LinksGroup<TLinkAddress>>?)
   nameWithType.vb: LinksGroup(Of TLinkAddress).New(Link(Of TLinkAddress), IList(Of LinksGroup(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.#ctor*
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.#ctor*
   name: LinksGroup
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1__ctor_
-  commentId: Overload:LinkFoundation.LinksNotation.LinksGroup`1.#ctor
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1__ctor_
+  commentId: Overload:Link.Foundation.Links.Notation.LinksGroup`1.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.LinksGroup
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).New
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.LinksGroup
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).New
   nameWithType: LinksGroup<TLinkAddress>.LinksGroup
   nameWithType.vb: LinksGroup(Of TLinkAddress).New
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.AppendToLinksList(System.Collections.Generic.List{LinkFoundation.LinksNotation.Link{`0}})
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.AppendToLinksList(System.Collections.Generic.List{Link.Foundation.Links.Notation.Link{`0}})
   name: AppendToLinksList(List<Link<TLinkAddress>>)
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_AppendToLinksList_System_Collections_Generic_List_LinkFoundation_LinksNotation_Link__0___
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.AppendToLinksList(System.Collections.Generic.List{LinkFoundation.LinksNotation.Link{`0}})
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_AppendToLinksList_System_Collections_Generic_List_Link_Foundation_Links_Notation_Link__0___
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.AppendToLinksList(System.Collections.Generic.List{Link.Foundation.Links.Notation.Link{`0}})
   name.vb: AppendToLinksList(List(Of Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.AppendToLinksList(System.Collections.Generic.List<LinkFoundation.LinksNotation.Link<TLinkAddress>>)
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).AppendToLinksList(System.Collections.Generic.List(Of LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.AppendToLinksList(System.Collections.Generic.List<Link.Foundation.Links.Notation.Link<TLinkAddress>>)
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).AppendToLinksList(System.Collections.Generic.List(Of Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: LinksGroup<TLinkAddress>.AppendToLinksList(List<Link<TLinkAddress>>)
   nameWithType.vb: LinksGroup(Of TLinkAddress).AppendToLinksList(List(Of Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.AppendToLinksList(System.Collections.Generic.List{LinkFoundation.LinksNotation.Link{`0}},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.LinksGroup{`0})
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.AppendToLinksList(System.Collections.Generic.List{Link.Foundation.Links.Notation.Link{`0}},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.LinksGroup{`0})
   name: AppendToLinksList(List<Link<TLinkAddress>>, Link<TLinkAddress>, LinksGroup<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_AppendToLinksList_System_Collections_Generic_List_LinkFoundation_LinksNotation_Link__0___LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_LinksGroup__0__
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.AppendToLinksList(System.Collections.Generic.List{LinkFoundation.LinksNotation.Link{`0}},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.LinksGroup{`0})
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_AppendToLinksList_System_Collections_Generic_List_Link_Foundation_Links_Notation_Link__0___Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_LinksGroup__0__
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.AppendToLinksList(System.Collections.Generic.List{Link.Foundation.Links.Notation.Link{`0}},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.LinksGroup{`0})
   name.vb: AppendToLinksList(List(Of Link(Of TLinkAddress)), Link(Of TLinkAddress), LinksGroup(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.AppendToLinksList(System.Collections.Generic.List<LinkFoundation.LinksNotation.Link<TLinkAddress>>, LinkFoundation.LinksNotation.Link<TLinkAddress>, LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).AppendToLinksList(System.Collections.Generic.List(Of LinkFoundation.LinksNotation.Link(Of TLinkAddress)), LinkFoundation.LinksNotation.Link(Of TLinkAddress), LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.AppendToLinksList(System.Collections.Generic.List<Link.Foundation.Links.Notation.Link<TLinkAddress>>, Link.Foundation.Links.Notation.Link<TLinkAddress>, Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).AppendToLinksList(System.Collections.Generic.List(Of Link.Foundation.Links.Notation.Link(Of TLinkAddress)), Link.Foundation.Links.Notation.Link(Of TLinkAddress), Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress))
   nameWithType: LinksGroup<TLinkAddress>.AppendToLinksList(List<Link<TLinkAddress>>, Link<TLinkAddress>, LinksGroup<TLinkAddress>)
   nameWithType.vb: LinksGroup(Of TLinkAddress).AppendToLinksList(List(Of Link(Of TLinkAddress)), Link(Of TLinkAddress), LinksGroup(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.AppendToLinksList*
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.AppendToLinksList*
   name: AppendToLinksList
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_AppendToLinksList_
-  commentId: Overload:LinkFoundation.LinksNotation.LinksGroup`1.AppendToLinksList
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_AppendToLinksList_
+  commentId: Overload:Link.Foundation.Links.Notation.LinksGroup`1.AppendToLinksList
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.AppendToLinksList
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).AppendToLinksList
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.AppendToLinksList
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).AppendToLinksList
   nameWithType: LinksGroup<TLinkAddress>.AppendToLinksList
   nameWithType.vb: LinksGroup(Of TLinkAddress).AppendToLinksList
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.Equals(LinkFoundation.LinksNotation.LinksGroup{`0})
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.Equals(Link.Foundation.Links.Notation.LinksGroup{`0})
   name: Equals(LinksGroup<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_Equals_LinkFoundation_LinksNotation_LinksGroup__0__
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.Equals(LinkFoundation.LinksNotation.LinksGroup{`0})
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_Equals_Link_Foundation_Links_Notation_LinksGroup__0__
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.Equals(Link.Foundation.Links.Notation.LinksGroup{`0})
   name.vb: Equals(LinksGroup(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.Equals(LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).Equals(LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.Equals(Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).Equals(Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress))
   nameWithType: LinksGroup<TLinkAddress>.Equals(LinksGroup<TLinkAddress>)
   nameWithType.vb: LinksGroup(Of TLinkAddress).Equals(LinksGroup(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.Equals(System.Object)
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.Equals(System.Object)
   name: Equals(object?)
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_Equals_System_Object_
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.Equals(System.Object)
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_Equals_System_Object_
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.Equals(object?)
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).Equals(Object)
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.Equals(object?)
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).Equals(Object)
   nameWithType: LinksGroup<TLinkAddress>.Equals(object?)
   nameWithType.vb: LinksGroup(Of TLinkAddress).Equals(Object)
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.Equals*
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.Equals*
   name: Equals
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_Equals_
-  commentId: Overload:LinkFoundation.LinksNotation.LinksGroup`1.Equals
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_Equals_
+  commentId: Overload:Link.Foundation.Links.Notation.LinksGroup`1.Equals
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.Equals
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).Equals
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.Equals
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).Equals
   nameWithType: LinksGroup<TLinkAddress>.Equals
   nameWithType.vb: LinksGroup(Of TLinkAddress).Equals
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.GetHashCode
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.GetHashCode
   name: GetHashCode()
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_GetHashCode
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.GetHashCode
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.GetHashCode()
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).GetHashCode()
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_GetHashCode
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.GetHashCode
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.GetHashCode()
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).GetHashCode()
   nameWithType: LinksGroup<TLinkAddress>.GetHashCode()
   nameWithType.vb: LinksGroup(Of TLinkAddress).GetHashCode()
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.GetHashCode*
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.GetHashCode*
   name: GetHashCode
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_GetHashCode_
-  commentId: Overload:LinkFoundation.LinksNotation.LinksGroup`1.GetHashCode
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_GetHashCode_
+  commentId: Overload:Link.Foundation.Links.Notation.LinksGroup`1.GetHashCode
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.GetHashCode
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).GetHashCode
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.GetHashCode
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).GetHashCode
   nameWithType: LinksGroup<TLinkAddress>.GetHashCode
   nameWithType.vb: LinksGroup(Of TLinkAddress).GetHashCode
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.Groups
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.Groups
   name: Groups
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_Groups
-  commentId: P:LinkFoundation.LinksNotation.LinksGroup`1.Groups
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.Groups
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).Groups
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_Groups
+  commentId: P:Link.Foundation.Links.Notation.LinksGroup`1.Groups
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.Groups
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).Groups
   nameWithType: LinksGroup<TLinkAddress>.Groups
   nameWithType.vb: LinksGroup(Of TLinkAddress).Groups
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.Groups*
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.Groups*
   name: Groups
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_Groups_
-  commentId: Overload:LinkFoundation.LinksNotation.LinksGroup`1.Groups
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_Groups_
+  commentId: Overload:Link.Foundation.Links.Notation.LinksGroup`1.Groups
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.Groups
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).Groups
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.Groups
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).Groups
   nameWithType: LinksGroup<TLinkAddress>.Groups
   nameWithType.vb: LinksGroup(Of TLinkAddress).Groups
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.Link
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.Link
   name: Link
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_Link
-  commentId: P:LinkFoundation.LinksNotation.LinksGroup`1.Link
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.Link
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).Link
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_Link
+  commentId: P:Link.Foundation.Links.Notation.LinksGroup`1.Link
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.Link
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).Link
   nameWithType: LinksGroup<TLinkAddress>.Link
   nameWithType.vb: LinksGroup(Of TLinkAddress).Link
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.Link*
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.Link*
   name: Link
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_Link_
-  commentId: Overload:LinkFoundation.LinksNotation.LinksGroup`1.Link
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_Link_
+  commentId: Overload:Link.Foundation.Links.Notation.LinksGroup`1.Link
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.Link
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).Link
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.Link
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).Link
   nameWithType: LinksGroup<TLinkAddress>.Link
   nameWithType.vb: LinksGroup(Of TLinkAddress).Link
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.ToLinksList
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.ToLinksList
   name: ToLinksList()
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_ToLinksList
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.ToLinksList
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.ToLinksList()
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).ToLinksList()
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_ToLinksList
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.ToLinksList
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.ToLinksList()
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).ToLinksList()
   nameWithType: LinksGroup<TLinkAddress>.ToLinksList()
   nameWithType.vb: LinksGroup(Of TLinkAddress).ToLinksList()
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.ToLinksList*
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.ToLinksList*
   name: ToLinksList
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_ToLinksList_
-  commentId: Overload:LinkFoundation.LinksNotation.LinksGroup`1.ToLinksList
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_ToLinksList_
+  commentId: Overload:Link.Foundation.Links.Notation.LinksGroup`1.ToLinksList
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.ToLinksList
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).ToLinksList
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.ToLinksList
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).ToLinksList
   nameWithType: LinksGroup<TLinkAddress>.ToLinksList
   nameWithType.vb: LinksGroup(Of TLinkAddress).ToLinksList
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.op_Equality(LinkFoundation.LinksNotation.LinksGroup{`0},LinkFoundation.LinksNotation.LinksGroup{`0})
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.op_Equality(Link.Foundation.Links.Notation.LinksGroup{`0},Link.Foundation.Links.Notation.LinksGroup{`0})
   name: operator ==(LinksGroup<TLinkAddress>, LinksGroup<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_op_Equality_LinkFoundation_LinksNotation_LinksGroup__0__LinkFoundation_LinksNotation_LinksGroup__0__
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.op_Equality(LinkFoundation.LinksNotation.LinksGroup{`0},LinkFoundation.LinksNotation.LinksGroup{`0})
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_op_Equality_Link_Foundation_Links_Notation_LinksGroup__0__Link_Foundation_Links_Notation_LinksGroup__0__
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.op_Equality(Link.Foundation.Links.Notation.LinksGroup{`0},Link.Foundation.Links.Notation.LinksGroup{`0})
   name.vb: =(LinksGroup(Of TLinkAddress), LinksGroup(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.operator ==(LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>, LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).=(LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress), LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.operator ==(Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>, Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).=(Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress), Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress))
   nameWithType: LinksGroup<TLinkAddress>.operator ==(LinksGroup<TLinkAddress>, LinksGroup<TLinkAddress>)
   nameWithType.vb: LinksGroup(Of TLinkAddress).=(LinksGroup(Of TLinkAddress), LinksGroup(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.op_Equality*
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.op_Equality*
   name: operator ==
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_op_Equality_
-  commentId: Overload:LinkFoundation.LinksNotation.LinksGroup`1.op_Equality
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_op_Equality_
+  commentId: Overload:Link.Foundation.Links.Notation.LinksGroup`1.op_Equality
   isSpec: "True"
   name.vb: =
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.operator ==
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).=
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.operator ==
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).=
   nameWithType: LinksGroup<TLinkAddress>.operator ==
   nameWithType.vb: LinksGroup(Of TLinkAddress).=
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.op_Implicit(LinkFoundation.LinksNotation.LinksGroup{`0})~System.Collections.Generic.List{LinkFoundation.LinksNotation.Link{`0}}
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.op_Implicit(Link.Foundation.Links.Notation.LinksGroup{`0})~System.Collections.Generic.List{Link.Foundation.Links.Notation.Link{`0}}
   name: implicit operator List<Link<TLinkAddress>>(LinksGroup<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_op_Implicit_LinkFoundation_LinksNotation_LinksGroup__0___System_Collections_Generic_List_LinkFoundation_LinksNotation_Link__0__
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.op_Implicit(LinkFoundation.LinksNotation.LinksGroup{`0})~System.Collections.Generic.List{LinkFoundation.LinksNotation.Link{`0}}
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_op_Implicit_Link_Foundation_Links_Notation_LinksGroup__0___System_Collections_Generic_List_Link_Foundation_Links_Notation_Link__0__
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.op_Implicit(Link.Foundation.Links.Notation.LinksGroup{`0})~System.Collections.Generic.List{Link.Foundation.Links.Notation.Link{`0}}
   name.vb: CType(LinksGroup(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.implicit operator System.Collections.Generic.List<LinkFoundation.LinksNotation.Link<TLinkAddress>>(LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).CType(LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.implicit operator System.Collections.Generic.List<Link.Foundation.Links.Notation.Link<TLinkAddress>>(Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).CType(Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress))
   nameWithType: LinksGroup<TLinkAddress>.implicit operator List<Link<TLinkAddress>>(LinksGroup<TLinkAddress>)
   nameWithType.vb: LinksGroup(Of TLinkAddress).CType(LinksGroup(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.op_Implicit*
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.op_Implicit*
   name: implicit operator
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_op_Implicit_
-  commentId: Overload:LinkFoundation.LinksNotation.LinksGroup`1.op_Implicit
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_op_Implicit_
+  commentId: Overload:Link.Foundation.Links.Notation.LinksGroup`1.op_Implicit
   isSpec: "True"
   name.vb: CType
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.implicit operator
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).CType
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.implicit operator
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).CType
   nameWithType: LinksGroup<TLinkAddress>.implicit operator
   nameWithType.vb: LinksGroup(Of TLinkAddress).CType
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.op_Inequality(LinkFoundation.LinksNotation.LinksGroup{`0},LinkFoundation.LinksNotation.LinksGroup{`0})
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.op_Inequality(Link.Foundation.Links.Notation.LinksGroup{`0},Link.Foundation.Links.Notation.LinksGroup{`0})
   name: operator !=(LinksGroup<TLinkAddress>, LinksGroup<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_op_Inequality_LinkFoundation_LinksNotation_LinksGroup__0__LinkFoundation_LinksNotation_LinksGroup__0__
-  commentId: M:LinkFoundation.LinksNotation.LinksGroup`1.op_Inequality(LinkFoundation.LinksNotation.LinksGroup{`0},LinkFoundation.LinksNotation.LinksGroup{`0})
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_op_Inequality_Link_Foundation_Links_Notation_LinksGroup__0__Link_Foundation_Links_Notation_LinksGroup__0__
+  commentId: M:Link.Foundation.Links.Notation.LinksGroup`1.op_Inequality(Link.Foundation.Links.Notation.LinksGroup{`0},Link.Foundation.Links.Notation.LinksGroup{`0})
   name.vb: <>(LinksGroup(Of TLinkAddress), LinksGroup(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.operator !=(LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>, LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).<>(LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress), LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.operator !=(Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>, Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).<>(Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress), Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress))
   nameWithType: LinksGroup<TLinkAddress>.operator !=(LinksGroup<TLinkAddress>, LinksGroup<TLinkAddress>)
   nameWithType.vb: LinksGroup(Of TLinkAddress).<>(LinksGroup(Of TLinkAddress), LinksGroup(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation.LinksGroup`1.op_Inequality*
+- uid: Link.Foundation.Links.Notation.LinksGroup`1.op_Inequality*
   name: operator !=
-  href: api/LinkFoundation.LinksNotation.LinksGroup-1.html#LinkFoundation_LinksNotation_LinksGroup_1_op_Inequality_
-  commentId: Overload:LinkFoundation.LinksNotation.LinksGroup`1.op_Inequality
+  href: api/Link.Foundation.Links.Notation.LinksGroup-1.html#Link_Foundation_Links_Notation_LinksGroup_1_op_Inequality_
+  commentId: Overload:Link.Foundation.Links.Notation.LinksGroup`1.op_Inequality
   isSpec: "True"
   name.vb: <>
-  fullName: LinkFoundation.LinksNotation.LinksGroup<TLinkAddress>.operator !=
-  fullName.vb: LinkFoundation.LinksNotation.LinksGroup(Of TLinkAddress).<>
+  fullName: Link.Foundation.Links.Notation.LinksGroup<TLinkAddress>.operator !=
+  fullName.vb: Link.Foundation.Links.Notation.LinksGroup(Of TLinkAddress).<>
   nameWithType: LinksGroup<TLinkAddress>.operator !=
   nameWithType.vb: LinksGroup(Of TLinkAddress).<>
-- uid: LinkFoundation.LinksNotation.Parser
+- uid: Link.Foundation.Links.Notation.Parser
   name: Parser
-  href: api/LinkFoundation.LinksNotation.Parser.html
-  commentId: T:LinkFoundation.LinksNotation.Parser
-  fullName: LinkFoundation.LinksNotation.Parser
+  href: api/Link.Foundation.Links.Notation.Parser.html
+  commentId: T:Link.Foundation.Links.Notation.Parser
+  fullName: Link.Foundation.Links.Notation.Parser
   nameWithType: Parser
-- uid: LinkFoundation.LinksNotation.Parser.Parse(System.String,System.String)
+- uid: Link.Foundation.Links.Notation.Parser.Parse(System.String,System.String)
   name: Parse(string, string)
-  href: api/LinkFoundation.LinksNotation.Parser.html#LinkFoundation_LinksNotation_Parser_Parse_System_String_System_String_
-  commentId: M:LinkFoundation.LinksNotation.Parser.Parse(System.String,System.String)
+  href: api/Link.Foundation.Links.Notation.Parser.html#Link_Foundation_Links_Notation_Parser_Parse_System_String_System_String_
+  commentId: M:Link.Foundation.Links.Notation.Parser.Parse(System.String,System.String)
   name.vb: Parse(String, String)
-  fullName: LinkFoundation.LinksNotation.Parser.Parse(string, string)
-  fullName.vb: LinkFoundation.LinksNotation.Parser.Parse(String, String)
+  fullName: Link.Foundation.Links.Notation.Parser.Parse(string, string)
+  fullName.vb: Link.Foundation.Links.Notation.Parser.Parse(String, String)
   nameWithType: Parser.Parse(string, string)
   nameWithType.vb: Parser.Parse(String, String)
-- uid: LinkFoundation.LinksNotation.Parser.Parse*
+- uid: Link.Foundation.Links.Notation.Parser.Parse*
   name: Parse
-  href: api/LinkFoundation.LinksNotation.Parser.html#LinkFoundation_LinksNotation_Parser_Parse_
-  commentId: Overload:LinkFoundation.LinksNotation.Parser.Parse
+  href: api/Link.Foundation.Links.Notation.Parser.html#Link_Foundation_Links_Notation_Parser_Parse_
+  commentId: Overload:Link.Foundation.Links.Notation.Parser.Parse
   isSpec: "True"
-  fullName: LinkFoundation.LinksNotation.Parser.Parse
+  fullName: Link.Foundation.Links.Notation.Parser.Parse
   nameWithType: Parser.Parse
-- uid: LinkFoundation.LinksNotation._`1
+- uid: Link.Foundation.Links.Notation._`1
   name: _<TLinkAddress>
-  href: api/LinkFoundation.LinksNotation._-1.html
-  commentId: T:LinkFoundation.LinksNotation._`1
+  href: api/Link.Foundation.Links.Notation._-1.html
+  commentId: T:Link.Foundation.Links.Notation._`1
   name.vb: _(Of TLinkAddress)
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress)
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress)
   nameWithType: _<TLinkAddress>
   nameWithType.vb: _(Of TLinkAddress)
-- uid: LinkFoundation.LinksNotation._`1.#ctor(LinkFoundation.LinksNotation.Link{`0})
+- uid: Link.Foundation.Links.Notation._`1.#ctor(Link.Foundation.Links.Notation.Link{`0})
   name: _(Link<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation._-1.html#LinkFoundation_LinksNotation___1__ctor_LinkFoundation_LinksNotation_Link__0__
-  commentId: M:LinkFoundation.LinksNotation._`1.#ctor(LinkFoundation.LinksNotation.Link{`0})
+  href: api/Link.Foundation.Links.Notation._-1.html#Link_Foundation_Links_Notation___1__ctor_Link_Foundation_Links_Notation_Link__0__
+  commentId: M:Link.Foundation.Links.Notation._`1.#ctor(Link.Foundation.Links.Notation.Link{`0})
   name.vb: New(Link(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>._(LinkFoundation.LinksNotation.Link<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress).New(LinkFoundation.LinksNotation.Link(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>._(Link.Foundation.Links.Notation.Link<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress).New(Link.Foundation.Links.Notation.Link(Of TLinkAddress))
   nameWithType: _<TLinkAddress>._(Link<TLinkAddress>)
   nameWithType.vb: _(Of TLinkAddress).New(Link(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation._`1.#ctor*
+- uid: Link.Foundation.Links.Notation._`1.#ctor*
   name: _
-  href: api/LinkFoundation.LinksNotation._-1.html#LinkFoundation_LinksNotation___1__ctor_
-  commentId: Overload:LinkFoundation.LinksNotation._`1.#ctor
+  href: api/Link.Foundation.Links.Notation._-1.html#Link_Foundation_Links_Notation___1__ctor_
+  commentId: Overload:Link.Foundation.Links.Notation._`1.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>._
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress).New
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>._
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress).New
   nameWithType: _<TLinkAddress>._
   nameWithType.vb: _(Of TLinkAddress).New
-- uid: LinkFoundation.LinksNotation._`1.Link
+- uid: Link.Foundation.Links.Notation._`1.Link
   name: Link
-  href: api/LinkFoundation.LinksNotation._-1.html#LinkFoundation_LinksNotation___1_Link
-  commentId: F:LinkFoundation.LinksNotation._`1.Link
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>.Link
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress).Link
+  href: api/Link.Foundation.Links.Notation._-1.html#Link_Foundation_Links_Notation___1_Link
+  commentId: F:Link.Foundation.Links.Notation._`1.Link
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>.Link
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress).Link
   nameWithType: _<TLinkAddress>.Link
   nameWithType.vb: _(Of TLinkAddress).Link
-- uid: LinkFoundation.LinksNotation._`1.op_Implicit(LinkFoundation.LinksNotation.Link{`0})~LinkFoundation.LinksNotation._{`0}
+- uid: Link.Foundation.Links.Notation._`1.op_Implicit(Link.Foundation.Links.Notation.Link{`0})~Link.Foundation.Links.Notation._{`0}
   name: implicit operator _<TLinkAddress>(Link<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation._-1.html#LinkFoundation_LinksNotation___1_op_Implicit_LinkFoundation_LinksNotation_Link__0___LinkFoundation_LinksNotation____0_
-  commentId: M:LinkFoundation.LinksNotation._`1.op_Implicit(LinkFoundation.LinksNotation.Link{`0})~LinkFoundation.LinksNotation._{`0}
+  href: api/Link.Foundation.Links.Notation._-1.html#Link_Foundation_Links_Notation___1_op_Implicit_Link_Foundation_Links_Notation_Link__0___Link_Foundation_Links_Notation____0_
+  commentId: M:Link.Foundation.Links.Notation._`1.op_Implicit(Link.Foundation.Links.Notation.Link{`0})~Link.Foundation.Links.Notation._{`0}
   name.vb: CType(Link(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>.implicit operator LinkFoundation.LinksNotation._<TLinkAddress>(LinkFoundation.LinksNotation.Link<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress).CType(LinkFoundation.LinksNotation.Link(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>.implicit operator Link.Foundation.Links.Notation._<TLinkAddress>(Link.Foundation.Links.Notation.Link<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress).CType(Link.Foundation.Links.Notation.Link(Of TLinkAddress))
   nameWithType: _<TLinkAddress>.implicit operator _<TLinkAddress>(Link<TLinkAddress>)
   nameWithType.vb: _(Of TLinkAddress).CType(Link(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation._`1.op_Implicit(LinkFoundation.LinksNotation._{`0})~LinkFoundation.LinksNotation.Link{`0}
+- uid: Link.Foundation.Links.Notation._`1.op_Implicit(Link.Foundation.Links.Notation._{`0})~Link.Foundation.Links.Notation.Link{`0}
   name: implicit operator Link<TLinkAddress>(_<TLinkAddress>)
-  href: api/LinkFoundation.LinksNotation._-1.html#LinkFoundation_LinksNotation___1_op_Implicit_LinkFoundation_LinksNotation____0___LinkFoundation_LinksNotation_Link__0_
-  commentId: M:LinkFoundation.LinksNotation._`1.op_Implicit(LinkFoundation.LinksNotation._{`0})~LinkFoundation.LinksNotation.Link{`0}
+  href: api/Link.Foundation.Links.Notation._-1.html#Link_Foundation_Links_Notation___1_op_Implicit_Link_Foundation_Links_Notation____0___Link_Foundation_Links_Notation_Link__0_
+  commentId: M:Link.Foundation.Links.Notation._`1.op_Implicit(Link.Foundation.Links.Notation._{`0})~Link.Foundation.Links.Notation.Link{`0}
   name.vb: CType(_(Of TLinkAddress))
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>.implicit operator LinkFoundation.LinksNotation.Link<TLinkAddress>(LinkFoundation.LinksNotation._<TLinkAddress>)
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress).CType(LinkFoundation.LinksNotation._(Of TLinkAddress))
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>.implicit operator Link.Foundation.Links.Notation.Link<TLinkAddress>(Link.Foundation.Links.Notation._<TLinkAddress>)
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress).CType(Link.Foundation.Links.Notation._(Of TLinkAddress))
   nameWithType: _<TLinkAddress>.implicit operator Link<TLinkAddress>(_<TLinkAddress>)
   nameWithType.vb: _(Of TLinkAddress).CType(_(Of TLinkAddress))
-- uid: LinkFoundation.LinksNotation._`1.op_Implicit(System.ValueTuple{`0,LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation._{`0}
+- uid: Link.Foundation.Links.Notation._`1.op_Implicit(System.ValueTuple{`0,Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation._{`0}
   name: implicit operator _<TLinkAddress>((TLinkAddress, Link<TLinkAddress>, Link<TLinkAddress>, Link<TLinkAddress>))
-  href: api/LinkFoundation.LinksNotation._-1.html#LinkFoundation_LinksNotation___1_op_Implicit_System_ValueTuple__0_LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0____LinkFoundation_LinksNotation____0_
-  commentId: M:LinkFoundation.LinksNotation._`1.op_Implicit(System.ValueTuple{`0,LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation._{`0}
+  href: api/Link.Foundation.Links.Notation._-1.html#Link_Foundation_Links_Notation___1_op_Implicit_System_ValueTuple__0_Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0____Link_Foundation_Links_Notation____0_
+  commentId: M:Link.Foundation.Links.Notation._`1.op_Implicit(System.ValueTuple{`0,Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation._{`0}
   name.vb: CType((TLinkAddress, Link(Of TLinkAddress), Link(Of TLinkAddress), Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>.implicit operator LinkFoundation.LinksNotation._<TLinkAddress>((TLinkAddress, LinkFoundation.LinksNotation.Link<TLinkAddress>, LinkFoundation.LinksNotation.Link<TLinkAddress>, LinkFoundation.LinksNotation.Link<TLinkAddress>))
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress).CType((TLinkAddress, LinkFoundation.LinksNotation.Link(Of TLinkAddress), LinkFoundation.LinksNotation.Link(Of TLinkAddress), LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>.implicit operator Link.Foundation.Links.Notation._<TLinkAddress>((TLinkAddress, Link.Foundation.Links.Notation.Link<TLinkAddress>, Link.Foundation.Links.Notation.Link<TLinkAddress>, Link.Foundation.Links.Notation.Link<TLinkAddress>))
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress).CType((TLinkAddress, Link.Foundation.Links.Notation.Link(Of TLinkAddress), Link.Foundation.Links.Notation.Link(Of TLinkAddress), Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: _<TLinkAddress>.implicit operator _<TLinkAddress>((TLinkAddress, Link<TLinkAddress>, Link<TLinkAddress>, Link<TLinkAddress>))
   nameWithType.vb: _(Of TLinkAddress).CType((TLinkAddress, Link(Of TLinkAddress), Link(Of TLinkAddress), Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation._`1.op_Implicit(System.ValueTuple{`0,LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation._{`0}
+- uid: Link.Foundation.Links.Notation._`1.op_Implicit(System.ValueTuple{`0,Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation._{`0}
   name: implicit operator _<TLinkAddress>((TLinkAddress, Link<TLinkAddress>, Link<TLinkAddress>))
-  href: api/LinkFoundation.LinksNotation._-1.html#LinkFoundation_LinksNotation___1_op_Implicit_System_ValueTuple__0_LinkFoundation_LinksNotation_Link__0__LinkFoundation_LinksNotation_Link__0____LinkFoundation_LinksNotation____0_
-  commentId: M:LinkFoundation.LinksNotation._`1.op_Implicit(System.ValueTuple{`0,LinkFoundation.LinksNotation.Link{`0},LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation._{`0}
+  href: api/Link.Foundation.Links.Notation._-1.html#Link_Foundation_Links_Notation___1_op_Implicit_System_ValueTuple__0_Link_Foundation_Links_Notation_Link__0__Link_Foundation_Links_Notation_Link__0____Link_Foundation_Links_Notation____0_
+  commentId: M:Link.Foundation.Links.Notation._`1.op_Implicit(System.ValueTuple{`0,Link.Foundation.Links.Notation.Link{`0},Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation._{`0}
   name.vb: CType((TLinkAddress, Link(Of TLinkAddress), Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>.implicit operator LinkFoundation.LinksNotation._<TLinkAddress>((TLinkAddress, LinkFoundation.LinksNotation.Link<TLinkAddress>, LinkFoundation.LinksNotation.Link<TLinkAddress>))
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress).CType((TLinkAddress, LinkFoundation.LinksNotation.Link(Of TLinkAddress), LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>.implicit operator Link.Foundation.Links.Notation._<TLinkAddress>((TLinkAddress, Link.Foundation.Links.Notation.Link<TLinkAddress>, Link.Foundation.Links.Notation.Link<TLinkAddress>))
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress).CType((TLinkAddress, Link.Foundation.Links.Notation.Link(Of TLinkAddress), Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: _<TLinkAddress>.implicit operator _<TLinkAddress>((TLinkAddress, Link<TLinkAddress>, Link<TLinkAddress>))
   nameWithType.vb: _(Of TLinkAddress).CType((TLinkAddress, Link(Of TLinkAddress), Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation._`1.op_Implicit(System.ValueTuple{`0,LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation._{`0}
+- uid: Link.Foundation.Links.Notation._`1.op_Implicit(System.ValueTuple{`0,Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation._{`0}
   name: implicit operator _<TLinkAddress>((TLinkAddress, Link<TLinkAddress>))
-  href: api/LinkFoundation.LinksNotation._-1.html#LinkFoundation_LinksNotation___1_op_Implicit_System_ValueTuple__0_LinkFoundation_LinksNotation_Link__0____LinkFoundation_LinksNotation____0_
-  commentId: M:LinkFoundation.LinksNotation._`1.op_Implicit(System.ValueTuple{`0,LinkFoundation.LinksNotation.Link{`0}})~LinkFoundation.LinksNotation._{`0}
+  href: api/Link.Foundation.Links.Notation._-1.html#Link_Foundation_Links_Notation___1_op_Implicit_System_ValueTuple__0_Link_Foundation_Links_Notation_Link__0____Link_Foundation_Links_Notation____0_
+  commentId: M:Link.Foundation.Links.Notation._`1.op_Implicit(System.ValueTuple{`0,Link.Foundation.Links.Notation.Link{`0}})~Link.Foundation.Links.Notation._{`0}
   name.vb: CType((TLinkAddress, Link(Of TLinkAddress)))
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>.implicit operator LinkFoundation.LinksNotation._<TLinkAddress>((TLinkAddress, LinkFoundation.LinksNotation.Link<TLinkAddress>))
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress).CType((TLinkAddress, LinkFoundation.LinksNotation.Link(Of TLinkAddress)))
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>.implicit operator Link.Foundation.Links.Notation._<TLinkAddress>((TLinkAddress, Link.Foundation.Links.Notation.Link<TLinkAddress>))
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress).CType((TLinkAddress, Link.Foundation.Links.Notation.Link(Of TLinkAddress)))
   nameWithType: _<TLinkAddress>.implicit operator _<TLinkAddress>((TLinkAddress, Link<TLinkAddress>))
   nameWithType.vb: _(Of TLinkAddress).CType((TLinkAddress, Link(Of TLinkAddress)))
-- uid: LinkFoundation.LinksNotation._`1.op_Implicit(`0)~LinkFoundation.LinksNotation._{`0}
+- uid: Link.Foundation.Links.Notation._`1.op_Implicit(`0)~Link.Foundation.Links.Notation._{`0}
   name: implicit operator _<TLinkAddress>(TLinkAddress)
-  href: api/LinkFoundation.LinksNotation._-1.html#LinkFoundation_LinksNotation___1_op_Implicit__0__LinkFoundation_LinksNotation____0_
-  commentId: M:LinkFoundation.LinksNotation._`1.op_Implicit(`0)~LinkFoundation.LinksNotation._{`0}
+  href: api/Link.Foundation.Links.Notation._-1.html#Link_Foundation_Links_Notation___1_op_Implicit__0__Link_Foundation_Links_Notation____0_
+  commentId: M:Link.Foundation.Links.Notation._`1.op_Implicit(`0)~Link.Foundation.Links.Notation._{`0}
   name.vb: CType(TLinkAddress)
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>.implicit operator LinkFoundation.LinksNotation._<TLinkAddress>(TLinkAddress)
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress).CType(TLinkAddress)
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>.implicit operator Link.Foundation.Links.Notation._<TLinkAddress>(TLinkAddress)
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress).CType(TLinkAddress)
   nameWithType: _<TLinkAddress>.implicit operator _<TLinkAddress>(TLinkAddress)
   nameWithType.vb: _(Of TLinkAddress).CType(TLinkAddress)
-- uid: LinkFoundation.LinksNotation._`1.op_Implicit*
+- uid: Link.Foundation.Links.Notation._`1.op_Implicit*
   name: implicit operator
-  href: api/LinkFoundation.LinksNotation._-1.html#LinkFoundation_LinksNotation___1_op_Implicit_
-  commentId: Overload:LinkFoundation.LinksNotation._`1.op_Implicit
+  href: api/Link.Foundation.Links.Notation._-1.html#Link_Foundation_Links_Notation___1_op_Implicit_
+  commentId: Overload:Link.Foundation.Links.Notation._`1.op_Implicit
   isSpec: "True"
   name.vb: CType
-  fullName: LinkFoundation.LinksNotation._<TLinkAddress>.implicit operator
-  fullName.vb: LinkFoundation.LinksNotation._(Of TLinkAddress).CType
+  fullName: Link.Foundation.Links.Notation._<TLinkAddress>.implicit operator
+  fullName.vb: Link.Foundation.Links.Notation._(Of TLinkAddress).CType
   nameWithType: _<TLinkAddress>.implicit operator
   nameWithType.vb: _(Of TLinkAddress).CType
-- uid: LinkFoundation.LinksNotation.id`1
+- uid: Link.Foundation.Links.Notation.id`1
   name: id<TLinkAddress>
-  href: api/LinkFoundation.LinksNotation.id-1.html
-  commentId: T:LinkFoundation.LinksNotation.id`1
+  href: api/Link.Foundation.Links.Notation.id-1.html
+  commentId: T:Link.Foundation.Links.Notation.id`1
   name.vb: id(Of TLinkAddress)
-  fullName: LinkFoundation.LinksNotation.id<TLinkAddress>
-  fullName.vb: LinkFoundation.LinksNotation.id(Of TLinkAddress)
+  fullName: Link.Foundation.Links.Notation.id<TLinkAddress>
+  fullName.vb: Link.Foundation.Links.Notation.id(Of TLinkAddress)
   nameWithType: id<TLinkAddress>
   nameWithType.vb: id(Of TLinkAddress)
-- uid: LinkFoundation.LinksNotation.id`1.#ctor(`0)
+- uid: Link.Foundation.Links.Notation.id`1.#ctor(`0)
   name: id(TLinkAddress)
-  href: api/LinkFoundation.LinksNotation.id-1.html#LinkFoundation_LinksNotation_id_1__ctor__0_
-  commentId: M:LinkFoundation.LinksNotation.id`1.#ctor(`0)
+  href: api/Link.Foundation.Links.Notation.id-1.html#Link_Foundation_Links_Notation_id_1__ctor__0_
+  commentId: M:Link.Foundation.Links.Notation.id`1.#ctor(`0)
   name.vb: New(TLinkAddress)
-  fullName: LinkFoundation.LinksNotation.id<TLinkAddress>.id(TLinkAddress)
-  fullName.vb: LinkFoundation.LinksNotation.id(Of TLinkAddress).New(TLinkAddress)
+  fullName: Link.Foundation.Links.Notation.id<TLinkAddress>.id(TLinkAddress)
+  fullName.vb: Link.Foundation.Links.Notation.id(Of TLinkAddress).New(TLinkAddress)
   nameWithType: id<TLinkAddress>.id(TLinkAddress)
   nameWithType.vb: id(Of TLinkAddress).New(TLinkAddress)
-- uid: LinkFoundation.LinksNotation.id`1.#ctor*
+- uid: Link.Foundation.Links.Notation.id`1.#ctor*
   name: id
-  href: api/LinkFoundation.LinksNotation.id-1.html#LinkFoundation_LinksNotation_id_1__ctor_
-  commentId: Overload:LinkFoundation.LinksNotation.id`1.#ctor
+  href: api/Link.Foundation.Links.Notation.id-1.html#Link_Foundation_Links_Notation_id_1__ctor_
+  commentId: Overload:Link.Foundation.Links.Notation.id`1.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: LinkFoundation.LinksNotation.id<TLinkAddress>.id
-  fullName.vb: LinkFoundation.LinksNotation.id(Of TLinkAddress).New
+  fullName: Link.Foundation.Links.Notation.id<TLinkAddress>.id
+  fullName.vb: Link.Foundation.Links.Notation.id(Of TLinkAddress).New
   nameWithType: id<TLinkAddress>.id
   nameWithType.vb: id(Of TLinkAddress).New
-- uid: LinkFoundation.LinksNotation.id`1.Id
+- uid: Link.Foundation.Links.Notation.id`1.Id
   name: Id
-  href: api/LinkFoundation.LinksNotation.id-1.html#LinkFoundation_LinksNotation_id_1_Id
-  commentId: F:LinkFoundation.LinksNotation.id`1.Id
-  fullName: LinkFoundation.LinksNotation.id<TLinkAddress>.Id
-  fullName.vb: LinkFoundation.LinksNotation.id(Of TLinkAddress).Id
+  href: api/Link.Foundation.Links.Notation.id-1.html#Link_Foundation_Links_Notation_id_1_Id
+  commentId: F:Link.Foundation.Links.Notation.id`1.Id
+  fullName: Link.Foundation.Links.Notation.id<TLinkAddress>.Id
+  fullName.vb: Link.Foundation.Links.Notation.id(Of TLinkAddress).Id
   nameWithType: id<TLinkAddress>.Id
   nameWithType.vb: id(Of TLinkAddress).Id
-- uid: LinkFoundation.LinksNotation.id`1.op_Explicit(`0)~LinkFoundation.LinksNotation.id{`0}
+- uid: Link.Foundation.Links.Notation.id`1.op_Explicit(`0)~Link.Foundation.Links.Notation.id{`0}
   name: explicit operator id<TLinkAddress>(TLinkAddress)
-  href: api/LinkFoundation.LinksNotation.id-1.html#LinkFoundation_LinksNotation_id_1_op_Explicit__0__LinkFoundation_LinksNotation_id__0_
-  commentId: M:LinkFoundation.LinksNotation.id`1.op_Explicit(`0)~LinkFoundation.LinksNotation.id{`0}
+  href: api/Link.Foundation.Links.Notation.id-1.html#Link_Foundation_Links_Notation_id_1_op_Explicit__0__Link_Foundation_Links_Notation_id__0_
+  commentId: M:Link.Foundation.Links.Notation.id`1.op_Explicit(`0)~Link.Foundation.Links.Notation.id{`0}
   name.vb: CType(TLinkAddress)
-  fullName: LinkFoundation.LinksNotation.id<TLinkAddress>.explicit operator LinkFoundation.LinksNotation.id<TLinkAddress>(TLinkAddress)
-  fullName.vb: LinkFoundation.LinksNotation.id(Of TLinkAddress).CType(TLinkAddress)
+  fullName: Link.Foundation.Links.Notation.id<TLinkAddress>.explicit operator Link.Foundation.Links.Notation.id<TLinkAddress>(TLinkAddress)
+  fullName.vb: Link.Foundation.Links.Notation.id(Of TLinkAddress).CType(TLinkAddress)
   nameWithType: id<TLinkAddress>.explicit operator id<TLinkAddress>(TLinkAddress)
   nameWithType.vb: id(Of TLinkAddress).CType(TLinkAddress)
-- uid: LinkFoundation.LinksNotation.id`1.op_Explicit*
+- uid: Link.Foundation.Links.Notation.id`1.op_Explicit*
   name: explicit operator
-  href: api/LinkFoundation.LinksNotation.id-1.html#LinkFoundation_LinksNotation_id_1_op_Explicit_
-  commentId: Overload:LinkFoundation.LinksNotation.id`1.op_Explicit
+  href: api/Link.Foundation.Links.Notation.id-1.html#Link_Foundation_Links_Notation_id_1_op_Explicit_
+  commentId: Overload:Link.Foundation.Links.Notation.id`1.op_Explicit
   isSpec: "True"
   name.vb: CType
-  fullName: LinkFoundation.LinksNotation.id<TLinkAddress>.explicit operator
-  fullName.vb: LinkFoundation.LinksNotation.id(Of TLinkAddress).CType
+  fullName: Link.Foundation.Links.Notation.id<TLinkAddress>.explicit operator
+  fullName.vb: Link.Foundation.Links.Notation.id(Of TLinkAddress).CType
   nameWithType: id<TLinkAddress>.explicit operator
   nameWithType.vb: id(Of TLinkAddress).CType
