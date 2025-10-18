@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace LinkFoundation.LinksNotation
+namespace Link.Foundation.Links.Notation
 {
     /// <summary>
     /// Provides extension methods for collections of <see cref="LinksGroup{TLinkAddress}"/> instances.

@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using System.Collections.Generic;
 
-namespace LinkFoundation.LinksNotation.Tests
+namespace Link.Foundation.Links.Notation.Tests
 {
     public static class LinkTests
     {

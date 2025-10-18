@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using Platform.Collections;
 using Platform.Collections.Lists;
 
-namespace LinkFoundation.LinksNotation
+namespace Link.Foundation.Links.Notation
 {
     /// <summary>
     /// Represents a group of links with hierarchical structure, where each group contains a primary link and optional nested groups.

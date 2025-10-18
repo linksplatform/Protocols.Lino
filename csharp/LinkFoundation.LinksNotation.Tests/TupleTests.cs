@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using Xunit;
-using Link = LinkFoundation.LinksNotation.Link<string>;
-using id = LinkFoundation.LinksNotation.id<string>;
-using _ = LinkFoundation.LinksNotation._<string>;
+using LinkType = Link.Foundation.Links.Notation.Link<string>;
+using id = Link.Foundation.Links.Notation.id<string>;
+using _ = Link.Foundation.Links.Notation._<string>;
 
-namespace LinkFoundation.LinksNotation.Tests
+namespace Link.Foundation.Links.Notation.Tests
 {
     public class TupleTests
     {
@@ -19,7 +19,7 @@ namespace LinkFoundation.LinksNotation.Tests
             var links = parser.Parse(source);
             var targetFromString = links.Format();
 
-            IList<Link> constructedLinks = new List<Link>()
+            IList<LinkType> constructedLinks = new List<LinkType>()
             {
                 ("papa", (_)("lovesMama", "loves", "mama")),
                 ("son", "lovesMama"),
@@ -41,7 +41,7 @@ namespace LinkFoundation.LinksNotation.Tests
             var links = parser.Parse(source);
             var targetFromString = links.Format();
 
-            IList<Link> constructedLinks = new List<Link>()
+            IList<LinkType> constructedLinks = new List<LinkType>()
             {
                 ("papa", ((id)"lovesMama", "loves", "mama")),
                 ("son", "lovesMama"),
